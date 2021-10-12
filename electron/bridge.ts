@@ -1,4 +1,5 @@
 import { contextBridge, ipcRenderer } from 'electron'
+import { Provider, Customer, Message } from '../src/data/form'
 
 export const api = {
   /**
@@ -9,8 +10,8 @@ export const api = {
    * The function below can accessed using `window.Main.sayHello`
    */
 
-  sendMessage: (message: string) => { 
-    ipcRenderer.send('message', message)
+  sendMail: (provider: Provider, customer: Customer, message: Message) => { 
+    ipcRenderer.send('sendMail', provider, customer, message)
   },
 
   /**

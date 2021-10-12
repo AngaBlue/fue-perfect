@@ -1,4 +1,6 @@
-import { app, BrowserWindow, ipcMain } from 'electron'
+import { app, BrowserWindow, ipcMain } from 'electron';
+import sendMail from './listeners/sendMail';
+import path from "path"
 
 let mainWindow: BrowserWindow | null
 
@@ -12,7 +14,7 @@ declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string
 
 function createWindow () {
   mainWindow = new BrowserWindow({
-    // icon: path.join(assetsPath, 'assets', 'icon.png'),
+    icon: path.join('./assets', 'icon.png'),
     width: 1100,
     height: 700,
     backgroundColor: '#191622',
@@ -34,9 +36,7 @@ async function registerListeners () {
   /**
    * This comes from bridge integration, check bridge.ts
    */
-  ipcMain.on('message', (_, message) => {
-    console.log(message)
-  })
+  ipcMain.on('sendMail', sendMail);
 }
 
 app.on('ready', createWindow)
