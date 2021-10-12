@@ -15,14 +15,20 @@ export const HairType = {
     Perfect: false
 }
 
+export const Grafts = []
+
 export const defaultCustomer = {
     firstname: '',
     lastname: '',
     email: '',
+    date: '',
     country: Countries.NETHERLANDS,
     hair: {
         type: HairType,
         volume: HairType,
+    },
+    sessions: {
+        both: true,
     }
 }
 

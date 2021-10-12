@@ -1,4 +1,4 @@
-import { EmailIcon, ExternalLinkIcon, LockIcon } from '@chakra-ui/icons'
+import { EmailIcon } from '@chakra-ui/icons'
 import {
   Box,
   Button,
@@ -10,29 +10,27 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
-  InputRightAddon,
-  Link,
   Radio,
   RadioGroup,
   SimpleGrid,
-  Stack,
   StylesProvider,
-  Text,
   VStack,
-} from '@chakra-ui/react'
-import { useEffect } from 'react'
-import { usePersistedState } from './components/usePersistedState'
-import { Countries, MailProviders } from './data/constants'
-import { defaultCustomer, defaultProvider, HairType } from './data/form'
-import ReactDOMServer from 'react-dom/server'
-import theme from './theme'
-import messages from './data/messages'
+} from '@chakra-ui/react';
+import { useEffect } from 'react';
+import { usePersistedState } from './components/usePersistedState';
+import { Countries } from './data/constants';
+import { defaultCustomer, defaultProvider, HairType } from './data/form';
+import ReactDOMServer from 'react-dom/server';
+import theme from './theme';
+import messages from './data/messages';
+import Credentials from './components/Credentials';
 
 export function App() {
   const [provider, setProvider] = usePersistedState('provider', defaultProvider)
   const [customer, setCustomer] = usePersistedState('customer', defaultCustomer)
 
   async function send() {
+    console.log(ReactDOMServer.renderToStaticMarkup(message.content));
     provider.email += `@${provider.provider.toLowerCase()}.com`
     window.Main.sendMail(provider, customer, {
       subject: message.subject,
@@ -46,8 +44,6 @@ export function App() {
     })
   }, [])
 
-  console.log(customer)
-
   const message = messages[0]({ customer })
 
   return (
@@ -55,75 +51,7 @@ export function App() {
       <StylesProvider value={{}}>
         <Box p={4} pt={2}>
           <Heading mb={4}>Custom Mail App</Heading>
-          <SimpleGrid columns={4} spacing={10}>
-            <Box>
-              <FormLabel>Email Provider</FormLabel>
-              <RadioGroup
-                value={provider.provider}
-                onChange={p => setProvider({ ...provider, provider: p })}
-              >
-                <Stack>
-                  {Object.values(MailProviders).map(p => (
-                    <Radio key={p} value={p}>
-                      {p}
-                    </Radio>
-                  ))}
-                </Stack>
-              </RadioGroup>
-            </Box>
-            <Box>
-              <FormLabel>Email Address</FormLabel>
-              <InputGroup size="md">
-                <InputLeftElement
-                  pointerEvents="none"
-                  children={<EmailIcon color="gray.300" />}
-                />
-                <Input
-                  placeholder="example"
-                  type="email"
-                  value={provider.email}
-                  onChange={e =>
-                    setProvider({ ...provider, email: e.target.value })
-                  }
-                />
-                <InputRightAddon
-                  children={`@${provider.provider.toLowerCase()}.com`}
-                />
-              </InputGroup>
-            </Box>
-            <Box>
-              <FormLabel>Password</FormLabel>
-              <InputGroup size="md">
-                <InputLeftElement
-                  pointerEvents="none"
-                  children={<LockIcon color="gray.300" />}
-                />
-                <Input
-                  type="password"
-                  value={provider.password}
-                  onChange={e =>
-                    setProvider({ ...provider, password: e.target.value })
-                  }
-                />
-              </InputGroup>
-            </Box>
-          </SimpleGrid>
-          <Box h={8} py={2}>
-            {provider.provider === MailProviders.GMAIL && (
-              <Text>
-                Please ensure that you have enabled unsafe applications in your{' '}
-                <Link
-                  href="https://myaccount.google.com/lesssecureapps"
-                  isExternal
-                  color="teal.500"
-                >
-                  Google Settings <ExternalLinkIcon mx="2px" />
-                </Link>
-                .
-              </Text>
-            )}
-          </Box>
-
+          <Credentials state={provider} setState={setProvider} />
           <Divider my={4} />
           <SimpleGrid columns={4} spacing={10}>
             <Box>
@@ -228,7 +156,7 @@ export function App() {
           <Heading mb={4} as="h2">
             Email Preview
           </Heading>
-          <Box>{message.content}</Box>
+          <Box id="preview">{message.content}</Box>
         </Box>
       </StylesProvider>
     </ChakraProvider>
