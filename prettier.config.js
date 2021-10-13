@@ -1,6 +1,8 @@
 module.exports = {
-  semi: false,
-  singleQuote: true,
-  arrowParens: 'avoid',
-  packageManager: 'yarn'
+    'printWidth': 120,
+    'tabWidth': 4,
+    'semi': true,
+    'singleQuote': true,
+    'trailingComma': 'none',
+    'arrowParens': 'avoid'
 }
