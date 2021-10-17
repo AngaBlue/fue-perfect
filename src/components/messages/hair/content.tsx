@@ -1,15 +1,29 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
+import merge from 'merge-images';
 import { Countries, HairState, HairType } from './data';
 import styles from './content.module.scss';
 import logo from './assets/dutch-clinic.png';
-import zones from './assets/zones.png';
+import { head, zones } from './zones';
 
 export default function content(state: HairState) {
-    const images = [logo, zones];
+    const [zone64, setZone64] = useState(head as string);
+    const images = [logo, zone64];
+    const headImages: string[] = [
+        head,
+        ...zones[0].filter((_v, i) => state.zones[0][i]),
+        ...zones[1].filter((_v, i) => state.zones[1][i])
+    ];
+
+    useEffect(() => {
+        async function createImage() {
+            setZone64(await merge(headImages));
+        }
+        createImage();
+    }, [headImages]);
     return {
         images,
         content: (
-            <div className={styles.message} style={{fontFamily: 'Sans-Serif'}}>
+            <div className={styles.message} style={{ fontFamily: 'Sans-Serif' }}>
                 <p>Geachte heer {state.firstname},</p>
                 <p>
                     Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op{' '}
@@ -57,8 +71,17 @@ export default function content(state: HairState) {
                     )}
                     <strong>Techniek</strong>: {state.technique}
                     <br />
-                    <strong>Zone</strong>: 1e sessie zone: 2,3,4
-                    {state.sessions === 2 && '/ 2e sessie zone: 5,6 (zie schema onder)'}
+                    <strong>Zone</strong>: 1e sessie zone:{' '}
+                    {state.zones[0]
+                        .map((_v, i) => i + 1)
+                        .filter((_v, i) => state.zones[0][i])
+                        .join(', ')}{' '}
+                    (zie schema onder)
+                    {state.sessions === 2 &&
+                        `/ 2e sessie zone: ${state.zones[1]
+                            .map((_v, i) => i + 1)
+                            .filter((_v, i) => state.zones[1][i])
+                            .join(', ')} (zie schema onder)`}
                     <br />
                     <strong>Duur behandeling 1e sessie</strong>: 6-7 uur
                     <br />
@@ -76,7 +99,7 @@ export default function content(state: HairState) {
                     <br />
                     <strong>Behandeling data</strong>: -<br />
                 </p>
-                <img src={zones} alt="Zones" style={{ height: '256px' }} />
+                <img src={zone64} alt="Zones" style={{ height: '300px' }} />
                 {state.country === Countries.TURKEY && (
                     <p>
                         <strong style={{ color: '#c82613' }}>
@@ -84,7 +107,8 @@ export default function content(state: HairState) {
                         </strong>
                         <br />
                         <strong style={{ textDecoration: 'underline' }}>
-                            Eerste sessie: €{state.price[0]} {state.discount && `(€${Math.abs(state.discount)} korting)`}
+                            Eerste sessie: €{state.price[0]}{' '}
+                            {state.discount && `(€${Math.abs(state.discount)} korting)`}
                         </strong>
                         <br />
                         {state.sessions === 2 && (
@@ -102,7 +126,8 @@ export default function content(state: HairState) {
                         </strong>
                         <br />
                         <strong style={{ textDecoration: 'underline' }}>
-                            Eerste sessie: €{state.price[0]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
+                            Eerste sessie: €{state.price[0]}{' '}
+                            {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
                         </strong>
                         <br />
                         {state.sessions === 2 && (

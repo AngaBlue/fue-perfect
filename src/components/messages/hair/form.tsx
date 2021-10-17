@@ -11,13 +11,16 @@ import {
     Select
 } from '@chakra-ui/react';
 import { Dispatch, SetStateAction, useEffect } from 'react';
-import { Countries, defaultState, Discounts, Grafts, HairState, HairType, Prices } from './data';
+import { Countries, Discounts, Grafts, HairState, HairType, Prices, Techniques } from './data';
 
 export default function form({ state, setState }: { state: HairState; setState: Dispatch<SetStateAction<HairState>> }) {
     // Pricing
     useEffect(() => {
         if (state.country !== Countries.BOTH) {
-            const price = [Prices[state.country][Grafts.first.findIndex(g => g === state.grafts[0])] + state.discount, 0];
+            const price = [
+                Prices[state.country][Grafts.first.findIndex(g => g === state.grafts[0])] + state.discount,
+                0
+            ];
             if (state.sessions === 2)
                 price[1] = Prices[state.country][Grafts.first.findIndex(g => g === state.grafts[1])];
             else price[1] = 0;
@@ -59,13 +62,19 @@ export default function form({ state, setState }: { state: HairState; setState: 
             </Box>
             <Box>
                 <FormLabel>Techniek</FormLabel>
-                <InputGroup>
-                    <Input
-                        placeholder={defaultState.technique}
-                        value={state.technique}
-                        onChange={e => setState({ ...state, technique: e.target.value })}
-                    />
-                </InputGroup>
+                <Select
+                    value={state.technique}
+                    onChange={e => {
+                        // eslint-disable-next-line no-param-reassign
+                        setState({ ...state, technique: e.target.value });
+                    }}
+                >
+                    {Techniques.map(v => (
+                        <option key={v} value={v}>
+                            {v}
+                        </option>
+                    ))}
+                </Select>
             </Box>
             <Box>
                 <FormLabel>Customer Country</FormLabel>
@@ -144,6 +153,26 @@ export default function form({ state, setState }: { state: HairState; setState: 
                     ))}
                 </Select>
             </Box>
+            <Box>
+                <FormLabel>Zones: Sessie 1</FormLabel>
+                <VStack align="left">
+                    {Array(6)
+                        .fill(0)
+                        .map((_v, i) => (
+                            <Checkbox
+                                isChecked={state.zones[0][i]}
+                                key={i}
+                                onChange={() => {
+                                    // eslint-disable-next-line no-param-reassign
+                                    state.zones[0][i] = !state.zones[0][i];
+                                    setState({ ...state });
+                                }}
+                            >
+                                Zone {i + 1}
+                            </Checkbox>
+                        ))}
+                </VStack>
+            </Box>
             {state.sessions === 2 && (
                 <Box>
                     <FormLabel>Grafts: Sessie 2</FormLabel>
@@ -161,6 +190,28 @@ export default function form({ state, setState }: { state: HairState; setState: 
                             </option>
                         ))}
                     </Select>
+                </Box>
+            )}
+            {state.sessions === 2 && (
+                <Box>
+                    <FormLabel>Zones: Sessie 2</FormLabel>
+                    <VStack align="left">
+                        {Array(6)
+                            .fill(0)
+                            .map((_v, i) => (
+                                <Checkbox
+                                    isChecked={state.zones[1][i]}
+                                    key={i}
+                                    onChange={() => {
+                                        // eslint-disable-next-line no-param-reassign
+                                        state.zones[1][i] = !state.zones[1][i];
+                                        setState({ ...state });
+                                    }}
+                                >
+                                    Zone {i + 1}
+                                </Checkbox>
+                            ))}
+                    </VStack>
                 </Box>
             )}
             <Box>

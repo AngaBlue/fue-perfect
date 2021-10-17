@@ -26,6 +26,7 @@ export default function sendMail(event: IpcMainEvent, provider: ProviderState, m
         // Increment CID
         cid++;
     });
+    event.reply('debug', { attachments, content });
     // Send Mail
     const transport = nodemailer.createTransport({
         service: provider.provider.toLowerCase(),
@@ -39,7 +40,7 @@ export default function sendMail(event: IpcMainEvent, provider: ProviderState, m
             from: provider.email,
             to: provider.recipient,
             subject: message.subject,
-            html: message.content,
+            html: content,
             attachments
         },
         err => {

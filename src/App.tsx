@@ -16,12 +16,15 @@ export default function App() {
     const message = messages[0]();
 
     async function send() {
-        window.Main.sendMail({...provider, email: `${provider.email}@${provider.provider.toLowerCase()}.com`}, {
-            recipient: provider.recipient,
-            subject: message.subject,
-            content: ReactDOMServer.renderToStaticMarkup(message.content),
-            images: message.images
-        });
+        window.Main.sendMail(
+            { ...provider, email: `${provider.email}@${provider.provider.toLowerCase()}.com` },
+            {
+                recipient: provider.recipient,
+                subject: message.subject,
+                content: ReactDOMServer.renderToStaticMarkup(message.content),
+                images: message.images
+            }
+        );
         // UI
         setLoading({ ...loading, sending: true, error: null });
         toast({
@@ -40,7 +43,7 @@ export default function App() {
                 setLoading({ ...loading, sending: false });
                 toast({
                     title: 'Email Sent',
-                    description: `Email sent to ${provider.email}.`,
+                    description: `Email sent to ${provider.recipient}.`,
                     status: 'success'
                 });
             } else {
@@ -75,6 +78,7 @@ export default function App() {
                 });
             }
         });
+        window.Main.on('debug', console.log);
     }, []);
 
     return (
