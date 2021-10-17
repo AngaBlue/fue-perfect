@@ -1,4 +1,8 @@
-import { Countries } from '../../../data/constants';
+export const Countries = {
+    NETHERLANDS: 'Nederland',
+    TURKEY: 'Turkije',
+    BOTH: 'Nederland/Turkije'
+};
 
 export const HairType = {
     Slecht: false,
@@ -7,9 +11,19 @@ export const HairType = {
     Perfect: false
 };
 
-export const Grafts = [];
+export const Grafts = {
+    first: ['500-1000', '1000-1500', '1500-2000', '2000-2500', '2500-3000', '3000-3500', '3500-4000'],
+    second: ['500-1000', '1000-1500', '1500-2000', '2000-2500', '2500-3000', '3000-3500', '3500-4000']
+};
 
-export const defaultHair = {
+export const Prices = {
+    [Countries.NETHERLANDS]: [2750, 2950, 3250, 3350, 3450, 3550, 3650],
+    [Countries.TURKEY]: [2150, 2250, 2350, 2450, 2550, 2650, 2750]
+};
+
+export const Discounts = [0, -100, -200, -300];
+
+export const defaultState = {
     firstname: '',
     lastname: '',
     email: '',
@@ -19,9 +33,11 @@ export const defaultHair = {
         type: HairType,
         volume: HairType
     },
-    sessions: {
-        both: true
-    }
+    sessions: 1 as 1 | 2,
+    technique: 'FUE Sapphire Haartransplantatie',
+    grafts: [Grafts.first[0], Grafts.first[1]],
+    price: [0, 0],
+    discount: Discounts[0]
 };
 
-export type HairState = typeof defaultHair;
+export type HairState = typeof defaultState;

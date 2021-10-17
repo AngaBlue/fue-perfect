@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { HairState, HairType } from './data';
+import { Countries, HairState, HairType } from './data';
 import styles from './content.module.scss';
 import logo from './assets/dutch-clinic.png';
 import zones from './assets/zones.png';
@@ -9,11 +9,12 @@ export default function content(state: HairState) {
     return {
         images,
         content: (
-            <div className={styles.message}>
+            <div className={styles.message} style={{fontFamily: 'Sans-Serif'}}>
                 <p>Geachte heer {state.firstname},</p>
                 <p>
-                    Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op {/* APPT TIME */} een
-                    vooronderzoek ondergaan omtrent uw FUE Haartransplantatie behandeling.
+                    Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op{' '}
+                    <strong>{state.date}</strong> een vooronderzoek ondergaan omtrent uw FUE Haartransplantatie
+                    behandeling.
                 </p>
                 <p>Hieronder vindt u de analyse en de samenvatting terug wat wij hebben gesproken.</p>
                 <p>
@@ -25,34 +26,49 @@ export default function content(state: HairState) {
                     <strong>Kwaliteit/ Volume donor</strong>:{' '}
                     {(Object.keys(HairType) as Array<keyof typeof HairType>)
                         .map<ReactNode>(v => (
-                            <span style={state.hair.volume[v] ? { color: 'orange', textDecoration: 'underline' } : {}}>
+                            <span
+                                key={v}
+                                style={state.hair.volume[v] ? { color: 'orange', textDecoration: 'underline' } : {}}
+                            >
                                 {v}
                             </span>
                         ))
-                        .reduce((prev, curr) => [prev, <span> - </span>, curr])}
+                        .reduce((prev, curr, i) => [prev, <span key={i}> - </span>, curr])}
                     <br />
                     <strong>Kwaliteit/ Type haar</strong>:{' '}
                     {(Object.keys(HairType) as Array<keyof typeof HairType>)
                         .map<ReactNode>(v => (
-                            <span style={state.hair.type[v] ? { color: 'orange', textDecoration: 'underline' } : {}}>
+                            <span
+                                key={v}
+                                style={state.hair.type[v] ? { color: 'orange', textDecoration: 'underline' } : {}}
+                            >
                                 {v}
                             </span>
                         ))
-                        .reduce((prev, curr) => [prev, <span> - </span>, curr])}
+                        .reduce((prev, curr, i) => [prev, <span key={i}> - </span>, curr])}
                     <br />
-                    <strong>Aantal grafts eerste sessie</strong>: 3000-3300 grafts
+                    <strong>Aantal grafts eerste sessie</strong>: {state.grafts[0]} grafts
                     <br />
-                    <strong>Aantal grafts tweede sessie</strong>: 1800-2100 grafts (niet verplicht)
+                    {state.sessions === 2 && (
+                        <>
+                            <strong>Aantal grafts tweede sessie</strong>: {state.grafts[1]} grafts (niet verplicht)
+                            <br />
+                        </>
+                    )}
+                    <strong>Techniek</strong>: {state.technique}
                     <br />
-                    <strong>Techniek</strong>: FUE Sapphire Haartransplantatie
-                    <br />
-                    <strong>Zone</strong>: 1e sessie zone: 2,3,4/ 2e sessie zone: 5,6 (zie schema onder)
+                    <strong>Zone</strong>: 1e sessie zone: 2,3,4
+                    {state.sessions === 2 && '/ 2e sessie zone: 5,6 (zie schema onder)'}
                     <br />
                     <strong>Duur behandeling 1e sessie</strong>: 6-7 uur
                     <br />
-                    <strong>Duur behandeling 2e sessie</strong>: 5-6 uur
-                    <br />
-                    <strong>Sessie</strong>: 2 sessie behandeling
+                    {state.sessions === 2 && (
+                        <>
+                            <strong>Duur behandeling 2e sessie</strong>: 5-6 uur
+                            <br />
+                        </>
+                    )}
+                    <strong>Sessie</strong>: {state.sessions} sessie behandeling
                     <br />
                     <strong>Verdoving</strong>: Pijnloos lokaal verdoving
                     <br />
@@ -61,41 +77,54 @@ export default function content(state: HairState) {
                     <strong>Behandeling data</strong>: -<br />
                 </p>
                 <img src={zones} alt="Zones" style={{ height: '256px' }} />
-                <p>
-                    <strong style={{ color: '#c82613' }}>
-                        Kosten behandeling 2 sessies in Turkije All-in €4800,-{' '}
-                    </strong>
-                    <br />
-                    <strong style={{ textDecoration: 'underline' }}>Eerste sessie: €2500 (€200 korting)</strong>
-                    <br />
-                    <span style={{ textDecoration: 'underline' }}>
-                        <strong>Tweede sessie : €2300 </strong>(na min 12 maanden genezingstijd, niet verplicht)
-                    </span>
-                </p>
-                <p>
-                    <strong style={{ color: '#c82613' }}>
-                        Kosten behandeling 2 sessies in Nederland All-in €6750,-{' '}
-                    </strong>
-                    <br />
-                    <strong style={{ textDecoration: 'underline' }}>Eerste sessie: €3500 (€200 korting)</strong>
-                    <br />
-                    <span style={{ textDecoration: 'underline' }}>
-                        <strong>Tweede sessie : €3250 </strong>(na min 12 maanden genezingstijd, niet verplicht)
-                    </span>
-                </p>
+                {state.country === Countries.TURKEY && (
+                    <p>
+                        <strong style={{ color: '#c82613' }}>
+                            Kosten behandeling 2 sessies in Turkije All-in €{state.price.reduce((a, b) => a + b, 0)},-{' '}
+                        </strong>
+                        <br />
+                        <strong style={{ textDecoration: 'underline' }}>
+                            Eerste sessie: €{state.price[0]} {state.discount && `(€${Math.abs(state.discount)} korting)`}
+                        </strong>
+                        <br />
+                        {state.sessions === 2 && (
+                            <span style={{ textDecoration: 'underline' }}>
+                                <strong>Tweede sessie : €{!!state.price[1]} </strong>(na min 12 maanden genezingstijd,
+                                niet verplicht)
+                            </span>
+                        )}
+                    </p>
+                )}
+                {state.country === Countries.NETHERLANDS && (
+                    <p>
+                        <strong style={{ color: '#c82613' }}>
+                            Kosten behandeling 2 sessies in Nederland All-in €{state.price.reduce((a, b) => a + b, 0)},-{' '}
+                        </strong>
+                        <br />
+                        <strong style={{ textDecoration: 'underline' }}>
+                            Eerste sessie: €{state.price[0]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
+                        </strong>
+                        <br />
+                        {state.sessions === 2 && (
+                            <span style={{ textDecoration: 'underline' }}>
+                                <strong>Tweede sessie : €{state.price[1]} </strong>(na min 12 maanden genezingstijd,
+                                niet verplicht)
+                            </span>
+                        )}
+                    </p>
+                )}
                 <p>
                     <strong>Inhoud All-in pakket Turkije/Istanbul: </strong>
-                    <ul style={{ marginLeft: '32px' }}>
-                        <li>Vooronderzoek</li>
-                        <li>Retour vliegticket met KLM of Turkish Airlines</li>
-                        <li>3 overnachtingen in Hilton Doubbletree Istanbul</li>
-                        <li>FUE-haartransplantatie behandeling</li>
-                        <li>Shampoo, lotion en medicatie</li>
-                        <li>1x prp behandeling in NL</li>
-                        <li>4x Nacontrole gedurende 10 maanden</li>
-                    </ul>
                 </p>
-
+                <ul style={{ marginLeft: '32px' }}>
+                    <li>Vooronderzoek</li>
+                    <li>Retour vliegticket met KLM of Turkish Airlines</li>
+                    <li>3 overnachtingen in Hilton Doubbletree Istanbul</li>
+                    <li>FUE-haartransplantatie behandeling</li>
+                    <li>Shampoo, lotion en medicatie</li>
+                    <li>1x prp behandeling in NL</li>
+                    <li>4x Nacontrole gedurende 10 maanden</li>
+                </ul>
                 <p>
                     Wij hopen u hiermee voldoende te hebben geïnformeerd en kijken uit naar uw bevindingen, mocht u
                     vragen of opmerkingen hebben dan horen wij deze graag van u.

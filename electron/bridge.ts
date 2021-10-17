@@ -1,5 +1,6 @@
 import { contextBridge, ipcRenderer } from 'electron';
-import { Provider, Message } from '../src/data/form';
+import { Message } from '../src/data/messages';
+import { ProviderState } from '../src/data/provider';
 
 const api = {
     /**
@@ -10,7 +11,7 @@ const api = {
      * The function below can accessed using `window.Main.sayHello`
      */
 
-    sendMail: (provider: Provider, message: Message & { recipient: string }) => {
+    sendMail: (provider: ProviderState, message: Message & { recipient: string }) => {
         ipcRenderer.send('sendMail', provider, message);
     },
 

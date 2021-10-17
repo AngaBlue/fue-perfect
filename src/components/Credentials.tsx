@@ -14,8 +14,7 @@ import {
     Text
 } from '@chakra-ui/react';
 import { Dispatch, SetStateAction } from 'react';
-import { MailProviders } from '../data/constants';
-import { defaultProvider } from '../data/form';
+import { defaultProvider, MailProviders } from '../data/provider';
 
 export default function Credentials(props: {
     state: typeof defaultProvider;

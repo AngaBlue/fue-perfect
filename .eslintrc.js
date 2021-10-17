@@ -41,5 +41,6 @@ module.exports = {
             }
         },
         'import/extensions': ['never'],
+        'import/core-modules': [ 'electron' ]
     },
 }
