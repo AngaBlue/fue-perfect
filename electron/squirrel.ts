@@ -1,8 +1,8 @@
 import ChildProcess from 'child_process';
 import path from 'path';
+import { app } from 'electron';
 
-const app = require('app');
-// eslint-disable-next-line global-require
+// eslint-disable-next-line import/no-extraneous-dependencies, global-require
 if (require('electron-squirrel-startup')) app.quit();
 
 function handleSquirrelEvent() {
