@@ -1,15 +1,15 @@
 {
   "name": "fue-perfect-email-app",
   "author": "AngaBlue <contact@anga.blue>",
-  "private": true,
-  "version": "2.0.0",
+  "private": false,
+  "version": "2.0.2",
   "description": "A custom mail app for sending pre filled emails using a form.",
   "main": "./.webpack/main/index.js",
   "scripts": {
-    "start": "SET ELECTRON_DISABLE_SECURITY_WARNINGS=true && electron-forge start",
+    "start": "env-cmd electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "publish": "electron-forge publish",
+    "publish": "env-cmd electron-forge publish",
     "lint": "eslint . --ext ts,tsx,js --fix",
     "prettier": "prettier --write {src,electron}/**/*.{ts,tsx,js}"
   },
@@ -22,6 +22,7 @@
     "@emotion/styled": "11",
     "@types/merge-images": "1.2.1",
     "@typescript-eslint/eslint-plugin": "5.0.0",
+    "env-cmd": "^10.1.0",
     "framer-motion": "4",
     "merge-images": "2.0.0",
     "nodemailer": "6.7.0",
@@ -49,7 +50,6 @@
     "@types/react-dom": "17.0.9",
     "@typescript-eslint/parser": "5.0.0",
     "babel-loader": "8.2.2",
-    "cross-env": "7.0.3",
     "css-loader": "6.4.0",
     "electron": "15.2.0",
     "eslint": "8.0.1",
@@ -99,30 +99,22 @@
           }
         ]
       ],
-      "electronWinstallerConfig": {
-        "name": "Fue Perfect Email App",
-        "setupIcon": "assets/icon.ico"
-      },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "fue-perfect-email-app"
+            "name": "fue-perfect-email-app",
+            "setupIcon": "assets/icon.ico"
           }
         },
         {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
+          "name": "@electron-forge/maker-dmg"
         },
         {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
+          "name": "@electron-forge/maker-deb"
         },
         {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
+          "name": "@electron-forge/maker-rpm"
         }
       ],
       "publishers": [
