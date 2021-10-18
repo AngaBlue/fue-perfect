@@ -12,6 +12,9 @@ import z52 from './assets/zone5-2.png';
 import z61 from './assets/zone6-1.png';
 import z62 from './assets/zone6-2.png';
 
-const zones = [[z11,z21,z31,z41,z51,z61], [z12,z22,z32,z42,z52,z62]];
+const zones = [
+    [z11, z21, z31, z41, z51, z61],
+    [z12, z22, z32, z42, z52, z62]
+];
 
 export { head, zones };

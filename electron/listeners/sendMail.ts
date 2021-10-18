@@ -8,7 +8,11 @@ import { ProviderState } from '../../src/data/provider';
 
 export type SendMailResponse = Error | boolean;
 
-export default function sendMail(event: IpcMainEvent, provider: ProviderState, message: Message & { recipient: string }) {
+export default function sendMail(
+    event: IpcMainEvent,
+    provider: ProviderState,
+    message: Message & { recipient: string }
+) {
     // Replace Attachments
     const attachments: Mail.Attachment[] = [];
     let cid = 0;
@@ -53,7 +57,7 @@ export default function sendMail(event: IpcMainEvent, provider: ProviderState, m
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
     // Create File
     const filename = `${new Date().toString().split(' GMT')[0].replace(/:/g, '-')}.html`;
-    fs.writeFile(path.join(dir, filename), message.content, (err) => {
+    fs.writeFile(path.join(dir, filename), message.content, err => {
         if (err) event.reply('saveFile', err);
         else event.reply('saveFile', path.join(dir, filename));
     });
