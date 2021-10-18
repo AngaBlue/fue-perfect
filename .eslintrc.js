@@ -31,7 +31,7 @@ module.exports = {
             'error',
             'single',
         ],
-        indent: ['error', 4],
+        indent: ['error', 4, { 'SwitchCase': 1 }],
         'no-plusplus': 'off'
     },
     settings: {
@@ -41,6 +41,6 @@ module.exports = {
             }
         },
         'import/extensions': ['never'],
-        'import/core-modules': [ 'electron' ]
+        'import/core-modules': ['electron']
     },
 }
