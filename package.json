@@ -6,7 +6,7 @@
   "description": "A custom mail app for sending pre filled emails using a form.",
   "main": "./.webpack/main/index.js",
   "scripts": {
-    "start": "SET ELECTRON_DISABLE_SECURITY_WARNINGS=true electron-forge start",
+    "start": "SET ELECTRON_DISABLE_SECURITY_WARNINGS=true && electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
@@ -71,8 +71,7 @@
     "forge": {
       "packagerConfig": {
         "name": "Fue Perfect Email App",
-        "executableName": "fue-perfect-email-app",
-        "icon": "assets/icon",
+        "icon": "assets/icon.png",
         "extraResource": [
           "assets"
         ]
@@ -102,7 +101,6 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "fue-perfect-email-app",
             "setupIcon": "assets/icon.ico"
           }
         },

@@ -16,9 +16,8 @@ declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 function createWindow() {
     mainWindow = new BrowserWindow({
         icon: path.join('./assets', 'icon.png'),
-        width: 1920,
-        height: 1000,
-        backgroundColor: '#191622',
+        show: false,
+        backgroundColor: '#1a6093',
         webPreferences: {
             nodeIntegration: false,
             contextIsolation: true,
@@ -26,6 +25,7 @@ function createWindow() {
         }
     });
 
+    mainWindow.maximize();
     mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
     mainWindow.on('closed', () => {
