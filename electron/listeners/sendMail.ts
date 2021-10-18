@@ -23,7 +23,7 @@ export default function sendMail(
         // eslint-disable-next-line no-param-reassign
         content = content.split(i).join(`cid:${fileCID}`);
         attachments.push({
-            path: i[0] === '/' ? path.join(__dirname, '../renderer', i) : i,
+            path: i[0] === '/' ? path.join(__dirname, '../../', i) : i,
             cid: fileCID,
             filename: fileCID
         });

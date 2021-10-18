@@ -9,7 +9,7 @@
     "start": "SET ELECTRON_DISABLE_SECURITY_WARNINGS=true && electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "release": "electron-forge publish",
+    "publish": "electron-forge publish",
     "lint": "eslint . --ext ts,tsx,js --fix",
     "prettier": "prettier --write {src,electron}/**/*.{ts,tsx,js}"
   },
@@ -41,6 +41,7 @@
     "@electron-forge/maker-squirrel": "6.0.0-beta.57",
     "@electron-forge/maker-zip": "6.0.0-beta.57",
     "@electron-forge/plugin-webpack": "6.0.0-beta.57",
+    "@electron-forge/publisher-github": "^6.0.0-beta.61",
     "@marshallofsound/webpack-asset-relocator-loader": "0.5.0",
     "@types/electron-devtools-installer": "2.2.0",
     "@types/html-pdf": "^2.2.1",
@@ -72,8 +73,8 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "name": "fue-perfect-email-app",
-        "executableName": "fue-perfect-email-app",
+        "name": "Fue Perfect Email App",
+        "executableName": "Fue Perfect Email App",
         "icon": "assets/icon",
         "extraResource": [
           "assets"
@@ -100,6 +101,10 @@
           }
         ]
       ],
+      "electronWinstallerConfig": {
+        "name": "Fue Perfect Email App",
+        "setupIcon": "assets/icon.ico"
+      },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
@@ -120,6 +125,17 @@
         {
           "name": "@electron-forge/maker-rpm",
           "config": {}
+        }
+      ],
+      "publishers": [
+        {
+          "name": "@electron-forge/publisher-github",
+          "config": {
+            "repository": {
+              "owner": "angablue",
+              "name": "fue-perfect"
+            }
+          }
         }
       ]
     }
