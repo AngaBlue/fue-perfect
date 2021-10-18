@@ -72,7 +72,7 @@
     "forge": {
       "packagerConfig": {
         "name": "Fue Perfect Email App",
-        "executableName": "Fue Perfect Email App",
+        "executableName": "fue-perfect-email-app",
         "icon": "assets/icon",
         "extraResource": [
           "assets"
