@@ -6,10 +6,10 @@
   "description": "A custom mail app for sending pre filled emails using a form.",
   "main": "./.webpack/main/index.js",
   "scripts": {
-    "start": "env-cmd electron-forge start",
+    "start": "SET ELECTRON_DISABLE_SECURITY_WARNINGS=true electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "publish": "env-cmd electron-forge publish",
+    "publish": "electron-forge publish",
     "lint": "eslint . --ext ts,tsx,js --fix",
     "prettier": "prettier --write {src,electron}/**/*.{ts,tsx,js}"
   },
@@ -22,7 +22,6 @@
     "@emotion/styled": "11",
     "@types/merge-images": "1.2.1",
     "@typescript-eslint/eslint-plugin": "5.0.0",
-    "env-cmd": "^10.1.0",
     "framer-motion": "4",
     "merge-images": "2.0.0",
     "nodemailer": "6.7.0",
