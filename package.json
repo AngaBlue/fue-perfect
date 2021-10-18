@@ -71,7 +71,7 @@
     "forge": {
       "packagerConfig": {
         "name": "Fue Perfect Email App",
-        "executableName": "Fue Perfect Email App",
+        "executableName": "fue-perfect-email-app",
         "icon": "assets/icon.png",
         "extraResource": [
           "assets"
@@ -109,7 +109,12 @@
           "name": "@electron-forge/maker-dmg"
         },
         {
-          "name": "@electron-forge/maker-deb"
+          "name": "@electron-forge/maker-deb",
+          "config": {
+            "options": {
+              "productName": "Fue Perfect Email App"
+            }
+          }
         }
       ],
       "publishers": [
