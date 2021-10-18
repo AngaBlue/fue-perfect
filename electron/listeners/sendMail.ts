@@ -45,7 +45,7 @@ export default function sendMail(event: IpcMainEvent, provider: ProviderState, m
         },
         err => {
             if (err) event.reply('sendMailResponse', err);
-            else event.reply('sendMailResponse', true);
+            else event.reply('sendMailResponse', message.recipient);
         }
     );
     // Create Dir
@@ -55,6 +55,6 @@ export default function sendMail(event: IpcMainEvent, provider: ProviderState, m
     const filename = `${new Date().toString().split(' GMT')[0].replace(/:/g, '-')}.html`;
     fs.writeFile(path.join(dir, filename), message.content, (err) => {
         if (err) event.reply('saveFile', err);
-        else event.reply(path.join(dir, filename));
+        else event.reply('saveFile', path.join(dir, filename));
     });
 }

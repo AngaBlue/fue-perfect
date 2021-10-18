@@ -31,7 +31,7 @@ export default function form({ state, setState }: { state: HairState; setState: 
     return (
         <SimpleGrid columns={4} spacing={10}>
             <Box>
-                <FormLabel>Customer First Name</FormLabel>
+                <FormLabel>Voornaam Klant</FormLabel>
                 <InputGroup>
                     <Input
                         placeholder="John"
@@ -41,7 +41,7 @@ export default function form({ state, setState }: { state: HairState; setState: 
                 </InputGroup>
             </Box>
             <Box>
-                <FormLabel>Customer Last Name</FormLabel>
+                <FormLabel>Achternaam Klant</FormLabel>
                 <InputGroup>
                     <Input
                         placeholder="Smith"
@@ -51,7 +51,7 @@ export default function form({ state, setState }: { state: HairState; setState: 
                 </InputGroup>
             </Box>
             <Box>
-                <FormLabel>Date</FormLabel>
+                <FormLabel>Datum</FormLabel>
                 <InputGroup>
                     <Input
                         placeholder="donderdag 12 augustus"
@@ -77,7 +77,7 @@ export default function form({ state, setState }: { state: HairState; setState: 
                 </Select>
             </Box>
             <Box>
-                <FormLabel>Customer Country</FormLabel>
+                <FormLabel>Klant Land</FormLabel>
                 <RadioGroup value={state.country} onChange={country => setState({ ...state, country })}>
                     <VStack align="left">
                         {Object.values(Countries).map(c => (
@@ -89,7 +89,7 @@ export default function form({ state, setState }: { state: HairState; setState: 
                 </RadioGroup>
             </Box>
             <Box>
-                <FormLabel>Type haar</FormLabel>
+                <FormLabel>Type Haar</FormLabel>
                 <VStack align="left">
                     {(Object.keys(HairType) as Array<keyof typeof HairType>).map(v => (
                         <Checkbox
@@ -107,7 +107,7 @@ export default function form({ state, setState }: { state: HairState; setState: 
                 </VStack>
             </Box>
             <Box>
-                <FormLabel>Volume donor</FormLabel>
+                <FormLabel>Volume Donor</FormLabel>
                 <VStack align="left">
                     {(Object.keys(HairType) as Array<keyof typeof HairType>).map(v => (
                         <Checkbox
@@ -125,7 +125,7 @@ export default function form({ state, setState }: { state: HairState; setState: 
                 </VStack>
             </Box>
             <Box>
-                <FormLabel>Sessie</FormLabel>
+                <FormLabel>Sessies</FormLabel>
                 <RadioGroup
                     value={state.sessions}
                     onChange={s => setState({ ...state, sessions: Number(s) as typeof state.sessions })}
@@ -215,7 +215,7 @@ export default function form({ state, setState }: { state: HairState; setState: 
                 </Box>
             )}
             <Box>
-                <FormLabel>Discount</FormLabel>
+                <FormLabel>Korting</FormLabel>
                 <RadioGroup
                     value={state.discount}
                     onChange={d => setState({ ...state, discount: Number(d) as typeof state.discount })}

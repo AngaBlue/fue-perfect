@@ -2,7 +2,7 @@ import { ReactNode, useEffect, useState } from 'react';
 import merge from 'merge-images';
 import { Countries, HairState, HairType } from './data';
 import styles from './content.module.scss';
-import logo from './assets/dutch-clinic.png';
+import logo from './assets/dutch-clinic.inline.png';
 import { head, zones } from './zones';
 
 export default function content(state: HairState) {
@@ -20,6 +20,7 @@ export default function content(state: HairState) {
         }
         createImage();
     }, [headImages]);
+
     return {
         images,
         content: (

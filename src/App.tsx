@@ -37,21 +37,21 @@ export default function App() {
     // Register Send Response
     useEffect(() => {
         // Send Email
-        window.Main.on('sendMailResponse', (res: Error | true) => {
-            if (res === true) {
+        window.Main.on('sendMailResponse', (res: Error | string) => {
+            if (typeof res === 'string') {
                 // Success
                 setLoading({ ...loading, sending: false });
                 toast({
-                    title: 'Email Sent',
-                    description: `Email sent to ${provider.recipient}.`,
+                    title: 'E-mail Verzonden',
+                    description: `E-mail gestuurd naar ${res}.`,
                     status: 'success'
                 });
             } else {
                 // Error
                 setLoading({ ...loading, sending: false, error: res });
                 toast({
-                    title: 'Error',
-                    description: `Error while sending email, please try again.\n${res.name}: ${res.message}`,
+                    title: 'Fout',
+                    description: `Fout bij het verzenden van e-mail, probeer het opnieuw.\n${res.name}: ${res.message}`,
                     status: 'error',
                     duration: 20000
                 });
@@ -63,16 +63,16 @@ export default function App() {
                 // Success
                 setLoading({ ...loading, sending: false });
                 toast({
-                    title: 'File Saved',
-                    description: `File saved to ${res}.`,
+                    title: 'Opgeslagen Bestand',
+                    description: `Bestand opgeslagen in ${res}.`,
                     status: 'success'
                 });
             } else {
                 // Error
                 setLoading({ ...loading, sending: false, error: res });
                 toast({
-                    title: 'File Error',
-                    description: `Error while saving file.\n${res.name}: ${res.message}`,
+                    title: 'Bestandsfout',
+                    description: `Fout bij het opslaan van bestand.\n${res.name}: ${res.message}`,
                     status: 'error',
                     duration: 20000
                 });
@@ -83,16 +83,16 @@ export default function App() {
 
     return (
         <Box p={4} pt={2}>
-            <Heading mb={4}>Custom Mail App</Heading>
+            <Heading mb={4}>Fue Perfect Email App</Heading>
             <Credentials state={provider} setState={setProvider} />
             <Divider my={4} />
             {message.form}
             <Button onClick={send} backgroundColor="brand.500" mt={4} disabled={loading.sending} w={48}>
-                Send Email {loading.sending && <SpinnerIcon ml={4} className={styles.spin} />}
+                Stuur e-mail {loading.sending && <SpinnerIcon ml={4} className={styles.spin} />}
             </Button>
             <Divider my={4} />
             <Heading mb={4} as="h2">
-                Email Preview
+                Email voorbeeld
             </Heading>
             <Box>{message.content}</Box>
         </Box>

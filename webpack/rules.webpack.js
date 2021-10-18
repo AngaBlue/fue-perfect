@@ -31,5 +31,9 @@ module.exports = [
   {
     test: /\.(png|svg|jpg|jpeg|gif)$/i,
     type: 'asset/resource',
+  },
+  {
+    test: /\.inline\.(png|svg|jpg|jpeg|gif)$/i,
+    type: 'asset/inline',
   }
 ]

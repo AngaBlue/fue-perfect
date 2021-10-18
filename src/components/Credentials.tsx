@@ -25,7 +25,7 @@ export default function Credentials(props: {
         <>
             <SimpleGrid columns={4} spacing={10}>
                 <Box>
-                    <FormLabel>Email Provider</FormLabel>
+                    <FormLabel>Email Verstrekker</FormLabel>
                     <RadioGroup value={state.provider} onChange={p => setState({ ...state, provider: p })}>
                         <Stack>
                             {Object.values(MailProviders).map(p => (
@@ -37,7 +37,7 @@ export default function Credentials(props: {
                     </RadioGroup>
                 </Box>
                 <Box>
-                    <FormLabel>Email Address</FormLabel>
+                    <FormLabel>Emailadres</FormLabel>
                     <InputGroup size="md">
                         <InputLeftElement pointerEvents="none" children={<EmailIcon color="gray.300" />} />
                         <Input
@@ -50,7 +50,7 @@ export default function Credentials(props: {
                     </InputGroup>
                 </Box>
                 <Box>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel>Wachtwoord</FormLabel>
                     <InputGroup size="md">
                         <InputLeftElement pointerEvents="none" children={<LockIcon color="gray.300" />} />
                         <Input
@@ -61,7 +61,7 @@ export default function Credentials(props: {
                     </InputGroup>
                 </Box>
                 <Box>
-                    <FormLabel>Customer Email Address</FormLabel>
+                    <FormLabel>E-mailadres Klant</FormLabel>
                     <InputGroup>
                         <InputLeftElement pointerEvents="none" children={<EmailIcon color="gray.300" />} />
                         <Input
@@ -76,9 +76,9 @@ export default function Credentials(props: {
             <Box h={8} py={2}>
                 {state.provider === MailProviders.GMAIL && (
                     <Text>
-                        Please ensure that you have enabled unsafe applications in your{' '}
+                        Zorg ervoor dat u onveilige toepassingen hebt ingeschakeld in uw{' '}
                         <Link href="https://myaccount.google.com/lesssecureapps" isExternal color="teal.500">
-                            Google Settings <ExternalLinkIcon mx="2px" />
+                            google-instellingen <ExternalLinkIcon mx="2px" />
                         </Link>
                         .
                     </Text>

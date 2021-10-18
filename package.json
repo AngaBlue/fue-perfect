@@ -1,5 +1,5 @@
 {
-  "name": "mail-app",
+  "name": "fue-perfect-email-app",
   "author": "AngaBlue <contact@anga.blue>",
   "private": true,
   "version": "2.0.0",
@@ -72,8 +72,8 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "name": "mail-app",
-        "executableName": "mail-app",
+        "name": "fue-perfect-email-app",
+        "executableName": "fue-perfect-email-app",
         "icon": "assets/icon",
         "extraResource": [
           "assets"
@@ -104,7 +104,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "mail-app"
+            "name": "fue-perfect-email-app"
           }
         },
         {
