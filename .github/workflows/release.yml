@@ -1,5 +1,3 @@
-name: release
-
 on:
     create:
         tags:
@@ -24,16 +22,3 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: npm run publish
-    release:
-        runs-on: ubuntu-latest
-        needs: build
-        
-        steps:
-            - uses: actions/create-release@v1
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              with:
-                  tag_name: ${{ github.ref }}
-                  release_name: Release ${{ github.ref }}
-                  draft: false
-                  prerelease: false
