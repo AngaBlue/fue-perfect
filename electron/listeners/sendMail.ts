@@ -8,11 +8,7 @@ import { ProviderState } from '../../src/data/provider';
 
 export type SendMailResponse = Error | boolean;
 
-export default function sendMail(
-    event: IpcMainEvent,
-    provider: ProviderState,
-    message: Message & { recipient: string }
-) {
+export default function sendMail(event: IpcMainEvent, provider: ProviderState, message: Message & { recipient: string }) {
     // Replace Attachments
     const attachments: Mail.Attachment[] = [];
     let cid = 0;

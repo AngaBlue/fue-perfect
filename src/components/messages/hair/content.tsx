@@ -8,11 +8,7 @@ import { head, zones } from './zones';
 export default function content(state: HairState) {
     const [zone64, setZone64] = useState(head as string);
     const images = [logo, zone64];
-    const headImages: string[] = [
-        head,
-        ...zones[0].filter((_v, i) => state.zones[0][i]),
-        ...zones[1].filter((_v, i) => state.zones[1][i])
-    ];
+    const headImages: string[] = [head, ...zones[0].filter((_v, i) => state.zones[0][i]), ...zones[1].filter((_v, i) => state.zones[1][i])];
 
     useEffect(() => {
         async function createImage() {
@@ -27,9 +23,8 @@ export default function content(state: HairState) {
             <div className={styles.message} style={{ fontFamily: 'Sans-Serif' }}>
                 <p>Geachte heer {state.firstname},</p>
                 <p>
-                    Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op{' '}
-                    <strong>{state.date}</strong> een vooronderzoek ondergaan omtrent uw FUE Haartransplantatie
-                    behandeling.
+                    Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op <strong>{state.date}</strong> een vooronderzoek ondergaan
+                    omtrent uw FUE Haartransplantatie behandeling.
                 </p>
                 <p>Hieronder vindt u de analyse en de samenvatting terug wat wij hebben gesproken.</p>
                 <p>
@@ -41,10 +36,7 @@ export default function content(state: HairState) {
                     <strong>Kwaliteit/ Volume donor</strong>:{' '}
                     {(Object.keys(HairType) as Array<keyof typeof HairType>)
                         .map<ReactNode>(v => (
-                            <span
-                                key={v}
-                                style={state.hair.volume[v] ? { color: 'orange', textDecoration: 'underline' } : {}}
-                            >
+                            <span key={v} style={state.hair.volume[v] ? { color: 'orange', textDecoration: 'underline' } : {}}>
                                 {v}
                             </span>
                         ))
@@ -53,10 +45,7 @@ export default function content(state: HairState) {
                     <strong>Kwaliteit/ Type haar</strong>:{' '}
                     {(Object.keys(HairType) as Array<keyof typeof HairType>)
                         .map<ReactNode>(v => (
-                            <span
-                                key={v}
-                                style={state.hair.type[v] ? { color: 'orange', textDecoration: 'underline' } : {}}
-                            >
+                            <span key={v} style={state.hair.type[v] ? { color: 'orange', textDecoration: 'underline' } : {}}>
                                 {v}
                             </span>
                         ))
@@ -108,14 +97,12 @@ export default function content(state: HairState) {
                         </strong>
                         <br />
                         <strong style={{ textDecoration: 'underline' }}>
-                            Eerste sessie: €{state.price[0]}{' '}
-                            {state.discount && `(€${Math.abs(state.discount)} korting)`}
+                            Eerste sessie: €{state.price[0]} {state.discount && `(€${Math.abs(state.discount)} korting)`}
                         </strong>
                         <br />
                         {state.sessions === 2 && (
                             <span style={{ textDecoration: 'underline' }}>
-                                <strong>Tweede sessie : €{!!state.price[1]} </strong>(na min 12 maanden genezingstijd,
-                                niet verplicht)
+                                <strong>Tweede sessie : €{!!state.price[1]} </strong>(na min 12 maanden genezingstijd, niet verplicht)
                             </span>
                         )}
                     </p>
@@ -127,14 +114,12 @@ export default function content(state: HairState) {
                         </strong>
                         <br />
                         <strong style={{ textDecoration: 'underline' }}>
-                            Eerste sessie: €{state.price[0]}{' '}
-                            {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
+                            Eerste sessie: €{state.price[0]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
                         </strong>
                         <br />
                         {state.sessions === 2 && (
                             <span style={{ textDecoration: 'underline' }}>
-                                <strong>Tweede sessie : €{state.price[1]} </strong>(na min 12 maanden genezingstijd,
-                                niet verplicht)
+                                <strong>Tweede sessie : €{state.price[1]} </strong>(na min 12 maanden genezingstijd, niet verplicht)
                             </span>
                         )}
                     </p>
@@ -152,8 +137,8 @@ export default function content(state: HairState) {
                     <li>4x Nacontrole gedurende 10 maanden</li>
                 </ul>
                 <p>
-                    Wij hopen u hiermee voldoende te hebben geïnformeerd en kijken uit naar uw bevindingen, mocht u
-                    vragen of opmerkingen hebben dan horen wij deze graag van u.
+                    Wij hopen u hiermee voldoende te hebben geïnformeerd en kijken uit naar uw bevindingen, mocht u vragen of opmerkingen hebben dan horen wij
+                    deze graag van u.
                 </p>
                 <p>Met vriendelijke groeten,</p>
                 <p style={{ color: 'grey' }}>

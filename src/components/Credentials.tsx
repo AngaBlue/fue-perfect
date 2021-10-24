@@ -1,25 +1,9 @@
 import { EmailIcon, ExternalLinkIcon, LockIcon } from '@chakra-ui/icons';
-import {
-    Box,
-    FormLabel,
-    Input,
-    InputGroup,
-    InputLeftElement,
-    InputRightAddon,
-    Link,
-    Radio,
-    RadioGroup,
-    SimpleGrid,
-    Stack,
-    Text
-} from '@chakra-ui/react';
+import { Box, FormLabel, Input, InputGroup, InputLeftElement, InputRightAddon, Link, Radio, RadioGroup, SimpleGrid, Stack, Text } from '@chakra-ui/react';
 import { Dispatch, SetStateAction } from 'react';
 import { defaultProvider, MailProviders } from '../data/provider';
 
-export default function Credentials(props: {
-    state: typeof defaultProvider;
-    setState: Dispatch<SetStateAction<typeof defaultProvider>>;
-}) {
+export default function Credentials(props: { state: typeof defaultProvider; setState: Dispatch<SetStateAction<typeof defaultProvider>> }) {
     const { state, setState } = props;
     return (
         <>
@@ -40,12 +24,7 @@ export default function Credentials(props: {
                     <FormLabel>Emailadres</FormLabel>
                     <InputGroup size="md">
                         <InputLeftElement pointerEvents="none" children={<EmailIcon color="gray.300" />} />
-                        <Input
-                            placeholder="example"
-                            type="email"
-                            value={state.email}
-                            onChange={e => setState({ ...state, email: e.target.value })}
-                        />
+                        <Input placeholder="example" type="email" value={state.email} onChange={e => setState({ ...state, email: e.target.value })} />
                         <InputRightAddon children={`@${state.provider.toLowerCase()}.com`} />
                     </InputGroup>
                 </Box>
@@ -53,11 +32,7 @@ export default function Credentials(props: {
                     <FormLabel>Wachtwoord</FormLabel>
                     <InputGroup size="md">
                         <InputLeftElement pointerEvents="none" children={<LockIcon color="gray.300" />} />
-                        <Input
-                            type="password"
-                            value={state.password}
-                            onChange={e => setState({ ...state, password: e.target.value })}
-                        />
+                        <Input type="password" value={state.password} onChange={e => setState({ ...state, password: e.target.value })} />
                     </InputGroup>
                 </Box>
                 <Box>

@@ -21,7 +21,7 @@ function handleSquirrelEvent() {
         try {
             spawnedProcess = ChildProcess.spawn(command, args, { detached: true });
             // eslint-disable-next-line no-empty
-        } catch (err) { }
+        } catch (err) {}
 
         return spawnedProcess;
     };
@@ -63,10 +63,9 @@ function handleSquirrelEvent() {
         default:
             return false;
     }
-};
+}
 
 // this should be placed at top of main.js to handle setup events quickly
 if (handleSquirrelEvent()) {
     // squirrel event handled and app will exit in 1000ms, so don't do anything else
-
 }

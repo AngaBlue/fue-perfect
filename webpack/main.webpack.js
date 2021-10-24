@@ -1,9 +1,11 @@
-module.exports = {
-  resolve: {
-    extensions: ['.ts', '.js']
-  },
-  entry: './electron/main.ts',
-  module: {
-    rules: require('./rules.webpack'),
-  }
-}
+import rules from './rules.webpack';
+
+export default {
+    resolve: {
+        extensions: ['.ts', '.js']
+    },
+    entry: './electron/main.ts',
+    module: {
+        rules
+    }
+};

@@ -87,13 +87,7 @@ export default function App() {
             <Credentials state={provider} setState={setProvider} />
             <Divider my={4} />
             {message.form}
-            <Button
-                onClick={send}
-                backgroundColor="brand.500"
-                mt={4}
-                disabled={loading.sending || Object.values(provider).some(v => !v)}
-                w={48}
-            >
+            <Button onClick={send} backgroundColor="brand.500" mt={4} disabled={loading.sending || Object.values(provider).some(v => !v)} w={48}>
                 Stuur e-mail {loading.sending && <SpinnerIcon ml={4} className={styles.spin} />}
             </Button>
             <Divider my={4} />

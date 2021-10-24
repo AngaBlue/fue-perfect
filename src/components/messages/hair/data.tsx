@@ -16,12 +16,7 @@ export const Grafts = {
     second: ['500-1000', '1000-1500', '1500-2000', '2000-2500', '2500-3000', '3000-3500', '3500-4000']
 };
 
-export const Techniques = [
-    'FUE Haatransplantatie',
-    'DHI Haartransplantatie',
-    'FUE Baardtransplantatie',
-    'DHI Baardtransplantatie'
-];
+export const Techniques = ['FUE Haatransplantatie', 'DHI Haartransplantatie', 'FUE Baardtransplantatie', 'DHI Baardtransplantatie'];
 
 export const Prices = {
     [Countries.NETHERLANDS]: [2750, 2950, 3250, 3350, 3450, 3550, 3650],

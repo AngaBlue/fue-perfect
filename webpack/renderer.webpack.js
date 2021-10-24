@@ -1,8 +1,10 @@
-module.exports = {
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js']
-  },
-  module: {
-    rules: require('./rules.webpack'),
-  },
-}
+import rules from './rules.webpack';
+
+export default {
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js']
+    },
+    module: {
+        rules
+    }
+};

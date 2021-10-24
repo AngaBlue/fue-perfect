@@ -1,15 +1,4 @@
-import {
-    SimpleGrid,
-    Box,
-    FormLabel,
-    InputGroup,
-    Input,
-    RadioGroup,
-    VStack,
-    Radio,
-    Checkbox,
-    Select
-} from '@chakra-ui/react';
+import { SimpleGrid, Box, FormLabel, InputGroup, Input, RadioGroup, VStack, Radio, Checkbox, Select } from '@chakra-ui/react';
 import { Dispatch, SetStateAction, useEffect } from 'react';
 import { Countries, Discounts, Grafts, HairState, HairType, Prices, Techniques } from './data';
 
@@ -17,12 +6,8 @@ export default function form({ state, setState }: { state: HairState; setState: 
     // Pricing
     useEffect(() => {
         if (state.country !== Countries.BOTH) {
-            const price = [
-                Prices[state.country][Grafts.first.findIndex(g => g === state.grafts[0])] + state.discount,
-                0
-            ];
-            if (state.sessions === 2)
-                price[1] = Prices[state.country][Grafts.first.findIndex(g => g === state.grafts[1])];
+            const price = [Prices[state.country][Grafts.first.findIndex(g => g === state.grafts[0])] + state.discount, 0];
+            if (state.sessions === 2) price[1] = Prices[state.country][Grafts.first.findIndex(g => g === state.grafts[1])];
             else price[1] = 0;
             setState({ ...state, price });
         }
@@ -33,31 +18,19 @@ export default function form({ state, setState }: { state: HairState; setState: 
             <Box>
                 <FormLabel>Voornaam Klant</FormLabel>
                 <InputGroup>
-                    <Input
-                        placeholder="John"
-                        value={state.firstname}
-                        onChange={e => setState({ ...state, firstname: e.target.value })}
-                    />
+                    <Input placeholder="John" value={state.firstname} onChange={e => setState({ ...state, firstname: e.target.value })} />
                 </InputGroup>
             </Box>
             <Box>
                 <FormLabel>Achternaam Klant</FormLabel>
                 <InputGroup>
-                    <Input
-                        placeholder="Smith"
-                        value={state.lastname}
-                        onChange={e => setState({ ...state, lastname: e.target.value })}
-                    />
+                    <Input placeholder="Smith" value={state.lastname} onChange={e => setState({ ...state, lastname: e.target.value })} />
                 </InputGroup>
             </Box>
             <Box>
                 <FormLabel>Datum</FormLabel>
                 <InputGroup>
-                    <Input
-                        placeholder="donderdag 12 augustus"
-                        value={state.date}
-                        onChange={e => setState({ ...state, date: e.target.value })}
-                    />
+                    <Input placeholder="donderdag 12 augustus" value={state.date} onChange={e => setState({ ...state, date: e.target.value })} />
                 </InputGroup>
             </Box>
             <Box>
@@ -126,10 +99,7 @@ export default function form({ state, setState }: { state: HairState; setState: 
             </Box>
             <Box>
                 <FormLabel>Sessies</FormLabel>
-                <RadioGroup
-                    value={state.sessions}
-                    onChange={s => setState({ ...state, sessions: Number(s) as typeof state.sessions })}
-                >
+                <RadioGroup value={state.sessions} onChange={s => setState({ ...state, sessions: Number(s) as typeof state.sessions })}>
                     <VStack align="left">
                         <Radio value={1}>1 sessie</Radio>
                         <Radio value={2}>2 sessie</Radio>
@@ -216,10 +186,7 @@ export default function form({ state, setState }: { state: HairState; setState: 
             )}
             <Box>
                 <FormLabel>Korting</FormLabel>
-                <RadioGroup
-                    value={state.discount}
-                    onChange={d => setState({ ...state, discount: Number(d) as typeof state.discount })}
-                >
+                <RadioGroup value={state.discount} onChange={d => setState({ ...state, discount: Number(d) as typeof state.discount })}>
                     <VStack align="left">
                         {Discounts.map(v => (
                             <Radio key={v} value={v}>
