@@ -36,7 +36,7 @@ export default function Credentials(props: { state: typeof defaultProvider; setS
                     </InputGroup>
                 </Box>
                 <Box>
-                    <FormLabel>E-mailadres Klant</FormLabel>
+                    <FormLabel>Emailadres Klant</FormLabel>
                     <InputGroup>
                         <InputLeftElement pointerEvents="none" children={<EmailIcon color="gray.300" />} />
                         <Input
