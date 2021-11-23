@@ -24,8 +24,7 @@ export default function Credentials(props: { state: typeof defaultProvider; setS
                     <FormLabel>Emailadres</FormLabel>
                     <InputGroup size="md">
                         <InputLeftElement pointerEvents="none" children={<EmailIcon color="gray.300" />} />
-                        <Input placeholder="example" type="email" value={state.email} onChange={e => setState({ ...state, email: e.target.value })} />
-                        <InputRightAddon children={`@${state.provider.toLowerCase()}.com`} />
+                        <Input placeholder={`example@${state.provider.toLocaleLowerCase()}.com`} type="email" value={state.email} onChange={e => setState({ ...state, email: e.target.value })} />
                     </InputGroup>
                 </Box>
                 <Box>

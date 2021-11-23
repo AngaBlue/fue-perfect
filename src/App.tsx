@@ -17,7 +17,7 @@ export default function App() {
 
     async function send() {
         window.Main.sendMail(
-            { ...provider, email: `${provider.email}@${provider.provider.toLowerCase()}.com` },
+            provider,
             {
                 recipient: provider.recipient,
                 subject: message.subject,
