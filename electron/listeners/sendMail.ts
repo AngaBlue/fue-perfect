@@ -1,9 +1,8 @@
-import { IpcMainEvent } from 'electron';
+import { app, IpcMainEvent } from 'electron';
 import nodemailer from 'nodemailer';
 import Mail from 'nodemailer/lib/mailer';
 import path from 'path';
 import fs from 'fs';
-import { getDocumentsFolder } from 'platform-folders';
 import { Message } from '../../src/data/messages';
 import { ProviderState } from '../../src/data/provider';
 
@@ -50,7 +49,7 @@ export default function sendMail(event: IpcMainEvent, provider: ProviderState, m
         }
     );
     // Create Dir
-    const dir = path.join(getDocumentsFolder(), './Fue Perfect Logs/');
+    const dir = path.join(app.getPath('documents'), './Fue Perfect Logs/');
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
     // Create File
     const filename = `${new Date().toString().split(' GMT')[0].replace(/:/g, '-')}.html`;
