@@ -16,15 +16,12 @@ export default function App() {
     const message = messages[0]();
 
     async function send() {
-        window.Main.sendMail(
-            provider,
-            {
-                recipient: provider.recipient,
-                subject: message.subject,
-                content: ReactDOMServer.renderToStaticMarkup(message.content),
-                images: message.images
-            }
-        );
+        window.Main.sendMail(provider, {
+            recipient: provider.recipient,
+            subject: message.subject,
+            content: ReactDOMServer.renderToStaticMarkup(message.content),
+            images: message.images
+        });
         // UI
         setLoading({ ...loading, sending: true, error: null });
         toast({
@@ -87,7 +84,13 @@ export default function App() {
             <Credentials state={provider} setState={setProvider} />
             <Divider my={4} />
             {message.form}
-            <Button onClick={send} backgroundColor="brand.500" mt={4} disabled={loading.sending || Object.values(provider).some(v => !v)} w={48}>
+            <Button
+                onClick={send}
+                backgroundColor="brand.500"
+                mt={4}
+                disabled={loading.sending || Object.values(provider).some(v => !v)}
+                w={48}
+            >
                 Stuur e-mail {loading.sending && <SpinnerIcon ml={4} className={styles.spin} />}
             </Button>
             <Divider my={4} />

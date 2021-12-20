@@ -1,4 +1,4 @@
-import { SimpleGrid, Box, FormLabel, InputGroup, Input, RadioGroup, VStack, Radio, Checkbox, Select } from '@chakra-ui/react';
+import { SimpleGrid, Box, FormLabel, InputGroup, Input, RadioGroup, VStack, Radio, Checkbox, Select, Textarea } from '@chakra-ui/react';
 import { Dispatch, SetStateAction, useEffect } from 'react';
 import { Countries, Discounts, Grafts, HairState, HairType, Prices, Techniques } from './data';
 
@@ -30,7 +30,11 @@ export default function form({ state, setState }: { state: HairState; setState: 
             <Box>
                 <FormLabel>Datum</FormLabel>
                 <InputGroup>
-                    <Input placeholder="donderdag 12 augustus" value={state.date} onChange={e => setState({ ...state, date: e.target.value })} />
+                    <Input
+                        placeholder="donderdag 12 augustus"
+                        value={state.date}
+                        onChange={e => setState({ ...state, date: e.target.value })}
+                    />
                 </InputGroup>
             </Box>
             <Box>
@@ -195,6 +199,12 @@ export default function form({ state, setState }: { state: HairState; setState: 
                         ))}
                     </VStack>
                 </RadioGroup>
+            </Box>
+            <Box>
+                <FormLabel>Behandeling data</FormLabel>
+                <InputGroup>
+                    <Textarea placeholder="-" value={state.notes} onChange={e => setState({ ...state, notes: e.target.value })} />
+                </InputGroup>
             </Box>
         </SimpleGrid>
     );

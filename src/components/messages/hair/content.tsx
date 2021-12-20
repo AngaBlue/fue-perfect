@@ -23,8 +23,8 @@ export default function content(state: HairState) {
             <div className={styles.message} style={{ fontFamily: 'Sans-Serif' }}>
                 <p>Geachte heer {state.firstname},</p>
                 <p>
-                    Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op <strong>{state.date}</strong> een vooronderzoek ondergaan
-                    omtrent uw FUE Haartransplantatie behandeling.
+                    Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op <strong>{state.date}</strong> een
+                    vooronderzoek ondergaan omtrent uw FUE Haartransplantatie behandeling.
                 </p>
                 <p>Hieronder vindt u de analyse en de samenvatting terug wat wij hebben gesproken.</p>
                 <p>
@@ -87,7 +87,8 @@ export default function content(state: HairState) {
                     <br />
                     <strong>Behandeling bestemming</strong>: {state.country}
                     <br />
-                    <strong>Behandeling data</strong>: -<br />
+                    <strong>Behandeling data</strong>: {state.notes || '-'}
+                    <br />
                 </p>
                 <img src={zone64} alt="Zones" style={{ height: '300px' }} />
                 {state.country === Countries.TURKEY && (
@@ -137,8 +138,8 @@ export default function content(state: HairState) {
                     <li>4x Nacontrole gedurende 10 maanden</li>
                 </ul>
                 <p>
-                    Wij hopen u hiermee voldoende te hebben geïnformeerd en kijken uit naar uw bevindingen, mocht u vragen of opmerkingen hebben dan horen wij
-                    deze graag van u.
+                    Wij hopen u hiermee voldoende te hebben geïnformeerd en kijken uit naar uw bevindingen, mocht u vragen of opmerkingen
+                    hebben dan horen wij deze graag van u.
                 </p>
                 <p>Met vriendelijke groeten,</p>
                 <p style={{ color: 'grey' }}>

@@ -40,7 +40,8 @@ export const defaultState = {
     grafts: [Grafts.first[0], Grafts.first[1]],
     price: [0, 0],
     discount: Discounts[0],
-    zones: [[] as boolean[], [] as boolean[]]
+    zones: [[] as boolean[], [] as boolean[]],
+    notes: ''
 };
 
 export type HairState = typeof defaultState;
