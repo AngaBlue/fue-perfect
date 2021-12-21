@@ -17,6 +17,11 @@ import {
 import { Dispatch, SetStateAction, useState } from 'react';
 import { defaultProvider, MailProviders } from '../data/provider';
 
+export interface CredentialsProps {
+    state: typeof defaultProvider;
+    setState: Dispatch<SetStateAction<typeof defaultProvider>>;
+}
+
 export default function Credentials(props: { state: typeof defaultProvider; setState: Dispatch<SetStateAction<typeof defaultProvider>> }) {
     const { state, setState } = props;
     const [showPassword, setShowPassword] = useState(false);

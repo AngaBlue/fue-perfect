@@ -42,7 +42,6 @@ export default function form({ state, setState }: { state: HairState; setState: 
                 <Select
                     value={state.technique}
                     onChange={e => {
-                        // eslint-disable-next-line no-param-reassign
                         setState({ ...state, technique: e.target.value });
                     }}
                 >
