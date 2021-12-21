@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Heading, useToast } from '@chakra-ui/react';
+import { Box, Button, Divider, Flex, Heading, useToast } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { SpinnerIcon } from '@chakra-ui/icons';
@@ -10,8 +10,15 @@ import styles from './App.module.scss';
 
 export default function App() {
     const [provider, setProvider] = usePersistedState('provider', defaultProvider);
-    const [loading, setLoading] = useState({ sending: false, error: null as Error | null });
-    const toast = useToast({ position: 'bottom-right', isClosable: true, duration: 5000 });
+    const [loading, setLoading] = useState({
+        sending: false,
+        error: null as Error | null
+    });
+    const toast = useToast({
+        position: 'bottom-right',
+        isClosable: true,
+        duration: 5000
+    });
 
     const message = messages[0]();
 
@@ -80,7 +87,9 @@ export default function App() {
 
     return (
         <Box p={4} pt={2}>
-            <Heading mb={4}>Fue Perfect Email App</Heading>
+            <Flex>
+                <Heading mb={4}>Fue Perfect Email App</Heading>
+            </Flex>
             <Credentials state={provider} setState={setProvider} />
             <Divider my={4} />
             {message.form}
