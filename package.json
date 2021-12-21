@@ -2,7 +2,7 @@
   "name": "fue-perfect-email-app",
   "author": "AngaBlue <contact@anga.blue>",
   "private": false,
-  "version": "2.1.5",
+  "version": "2.2.0",
   "description": "A custom mail app for sending pre filled emails using a form.",
   "main": "./.webpack/main/index.js",
   "scripts": {
