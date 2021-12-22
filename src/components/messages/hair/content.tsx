@@ -23,8 +23,8 @@ export default function content(state: HairState) {
             <div className={styles.message} style={{ fontFamily: 'Sans-Serif' }}>
                 <p>Geachte heer {state.firstname},</p>
                 <p>
-                    Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op <strong>{state.date}</strong> een
-                    vooronderzoek ondergaan omtrent uw FUE Haartransplantatie behandeling.
+                    Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op{' '}
+                    <strong>{state.date.toLocaleString()}</strong> een vooronderzoek ondergaan omtrent uw FUE Haartransplantatie behandeling.
                 </p>
                 <p>Hieronder vindt u de analyse en de samenvatting terug wat wij hebben gesproken.</p>
                 <p>

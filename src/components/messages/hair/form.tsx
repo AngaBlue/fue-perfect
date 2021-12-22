@@ -1,6 +1,12 @@
 import { SimpleGrid, Box, FormLabel, InputGroup, Input, RadioGroup, VStack, Radio, Checkbox, Select, Textarea } from '@chakra-ui/react';
 import { Dispatch, SetStateAction, useEffect } from 'react';
+import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker';
+import nl from 'date-fns/locale/nl';
 import { Countries, Discounts, Grafts, HairState, HairType, Prices, Techniques } from './data';
+import 'react-datepicker/dist/react-datepicker.css';
+
+registerLocale('nl', nl);
+setDefaultLocale('nl');
 
 export default function form({ state, setState }: { state: HairState; setState: Dispatch<SetStateAction<HairState>> }) {
     // Pricing
@@ -30,11 +36,7 @@ export default function form({ state, setState }: { state: HairState; setState: 
             <Box>
                 <FormLabel>Datum</FormLabel>
                 <InputGroup>
-                    <Input
-                        placeholder="donderdag 12 augustus"
-                        value={state.date}
-                        onChange={e => setState({ ...state, date: e.target.value })}
-                    />
+                    <DatePicker selected={state.date} onChange={e => setState({ ...state, date: e })} />
                 </InputGroup>
             </Box>
             <Box>

@@ -29,7 +29,7 @@ export const defaultState = {
     firstname: '',
     lastname: '',
     email: '',
-    date: '',
+    date: new Date(),
     country: Countries.NETHERLANDS,
     hair: {
         type: HairType,
