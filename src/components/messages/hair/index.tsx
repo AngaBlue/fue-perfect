@@ -6,7 +6,7 @@ import { defaultState } from './data';
 import form from './form';
 
 export default function hair(props: CredentialsProps) {
-    const [state, setState] = usePersistedState('hair-form', defaultState);
+    const [state, setState] = usePersistedState('hair-form2', defaultState);
 
     const fullname = `${state.firstname} ${state.lastname}`;
     const subject = `Offerte + Analyse FUE Haartransplantatie behandeling te Hoofddorp voor dhr ${fullname}`;
