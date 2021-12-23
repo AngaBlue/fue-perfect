@@ -1,5 +1,7 @@
 import { ReactNode, useEffect, useState } from 'react';
 import merge from 'merge-images';
+import { format } from 'date-fns';
+import nl from 'date-fns/locale/nl';
 import { Countries, HairState, HairType } from './data';
 import styles from './content.module.scss';
 import logo from './assets/dutch-clinic.inline.png';
@@ -24,7 +26,8 @@ export default function content(state: HairState) {
                 <p>Geachte heer {state.firstname},</p>
                 <p>
                     Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op{' '}
-                    <strong>{state.date.toLocaleString()}</strong> een vooronderzoek ondergaan omtrent uw FUE Haartransplantatie behandeling.
+                    <strong>{format(state.date, 'PPP', { locale: nl })}</strong> een vooronderzoek ondergaan omtrent uw FUE
+                    Haartransplantatie behandeling.
                 </p>
                 <p>Hieronder vindt u de analyse en de samenvatting terug wat wij hebben gesproken.</p>
                 <p>

@@ -3,6 +3,7 @@ import { Dispatch, SetStateAction, useEffect } from 'react';
 import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker';
 import nl from 'date-fns/locale/nl';
 import { Countries, Discounts, Grafts, HairState, HairType, Prices, Techniques } from './data';
+import styles from './form.module.scss';
 import 'react-datepicker/dist/react-datepicker.css';
 
 registerLocale('nl', nl);
@@ -35,8 +36,12 @@ export default function form({ state, setState }: { state: HairState; setState: 
             </Box>
             <Box>
                 <FormLabel>Datum</FormLabel>
-                <InputGroup>
-                    <DatePicker selected={state.date} onChange={e => setState({ ...state, date: e })} />
+                <InputGroup className={styles.datepicker}>
+                    <DatePicker
+                        selected={new Date(state.date)}
+                        onChange={e => setState({ ...state, date: e instanceof Date ? e.getTime() : Date.now() })}
+                        dateFormat="PPP"
+                    />
                 </InputGroup>
             </Box>
             <Box>

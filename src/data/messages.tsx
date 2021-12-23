@@ -7,7 +7,7 @@ const messages = [
         component: hair
     },
     {
-        name: 'Dent',
+        name: 'Tandheelkundig',
         component: dental
     }
 ];
