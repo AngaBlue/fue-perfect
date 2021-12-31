@@ -39,7 +39,12 @@ export default function form({ state, setState }: { state: HairState; setState: 
                 <InputGroup className={styles.datepicker}>
                     <DatePicker
                         selected={new Date(state.date)}
-                        onChange={e => setState({ ...state, date: e instanceof Date ? e.getTime() : Date.now() })}
+                        onChange={e =>
+                            setState({
+                                ...state,
+                                date: e instanceof Date ? e.getTime() : Date.now()
+                            })
+                        }
                         dateFormat="PPP"
                     />
                 </InputGroup>
@@ -79,9 +84,9 @@ export default function form({ state, setState }: { state: HairState; setState: 
                             isChecked={state.hair.type[v]}
                             key={v}
                             onChange={() => {
-                                // eslint-disable-next-line no-param-reassign
-                                state.hair.type[v] = !state.hair.type[v];
-                                setState({ ...state });
+                                const type = { ...state.hair.type };
+                                type[v] = !type[v];
+                                setState({ ...state, hair: { ...state.hair, type } });
                             }}
                         >
                             {v}
@@ -97,9 +102,9 @@ export default function form({ state, setState }: { state: HairState; setState: 
                             isChecked={state.hair.volume[v]}
                             key={v}
                             onChange={() => {
-                                // eslint-disable-next-line no-param-reassign
-                                state.hair.volume[v] = !state.hair.volume[v];
-                                setState({ ...state });
+                                const volume = { ...state.hair.volume };
+                                volume[v] = !volume[v];
+                                setState({ ...state, hair: { ...state.hair, volume } });
                             }}
                         >
                             {v}
