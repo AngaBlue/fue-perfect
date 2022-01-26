@@ -2,7 +2,7 @@ import { SimpleGrid, Box, FormLabel, InputGroup, Input, Select, Textarea } from 
 import { Dispatch, SetStateAction } from 'react';
 import { City, DentalState, Prosthesis, Reason, Surgery } from './data';
 
-export default function form({ state, setState }: { state: DentalState; setState: Dispatch<SetStateAction<DentalState>> }) {
+export default function Form({ state, setState }: { state: DentalState; setState: Dispatch<SetStateAction<DentalState>> }) {
     return (
         <SimpleGrid columns={4} spacing={10}>
             <Box>

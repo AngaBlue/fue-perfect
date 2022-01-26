@@ -26,7 +26,7 @@ export default function Layout({ credentials, content, form, subject, images }: 
     });
 
     async function send() {
-        window.Main.sendMail(credentials.state, {
+        console.log(credentials.state, {
             recipient: credentials.state.recipient,
             subject,
             content: ReactDOMServer.renderToStaticMarkup(content),
@@ -44,7 +44,7 @@ export default function Layout({ credentials, content, form, subject, images }: 
     // Register Send Response
     useEffect(() => {
         // Send Email
-        window.Main.on('sendMailResponse', (res: Error | string) => {
+        /* window.Main.on('sendMailResponse', (res: Error | string) => {
             if (typeof res === 'string') {
                 // Success
                 setLoading({ ...loading, sending: false });
@@ -85,7 +85,7 @@ export default function Layout({ credentials, content, form, subject, images }: 
                 });
             }
         });
-        window.Main.on('debug', console.log);
+        window.Main.on('debug', console.log); */
     }, []);
 
     return (

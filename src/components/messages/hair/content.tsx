@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useEffect, useMemo, useState } from 'react';
 import merge from 'merge-images';
 import { format } from 'date-fns';
 import nl from 'date-fns/locale/nl';
@@ -7,10 +7,17 @@ import styles from './content.module.scss';
 import logo from './assets/dutch-clinic.inline.png';
 import { head, zones } from './zones';
 
-export default function content(state: HairState) {
-    const [zone64, setZone64] = useState(head as string);
+export default function Content(state: HairState) {
+    const [zone64, setZone64] = useState(head.src as string);
     const images = [logo, zone64];
-    const headImages: string[] = [head, ...zones[0].filter((_v, i) => state.zones[0][i]), ...zones[1].filter((_v, i) => state.zones[1][i])];
+    const headImages = useMemo(
+        () => [
+            head.src,
+            ...zones[0].filter((_v, i) => state.zones[0][i]).map(i => i.src),
+            ...zones[1].filter((_v, i) => state.zones[1][i]).map(i => i.src)
+        ],
+        [state.zones]
+    );
 
     useEffect(() => {
         async function createImage() {
@@ -152,7 +159,7 @@ export default function content(state: HairState) {
                         Hair Transplant Specialist and Coördinator
                     </strong>
                 </p>
-                <img src={logo} alt="Dutch Clinic" />
+                <img src={logo.src} alt="Dutch Clinic" />
                 <p>
                     <i>
                         <strong style={{ color: 'orange' }}>

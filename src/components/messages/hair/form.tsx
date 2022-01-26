@@ -9,7 +9,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 registerLocale('nl', nl);
 setDefaultLocale('nl');
 
-export default function form({ state, setState }: { state: HairState; setState: Dispatch<SetStateAction<HairState>> }) {
+export default function Form({ state, setState }: { state: HairState; setState: Dispatch<SetStateAction<HairState>> }) {
     // Pricing
     useEffect(() => {
         if (state.country !== Countries.BOTH) {
@@ -18,6 +18,7 @@ export default function form({ state, setState }: { state: HairState; setState: 
             else price[1] = 0;
             setState({ ...state, price });
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state.grafts, state.country, state.discount]);
 
     return (

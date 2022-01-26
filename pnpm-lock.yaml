@@ -7,6 +7,7 @@ specifiers:
   '@chakra-ui/system': ^1.10.0
   '@emotion/react': ^11.7.1
   '@emotion/styled': ^11.6.0
+  '@types/merge-images': ^1.2.1
   '@types/node': 17.0.12
   '@types/nodemailer': ^6.4.4
   '@types/react': 17.0.38
@@ -32,6 +33,7 @@ dependencies:
   '@chakra-ui/system': 1.10.0_922a85da57e3646a57465b7970b0de85
   '@emotion/react': 11.7.1_b08e3c15324cbe90a6ff8fcd416c932c
   '@emotion/styled': 11.6.0_0044a6ec6dcf5de7705bffaaff7afd26
+  '@types/merge-images': 1.2.1
   date-fns: 2.28.0
   framer-motion: 6.2.3_react-dom@17.0.2+react@17.0.2
   merge-images: 2.0.0
@@ -1334,6 +1336,12 @@ packages:
 
   /@types/lodash/4.14.178:
     resolution: {integrity: sha512-0d5Wd09ItQWH1qFbEyQ7oTQ3GZrMfth5JkbN3EvTKLXcHLRDSXeLnlvlOn0wvxVIwK5o2M8JzP/OWz7T3NRsbw==}
+    dev: false
+
+  /@types/merge-images/1.2.1:
+    resolution: {integrity: sha512-wXXXOXYvoHpa4QwQBDNOPH7QbGECTvQshThgytYhruIbwbF4/11EouhSnYtUgf0n52bGYdt2BQdZV2K6C2SrnA==}
+    dependencies:
+      '@types/node': 17.0.12
     dev: false
 
   /@types/node/17.0.12:

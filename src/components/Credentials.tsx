@@ -44,7 +44,9 @@ export default function Credentials(props: { state: typeof defaultProvider; setS
                 <Box>
                     <FormLabel>Emailadres</FormLabel>
                     <InputGroup size="md">
-                        <InputLeftElement pointerEvents="none" children={<EmailIcon color="gray.300" />} />
+                        <InputLeftElement pointerEvents="none">
+                            <EmailIcon color="gray.300" />
+                        </InputLeftElement>
                         <Input
                             placeholder={`example@${state.provider.toLocaleLowerCase()}.com`}
                             type="email"
@@ -56,7 +58,9 @@ export default function Credentials(props: { state: typeof defaultProvider; setS
                 <Box>
                     <FormLabel>Wachtwoord</FormLabel>
                     <InputGroup size="md">
-                        <InputLeftElement pointerEvents="none" children={<LockIcon color="gray.300" />} />
+                        <InputLeftElement pointerEvents="none">
+                            <LockIcon color="gray.300" />
+                        </InputLeftElement>
                         <Input
                             type={showPassword ? 'text' : 'password'}
                             value={state.password}
@@ -77,7 +81,9 @@ export default function Credentials(props: { state: typeof defaultProvider; setS
                 <Box>
                     <FormLabel>Emailadres Klant</FormLabel>
                     <InputGroup>
-                        <InputLeftElement pointerEvents="none" children={<EmailIcon color="gray.300" />} />
+                        <InputLeftElement pointerEvents="none">
+                            <EmailIcon color="gray.300" />
+                        </InputLeftElement>
                         <Input
                             placeholder="example@mail.com"
                             type="email"
