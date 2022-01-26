@@ -1,0 +1,51 @@
+import styles from './content.module.scss';
+import logo from './assets/dutch-clinic.inline.png';
+import { DentalState } from './data';
+
+export default function content(props: DentalState) {
+    return {
+        images: [],
+        content: (
+            <div className={styles.message} style={{ fontFamily: 'Sans-Serif' }}>
+                <p>Beste {props.firstname},</p>
+                <p>Het gaat om de volgende.</p>
+                <p>Een tool ontwikkelen waarbij handmatig een behandelplan opgesteld kan worden, hieronder vindt je de gegevens terug.</p>
+
+                <p>
+                    <strong>Behandeling</strong>: {props.city}
+                    <br />
+                    <strong>Reden gebitsbehandeling</strong>: {props.reason}
+                    <br />
+                    <strong>Behandelingen</strong>: {props.treatments || '-'}
+                    <br />
+                    <strong>Chirurgie</strong>: {props.surgery}
+                    <br />
+                    <strong>Prothese</strong>: {props.prosthesis}
+                </p>
+                <p>Met vriendelijke groeten,</p>
+                <p style={{ color: 'grey' }}>
+                    <strong>Arkın Şentürk</strong>
+                </p>
+                <img src={logo} alt="Dutch Clinic" />
+                <p>
+                    <i>
+                        <strong style={{ color: 'orange' }}>
+                            Hoofdweg 848A
+                            <br />
+                            2132 MC, Hoofddorp
+                            <br />
+                            Tel: 020-261 32 00
+                            <br />
+                            Mobiel: 06-15 03 87 65 <br />
+                        </strong>
+                        <strong style={{ color: 'cornflowerblue' }}>
+                            <a href="www.dentperfect.nl">www.dentperfect.nl</a>
+                            <br />
+                            <a href="mailto:info@dentperfect.nl">info@dentperfect.nl</a>
+                        </strong>
+                    </i>
+                </p>
+            </div>
+        )
+    };
+}
