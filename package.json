@@ -1,6 +1,9 @@
 {
   "name": "fue-perfect",
   "private": true,
+  "description": "A custom mail app for sending pre filled emails using a form.",
+  "keywords": [],
+  "license": "LGPL-3.0-or-later",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,19 +16,18 @@
     "@chakra-ui/system": "^1.10.0",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
-    "@types/merge-images": "^1.2.1",
     "date-fns": "^2.28.0",
-    "framer-motion": "5",
+    "framer-motion": "^5.6.0",
     "merge-images": "^2.0.0",
     "next": "12.0.8",
     "nodemailer": "^6.7.2",
     "react": "17.0.2",
     "react-datepicker": "^4.6.0",
-    "react-dom": "17.0.2",
-    "sass": "^1.49.0"
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
     "@angablue/eslint-config": "^1.1.2",
+    "@types/merge-images": "^1.2.1",
     "@types/node": "17.0.12",
     "@types/nodemailer": "^6.4.4",
     "@types/react": "17.0.38",
@@ -34,6 +36,7 @@
     "eslint": "8.7.0",
     "eslint-config-next": "12.0.8",
     "prettier": "^2.5.1",
+    "sass": "^1.49.0",
     "typescript": "4.5.5"
   }
 }
