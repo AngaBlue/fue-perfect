@@ -1,115 +1,22 @@
 {
-  "name": "fue-perfect-email-app",
-  "author": "AngaBlue <contact@anga.blue>",
-  "private": false,
-  "version": "2.3.2",
-  "description": "A custom mail app for sending pre filled emails using a form.",
-  "main": "./.webpack/main/index.js",
+  "name": "fue-perfect",
+  "private": true,
   "scripts": {
-    "start": "SET ELECTRON_DISABLE_SECURITY_WARNINGS=true && electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "lint": "eslint . --ext js,jsx,ts,tsx --fix"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "keywords": [],
-  "license": "LGPL-3.0-or-later",
   "dependencies": {
-    "@chakra-ui/icons": "1.1.1",
-    "@chakra-ui/react": "1.7.3",
-    "@chakra-ui/system": "^1.8.3",
-    "@emotion/react": "11",
-    "@emotion/styled": "11",
-    "@types/merge-images": "1.2.1",
-    "date-fns": "^2.27.0",
-    "framer-motion": "5",
-    "merge-images": "2.0.0",
-    "nodemailer": "6.7.2",
+    "next": "12.0.8",
     "react": "17.0.2",
-    "react-datepicker": "^4.5.0",
-    "react-dom": "17.0.2",
-    "react-hot-loader": "4.13.0"
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@angablue/eslint-config": "^1.1.2",
-    "@babel/core": "7.16.5",
-    "@babel/plugin-transform-runtime": "7.16.5",
-    "@babel/preset-env": "7.16.5",
-    "@babel/preset-react": "7.16.5",
-    "@babel/preset-typescript": "7.16.5",
-    "@electron-forge/cli": "6.0.0-beta.61",
-    "@electron-forge/maker-squirrel": "6.0.0-beta.61",
-    "@electron-forge/plugin-webpack": "6.0.0-beta.61",
-    "@electron-forge/publisher-github": "^6.0.0-beta.61",
-    "@marshallofsound/webpack-asset-relocator-loader": "0.5.0",
-    "@types/electron-devtools-installer": "2.2.0",
-    "@types/nodemailer": "6.4.4",
-    "@types/react": "17.0.37",
-    "@types/react-datepicker": "^4.3.2",
-    "@types/react-dom": "17.0.11",
-    "babel-loader": "8.2.3",
-    "css-loader": "6.5.1",
-    "electron": "16.0.5",
-    "electron-squirrel-startup": "^1.0.0",
-    "eslint": "^8.5.0",
-    "prettier": "^2.5.1",
-    "sass": "1.45.1",
-    "sass-loader": "12.4.0",
-    "style-loader": "3.3.1",
-    "typescript": "4.5.4"
-  },
-  "config": {
-    "forge": {
-      "packagerConfig": {
-        "name": "Fue Perfect Email App",
-        "executableName": "fue-perfect-email-app",
-        "icon": "assets/icon.png",
-        "extraResource": [
-          "assets"
-        ]
-      },
-      "plugins": [
-        [
-          "@electron-forge/plugin-webpack",
-          {
-            "mainConfig": "./webpack/main.webpack.js",
-            "renderer": {
-              "config": "./webpack/renderer.webpack.js",
-              "entryPoints": [
-                {
-                  "html": "./public/index.html",
-                  "js": "./src/index.tsx",
-                  "name": "main_window",
-                  "preload": {
-                    "js": "./electron/bridge.ts"
-                  }
-                }
-              ]
-            }
-          }
-        ]
-      ],
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "setupIcon": "assets/icon.ico"
-          }
-        }
-      ],
-      "publishers": [
-        {
-          "name": "@electron-forge/publisher-github",
-          "config": {
-            "repository": {
-              "owner": "AngaBlue",
-              "name": "fue-perfect",
-              "draft": false,
-              "prerelease": false
-            }
-          }
-        }
-      ]
-    }
+    "@types/node": "17.0.12",
+    "@types/react": "17.0.38",
+    "eslint": "8.7.0",
+    "eslint-config-next": "12.0.8",
+    "typescript": "4.5.5"
   }
 }
