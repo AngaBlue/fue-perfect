@@ -22,7 +22,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
     }, [state.grafts, state.country, state.discount]);
 
     return (
-        <SimpleGrid columns={4} spacing={10}>
+        <SimpleGrid minChildWidth="360px" spacing={4}>
             <Box>
                 <FormLabel>Voornaam Klant</FormLabel>
                 <InputGroup>

@@ -28,7 +28,7 @@ export default function Credentials(props: { state: typeof defaultProvider; setS
 
     return (
         <>
-            <SimpleGrid columns={4} spacing={10}>
+            <SimpleGrid minChildWidth="360px" spacing={4}>
                 <Box>
                     <FormLabel>Email Verstrekker</FormLabel>
                     <RadioGroup value={state.provider} onChange={p => setState({ ...state, provider: p })}>
@@ -93,7 +93,7 @@ export default function Credentials(props: { state: typeof defaultProvider; setS
                     </InputGroup>
                 </Box>
             </SimpleGrid>
-            <Box h={8} py={2}>
+            <Box pt={4}>
                 {state.provider === MailProviders.GMAIL && (
                     <Text>
                         Zorg ervoor dat u onveilige toepassingen hebt ingeschakeld in uw{' '}
