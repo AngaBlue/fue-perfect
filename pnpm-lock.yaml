@@ -19,6 +19,7 @@ specifiers:
   framer-motion: ^5.6.0
   merge-images: ^2.0.0
   next: 12.0.8
+  next-seo: ^4.29.0
   nodemailer: ^6.7.2
   prettier: ^2.5.1
   react: 17.0.2
@@ -37,6 +38,7 @@ dependencies:
   framer-motion: 5.6.0_react-dom@17.0.2+react@17.0.2
   merge-images: 2.0.0
   next: 12.0.8_8ea0df840a4126039579523f29859284
+  next-seo: 4.29.0_227e7fb4dbd28186517209bc65f02635
   nodemailer: 6.7.2
   react: 17.0.2
   react-datepicker: 4.6.0_react-dom@17.0.2+react@17.0.2
@@ -2838,6 +2840,18 @@ packages:
   /natural-compare/1.4.0:
     resolution: {integrity: sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=}
     dev: true
+
+  /next-seo/4.29.0_227e7fb4dbd28186517209bc65f02635:
+    resolution: {integrity: sha512-xmwzcz4uHaYJ8glbuhs6FSBQ7z3irmdPYdJJ5saWm72Uy3o+mPKGaPCXQetTCE6/xxVnpoDV4yFtFlEjUcljSg==}
+    peerDependencies:
+      next: ^8.1.1-canary.54 || >=9.0.0
+      react: '>=16.0.0'
+      react-dom: '>=16.0.0'
+    dependencies:
+      next: 12.0.8_8ea0df840a4126039579523f29859284
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
 
   /next/12.0.8_8ea0df840a4126039579523f29859284:
     resolution: {integrity: sha512-g5c1Kuh1F8tSXJn2rVvzYBzqe9EXaR6+rY3/KrQ7y0D9FueRLfHI35wM0DRadDcPSc3+vncspfhYH3jnYE/KjA==}

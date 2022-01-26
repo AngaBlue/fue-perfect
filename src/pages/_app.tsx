@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app';
 import { ChakraProvider } from '@chakra-ui/react';
 import Head from 'next/head';
 import theme from '../data/theme';
+import { DefaultSEO } from '../components/SEO';
 
 function App({ Component, pageProps }: AppProps) {
     return (
@@ -15,6 +16,7 @@ function App({ Component, pageProps }: AppProps) {
                 <meta name="msapplication-TileColor" content="#136094" />
                 <meta name="theme-color" content="#136094" />
             </Head>
+            <DefaultSEO />
             <ChakraProvider theme={theme}>
                 <Component {...pageProps} />
             </ChakraProvider>
