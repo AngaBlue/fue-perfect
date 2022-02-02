@@ -5,15 +5,16 @@ import nl from 'date-fns/locale/nl';
 import { Countries, HairState, HairType } from './data';
 import styles from './content.module.scss';
 import logo from '!url-loader!./assets/dutch-clinic.png';
-import { head, zones } from './zones';
 
 export default function Content(state: HairState) {
-    const [zone64, setZone64] = useState(head);
+    const [zone64, setZone64] = useState('');
     const images = [logo, zone64];
 
     useEffect(() => {
-        const headImages = [head, ...zones[0].filter((_v, i) => state.zones[0][i]), ...zones[1].filter((_v, i) => state.zones[1][i])];
-        merge(headImages).then(setZone64);
+        import('./zones').then(({ head, zones }) => {
+            const headImages = [head, ...zones[0].filter((_v, i) => state.zones[0][i]), ...zones[1].filter((_v, i) => state.zones[1][i])];
+            merge(headImages).then(setZone64);
+        });
     }, [state.zones]);
 
     return {
