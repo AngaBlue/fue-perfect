@@ -127,9 +127,9 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                 <Select
                     value={state.grafts[0]}
                     onChange={e => {
-                        // eslint-disable-next-line no-param-reassign
-                        state.grafts[0] = e.target.value;
-                        setState({ ...state, grafts: [...state.grafts] });
+                        const updated = { ...state, grafts: [...state.grafts] };
+                        updated.grafts[0] = e.target.value;
+                        setState(updated);
                     }}
                 >
                     {Grafts.first.map(v => (
@@ -149,9 +149,9 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                                 isChecked={state.zones[0][i]}
                                 key={i}
                                 onChange={() => {
-                                    // eslint-disable-next-line no-param-reassign
-                                    state.zones[0][i] = !state.zones[0][i];
-                                    setState({ ...state });
+                                    const updated = { ...state, zones: [[...state.zones[0]], state.zones[1]] };
+                                    updated.zones[0][i] = !updated.zones[0][i];
+                                    setState(updated);
                                 }}
                             >
                                 Zone {i + 1}
@@ -165,9 +165,9 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                     <Select
                         value={state.grafts[1]}
                         onChange={e => {
-                            // eslint-disable-next-line no-param-reassign
-                            state.grafts[1] = e.target.value;
-                            setState({ ...state, grafts: [...state.grafts] });
+                            const updated = { ...state, grafts: [...state.grafts] };
+                            updated.grafts[1] = e.target.value;
+                            setState(updated);
                         }}
                     >
                         {Grafts.second.map(v => (
@@ -189,9 +189,9 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                                     isChecked={state.zones[1][i]}
                                     key={i}
                                     onChange={() => {
-                                        // eslint-disable-next-line no-param-reassign
-                                        state.zones[1][i] = !state.zones[1][i];
-                                        setState({ ...state });
+                                        const updated = { ...state, zones: [state.zones[0], ...[state.zones[1]]] };
+                                        updated.zones[1][i] = !updated.zones[1][i];
+                                        setState(updated);
                                     }}
                                 >
                                     Zone {i + 1}

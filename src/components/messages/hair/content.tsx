@@ -1,31 +1,20 @@
-/* eslint-disable import/no-webpack-loader-syntax */
-import { ReactNode, useEffect, useMemo, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import merge from 'merge-images';
 import { format } from 'date-fns';
 import nl from 'date-fns/locale/nl';
 import { Countries, HairState, HairType } from './data';
 import styles from './content.module.scss';
-import logo from '!!url-loader!./assets/dutch-clinic.inline.png';
+import logo from '!url-loader!./assets/dutch-clinic.png';
 import { head, zones } from './zones';
 
 export default function Content(state: HairState) {
-    const [zone64, setZone64] = useState(head.src as string);
+    const [zone64, setZone64] = useState(head);
     const images = [logo, zone64];
-    const headImages = useMemo(
-        () => [
-            head.src,
-            ...zones[0].filter((_v, i) => state.zones[0][i]).map(i => i.src),
-            ...zones[1].filter((_v, i) => state.zones[1][i]).map(i => i.src)
-        ],
-        [state.zones]
-    );
 
     useEffect(() => {
-        async function createImage() {
-            setZone64(await merge(headImages));
-        }
-        createImage();
-    }, [headImages]);
+        const headImages = [head, ...zones[0].filter((_v, i) => state.zones[0][i]), ...zones[1].filter((_v, i) => state.zones[1][i])];
+        merge(headImages).then(setZone64);
+    }, [state.zones]);
 
     return {
         images,

@@ -1,5 +1,5 @@
 import styles from './content.module.scss';
-import logo from './assets/dutch-clinic.inline.png';
+import logo from '!url-loader!./assets/dutch-clinic.png';
 import { DentalState } from './data';
 
 export default function Content(props: DentalState) {
@@ -26,7 +26,7 @@ export default function Content(props: DentalState) {
                 <p style={{ color: 'grey' }}>
                     <strong>Arkın Şentürk</strong>
                 </p>
-                <img src={logo.src} alt='Dutch Clinic' />
+                <img src={logo} alt='Dutch Clinic' />
                 <p>
                     <i>
                         <strong style={{ color: 'orange' }}>
