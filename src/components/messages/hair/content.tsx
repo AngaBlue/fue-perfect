@@ -1,10 +1,11 @@
+/* eslint-disable import/no-webpack-loader-syntax */
 import { ReactNode, useEffect, useMemo, useState } from 'react';
 import merge from 'merge-images';
 import { format } from 'date-fns';
 import nl from 'date-fns/locale/nl';
 import { Countries, HairState, HairType } from './data';
 import styles from './content.module.scss';
-import logo from './assets/dutch-clinic.inline.png';
+import logo from '!!url-loader!./assets/dutch-clinic.inline.png';
 import { head, zones } from './zones';
 
 export default function Content(state: HairState) {
@@ -159,7 +160,7 @@ export default function Content(state: HairState) {
                         Hair Transplant Specialist and Coördinator
                     </strong>
                 </p>
-                <img src={logo.src} alt='Dutch Clinic' />
+                <img src={logo} alt='Dutch Clinic' />
                 <p>
                     <i>
                         <strong style={{ color: 'orange' }}>
