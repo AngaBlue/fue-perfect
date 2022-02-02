@@ -26,7 +26,7 @@ export default function Content(props: DentalState) {
                 <p style={{ color: 'grey' }}>
                     <strong>Arkın Şentürk</strong>
                 </p>
-                <img src={logo.src} alt="Dutch Clinic" />
+                <img src={logo.src} alt='Dutch Clinic' />
                 <p>
                     <i>
                         <strong style={{ color: 'orange' }}>
@@ -39,9 +39,9 @@ export default function Content(props: DentalState) {
                             Mobiel: 06-15 03 87 65 <br />
                         </strong>
                         <strong style={{ color: 'cornflowerblue' }}>
-                            <a href="www.dentperfect.nl">www.dentperfect.nl</a>
+                            <a href='www.dentperfect.nl'>www.dentperfect.nl</a>
                             <br />
-                            <a href="mailto:info@dentperfect.nl">info@dentperfect.nl</a>
+                            <a href='mailto:info@dentperfect.nl'>info@dentperfect.nl</a>
                         </strong>
                     </i>
                 </p>

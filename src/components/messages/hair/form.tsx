@@ -22,17 +22,17 @@ export default function Form({ state, setState }: { state: HairState; setState: 
     }, [state.grafts, state.country, state.discount]);
 
     return (
-        <SimpleGrid minChildWidth="360px" spacing={4}>
+        <SimpleGrid minChildWidth='360px' spacing={4}>
             <Box>
                 <FormLabel>Voornaam Klant</FormLabel>
                 <InputGroup>
-                    <Input placeholder="John" value={state.firstname} onChange={e => setState({ ...state, firstname: e.target.value })} />
+                    <Input placeholder='John' value={state.firstname} onChange={e => setState({ ...state, firstname: e.target.value })} />
                 </InputGroup>
             </Box>
             <Box>
                 <FormLabel>Achternaam Klant</FormLabel>
                 <InputGroup>
-                    <Input placeholder="Smith" value={state.lastname} onChange={e => setState({ ...state, lastname: e.target.value })} />
+                    <Input placeholder='Smith' value={state.lastname} onChange={e => setState({ ...state, lastname: e.target.value })} />
                 </InputGroup>
             </Box>
             <Box>
@@ -46,7 +46,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                                 date: e instanceof Date ? e.getTime() : Date.now()
                             })
                         }
-                        dateFormat="PPP"
+                        dateFormat='PPP'
                     />
                 </InputGroup>
             </Box>
@@ -68,7 +68,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
             <Box>
                 <FormLabel>Klant Land</FormLabel>
                 <RadioGroup value={state.country} onChange={country => setState({ ...state, country })}>
-                    <VStack align="left">
+                    <VStack align='left'>
                         {Object.values(Countries).map(c => (
                             <Radio key={c} value={c}>
                                 {c}
@@ -79,7 +79,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
             </Box>
             <Box>
                 <FormLabel>Type Haar</FormLabel>
-                <VStack align="left">
+                <VStack align='left'>
                     {(Object.keys(HairType) as Array<keyof typeof HairType>).map(v => (
                         <Checkbox
                             isChecked={state.hair.type[v]}
@@ -97,7 +97,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
             </Box>
             <Box>
                 <FormLabel>Volume Donor</FormLabel>
-                <VStack align="left">
+                <VStack align='left'>
                     {(Object.keys(HairType) as Array<keyof typeof HairType>).map(v => (
                         <Checkbox
                             isChecked={state.hair.volume[v]}
@@ -116,7 +116,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
             <Box>
                 <FormLabel>Sessies</FormLabel>
                 <RadioGroup value={state.sessions} onChange={s => setState({ ...state, sessions: Number(s) as typeof state.sessions })}>
-                    <VStack align="left">
+                    <VStack align='left'>
                         <Radio value={1}>1 sessie</Radio>
                         <Radio value={2}>2 sessie</Radio>
                     </VStack>
@@ -141,7 +141,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
             </Box>
             <Box>
                 <FormLabel>Zones: Sessie 1</FormLabel>
-                <VStack align="left">
+                <VStack align='left'>
                     {Array(6)
                         .fill(0)
                         .map((_v, i) => (
@@ -181,7 +181,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
             {state.sessions === 2 && (
                 <Box>
                     <FormLabel>Zones: Sessie 2</FormLabel>
-                    <VStack align="left">
+                    <VStack align='left'>
                         {Array(6)
                             .fill(0)
                             .map((_v, i) => (
@@ -203,7 +203,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
             <Box>
                 <FormLabel>Korting</FormLabel>
                 <RadioGroup value={state.discount} onChange={d => setState({ ...state, discount: Number(d) as typeof state.discount })}>
-                    <VStack align="left">
+                    <VStack align='left'>
                         {Discounts.map(v => (
                             <Radio key={v} value={v}>
                                 {v < 0 && '-'}€{Math.abs(v)}
@@ -215,7 +215,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
             <Box>
                 <FormLabel>Behandeling data</FormLabel>
                 <InputGroup>
-                    <Textarea placeholder="-" value={state.notes} onChange={e => setState({ ...state, notes: e.target.value })} />
+                    <Textarea placeholder='-' value={state.notes} onChange={e => setState({ ...state, notes: e.target.value })} />
                 </InputGroup>
             </Box>
         </SimpleGrid>

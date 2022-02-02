@@ -1,7 +1,9 @@
 import { Box, Flex, Heading, Spacer, Select } from '@chakra-ui/react';
+import { GetServerSideProps } from 'next';
 import usePersistedState from '../components/usePersistedState';
 import messages from '../data/messages';
 import { defaultProvider } from '../data/provider';
+import authorize from '../util/authorize';
 
 export default function Index() {
     const [template, setTemplate] = usePersistedState('template', { index: 0 });
@@ -14,7 +16,7 @@ export default function Index() {
                 <Flex>
                     <Heading mb={4}>Fue Perfect Email App</Heading>
                     <Spacer />
-                    <Select value={template.index} width="max-content" onChange={e => setTemplate({ index: Number(e.target.value) })}>
+                    <Select value={template.index} width='max-content' onChange={e => setTemplate({ index: Number(e.target.value) })}>
                         {messages.map((m, i) => (
                             <option value={i} key={i}>
                                 {m.name}
@@ -27,3 +29,16 @@ export default function Index() {
         </>
     );
 }
+
+export const getServerSideProps: GetServerSideProps = async ctx => {
+    const props = {};
+    if (!authorize(ctx.req.cookies))
+        return {
+            redirect: {
+                destination: '/login',
+                permanent: false
+            },
+            props
+        };
+    return { props };
+};

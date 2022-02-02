@@ -4,17 +4,17 @@ import { City, DentalState, Prosthesis, Reason, Surgery } from './data';
 
 export default function Form({ state, setState }: { state: DentalState; setState: Dispatch<SetStateAction<DentalState>> }) {
     return (
-        <SimpleGrid minChildWidth="360px" spacing={4}>
+        <SimpleGrid minChildWidth='360px' spacing={4}>
             <Box>
                 <FormLabel>Voornaam Klant</FormLabel>
                 <InputGroup>
-                    <Input placeholder="John" value={state.firstname} onChange={e => setState({ ...state, firstname: e.target.value })} />
+                    <Input placeholder='John' value={state.firstname} onChange={e => setState({ ...state, firstname: e.target.value })} />
                 </InputGroup>
             </Box>
             <Box>
                 <FormLabel>Achternaam Klant</FormLabel>
                 <InputGroup>
-                    <Input placeholder="Smith" value={state.lastname} onChange={e => setState({ ...state, lastname: e.target.value })} />
+                    <Input placeholder='Smith' value={state.lastname} onChange={e => setState({ ...state, lastname: e.target.value })} />
                 </InputGroup>
             </Box>
             <Box>
@@ -50,7 +50,7 @@ export default function Form({ state, setState }: { state: DentalState; setState
             <Box>
                 <FormLabel>Behandeling data</FormLabel>
                 <InputGroup>
-                    <Textarea placeholder="-" value={state.treatments} onChange={e => setState({ ...state, treatments: e.target.value })} />
+                    <Textarea placeholder='-' value={state.treatments} onChange={e => setState({ ...state, treatments: e.target.value })} />
                 </InputGroup>
             </Box>
             <Box>

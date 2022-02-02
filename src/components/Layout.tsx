@@ -95,7 +95,7 @@ export default function Layout({ credentials, content, form, subject, images }: 
             {form}
             <Button
                 onClick={send}
-                backgroundColor="brand.500"
+                backgroundColor='brand.500'
                 mt={4}
                 disabled={loading.sending || Object.values(credentials.state).some(v => !v)}
                 w={48}
@@ -103,7 +103,7 @@ export default function Layout({ credentials, content, form, subject, images }: 
                 Stuur e-mail {loading.sending && <SpinnerIcon ml={4} className={styles.spin} />}
             </Button>
             <Divider my={4} />
-            <Heading mb={4} as="h2">
+            <Heading mb={4} as='h2'>
                 Email voorbeeld
             </Heading>
             <Box>{content}</Box>

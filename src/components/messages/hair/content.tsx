@@ -100,7 +100,7 @@ export default function Content(state: HairState) {
                     <strong>Behandeling data</strong>: {state.notes || '-'}
                     <br />
                 </p>
-                <img src={zone64} alt="Zones" style={{ height: '300px' }} />
+                <img src={zone64} alt='Zones' style={{ height: '300px' }} />
                 {state.country === Countries.TURKEY && (
                     <p>
                         <strong style={{ color: '#c82613' }}>
@@ -159,7 +159,7 @@ export default function Content(state: HairState) {
                         Hair Transplant Specialist and Coördinator
                     </strong>
                 </p>
-                <img src={logo.src} alt="Dutch Clinic" />
+                <img src={logo.src} alt='Dutch Clinic' />
                 <p>
                     <i>
                         <strong style={{ color: 'orange' }}>
@@ -172,9 +172,9 @@ export default function Content(state: HairState) {
                             Mobiel: 06-15 03 8765 <br />
                         </strong>
                         <strong style={{ color: 'cornflowerblue' }}>
-                            <a href="www.dutchclinic.com">www.dutchclinic.com</a>
+                            <a href='www.dutchclinic.com'>www.dutchclinic.com</a>
                             <br />
-                            <a href="mailto:arkin@dutchclinic.com">arkin@dutchclinic.com</a>
+                            <a href='mailto:arkin@dutchclinic.com'>arkin@dutchclinic.com</a>
                         </strong>
                     </i>
                 </p>

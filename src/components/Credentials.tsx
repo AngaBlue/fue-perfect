@@ -28,7 +28,7 @@ export default function Credentials(props: { state: typeof defaultProvider; setS
 
     return (
         <>
-            <SimpleGrid minChildWidth="360px" spacing={4}>
+            <SimpleGrid minChildWidth='360px' spacing={4}>
                 <Box>
                     <FormLabel>Email Verstrekker</FormLabel>
                     <RadioGroup value={state.provider} onChange={p => setState({ ...state, provider: p })}>
@@ -43,13 +43,13 @@ export default function Credentials(props: { state: typeof defaultProvider; setS
                 </Box>
                 <Box>
                     <FormLabel>Emailadres</FormLabel>
-                    <InputGroup size="md">
-                        <InputLeftElement pointerEvents="none">
-                            <EmailIcon color="gray.300" />
+                    <InputGroup size='md'>
+                        <InputLeftElement pointerEvents='none'>
+                            <EmailIcon color='gray.300' />
                         </InputLeftElement>
                         <Input
                             placeholder={`example@${state.provider.toLocaleLowerCase()}.com`}
-                            type="email"
+                            type='email'
                             value={state.email}
                             onChange={e => setState({ ...state, email: e.target.value })}
                         />
@@ -57,9 +57,9 @@ export default function Credentials(props: { state: typeof defaultProvider; setS
                 </Box>
                 <Box>
                     <FormLabel>Wachtwoord</FormLabel>
-                    <InputGroup size="md">
-                        <InputLeftElement pointerEvents="none">
-                            <LockIcon color="gray.300" />
+                    <InputGroup size='md'>
+                        <InputLeftElement pointerEvents='none'>
+                            <LockIcon color='gray.300' />
                         </InputLeftElement>
                         <Input
                             type={showPassword ? 'text' : 'password'}
@@ -71,8 +71,8 @@ export default function Credentials(props: { state: typeof defaultProvider; setS
                                 onClick={() => setShowPassword(!showPassword)}
                                 aria-label={showPassword ? 'Hide' : 'Show'}
                                 icon={showPassword ? <ViewOffIcon /> : <ViewIcon />}
-                                size="sm"
-                                bgColor="transparent"
+                                size='sm'
+                                bgColor='transparent'
                                 _hover={{ bgColor: 'transparent' }}
                             />
                         </InputRightElement>
@@ -81,12 +81,12 @@ export default function Credentials(props: { state: typeof defaultProvider; setS
                 <Box>
                     <FormLabel>Emailadres Klant</FormLabel>
                     <InputGroup>
-                        <InputLeftElement pointerEvents="none">
-                            <EmailIcon color="gray.300" />
+                        <InputLeftElement pointerEvents='none'>
+                            <EmailIcon color='gray.300' />
                         </InputLeftElement>
                         <Input
-                            placeholder="example@mail.com"
-                            type="email"
+                            placeholder='example@mail.com'
+                            type='email'
                             value={state.recipient}
                             onChange={e => setState({ ...state, recipient: e.target.value })}
                         />
@@ -97,8 +97,8 @@ export default function Credentials(props: { state: typeof defaultProvider; setS
                 {state.provider === MailProviders.GMAIL && (
                     <Text>
                         Zorg ervoor dat u onveilige toepassingen hebt ingeschakeld in uw{' '}
-                        <Link href="https://myaccount.google.com/lesssecureapps" isExternal color="teal.500">
-                            google-instellingen <ExternalLinkIcon mx="2px" />
+                        <Link href='https://myaccount.google.com/lesssecureapps' isExternal color='teal.500'>
+                            google-instellingen <ExternalLinkIcon mx='2px' />
                         </Link>
                         .
                     </Text>
