@@ -4,12 +4,17 @@ import { format } from 'date-fns';
 import nl from 'date-fns/locale/nl';
 import { Countries, HairState, HairType } from './data';
 import styles from './content.module.scss';
-import logo from '!url-loader!./assets/dutch-clinic.png';
 
 export default function Content(state: HairState) {
     const [zone64, setZone64] = useState('');
+    const [logo, setLogo] = useState('');
     const images = [logo, zone64];
 
+    useEffect(() => {
+        import('!url-loader!./assets/dutch-clinic.png').then(({ default: img }) => setLogo(img));
+    }, []);
+
+    // Head images w/ zones
     useEffect(() => {
         import('./zones').then(({ head, zones }) => {
             const headImages = [head, ...zones[0].filter((_v, i) => state.zones[0][i]), ...zones[1].filter((_v, i) => state.zones[1][i])];

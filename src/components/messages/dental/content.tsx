@@ -1,8 +1,14 @@
+import { useEffect, useState } from 'react';
 import styles from './content.module.scss';
-import logo from '!url-loader!./assets/dutch-clinic.png';
 import { DentalState } from './data';
 
 export default function Content(props: DentalState) {
+    const [logo, setLogo] = useState('');
+
+    useEffect(() => {
+        import('!url-loader!./assets/dutch-clinic.png').then(({ default: img }) => setLogo(img));
+    }, []);
+
     return {
         images: [],
         content: (
