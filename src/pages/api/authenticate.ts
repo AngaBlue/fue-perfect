@@ -1,6 +1,7 @@
 import { NextApiHandler } from 'next';
 import { sign } from 'jsonwebtoken';
 import { password } from '../../data/schemas';
+import { month } from '../../util/authorize';
 
 // eslint-disable-next-line consistent-return
 const authenticate: NextApiHandler = (req, res): void => {
@@ -14,7 +15,17 @@ const authenticate: NextApiHandler = (req, res): void => {
         const jwt = sign({}, process.env.COOKIE_SECRET);
 
         // Set cookie & send response
-        res.setHeader('set-cookie', `fp-jwt=${jwt}; Path=/`);
+        const cookie = [
+            `fp-jwt=${jwt}`,
+            'Path=/',
+            `Max-Age=${6 * month}`,
+            'SameSite=Strict',
+            'HttpOnly',
+            'Secure',
+            `Domain=${req.headers.host}`
+        ];
+
+        res.setHeader('set-cookie', cookie.join(';'));
         return res.status(200).send('OK');
     }
     return res.status(405).send('Method Not Allowed');
