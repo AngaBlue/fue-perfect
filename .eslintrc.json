@@ -1,7 +1,6 @@
 {
   "extends": ["@angablue", "next/core-web-vitals"],
   "rules": {
-    "@next/next/no-img-element": "off",
-    "import/no-webpack-loader-syntax": "off"
+    "@next/next/no-img-element": "off"
   }
 }

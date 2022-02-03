@@ -11,7 +11,7 @@
     "lint": "eslint . --ext js,jsx,ts,tsx --fix"
   },
   "dependencies": {
-    "@babel/core": "^7.16.12",
+    "@babel/core": "^7.17.0",
     "@chakra-ui/icons": "^1.1.1",
     "@chakra-ui/react": "^1.8.1",
     "@chakra-ui/system": "^1.10.1",
@@ -31,7 +31,7 @@
     "url-loader": "^4.1.1"
   },
   "devDependencies": {
-    "@angablue/eslint-config": "^1.2.2",
+    "@angablue/eslint-config": "^1.2.3",
     "@types/jsonwebtoken": "^8.5.8",
     "@types/merge-images": "^1.2.1",
     "@types/node": "17.0.14",
