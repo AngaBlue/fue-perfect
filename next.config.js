@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
     reactStrictMode: true,
-    headers: [
+    headers: async () => [
         {
             source: '/(.*)',
             headers: [
@@ -11,7 +11,7 @@ module.exports = {
                 },
                 {
                     key: 'Content-Security-Policy',
-                    value: 'upgrade-insecure-requests; default-src \'self\''
+                    value: "upgrade-insecure-requests; default-src 'self'"
                 },
                 {
                     key: 'Strict-Transport-Security',
