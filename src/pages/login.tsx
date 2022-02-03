@@ -1,20 +1,4 @@
-import { LockIcon, ViewOffIcon, ViewIcon } from '@chakra-ui/icons';
-import {
-    Box,
-    Button,
-    Center,
-    Flex,
-    Heading,
-    IconButton,
-    Input,
-    InputGroup,
-    InputLeftElement,
-    InputRightElement,
-    Text,
-    useColorMode,
-    useTheme,
-    useToast
-} from '@chakra-ui/react';
+import { Box, Center, Heading, Text, useColorMode, useToast, Flex } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Image from 'next/image';
@@ -39,7 +23,7 @@ export default function Index() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ password })
+            body: JSON.stringify({})
         });
 
         setLoading(false);
