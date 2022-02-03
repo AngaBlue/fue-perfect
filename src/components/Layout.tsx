@@ -27,9 +27,9 @@ export default function Layout({ credentials, content, form, subject }: LayoutPr
     });
 
     function send() {
-        setLoading({ ...loading, sending: true, error: null });
-
         const html = ReactDOMServer.renderToStaticMarkup(content);
+
+        setLoading({ ...loading, sending: true, error: null });
 
         fetch('/api/mail', {
             method: 'POST',
@@ -40,16 +40,16 @@ export default function Layout({ credentials, content, form, subject }: LayoutPr
         })
             .then(async response => {
                 console.log(response);
-                setLoading({ ...loading, sending: false, error: null });
-                if (response.status === 200)
+                if (response.status === 200) {
+                    setLoading({ ...loading, sending: false, error: null });
                     toast({
                         title: 'E-mail Verzonden',
                         description: `E-mail gestuurd naar ${credentials.state.recipient}.`,
                         status: 'success'
                     });
-                else {
+                } else {
                     const body = await response.json();
-                    console.log(body);
+                    setLoading({ ...loading, sending: false, error: body });
                     toast({
                         title: 'Fout',
                         description: `Fout bij het verzenden van e-mail, probeer het opnieuw.\n${body.name}: ${body.message}`,
