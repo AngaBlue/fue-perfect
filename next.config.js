@@ -11,7 +11,7 @@ module.exports = {
             "frame-ancestors 'none'",
             "object-src 'none'",
             "frame-src 'none'",
-            "style-src 'unsafe-inline'"
+            "style-src 'self' 'unsafe-inline'"
         ];
 
         if (isDev) csp.push("connect-src 'self' webpack://* ws:", "script-src 'unsafe-eval' 'unsafe-inline' 'self'");
