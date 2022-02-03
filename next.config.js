@@ -10,12 +10,12 @@ module.exports = {
             "img-src 'self' data:",
             "frame-ancestors 'none'",
             "object-src 'none'",
-            "frame-src 'none'"
+            "frame-src 'none'",
+            "style-src 'unsafe-inline'"
         ];
 
-        if (isDev)
-            csp.push("connect-src 'self' webpack://* ws:", "script-src 'unsafe-eval' 'unsafe-inline' 'self'", "style-src 'unsafe-inline'");
-        else csp.push("script-src 'unsafe-eval' 'unsafe-inline' 'self'");
+        if (isDev) csp.push("connect-src 'self' webpack://* ws:", "script-src 'unsafe-eval' 'unsafe-inline' 'self'");
+        else csp.push("script-src 'self' 'unsafe-inline'");
         return [
             {
                 source: '/(.*)',
