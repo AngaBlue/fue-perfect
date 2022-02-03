@@ -2,6 +2,8 @@ import { Box, Button, Divider, Heading, useToast } from '@chakra-ui/react';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { SpinnerIcon } from '@chakra-ui/icons';
+import FileSaver from 'file-saver';
+import dayjs from 'dayjs';
 import Credentials from './Credentials';
 import styles from './Layout.module.scss';
 import { defaultProvider } from '../data/provider';
@@ -39,6 +41,16 @@ export default function Layout({ credentials, content, form, subject, images }: 
             description: 'Sending email to client...',
             status: 'info'
         });
+        setLoading({ ...loading, sending: false, error: null });
+        // Download Log
+        const filename = `${credentials.state.recipient} ${dayjs().format('DD-MM-YYYY')}.html`;
+        const blob = new Blob([ReactDOMServer.renderToStaticMarkup(content)], { type: 'text/plain;charset=utf-8' });
+        FileSaver.saveAs(blob, filename);
+        toast({
+            title: 'Opgeslagen Bestand',
+            description: `Bestand opgeslagen in ${filename}.`,
+            status: 'success'
+        });
     }
 
     // Register Send Response
@@ -63,29 +75,7 @@ export default function Layout({ credentials, content, form, subject, images }: 
                     duration: 20000
                 });
             }
-        });
-        // Save PDF
-        window.Main.on('saveFile', (res: Error | string) => {
-            if (typeof res === 'string') {
-                // Success
-                setLoading({ ...loading, sending: false });
-                toast({
-                    title: 'Opgeslagen Bestand',
-                    description: `Bestand opgeslagen in ${res}.`,
-                    status: 'success'
-                });
-            } else {
-                // Error
-                setLoading({ ...loading, sending: false, error: res });
-                toast({
-                    title: 'Bestandsfout',
-                    description: `Fout bij het opslaan van bestand.\n${res.name}: ${res.message}`,
-                    status: 'error',
-                    duration: 20000
-                });
-            }
-        });
-        window.Main.on('debug', console.log); */
+        }); */
     }, []);
 
     return (
@@ -97,7 +87,7 @@ export default function Layout({ credentials, content, form, subject, images }: 
                 onClick={send}
                 backgroundColor='brand.500'
                 mt={4}
-                disabled={loading.sending || Object.values(credentials.state).some(v => !v)}
+                disabled={loading.sending || Object.values(credentials.state).some(v => !v) || undefined}
                 w={48}
             >
                 Stuur e-mail {loading.sending && <SpinnerIcon ml={4} className={styles.spin} />}

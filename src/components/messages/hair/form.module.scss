@@ -1,4 +1,10 @@
 .datepicker {
+  &:focus, &:focus-visible {
+    z-index: 1;
+    border-color: #63b3ed;
+    box-shadow: 0 0 0 1px #63b3ed;
+  }
+  
   :global {
     input {
       background-color: transparent;
@@ -10,21 +16,32 @@
       height: var(--sizes-10);
       width: 100%;
 
-      &:focus {
+      &:focus, &:focus-visible {
         z-index: 1;
         border-color: #63b3ed;
         box-shadow: 0 0 0 1px #63b3ed;
       }
     }
 
-    .react-datepicker {
-      & * {
-        background-color: var(--colors-gray-800);
-        color: var(--colors-whiteAlpha-900);;
-      }
+    .react-datepicker__triangle {
+      display: none;
+    }
 
-      .react-datepicker__day--selected, .react-datepicker__day:hover {
-          background-color: var(--colors-brand-500);
+    .react-datepicker__day--selected,
+    .react-datepicker__day:hover {
+      background-color: var(--colors-brand-500);
+    }
+  }
+}
+
+html[data-theme="dark"] {
+  .datepicker {
+    :global {
+      .react-datepicker {
+        & * {
+          background-color: var(--colors-gray-800);
+          color: var(--colors-whiteAlpha-900);
+        }
       }
     }
   }

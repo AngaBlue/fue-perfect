@@ -70,7 +70,7 @@ module.exports = {
                     },
                     {
                         key: 'Access-Control-Allow-Origin',
-                        value: ''
+                        value: 'null'
                     }
                 ]
             }
