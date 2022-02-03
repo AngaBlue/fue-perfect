@@ -3,15 +3,19 @@ module.exports = {
     reactStrictMode: true,
     headers: [
         {
-            source: '/',
+            source: '/(.*)',
             headers: [
                 {
+                    key: 'X-DNS-Prefetch-Control',
+                    value: 'on'
+                },
+                {
                     key: 'Content-Security-Policy',
-                    value: "upgrade-insecure-requests; default-src 'self';"
+                    value: 'upgrade-insecure-requests; default-src \'self\''
                 },
                 {
                     key: 'Strict-Transport-Security',
-                    value: 'max-age=31536000'
+                    value: 'max-age=31536000; includeSubDomains; preload'
                 },
                 {
                     key: 'X-Xss-Protection',
