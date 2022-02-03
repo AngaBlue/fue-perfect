@@ -21,6 +21,7 @@
     "dayjs": "^1.10.7",
     "file-saver": "^2.0.5",
     "framer-motion": "5",
+    "googleapis": "^94.0.0",
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
     "merge-images": "^2.0.0",
@@ -30,6 +31,7 @@
     "react": "17.0.2",
     "react-datepicker": "^4.6.0",
     "react-dom": "17.0.2",
+    "react-google-login": "^5.2.2",
     "url-loader": "^4.1.1"
   },
   "devDependencies": {

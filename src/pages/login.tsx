@@ -10,22 +10,27 @@ import {
     InputGroup,
     InputLeftElement,
     InputRightElement,
+    Text,
+    useColorMode,
+    useTheme,
     useToast
 } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Image from 'next/image';
+import { GoogleLogin, GoogleLoginResponse, GoogleLoginResponseOffline } from 'react-google-login';
 import { SEO } from '../components/SEO';
 
 export default function Index() {
+    const { colorMode } = useColorMode();
     const router = useRouter();
     const toast = useToast();
 
-    const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
-    const [showPassword, setShowPassword] = useState(false);
 
-    async function submit() {
+    async function onSuccess(res: GoogleLoginResponse | GoogleLoginResponseOffline) {
+        console.log(res);
+
         if (loading) return;
         setLoading(true);
 
@@ -48,10 +53,21 @@ export default function Index() {
             });
     }
 
+    async function onError(err: { error: string; details: string }) {
+        console.log(err);
+
+        toast({
+            title: err.error,
+            description: err.details,
+            status: 'error',
+            duration: 15_000
+        });
+    }
+
     return (
         <>
             <SEO />
-            <Flex p={4} pt={2} height='100vh' w='full' alignItems='center' justifyContent='center'>
+            <Flex p={4} pt={2} height='100vh' w='full' alignItems='center' justifyContent='center' direction='column'>
                 <Box>
                     <Box>
                         <Center>
@@ -59,43 +75,19 @@ export default function Index() {
                         </Center>
                     </Box>
                     <Heading textAlign='center' my={8}>
-                        Fue Perfect Email App - Log in
+                        Fue Perfect Email App
                     </Heading>
-                    <InputGroup size='md'>
-                        <InputLeftElement pointerEvents='none'>
-                            <LockIcon color='gray.300' />
-                        </InputLeftElement>
-                        <Input
-                            placeholder='Wachtwoord'
-                            type={showPassword ? 'text' : 'password'}
-                            value={password}
-                            onChange={e => setPassword(e.target.value)}
-                            onKeyPress={e => e.key === 'Enter' && submit()}
-                        />
-                        <InputRightElement width='min-content'>
-                            <IconButton
-                                onClick={() => setShowPassword(!showPassword)}
-                                aria-label={showPassword ? 'Hide' : 'Show'}
-                                icon={showPassword ? <ViewOffIcon /> : <ViewIcon />}
-                                size='sm'
-                                bgColor='transparent'
-                                _hover={{ bgColor: 'transparent' }}
-                            />
-                            <Button
-                                onClick={submit}
-                                aria-label='Submit'
-                                size='md'
-                                backgroundColor='brand.500'
-                                color=''
-                                width={16}
-                                flexShrink={0}
-                                disabled={!password || loading}
-                            >
-                                Submit
-                            </Button>
-                        </InputRightElement>
-                    </InputGroup>
+                    <Text mb={8}>Gebruikers op de witte lijst kunnen inloggen via google.</Text>
                 </Box>
+                <GoogleLogin
+                    clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}
+                    buttonText='Inloggen met Google'
+                    onSuccess={onSuccess}
+                    onFailure={onError}
+                    theme={colorMode}
+                    cookiePolicy={'single_host_origin'}
+                    scope='https://mail.google.com'
+                />
             </Flex>
         </>
     );

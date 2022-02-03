@@ -10,12 +10,14 @@ module.exports = {
             "img-src 'self' data:",
             "frame-ancestors 'none'",
             "object-src 'none'",
-            "frame-src 'none'",
+            'frame-src accounts.google.com',
             "style-src 'self' 'unsafe-inline'"
         ];
 
-        if (isDev) csp.push("connect-src 'self' webpack://* ws:", "script-src 'unsafe-eval' 'unsafe-inline' 'self'");
-        else csp.push("script-src 'self' 'unsafe-inline'");
+        const origins = "'self' apis.google.com accounts.google.com";
+
+        if (isDev) csp.push("connect-src 'self' webpack://* ws:", `script-src 'unsafe-eval' 'unsafe-inline' ${origins}`);
+        else csp.push(`script-src 'unsafe-inline' ${origins}`);
         return [
             {
                 source: '/(.*)',
