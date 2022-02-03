@@ -17,7 +17,7 @@ const authenticate: NextApiHandler = (req, res): void => {
         const jwt = sign({}, process.env.COOKIE_SECRET);
 
         // Set cookie & send response
-        const cookie = [`fp-jwt=${jwt}`, 'Path=/', `Max-Age=${6 * month}`, 'SameSite=Strict', 'HttpOnly'];
+        const cookie = [`fp-google=${jwt}`, 'Path=/', `Max-Age=${6 * month}`, 'SameSite=Strict', 'HttpOnly'];
 
         if (!isDev) cookie.push('Secure', `Domain=${req.headers.host}`);
 
