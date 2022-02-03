@@ -15,7 +15,7 @@ module.exports = {
 
         if (isDev)
             csp.push("connect-src 'self' webpack://* ws:", "script-src 'unsafe-eval' 'unsafe-inline' 'self'", "style-src 'unsafe-inline'");
-
+        else csp.push("script-src 'unsafe-eval' 'unsafe-inline' 'self'");
         return [
             {
                 source: '/(.*)',
