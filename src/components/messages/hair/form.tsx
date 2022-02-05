@@ -22,7 +22,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
     }, [state.grafts, state.country, state.discount]);
 
     return (
-        <SimpleGrid minChildWidth='360px' spacing={4}>
+        <SimpleGrid columns={[1, null, 2, 3, 4]} spacing={4}>
             <Box>
                 <FormLabel>Voornaam Klant</FormLabel>
                 <InputGroup>
@@ -149,7 +149,10 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                                 isChecked={state.zones[0][i]}
                                 key={i}
                                 onChange={() => {
-                                    const updated = { ...state, zones: [[...state.zones[0]], state.zones[1]] };
+                                    const updated = {
+                                        ...state,
+                                        zones: [[...state.zones[0]], state.zones[1]]
+                                    };
                                     updated.zones[0][i] = !updated.zones[0][i];
                                     setState(updated);
                                 }}
@@ -159,47 +162,46 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                         ))}
                 </VStack>
             </Box>
-            {state.sessions === 2 && (
-                <Box>
-                    <FormLabel>Grafts: Sessie 2</FormLabel>
-                    <Select
-                        value={state.grafts[1]}
-                        onChange={e => {
-                            const updated = { ...state, grafts: [...state.grafts] };
-                            updated.grafts[1] = e.target.value;
-                            setState(updated);
-                        }}
-                    >
-                        {Grafts.second.map(v => (
-                            <option key={v} value={v}>
-                                {v}
-                            </option>
+            <Box display={state.sessions === 2 ? 'block' : 'none'}>
+                <FormLabel>Grafts: Sessie 2</FormLabel>
+                <Select
+                    value={state.grafts[1]}
+                    onChange={e => {
+                        const updated = { ...state, grafts: [...state.grafts] };
+                        updated.grafts[1] = e.target.value;
+                        setState(updated);
+                    }}
+                >
+                    {Grafts.second.map(v => (
+                        <option key={v} value={v}>
+                            {v}
+                        </option>
+                    ))}
+                </Select>
+            </Box>
+            <Box display={state.sessions === 2 ? 'block' : 'none'}>
+                <FormLabel>Zones: Sessie 2</FormLabel>
+                <VStack align='left'>
+                    {Array(6)
+                        .fill(0)
+                        .map((_v, i) => (
+                            <Checkbox
+                                isChecked={state.zones[1][i]}
+                                key={i}
+                                onChange={() => {
+                                    const updated = {
+                                        ...state,
+                                        zones: [state.zones[0], ...[state.zones[1]]]
+                                    };
+                                    updated.zones[1][i] = !updated.zones[1][i];
+                                    setState(updated);
+                                }}
+                            >
+                                Zone {i + 1}
+                            </Checkbox>
                         ))}
-                    </Select>
-                </Box>
-            )}
-            {state.sessions === 2 && (
-                <Box>
-                    <FormLabel>Zones: Sessie 2</FormLabel>
-                    <VStack align='left'>
-                        {Array(6)
-                            .fill(0)
-                            .map((_v, i) => (
-                                <Checkbox
-                                    isChecked={state.zones[1][i]}
-                                    key={i}
-                                    onChange={() => {
-                                        const updated = { ...state, zones: [state.zones[0], ...[state.zones[1]]] };
-                                        updated.zones[1][i] = !updated.zones[1][i];
-                                        setState(updated);
-                                    }}
-                                >
-                                    Zone {i + 1}
-                                </Checkbox>
-                            ))}
-                    </VStack>
-                </Box>
-            )}
+                </VStack>
+            </Box>
             <Box>
                 <FormLabel>Korting</FormLabel>
                 <RadioGroup value={state.discount} onChange={d => setState({ ...state, discount: Number(d) as typeof state.discount })}>

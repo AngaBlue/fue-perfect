@@ -4,7 +4,7 @@ import { City, DentalState, Prosthesis, Reason, Surgery } from './data';
 
 export default function Form({ state, setState }: { state: DentalState; setState: Dispatch<SetStateAction<DentalState>> }) {
     return (
-        <SimpleGrid minChildWidth='360px' spacing={4}>
+        <SimpleGrid columns={[1, null, 2, 3, 4]} spacing={4}>
             <Box>
                 <FormLabel>Voornaam Klant</FormLabel>
                 <InputGroup>

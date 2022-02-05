@@ -27,9 +27,15 @@ export default function Layout({ credentials, content, form, subject }: LayoutPr
     });
 
     function send() {
+        if (loading.sending || Object.values(credentials.state).some(v => !v)) return;
         const html = ReactDOMServer.renderToStaticMarkup(content);
 
         setLoading({ ...loading, sending: true, error: null });
+        toast({
+            title: 'E-mail verzenden...',
+            description: `E-mail sturen naar ${credentials.state.recipient}...`,
+            status: 'info'
+        });
 
         fetch('/api/mail', {
             method: 'POST',
@@ -39,12 +45,20 @@ export default function Layout({ credentials, content, form, subject }: LayoutPr
             body: JSON.stringify({ credentials: credentials.state, subject, content: html })
         })
             .then(async response => {
-                console.log(response);
                 if (response.status === 200) {
                     setLoading({ ...loading, sending: false, error: null });
                     toast({
                         title: 'E-mail Verzonden',
                         description: `E-mail gestuurd naar ${credentials.state.recipient}.`,
+                        status: 'success'
+                    });
+                    // Download Log
+                    const filename = `${credentials.state.recipient} ${dayjs().format('DD-MM-YYYY')}.html`;
+                    const blob = new Blob([html], { type: 'text/plain;charset=utf-8' });
+                    FileSaver.saveAs(blob, filename);
+                    toast({
+                        title: 'Opgeslagen Bestand',
+                        description: `Bestand opgeslagen in ${filename}.`,
                         status: 'success'
                     });
                 } else {
@@ -67,15 +81,6 @@ export default function Layout({ credentials, content, form, subject }: LayoutPr
                     duration: 20000
                 });
             });
-        // Download Log
-        const filename = `${credentials.state.recipient} ${dayjs().format('DD-MM-YYYY')}.html`;
-        const blob = new Blob([html], { type: 'text/plain;charset=utf-8' });
-        FileSaver.saveAs(blob, filename);
-        toast({
-            title: 'Opgeslagen Bestand',
-            description: `Bestand opgeslagen in ${filename}.`,
-            status: 'success'
-        });
     }
 
     return (
@@ -83,13 +88,7 @@ export default function Layout({ credentials, content, form, subject }: LayoutPr
             <Credentials {...credentials} />
             <Divider my={4} />
             {form}
-            <Button
-                onClick={send}
-                backgroundColor='brand.500'
-                mt={4}
-                disabled={loading.sending || !!Object.values(credentials.state).some(v => !v)}
-                w={48}
-            >
+            <Button onClick={send} backgroundColor='brand.500' mt={4} w={48}>
                 Stuur e-mail {loading.sending && <SpinnerIcon ml={4} className={styles.spin} />}
             </Button>
             <Divider my={4} />

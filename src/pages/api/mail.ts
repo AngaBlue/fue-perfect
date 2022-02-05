@@ -1,60 +1,46 @@
 import { NextApiHandler } from 'next';
 import NodeMailer from 'nodemailer';
 import Mail from 'nodemailer/lib/mailer';
+import inlineBase64 from 'nodemailer-plugin-inline-base64';
 import { Message, message } from '../../data/schemas';
 import authorize from '../../util/authorize';
-
-const imagePattern = /src="(?<image>data:image\/.+)"/g;
 
 // eslint-disable-next-line consistent-return
 const mail: NextApiHandler = async (req, res): Promise<void> => {
     if (req.method === 'POST') {
         // Authenticate
-        if (!authorize(req.cookies)) res.status(401).send('Unauthenticated');
+        const auth = authorize(req.cookies);
+        if (!auth) return res.status(401).send('Unauthenticated');
 
         // Validate
         const validation = message.validate(req.body);
         if (validation.error) return res.status(400).json(validation.error);
         const { credentials, subject }: Message = validation.value;
-        let { content }: Message = validation.value;
-
-        // Find attachments
-        const matches: { index: number; image: string }[] = [];
-
-        let m;
-        // eslint-disable-next-line no-cond-assign
-        while ((m = imagePattern.exec(content)) !== null) {
-            if (m.index === imagePattern.lastIndex) imagePattern.lastIndex++;
-
-            matches.push({ index: m.index, image: m.groups?.image ?? '' });
-        }
-
-        const attachments: Mail.Attachment[] = matches.reverse().map(({ index, image }, cid) => {
-            content = `${content.substring(0, index)}cid:${cid}${content.substring(image.length)}`;
-            return {
-                cid: cid.toString(),
-                content: image,
-                filename: cid.toString()
-            };
-        });
+        const { content }: Message = validation.value;
 
         // Create Transport
         const transport = NodeMailer.createTransport({
-            service: credentials.provider.toLowerCase(),
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: true,
             auth: {
-                user: credentials.email,
-                pass: credentials.password
+                type: 'OAuth2',
+                user: auth.email,
+                clientId: process.env.GOOGLE_CLIENT_ID,
+                clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+                refreshToken: auth.rt
             }
         });
+
+        transport.use('compile', inlineBase64());
 
         // Send
         const err = await new Promise<Error | null>(resolve => {
             const options: Mail.Options = {
-                from: credentials.email,
+                from: auth.email,
                 to: credentials.recipient,
                 subject,
-                html: content,
-                attachments
+                html: content
             };
             transport.sendMail(options, resolve);
         });

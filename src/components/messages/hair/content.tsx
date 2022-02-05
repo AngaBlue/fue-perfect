@@ -96,7 +96,7 @@ export default function Content(state: HairState) {
                     <strong>Behandeling data</strong>: {state.notes || '-'}
                     <br />
                 </p>
-                <img src={zone64} alt='Zones' style={{ height: '300px' }} />
+                <img src={zone64} alt='Zones' style={{ maxHeight: '300px' }} />
                 {state.country === Countries.TURKEY && (
                     <p>
                         <strong style={{ color: '#c82613' }}>
