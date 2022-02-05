@@ -1,13 +1,13 @@
 import { Box, Flex, Heading, Spacer, Select } from '@chakra-ui/react';
 import { GetServerSideProps } from 'next';
-import usePersistedState from '../components/usePersistedState';
+import { useState } from 'react';
 import messages from '../data/messages';
 import { defaultProvider } from '../data/provider';
 import authorize from '../util/authorize';
 
 export default function Index() {
-    const [template, setTemplate] = usePersistedState('template', { index: 0 });
-    const [state, setState] = usePersistedState('provider', defaultProvider);
+    const [template, setTemplate] = useState({ index: 0 });
+    const [state, setState] = useState(defaultProvider);
     const Component = messages[template.index].component;
 
     return (
