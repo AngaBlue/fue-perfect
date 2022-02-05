@@ -32,13 +32,12 @@ const authenticate: NextApiHandler = async (req, res): Promise<void> => {
         const { tokens } = await oauth2Client.getToken(req.query.code as string);
 
         // Validate
+        if (!tokens.scope || !tokens.refresh_token || !tokens.id_token) return res.status(400).send('Missing Tokens: ID or Refresh Token');
         if (
             !tokens.scope?.includes('https://mail.google.com/') ||
-            !tokens.scope?.includes('https://www.googleapis.com/auth/userinfo.email') ||
-            !tokens.refresh_token ||
-            !tokens.id_token
+            !tokens.scope?.includes('https://www.googleapis.com/auth/userinfo.email')
         )
-            return res.status(400).json('Missing scope');
+            return res.status(400).send('Missing Scope: Mail or Userinfo');
 
         const user = decode(tokens.id_token) as GoogleJWT;
 
