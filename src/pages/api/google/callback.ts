@@ -33,7 +33,8 @@ const authenticate: NextApiHandler = async (req, res): Promise<void> => {
 
         // Validate
         if (
-            tokens.scope !== 'https://mail.google.com/ openid https://www.googleapis.com/auth/userinfo.email' ||
+            !tokens.scope?.includes('https://mail.google.com/') ||
+            !tokens.scope?.includes('https://www.googleapis.com/auth/userinfo.email') ||
             !tokens.refresh_token ||
             !tokens.id_token
         )
