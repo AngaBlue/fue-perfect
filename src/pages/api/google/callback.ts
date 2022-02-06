@@ -45,7 +45,7 @@ const authenticate: NextApiHandler = async (req, res): Promise<void> => {
         const jwt = sign({ sub: user.sub, email: user.email, rt: tokens.refresh_token }, process.env.COOKIE_SECRET);
 
         // Set cookie & send response
-        const cookie = [`fp-google=${jwt}`, 'Path=/', `MaxAge=${week}`, 'SameSite=Strict', 'HttpOnly'];
+        const cookie = [`fp-google=${jwt}`, 'Path=/', `Max-Age=${week}`, 'SameSite=Strict', 'HttpOnly'];
 
         if (!isDev) cookie.push('Secure', `Domain=${req.headers.host}`);
 
