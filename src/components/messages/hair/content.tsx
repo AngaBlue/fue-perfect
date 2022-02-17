@@ -2,7 +2,7 @@ import { ReactNode, useEffect, useState } from 'react';
 import merge from 'merge-images';
 import { format } from 'date-fns';
 import nl from 'date-fns/locale/nl';
-import { Countries, HairState, HairType } from './data';
+import { Countries, Gender, HairState, HairType } from './data';
 import styles from './content.module.scss';
 
 export default function Content(state: HairState) {
@@ -26,7 +26,9 @@ export default function Content(state: HairState) {
         images,
         content: (
             <div className={styles.message} style={{ fontFamily: 'Sans-Serif' }}>
-                <p>Geachte heer {state.firstname},</p>
+                <p>
+                    Geachte {state.gender === Gender.MALE ? 'heer' : 'mevrouw'} {state.firstname} {state.lastname},
+                </p>
                 <p>
                     Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op{' '}
                     <strong>{format(state.date, 'PPP', { locale: nl })}</strong> een vooronderzoek ondergaan omtrent uw FUE

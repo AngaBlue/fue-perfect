@@ -2,7 +2,7 @@ import { SimpleGrid, Box, FormLabel, InputGroup, Input, RadioGroup, VStack, Radi
 import { Dispatch, SetStateAction, useEffect } from 'react';
 import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker';
 import nl from 'date-fns/locale/nl';
-import { Countries, Discounts, Grafts, HairState, HairType, Prices, Techniques } from './data';
+import { Countries, Discounts, Gender, Grafts, HairState, HairType, Prices, Techniques } from './data';
 import styles from './form.module.scss';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -34,6 +34,18 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                 <InputGroup>
                     <Input placeholder='Smith' value={state.lastname} onChange={e => setState({ ...state, lastname: e.target.value })} />
                 </InputGroup>
+            </Box>
+            <Box>
+                <FormLabel>Geslacht</FormLabel>
+                <RadioGroup value={state.gender} onChange={gender => setState({ ...state, gender })}>
+                    <VStack align='left'>
+                        {Object.values(Gender).map(c => (
+                            <Radio key={c} value={c}>
+                                {c}
+                            </Radio>
+                        ))}
+                    </VStack>
+                </RadioGroup>
             </Box>
             <Box>
                 <FormLabel>Datum</FormLabel>

@@ -13,7 +13,12 @@ export default function authorize(cookies: NextApiRequestCookies): JWT | null {
     const cookie = cookies['fp-google'];
 
     // Check existance, verify validity, and check age
-    if (!cookie || !verify(cookie, process.env.COOKIE_SECRET, { maxAge: week })) return null;
+    if (!cookie) return null;
+    try {
+        if (!verify(cookie, process.env.COOKIE_SECRET, { maxAge: week })) return null;
+    } catch (error) {
+        return null;
+    }
 
     // Decode
     const jwt = decode(cookie) as JWT;

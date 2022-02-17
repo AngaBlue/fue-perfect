@@ -4,6 +4,11 @@ export const Countries = {
     BOTH: 'Nederland/Turkije'
 };
 
+export const Gender = {
+    MALE: 'Mannelijk',
+    FEMALE: 'Vrouwelijk'
+};
+
 export const HairType = {
     Slecht: false,
     Normaal: false,
@@ -28,6 +33,7 @@ export const Discounts = [0, -100, -200, -300];
 export const defaultState = {
     firstname: '',
     lastname: '',
+    gender: Gender.MALE,
     email: '',
     date: Date.now(),
     country: Countries.NETHERLANDS,
