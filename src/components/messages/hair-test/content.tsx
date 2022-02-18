@@ -10,7 +10,8 @@ export default function Content(state: HairState) {
             </p>
             <p>Met vriendelijke groeten,</p>
             <p>
-                Bedankt voor de interesse die u getoond heeft in onze organisatie, wij hebben uw aanvraag + foto's in goede orde ontvangen.
+                Bedankt voor de interesse die u getoond heeft in onze organisatie, wij hebben uw aanvraag + foto&apos;s in goede orde
+                ontvangen.
             </p>
             <p>
                 Uw foto&apos;s / toelichting zijn beoordeeld en hieronder vindt u de analyse terug m.b.t uw Haartransplantatie behandeling,
