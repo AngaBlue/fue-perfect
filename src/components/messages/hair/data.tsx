@@ -35,6 +35,7 @@ export const defaultState = {
     lastname: '',
     gender: Gender.MALE,
     email: '',
+    inspection: false,
     date: Date.now(),
     country: Countries.NETHERLANDS,
     hair: {

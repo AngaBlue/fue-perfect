@@ -48,6 +48,17 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                 </RadioGroup>
             </Box>
             <Box>
+                <FormLabel>Haarinspectie</FormLabel>
+                <Checkbox
+                    isChecked={state.inspection}
+                    onChange={e => {
+                        setState({ ...state, inspection: e.target.checked });
+                    }}
+                >
+                    Haarinspectie
+                </Checkbox>
+            </Box>
+            <Box>
                 <FormLabel>Datum</FormLabel>
                 <InputGroup className={styles.datepicker}>
                     <DatePicker

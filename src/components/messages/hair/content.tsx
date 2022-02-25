@@ -10,7 +10,7 @@ export default function Content(state: HairState) {
     const [logo, setLogo] = useState('');
 
     useEffect(() => {
-        import('!url-loader!./assets/dutch-clinic.png').then(({ default: img }) => setLogo(img));
+        import('!url-loader!./assets/logo.png').then(({ default: img }) => setLogo(img));
     }, []);
 
     // Head images w/ zones
@@ -26,12 +26,33 @@ export default function Content(state: HairState) {
             <p>
                 Geachte {state.gender === Gender.MALE ? 'heer' : 'mevrouw'} {state.firstname} {state.lastname},
             </p>
-            <p>
-                Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op{' '}
-                <strong>{format(state.date, 'PPP', { locale: nl })}</strong> een vooronderzoek ondergaan omtrent uw FUE Haartransplantatie
-                behandeling.
-            </p>
-            <p>Hieronder vindt u de analyse en de samenvatting terug wat wij hebben gesproken.</p>
+            {state.inspection ? (
+                <>
+                    <p>
+                        Bedankt voor de interesse die u getoond heeft in onze organisatie, wij hebben uw aanvraag + foto&apos;s in goede
+                        orde ontvangen.
+                    </p>
+                    <p>
+                        Uw foto&apos;s / toelichting zijn beoordeeld en hieronder vindt u de analyse terug m.b.t uw Haartransplantatie
+                        behandeling, u bent altijd van harte welkom voor een vrijblijvend consult naar onze kliniek te Hoofddorp!
+                    </p>
+                    <p>
+                        * Aangezien de beoordeling d.m.v. foto&apos;s is vastgesteld, bestaat een kleine kans van afwijking na de
+                        definitieve onderzoek in onze kliniek.
+                    </p>
+                </>
+            ) : (
+                <>
+                    {' '}
+                    <p>
+                        Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op{' '}
+                        <strong>{format(state.date, 'PPP', { locale: nl })}</strong> een vooronderzoek ondergaan omtrent uw FUE
+                        Haartransplantatie behandeling.
+                    </p>
+                    <p>Hieronder vindt u de analyse en de samenvatting terug wat wij hebben gesproken.</p>
+                </>
+            )}
+
             <p>
                 <strong>Rapport medisch team:</strong>
             </p>
@@ -148,28 +169,24 @@ export default function Content(state: HairState) {
             </p>
             <p>Met vriendelijke groeten,</p>
             <p style={{ color: 'grey' }}>
-                <strong>
-                    Arkın Şentürk
-                    <br />
-                    Hair Transplant Specialist and Coördinator
-                </strong>
+                <strong>A.Senturk</strong>
             </p>
-            <img src={logo} alt='Dutch Clinic' />
+            <img src={logo} alt='Fue Perfect' style={{ height: '100px' }} />
             <p>
                 <i>
                     <strong style={{ color: 'orange' }}>
-                        Hoofdweg 848A
+                        Hoofdweg 848A, 2132 MC, Hoofddorp
                         <br />
-                        2132 MC, Hoofddorp
+                        020-261 32 00 Nederland
                         <br />
-                        Tel: 020-214 20 33
+                        038-081 20 4 België
                         <br />
-                        Mobiel: 06-15 03 8765 <br />
+                        06-15 03 87 65 Mobiel <br />
                     </strong>
                     <strong style={{ color: 'cornflowerblue' }}>
-                        <a href='www.dutchclinic.com'>www.dutchclinic.com</a>
+                        <a href='mailto:arkin@fueperfect.com'>arkin@fueperfect.com</a>
                         <br />
-                        <a href='mailto:arkin@dutchclinic.com'>arkin@dutchclinic.com</a>
+                        <a href='www.fueperfect.com'>www.fueperfect.com</a>
                     </strong>
                 </i>
             </p>
