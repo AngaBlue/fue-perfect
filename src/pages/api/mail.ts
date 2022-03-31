@@ -14,7 +14,7 @@ const mail: NextApiHandler = async (req, res): Promise<void> => {
 
         // Validate
         const validation = message.validate(req.body);
-        if (validation.error) return res.status(400).json(validation.error);
+        if (validation.error) return res.status(400).json({ name: validation.error.name, message: validation.error.message });
         const { credentials, subject }: Message = validation.value;
         const { content }: Message = validation.value;
 

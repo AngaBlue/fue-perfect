@@ -63,6 +63,7 @@ export default function Layout({ credentials, content, form, subject }: LayoutPr
                     });
                 } else {
                     const body = await response.json();
+                    console.log(body);
                     setLoading({ ...loading, sending: false, error: body });
                     toast({
                         title: 'Fout',
