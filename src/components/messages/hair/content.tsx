@@ -117,36 +117,36 @@ export default function Content(state: HairState) {
                 <br />
             </p>
             <img src={zone64} alt='Zones' style={{ maxHeight: '300px' }} />
-            {state.country === Countries.TURKEY && (
+            {state.country !== Countries.TURKEY && (
                 <p>
                     <strong style={{ color: '#c82613' }}>
-                        Kosten behandeling 2 sessies in Turkije All-in €{state.price.reduce((a, b) => a + b, 0)},-{' '}
+                        Kosten behandeling 2 sessies in Nederland All-in €{state.price[0].reduce((a, b) => a + b, 0)},-{' '}
                     </strong>
                     <br />
                     <strong style={{ textDecoration: 'underline' }}>
-                        Eerste sessie: €{state.price[0]} {state.discount && `(€${Math.abs(state.discount)} korting)`}
+                        Eerste sessie: €{state.price[0][0]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
                     </strong>
                     <br />
                     {state.sessions === 2 && (
                         <span style={{ textDecoration: 'underline' }}>
-                            <strong>Tweede sessie : €{!!state.price[1]} </strong>(na min 12 maanden genezingstijd, niet verplicht)
+                            <strong>Tweede sessie: €{state.price[0][1]} </strong>(na min 12 maanden genezingstijd, niet verplicht)
                         </span>
                     )}
                 </p>
             )}
-            {state.country === Countries.NETHERLANDS && (
+            {state.country !== Countries.NETHERLANDS && (
                 <p>
                     <strong style={{ color: '#c82613' }}>
-                        Kosten behandeling 2 sessies in Nederland All-in €{state.price.reduce((a, b) => a + b, 0)},-{' '}
+                        Kosten behandeling 2 sessies in Turkije All-in €{state.price[1].reduce((a, b) => a + b, 0)},-{' '}
                     </strong>
                     <br />
                     <strong style={{ textDecoration: 'underline' }}>
-                        Eerste sessie: €{state.price[0]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
+                        Eerste sessie: €{state.price[1][0]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
                     </strong>
                     <br />
                     {state.sessions === 2 && (
                         <span style={{ textDecoration: 'underline' }}>
-                            <strong>Tweede sessie : €{state.price[1]} </strong>(na min 12 maanden genezingstijd, niet verplicht)
+                            <strong>Tweede sessie: €{state.price[1][1]} </strong>(na min 12 maanden genezingstijd, niet verplicht)
                         </span>
                     )}
                 </p>

@@ -45,7 +45,10 @@ export const defaultState = {
     sessions: 1 as 1 | 2,
     technique: Techniques[0],
     grafts: [Grafts.first[0], Grafts.first[1]],
-    price: [0, 0],
+    price: [
+        [0, 0],
+        [0, 0]
+    ],
     discount: Discounts[0],
     zones: [[] as boolean[], [] as boolean[]],
     notes: ''
