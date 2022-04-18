@@ -17,10 +17,11 @@ export default function Form({ state, setState }: { state: HairState; setState: 
             [0, 0]
         ];
         price[0][0] = Prices[Countries.NETHERLANDS][Grafts.first.findIndex(g => g === state.grafts[0])] + state.discount;
-        price[0][1] = Prices[Countries.NETHERLANDS][Grafts.first.findIndex(g => g === state.grafts[1])];
+        if (state.sessions === 2) price[0][1] = Prices[Countries.NETHERLANDS][Grafts.first.findIndex(g => g === state.grafts[1])];
 
         price[1][0] = Prices[Countries.TURKEY][Grafts.first.findIndex(g => g === state.grafts[0])] + state.discount;
-        price[1][1] = Prices[Countries.TURKEY][Grafts.first.findIndex(g => g === state.grafts[1])];
+        if (state.sessions === 2) price[1][1] = Prices[Countries.TURKEY][Grafts.first.findIndex(g => g === state.grafts[1])];
+
         setState({ ...state, price });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state.sessions, state.grafts.toString(), state.country, state.discount]);
