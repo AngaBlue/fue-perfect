@@ -120,7 +120,8 @@ export default function Content(state: HairState) {
             {state.country !== Countries.TURKEY && (
                 <p>
                     <strong style={{ color: '#c82613' }}>
-                        Kosten behandeling 2 sessies in Nederland All-in €{state.price[0][0] + state.price[0][1]},-{' '}
+                        Kosten behandeling {state.sessions} sessie{state.sessions === 1 ? '' : 's'} in Nederland All-in €
+                        {state.price[0][0] + state.price[0][1]},-{' '}
                     </strong>
                     <br />
                     <strong style={{ textDecoration: 'underline' }}>
@@ -137,7 +138,8 @@ export default function Content(state: HairState) {
             {state.country !== Countries.NETHERLANDS && (
                 <p>
                     <strong style={{ color: '#c82613' }}>
-                        Kosten behandeling 2 sessies in Turkije All-in €{state.price[1][0] + state.price[1][1]},-{' '}
+                        Kosten behandeling {state.sessions} sessie{state.sessions === 1 ? '' : 's'} in Turkije All-in €
+                        {state.price[1][0] + state.price[1][1]},-{' '}
                     </strong>
                     <br />
                     <strong style={{ textDecoration: 'underline' }}>
