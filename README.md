@@ -1,6 +1,9 @@
+<p align="center">
+    <img src="https://raw.githubusercontent.com/AngaBlue/fue-perfect/main/public/banner.png" height="150px" margin="0 auto">
+</p>
 <h1 align="center">Fue Perfect Email App 📧</h1>
 <p align="center">
-  	<a href="https://github.com/AngaBlue/fue-perfect/blob/master/LICENSE" target="_blank">
+  	<a href="https://github.com/AngaBlue/fue-perfect/blob/main/LICENSE" target="_blank">
     	<img alt="License: LGPL--3.0--or--later" src="https://img.shields.io/github/license/AngaBlue/fue-perfect?color=green&label=License" />
   	</a>
 </p>
