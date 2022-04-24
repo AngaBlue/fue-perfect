@@ -1,4 +1,21 @@
-import { SimpleGrid, Box, FormLabel, InputGroup, Input, RadioGroup, VStack, Radio, Checkbox, Select, Textarea } from '@chakra-ui/react';
+import {
+    SimpleGrid,
+    Box,
+    FormLabel,
+    InputGroup,
+    Input,
+    RadioGroup,
+    VStack,
+    Radio,
+    Checkbox,
+    Select,
+    Textarea,
+    NumberInput,
+    NumberDecrementStepper,
+    NumberIncrementStepper,
+    NumberInputField,
+    NumberInputStepper
+} from '@chakra-ui/react';
 import { Dispatch, SetStateAction, useEffect } from 'react';
 import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker';
 import nl from 'date-fns/locale/nl';
@@ -16,15 +33,25 @@ export default function Form({ state, setState }: { state: HairState; setState: 
             [0, 0],
             [0, 0]
         ];
-        price[0][0] = Prices[Countries.NETHERLANDS][Grafts.first.findIndex(g => g === state.grafts[0])] + state.discount;
-        if (state.sessions === 2) price[0][1] = Prices[Countries.NETHERLANDS][Grafts.first.findIndex(g => g === state.grafts[1])];
+        price[0][0] = !Number.isNaN(state.priceOverride[0][0])
+            ? state.priceOverride[0][0]
+            : Prices[Countries.NETHERLANDS][Grafts.first.findIndex(g => g === state.grafts[0])] + state.discount;
+        if (state.sessions === 2)
+            price[0][1] = !Number.isNaN(state.priceOverride[0][1])
+                ? state.priceOverride[0][1]
+                : Prices[Countries.NETHERLANDS][Grafts.first.findIndex(g => g === state.grafts[1])];
 
-        price[1][0] = Prices[Countries.TURKEY][Grafts.first.findIndex(g => g === state.grafts[0])] + state.discount;
-        if (state.sessions === 2) price[1][1] = Prices[Countries.TURKEY][Grafts.first.findIndex(g => g === state.grafts[1])];
+        price[1][0] = !Number.isNaN(state.priceOverride[1][0])
+            ? state.priceOverride[1][0]
+            : Prices[Countries.TURKEY][Grafts.first.findIndex(g => g === state.grafts[0])] + state.discount;
+        if (state.sessions === 2)
+            price[1][1] = !Number.isNaN(state.priceOverride[1][1])
+                ? state.priceOverride[1][1]
+                : Prices[Countries.TURKEY][Grafts.first.findIndex(g => g === state.grafts[1])];
 
         setState({ ...state, price });
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [state.sessions, state.grafts.toString(), state.country, state.discount]);
+    }, [state.priceOverride, state.sessions, state.grafts.toString(), state.country, state.discount]);
 
     return (
         <SimpleGrid columns={[1, null, 2, 3, 4]} spacing={4}>
@@ -151,7 +178,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                 </RadioGroup>
             </Box>
             <Box>
-                <FormLabel>Grafts: Sessie 1</FormLabel>
+                <FormLabel>Sessie 1: Grafts</FormLabel>
                 <Select
                     value={state.grafts[0]}
                     onChange={e => {
@@ -166,9 +193,53 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                         </option>
                     ))}
                 </Select>
+                {state.country !== Countries.TURKEY && (
+                    <>
+                        <FormLabel mt={2}>Prijsoverschrijving: Nederland</FormLabel>
+                        <NumberInput
+                            min={0}
+                            step={50}
+                            onChange={(_, v) =>
+                                setState({
+                                    ...state,
+                                    priceOverride: [[v, state.priceOverride[0][1]], state.priceOverride[1]]
+                                })
+                            }
+                            precision={0}
+                        >
+                            <NumberInputField />
+                            <NumberInputStepper>
+                                <NumberIncrementStepper />
+                                <NumberDecrementStepper />
+                            </NumberInputStepper>
+                        </NumberInput>
+                    </>
+                )}
+                {state.country !== Countries.NETHERLANDS && (
+                    <>
+                        <FormLabel mt={2}>Prijsoverschrijving: Turkije</FormLabel>
+                        <NumberInput
+                            min={0}
+                            step={50}
+                            onChange={(_, v) =>
+                                setState({
+                                    ...state,
+                                    priceOverride: [[state.priceOverride[0][0], v], state.priceOverride[1]]
+                                })
+                            }
+                            precision={0}
+                        >
+                            <NumberInputField />
+                            <NumberInputStepper>
+                                <NumberIncrementStepper />
+                                <NumberDecrementStepper />
+                            </NumberInputStepper>
+                        </NumberInput>
+                    </>
+                )}
             </Box>
             <Box>
-                <FormLabel>Zones: Sessie 1</FormLabel>
+                <FormLabel>Sessie 1: Zones</FormLabel>
                 <VStack align='left'>
                     {Array(6)
                         .fill(0)
@@ -191,7 +262,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                 </VStack>
             </Box>
             <Box display={state.sessions === 2 ? 'block' : 'none'}>
-                <FormLabel>Grafts: Sessie 2</FormLabel>
+                <FormLabel>Sessie 2: Grafts</FormLabel>
                 <Select
                     value={state.grafts[1]}
                     onChange={e => {
@@ -206,9 +277,54 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                         </option>
                     ))}
                 </Select>
+                {state.country !== Countries.TURKEY && (
+                    <>
+                        <FormLabel mt={2}>Prijsoverschrijving: Nederland</FormLabel>
+                        <NumberInput
+                            min={0}
+                            step={50}
+                            onChange={(_, v) =>
+                                setState({
+                                    ...state,
+                                    priceOverride: [state.priceOverride[0], [v, state.priceOverride[1][1]]]
+                                })
+                            }
+                            precision={0}
+                        >
+                            <NumberInputField />
+                            <NumberInputStepper>
+                                <NumberIncrementStepper />
+                                <NumberDecrementStepper />
+                            </NumberInputStepper>
+                        </NumberInput>
+                    </>
+                )}
+                {state.country !== Countries.NETHERLANDS && (
+                    <>
+                        <FormLabel mt={2}>Prijsoverschrijving: Turkije</FormLabel>
+                        <NumberInput
+                            min={0}
+                            step={50}
+                            onChange={(_, v) =>
+                                setState({
+                                    ...state,
+                                    priceOverride: [state.priceOverride[0], [state.priceOverride[1][0], v]]
+                                })
+                            }
+                            precision={0}
+                        >
+                            <NumberInputField />
+                            <NumberInputStepper>
+                                <NumberIncrementStepper />
+                                <NumberDecrementStepper />
+                            </NumberInputStepper>
+                        </NumberInput>
+                    </>
+                )}
             </Box>
+
             <Box display={state.sessions === 2 ? 'block' : 'none'}>
-                <FormLabel>Zones: Sessie 2</FormLabel>
+                <FormLabel>Sessie 2: Zones</FormLabel>
                 <VStack align='left'>
                     {Array(6)
                         .fill(0)

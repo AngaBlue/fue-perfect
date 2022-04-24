@@ -118,53 +118,71 @@ export default function Content(state: HairState) {
             </p>
             <img src={zone64} alt='Zones' style={{ maxHeight: '300px' }} />
             {state.country !== Countries.TURKEY && (
-                <p>
-                    <strong style={{ color: '#c82613' }}>
-                        Kosten behandeling {state.sessions} sessie{state.sessions === 1 ? '' : 's'} in Nederland All-in €
-                        {state.price[0][0] + state.price[0][1]},-{' '}
-                    </strong>
-                    <br />
-                    <strong style={{ textDecoration: 'underline' }}>
-                        Eerste sessie: €{state.price[0][0]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
-                    </strong>
-                    <br />
-                    {state.sessions === 2 && (
-                        <span style={{ textDecoration: 'underline' }}>
-                            <strong>Tweede sessie: €{state.price[0][1]} </strong>(na min 12 maanden genezingstijd, niet verplicht)
-                        </span>
-                    )}
-                </p>
+                <>
+                    <p>
+                        <strong style={{ color: '#c82613' }}>
+                            Kosten behandeling {state.sessions} sessie{state.sessions === 1 ? '' : 's'} in Nederland All-in €
+                            {state.price[0][0] + state.price[0][1]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
+                        </strong>
+                        {state.sessions === 2 && (
+                            <>
+                                <br />
+                                <strong style={{ textDecoration: 'underline' }}>
+                                    Eerste sessie: €{state.price[0][0]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
+                                </strong>
+                                <br />
+                                <span style={{ textDecoration: 'underline' }}>
+                                    <strong>Tweede sessie: €{state.price[0][1]} </strong>(na min 12 maanden genezingstijd, niet verplicht)
+                                </span>
+                            </>
+                        )}
+                    </p>
+                    <p>
+                        <strong>Inhoud All-in pakket Nederland:</strong>
+                    </p>
+                    <ul style={{ marginLeft: '32px' }}>
+                        <li>Vooronderzoek</li>
+                        <li>FUE-haartransplantatie behandeling</li>
+                        <li>Shampoo, lotion en medicatie</li>
+                        <li>1x prp behandeling in NL</li>
+                        <li>4x Nacontrole gedurende 10 maanden</li>
+                    </ul>
+                </>
             )}
             {state.country !== Countries.NETHERLANDS && (
-                <p>
-                    <strong style={{ color: '#c82613' }}>
-                        Kosten behandeling {state.sessions} sessie{state.sessions === 1 ? '' : 's'} in Turkije All-in €
-                        {state.price[1][0] + state.price[1][1]},-{' '}
-                    </strong>
-                    <br />
-                    <strong style={{ textDecoration: 'underline' }}>
-                        Eerste sessie: €{state.price[1][0]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
-                    </strong>
-                    <br />
-                    {state.sessions === 2 && (
-                        <span style={{ textDecoration: 'underline' }}>
-                            <strong>Tweede sessie: €{state.price[1][1]} </strong>(na min 12 maanden genezingstijd, niet verplicht)
-                        </span>
-                    )}
-                </p>
+                <>
+                    <p>
+                        <strong style={{ color: '#c82613' }}>
+                            Kosten behandeling {state.sessions} sessie{state.sessions === 1 ? '' : 's'} in Turkije All-in €
+                            {state.price[1][0] + state.price[1][1]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
+                        </strong>
+                        {state.sessions === 2 && (
+                            <>
+                                <br />
+                                <strong style={{ textDecoration: 'underline' }}>
+                                    Eerste sessie: €{state.price[1][0]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
+                                </strong>
+                                <br />
+                                <span style={{ textDecoration: 'underline' }}>
+                                    <strong>Tweede sessie: €{state.price[1][1]} </strong>(na min 12 maanden genezingstijd, niet verplicht)
+                                </span>
+                            </>
+                        )}
+                    </p>
+                    <p>
+                        <strong>Inhoud All-in pakket Turkije/Istanbul:</strong>
+                    </p>
+                    <ul style={{ marginLeft: '32px' }}>
+                        <li>Vooronderzoek</li>
+                        <li>Retour vliegticket met KLM of Turkish Airlines</li>
+                        <li>3 overnachtingen in Hilton Doubbletree Istanbul</li>
+                        <li>FUE-haartransplantatie behandeling</li>
+                        <li>Shampoo, lotion en medicatie</li>
+                        <li>1x prp behandeling in NL</li>
+                        <li>4x Nacontrole gedurende 10 maanden</li>
+                    </ul>
+                </>
             )}
-            <p>
-                <strong>Inhoud All-in pakket Turkije/Istanbul: </strong>
-            </p>
-            <ul style={{ marginLeft: '32px' }}>
-                <li>Vooronderzoek</li>
-                <li>Retour vliegticket met KLM of Turkish Airlines</li>
-                <li>3 overnachtingen in Hilton Doubbletree Istanbul</li>
-                <li>FUE-haartransplantatie behandeling</li>
-                <li>Shampoo, lotion en medicatie</li>
-                <li>1x prp behandeling in NL</li>
-                <li>4x Nacontrole gedurende 10 maanden</li>
-            </ul>
             <p>
                 Wij hopen u hiermee voldoende te hebben geïnformeerd en kijken uit naar uw bevindingen, mocht u vragen of opmerkingen hebben
                 dan horen wij deze graag van u.
