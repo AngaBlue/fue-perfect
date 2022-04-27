@@ -33,19 +33,19 @@ export default function Form({ state, setState }: { state: HairState; setState: 
             [0, 0],
             [0, 0]
         ];
-        price[0][0] = !Number.isNaN(state.priceOverride[0][0])
+        price[0][0] = !state.priceOverride[0][0]
             ? state.priceOverride[0][0]
             : Prices[Countries.NETHERLANDS][Grafts.first.findIndex(g => g === state.grafts[0])] + state.discount;
         if (state.sessions === 2)
-            price[0][1] = !Number.isNaN(state.priceOverride[0][1])
+            price[0][1] = !state.priceOverride[0][1]
                 ? state.priceOverride[0][1]
                 : Prices[Countries.NETHERLANDS][Grafts.first.findIndex(g => g === state.grafts[1])];
 
-        price[1][0] = !Number.isNaN(state.priceOverride[1][0])
+        price[1][0] = !state.priceOverride[1][0]
             ? state.priceOverride[1][0]
             : Prices[Countries.TURKEY][Grafts.first.findIndex(g => g === state.grafts[0])] + state.discount;
         if (state.sessions === 2)
-            price[1][1] = !Number.isNaN(state.priceOverride[1][1])
+            price[1][1] = !state.priceOverride[1][1]
                 ? state.priceOverride[1][1]
                 : Prices[Countries.TURKEY][Grafts.first.findIndex(g => g === state.grafts[1])];
 
