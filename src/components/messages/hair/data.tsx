@@ -50,8 +50,8 @@ export const defaultState = {
         [0, 0]
     ],
     priceOverride: [
-        [NaN, NaN],
-        [NaN, NaN]
+        [0, 0],
+        [0, 0]
     ],
     discount: Discounts[0],
     zones: [[] as boolean[], [] as boolean[]],
