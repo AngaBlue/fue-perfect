@@ -29,6 +29,7 @@ setDefaultLocale('nl');
 export default function Form({ state, setState }: { state: HairState; setState: Dispatch<SetStateAction<HairState>> }) {
     // Pricing
     useEffect(() => {
+        // Row = Country, Col = Session
         const price = [
             [0, 0],
             [0, 0]
@@ -220,7 +221,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                             onChange={(_, v) =>
                                 setState({
                                     ...state,
-                                    priceOverride: [[state.priceOverride[0][0], v], state.priceOverride[1]]
+                                    priceOverride: [state.priceOverride[0], [v, state.priceOverride[1][1]]]
                                 })
                             }
                             precision={0}
@@ -282,7 +283,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                             onChange={(_, v) =>
                                 setState({
                                     ...state,
-                                    priceOverride: [state.priceOverride[0], [v, state.priceOverride[1][1]]]
+                                    priceOverride: [[state.priceOverride[0][0], v], state.priceOverride[1]]
                                 })
                             }
                             precision={0}

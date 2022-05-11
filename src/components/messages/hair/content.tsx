@@ -122,7 +122,7 @@ export default function Content(state: HairState) {
                     <p>
                         <strong style={{ color: '#c82613' }}>
                             Kosten behandeling {state.sessions} sessie{state.sessions === 1 ? '' : 's'} in Nederland All-in €
-                            {state.price[0][0] + state.price[1][0]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
+                            {state.price[0][0] + state.price[0][1]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
                         </strong>
                         {state.sessions === 2 && (
                             <>
@@ -132,7 +132,7 @@ export default function Content(state: HairState) {
                                 </strong>
                                 <br />
                                 <span style={{ textDecoration: 'underline' }}>
-                                    <strong>Tweede sessie: €{state.price[1][0]} </strong>(na min 12 maanden genezingstijd, niet verplicht)
+                                    <strong>Tweede sessie: €{state.price[0][1]} </strong>(na min 12 maanden genezingstijd, niet verplicht)
                                 </span>
                             </>
                         )}
@@ -154,13 +154,13 @@ export default function Content(state: HairState) {
                     <p>
                         <strong style={{ color: '#c82613' }}>
                             Kosten behandeling {state.sessions} sessie{state.sessions === 1 ? '' : 's'} in Turkije All-in €
-                            {state.price[0][1] + state.price[1][1]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
+                            {state.price[1][0] + state.price[1][1]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
                         </strong>
                         {state.sessions === 2 && (
                             <>
                                 <br />
                                 <strong style={{ textDecoration: 'underline' }}>
-                                    Eerste sessie: €{state.price[0][1]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
+                                    Eerste sessie: €{state.price[1][0]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
                                 </strong>
                                 <br />
                                 <span style={{ textDecoration: 'underline' }}>
