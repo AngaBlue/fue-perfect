@@ -2,8 +2,6 @@ import { Box, Button, Divider, Heading, useToast } from '@chakra-ui/react';
 import { Dispatch, SetStateAction, useState } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { SpinnerIcon } from '@chakra-ui/icons';
-import FileSaver from 'file-saver';
-import dayjs from 'dayjs';
 import Credentials from './Credentials';
 import styles from './Layout.module.scss';
 import { defaultProvider } from '../data/provider';
@@ -50,15 +48,6 @@ export default function Layout({ credentials, content, form, subject }: LayoutPr
                     toast({
                         title: 'E-mail Verzonden',
                         description: `E-mail gestuurd naar ${credentials.state.recipient}.`,
-                        status: 'success'
-                    });
-                    // Download Log
-                    const filename = `${credentials.state.recipient} ${dayjs().format('DD-MM-YYYY')}.html`;
-                    const blob = new Blob([html], { type: 'text/plain;charset=utf-8' });
-                    FileSaver.saveAs(blob, filename);
-                    toast({
-                        title: 'Opgeslagen Bestand',
-                        description: `Bestand opgeslagen in ${filename}.`,
                         status: 'success'
                     });
                 } else {
