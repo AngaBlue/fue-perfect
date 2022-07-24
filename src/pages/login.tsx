@@ -1,13 +1,14 @@
-import { LockIcon } from '@chakra-ui/icons';
-import { Box, Center, Heading, Text, Flex, Button } from '@chakra-ui/react';
+import { Box, Center, Heading, Text, Flex, useColorMode } from '@chakra-ui/react';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import GoogleButton from 'react-google-button';
 import { SEO } from '../components/SEO';
 
 export default function Index() {
     const router = useRouter();
+    const colorMode = useColorMode();
 
     useEffect(() => {
         if (router.query.navigate) router.push(router.query.navigate as string);
@@ -30,7 +31,7 @@ export default function Index() {
                     <Text mb={8}>Gebruikers op de witte lijst kunnen inloggen via google.</Text>
                 </Box>
                 <NextLink href='/api/google' passHref>
-                    <Button leftIcon={<LockIcon />}>Inloggen met Google</Button>
+                    <GoogleButton type={colorMode.colorMode} />
                 </NextLink>
             </Flex>
         </>
