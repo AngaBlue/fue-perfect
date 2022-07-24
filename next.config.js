@@ -1,3 +1,4 @@
+// @ts-check
 const isDev = process.env.NODE_ENV !== 'production';
 
 /** @type {import('next').NextConfig} */
@@ -78,5 +79,17 @@ module.exports = {
             }
         ];
     },
-    poweredByHeader: false
+    poweredByHeader: false,
+    async redirects() {
+        return [{
+            source: '/cookie-policy',
+            destination: '/cookie-policy.html',
+            permanent: false
+        },
+        {
+            source: '/privacy-policy',
+            destination: '/privacy-policy.html',
+            permanent: false
+        }];
+    }
 };
