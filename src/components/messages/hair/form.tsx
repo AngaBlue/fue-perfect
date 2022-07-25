@@ -1,27 +1,27 @@
 import {
-    SimpleGrid,
     Box,
-    FormLabel,
-    InputGroup,
-    Input,
-    RadioGroup,
-    VStack,
-    Radio,
     Checkbox,
-    Select,
-    Textarea,
-    NumberInput,
+    FormLabel,
+    Input,
+    InputGroup,
     NumberDecrementStepper,
     NumberIncrementStepper,
+    NumberInput,
     NumberInputField,
-    NumberInputStepper
+    NumberInputStepper,
+    Radio,
+    RadioGroup,
+    Select,
+    SimpleGrid,
+    Textarea,
+    VStack
 } from '@chakra-ui/react';
+import nl from 'date-fns/locale/nl';
 import { Dispatch, SetStateAction, useEffect } from 'react';
 import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker';
-import nl from 'date-fns/locale/nl';
+import 'react-datepicker/dist/react-datepicker.css';
 import { Countries, Discounts, Gender, Grafts, HairState, HairType, Prices, Techniques } from './data';
 import styles from './form.module.scss';
-import 'react-datepicker/dist/react-datepicker.css';
 
 registerLocale('nl', nl);
 setDefaultLocale('nl');
@@ -359,6 +359,16 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                 <FormLabel>Behandeling data</FormLabel>
                 <InputGroup>
                     <Textarea placeholder='-' value={state.notes} onChange={e => setState({ ...state, notes: e.target.value })} />
+                </InputGroup>
+            </Box>
+            <Box>
+                <FormLabel>Extra Opmerking</FormLabel>
+                <InputGroup>
+                    <Textarea
+                        placeholder='-'
+                        value={state.opmerkingNotes}
+                        onChange={e => setState({ ...state, opmerkingNotes: e.target.value })}
+                    />
                 </InputGroup>
             </Box>
         </SimpleGrid>

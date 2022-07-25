@@ -1,9 +1,9 @@
-import { ReactNode, useEffect, useState } from 'react';
-import merge from 'merge-images';
 import { format } from 'date-fns';
 import nl from 'date-fns/locale/nl';
-import { Countries, Gender, HairState, HairType } from './data';
+import merge from 'merge-images';
+import { ReactNode, useEffect, useState } from 'react';
 import styles from './content.module.scss';
+import { Countries, Gender, HairState, HairType } from './data';
 
 export default function Content(state: HairState) {
     const [zone64, setZone64] = useState('');
@@ -114,6 +114,8 @@ export default function Content(state: HairState) {
                 <strong>Behandeling bestemming</strong>: {state.country}
                 <br />
                 <strong>Behandeling data</strong>: {state.notes || '-'}
+                <br />
+                <strong>Extra Opmerking</strong>: {state.opmerkingNotes || '-'}
                 <br />
             </p>
             <img src={zone64} alt='Zones' style={{ maxHeight: '300px' }} />

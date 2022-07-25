@@ -55,7 +55,8 @@ export const defaultState = {
     ],
     discount: Discounts[0],
     zones: [[] as boolean[], [] as boolean[]],
-    notes: ''
+    notes: '',
+    opmerkingNotes: ''
 };
 
 export type HairState = typeof defaultState;
