@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import styles from './content.module.scss';
+
 import { DentalState } from './data';
+import styles from './content.module.scss';
 
 export default function Content(props: DentalState) {
     const [logo, setLogo] = useState('');
@@ -15,17 +16,7 @@ export default function Content(props: DentalState) {
             <p>Het gaat om de volgende.</p>
             <p>Een tool ontwikkelen waarbij handmatig een behandelplan opgesteld kan worden, hieronder vindt je de gegevens terug.</p>
 
-            <p>
-                <strong>Behandeling</strong>: {props.city}
-                <br />
-                <strong>Reden gebitsbehandeling</strong>: {props.reason}
-                <br />
-                <strong>Behandelingen</strong>: {props.treatments || '-'}
-                <br />
-                <strong>Chirurgie</strong>: {props.surgery}
-                <br />
-                <strong>Prothese</strong>: {props.prosthesis}
-            </p>
+            <p></p>
             <p>Met vriendelijke groeten,</p>
             <p style={{ color: 'grey' }}>
                 <strong>Arkın Şentürk</strong>

@@ -1,13 +1,17 @@
 import { Box, Button, Divider, Heading, useToast } from '@chakra-ui/react';
 import { Dispatch, SetStateAction, useState } from 'react';
+
 import ReactDOMServer from 'react-dom/server';
 import { SpinnerIcon } from '@chakra-ui/icons';
 import Credentials from './Credentials';
-import styles from './Layout.module.scss';
 import { defaultProvider } from '../data/provider';
+import styles from './Layout.module.scss';
 
 interface LayoutProps {
-    credentials: { state: typeof defaultProvider; setState: Dispatch<SetStateAction<typeof defaultProvider>> };
+    credentials: {
+        state: typeof defaultProvider;
+        setState: Dispatch<SetStateAction<typeof defaultProvider>>;
+    };
     content: JSX.Element;
     form: JSX.Element;
     subject: string;
@@ -40,7 +44,11 @@ export default function Layout({ credentials, content, form, subject }: LayoutPr
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ credentials: credentials.state, subject, content: html })
+            body: JSON.stringify({
+                credentials: credentials.state,
+                subject,
+                content: html
+            })
         })
             .then(async response => {
                 if (response.status === 200) {

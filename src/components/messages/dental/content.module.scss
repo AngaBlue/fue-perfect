@@ -1,6 +1,22 @@
 .message {
-    p {
-        margin: 1em 0;
-        white-space: pre-line;
-    }
+  p {
+    margin: 1em 0;
+    white-space: pre-line;
+  }
+}
+.all_on {
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(30px);
+}
+.tooth_content {
+  display: flex;
+  justify-content: center;
+  background-image: url('./assets/tooth.png');
+  background-repeat: no-repeat;
+  width: 900px !important;
+  height: 640px;
+  object-fit: scale-down !important;
+  margin-top: 40px;
+  position: relative;
 }

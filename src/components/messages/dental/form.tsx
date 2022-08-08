@@ -1,88 +1,59 @@
-import { SimpleGrid, Box, FormLabel, InputGroup, Input, Select, Textarea } from '@chakra-ui/react';
-import { Dispatch, SetStateAction } from 'react';
-import { City, DentalState, Prosthesis, Reason, Surgery } from './data';
+import {
+    Box,
+    Checkbox,
+    FormLabel,
+    NumberDecrementStepper,
+    NumberIncrementStepper,
+    NumberInput,
+    NumberInputField,
+    NumberInputStepper,
+    Select,
+    SimpleGrid
+} from '@chakra-ui/react';
+import { ChangeEventHandler, Dispatch, SetStateAction } from 'react';
+import { DentalState, Technic } from './data';
+import styles from './content.module.scss';
 
 export default function Form({ state, setState }: { state: DentalState; setState: Dispatch<SetStateAction<DentalState>> }) {
+    const changeTechniken: ChangeEventHandler<HTMLSelectElement> = e => setState({ ...state, technic: e.target.value });
+
+    // const ChangeTechniken = (e: any) => {
+    //   setState({ ...state, technic: e.target.value })
+    //   console.log('>>>', state.technic)
+    // }
     return (
-        <SimpleGrid columns={[1, null, 2, 3, 4]} spacing={4}>
-            <Box>
-                <FormLabel>Voornaam Klant</FormLabel>
-                <InputGroup>
-                    <Input placeholder='John' value={state.firstname} onChange={e => setState({ ...state, firstname: e.target.value })} />
-                </InputGroup>
-            </Box>
-            <Box>
-                <FormLabel>Achternaam Klant</FormLabel>
-                <InputGroup>
-                    <Input placeholder='Smith' value={state.lastname} onChange={e => setState({ ...state, lastname: e.target.value })} />
-                </InputGroup>
-            </Box>
-            <Box>
-                <FormLabel>Locatie Behandeling</FormLabel>
-                <Select
-                    value={state.city}
-                    onChange={e => {
-                        setState({ ...state, city: e.target.value });
-                    }}
-                >
-                    {City.map(v => (
-                        <option key={v} value={v}>
-                            {v}
-                        </option>
-                    ))}
-                </Select>
-            </Box>
-            <Box>
-                <FormLabel>Reden Gebitsbehandeling</FormLabel>
-                <Select
-                    value={state.reason}
-                    onChange={e => {
-                        setState({ ...state, reason: e.target.value });
-                    }}
-                >
-                    {Reason.map(v => (
-                        <option key={v} value={v}>
-                            {v}
-                        </option>
-                    ))}
-                </Select>
-            </Box>
-            <Box>
-                <FormLabel>Behandeling data</FormLabel>
-                <InputGroup>
-                    <Textarea placeholder='-' value={state.treatments} onChange={e => setState({ ...state, treatments: e.target.value })} />
-                </InputGroup>
-            </Box>
-            <Box>
-                <FormLabel>Chirurgie</FormLabel>
-                <Select
-                    value={state.surgery}
-                    onChange={e => {
-                        setState({ ...state, surgery: e.target.value });
-                    }}
-                >
-                    {Surgery.map(v => (
-                        <option key={v} value={v}>
-                            {v}
-                        </option>
-                    ))}
-                </Select>
-            </Box>
-            <Box>
-                <FormLabel>Prothese</FormLabel>
-                <Select
-                    value={state.prosthesis}
-                    onChange={e => {
-                        setState({ ...state, prosthesis: e.target.value });
-                    }}
-                >
-                    {Prosthesis.map(v => (
-                        <option key={v} value={v}>
-                            {v}
-                        </option>
-                    ))}
-                </Select>
-            </Box>
-        </SimpleGrid>
+        <div>
+            <SimpleGrid columns={[1, null, 2, 3, 4]} spacing={4}>
+                <Box>
+                    <FormLabel>Techniek</FormLabel>
+                    <Select value={state.technic} onChange={changeTechniken}>
+                        {Technic.map(v => (
+                            <option key={v} value={v}>
+                                {v}
+                            </option>
+                        ))}
+                    </Select>
+
+                    <FormLabel mt={6}>Bone graft</FormLabel>
+                    <Checkbox ml={3} size='sm' colorScheme='green' value=''>
+                        € 275
+                    </Checkbox>
+                </Box>
+
+                <Box>
+                    <FormLabel>Extractie</FormLabel>
+                    <NumberInput min={1} max={32} step={1} precision={0}>
+                        <NumberInputField />
+                        <NumberInputStepper>
+                            <NumberIncrementStepper />
+                            <NumberDecrementStepper />
+                        </NumberInputStepper>
+                    </NumberInput>
+                </Box>
+            </SimpleGrid>
+            <div className={styles.tooth_content}>
+                <div className={styles.tooth_buttons}></div>
+            </div>
+        </div>
     );
 }
