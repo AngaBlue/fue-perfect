@@ -1,6 +1,6 @@
+// Chakra and React Hook
 import {
     Box,
-    Checkbox,
     FormLabel,
     NumberDecrementStepper,
     NumberIncrementStepper,
@@ -10,17 +10,42 @@ import {
     Select,
     SimpleGrid
 } from '@chakra-ui/react';
-import { ChangeEventHandler, Dispatch, SetStateAction } from 'react';
+import { ChangeEventHandler, Dispatch, SetStateAction, useCallback } from 'react';
+// Import Data
 import { DentalState, Technic } from './data';
+
+// Import Techniek Components
+import AllOnCom from './technics/AllOnCom';
+import BrugCom from './technics/BrugCom';
+import ImplantaatCom from './technics/ImplantaatCom';
+import SinusliftCom from './technics/SinusliftCom';
+import WortelkanaalCom from './technics/WortelkanaalCom';
+// Styles
 import styles from './content.module.scss';
 
+// ** Main **
 export default function Form({ state, setState }: { state: DentalState; setState: Dispatch<SetStateAction<DentalState>> }) {
+    // ChangeHandler Techniek in Selector
     const changeTechniken: ChangeEventHandler<HTMLSelectElement> = e => setState({ ...state, technic: e.target.value });
+    // Select Componentin Selector
+    const SelectTechniek = useCallback(() => {
+        switch (state.technic) {
+            case 'Implantaat':
+                return <ImplantaatCom state={state} setState={setState} />;
+            case 'Brug':
+                return <BrugCom state={state} setState={setState} />;
+            case 'Sinuslift':
+                return <SinusliftCom state={state} setState={setState} />;
+            case 'All-on':
+                return <AllOnCom state={state} setState={setState} />;
+            case 'Wortelkanaal behandeling':
+                return <WortelkanaalCom state={state} setState={setState} />;
+            default:
+                break;
+        }
+    }, [state, setState]);
+    console.log('@@@', state.technic);
 
-    // const ChangeTechniken = (e: any) => {
-    //   setState({ ...state, technic: e.target.value })
-    //   console.log('>>>', state.technic)
-    // }
     return (
         <div>
             <SimpleGrid columns={[1, null, 2, 3, 4]} spacing={4}>
@@ -33,13 +58,8 @@ export default function Form({ state, setState }: { state: DentalState; setState
                             </option>
                         ))}
                     </Select>
-
-                    <FormLabel mt={6}>Bone graft</FormLabel>
-                    <Checkbox ml={3} size='sm' colorScheme='green' value=''>
-                        € 275
-                    </Checkbox>
+                    <>{SelectTechniek()}</>
                 </Box>
-
                 <Box>
                     <FormLabel>Extractie</FormLabel>
                     <NumberInput min={1} max={32} step={1} precision={0}>

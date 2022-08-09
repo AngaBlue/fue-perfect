@@ -5,11 +5,13 @@
   }
 }
 .all_on {
+  margin: 0px 15px;
   display: flex;
   justify-content: space-between;
   transform: translateY(30px);
 }
 .tooth_content {
+  margin-top: 75px;
   display: flex;
   justify-content: center;
   background-image: url('./assets/tooth.png');
@@ -17,6 +19,5 @@
   width: 900px !important;
   height: 640px;
   object-fit: scale-down !important;
-  margin-top: 40px;
   position: relative;
 }
