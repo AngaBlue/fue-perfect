@@ -43,7 +43,7 @@ export default function Form({ state, setState }: { state: DentalState; setState
             default:
                 break;
         }
-    }, [state.technic]);
+    }, [state, setState]);
     console.log('@@@', state.technic);
 
     return (

@@ -1,4 +1,4 @@
-import { Box, Checkbox, FormLabel, Select, SimpleGrid } from '@chakra-ui/react';
+import { Box, Checkbox, FormLabel, Select } from '@chakra-ui/react';
 import { ChangeEventHandler, Dispatch, SetStateAction } from 'react';
 import { DentalState, ImplantMaterials, ImplantOptions } from '../data';
 

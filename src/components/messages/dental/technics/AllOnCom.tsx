@@ -1,17 +1,12 @@
 import { Box, Checkbox, FormLabel, Select, Text } from '@chakra-ui/react';
-import { ChangeEventHandler, Dispatch, SetStateAction, useCallback } from 'react';
+import { ChangeEventHandler, Dispatch, SetStateAction } from 'react';
 import { AllOn, DentalState } from '../data';
 
 import styles from '../content.module.scss';
 
 export default function AllOnCom({ state, setState }: { state: DentalState; setState: Dispatch<SetStateAction<DentalState>> }) {
     // ChangeHandler
-    const changeAllOnOptions: ChangeEventHandler<HTMLSelectElement> = useCallback(
-        (e: any) => {
-            setState({ ...state, allOn: e.target.value });
-        },
-        [state.allOn]
-    );
+    const changeAllOnOptions: ChangeEventHandler<HTMLSelectElement> = e => setState({ ...state, allOn: e.target.value });
 
     console.log('>>>', state.allOn);
     // Main
