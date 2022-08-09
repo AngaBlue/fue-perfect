@@ -61,6 +61,7 @@ export default function Form({
         break
     }
   }, [state.technic])
+  console.log('@@@', state.technic)
 
   return (
     <div>
