@@ -25,15 +25,21 @@ export const AllOn = ['All on 4', 'All on 6']
 // Wortel
 export const Wortel = ['1   €125', '2   €165', '3     €195']
 // SinusLift
-export const SinusLift = ['Open €1155', 'Gesloten €750']
+export const Sinuslift = ['Open €1155', 'Gesloten €750']
 
-//defaultState for DentalState
+// defaultState for DentalState
 export const defaultState = {
   firstname: '',
   lastname: '',
   email: '',
-  // date: '',
   technic: Technic[0],
+  implantOptions: ImplantOptions[0],
+  implantMaterials: ImplantMaterials[0],
+  brugOptions: BrugOptions[0],
+  brugMaterials: BrugMaterials[0],
+  allOn: AllOn[0],
+  wortel: Wortel[0],
+  sinuslift: Sinuslift[0],
   treatments: '',
 }
 
