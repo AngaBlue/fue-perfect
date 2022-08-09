@@ -23,9 +23,6 @@ export default function AllOnCom({
     },
     [state.allOn],
   )
-  // Previous-Handler
-  // const changeAllOnOptions: ChangeEventHandler<HTMLSelectElement> = (e: any) =>
-  //   setState({ ...state, allOn: e.target.value })
 
   console.log('>>>', state.allOn)
   // Main
