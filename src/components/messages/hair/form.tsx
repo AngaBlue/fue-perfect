@@ -1,3 +1,5 @@
+import 'react-datepicker/dist/react-datepicker.css';
+
 import {
     Box,
     Checkbox,
@@ -16,10 +18,10 @@ import {
     Textarea,
     VStack
 } from '@chakra-ui/react';
-import nl from 'date-fns/locale/nl';
-import { Dispatch, SetStateAction, useEffect } from 'react';
 import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+import { Dispatch, SetStateAction, useEffect } from 'react';
+
+import nl from 'date-fns/locale/nl';
 import { Countries, Discounts, Gender, Grafts, HairState, HairType, Prices, Techniques } from './data';
 import styles from './form.module.scss';
 
