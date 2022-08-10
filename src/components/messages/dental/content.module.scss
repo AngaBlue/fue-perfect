@@ -1,9 +1,49 @@
 .message {
+  font-family: 'Sans-Serif';
   p {
     margin: 1em 0;
     white-space: pre-line;
   }
 }
+
+.datepicker {
+  &:focus,
+  &:focus-visible {
+    z-index: 1;
+    border-color: #63b3ed;
+    box-shadow: 0 0 0 1px #63b3ed;
+  }
+
+  :global {
+    input {
+      background-color: transparent;
+      border: 1px solid;
+      border-color: inherit;
+      padding-inline-start: var(--space-4);
+      padding-inline-end: var(--space-4);
+      border-radius: var(--radii-md);
+      height: var(--sizes-10);
+      width: 100%;
+
+      &:focus,
+      &:focus-visible {
+        z-index: 1;
+        border-color: #63b3ed;
+        box-shadow: 0 0 0 1px #63b3ed;
+      }
+    }
+
+    .react-datepicker__triangle {
+      display: none;
+    }
+
+    .react-datepicker__day--selected,
+    .react-datepicker__day:hover {
+      background-color: var(--colors-brand-500);
+    }
+  }
+}
+
 .all_on {
   margin: 0px 15px;
   display: flex;
@@ -20,4 +60,49 @@
   height: 640px;
   object-fit: scale-down !important;
   position: relative;
+  .tooth_buttons_top {
+    display: flex;
+    position: absolute;
+    top: 205px;
+    left: 73px;
+    .teeth_btn_top {
+      box-sizing: border-box;
+      height: 100px;
+      position: relative;
+      background-color: transparent;
+      cursor: pointer;
+      z-index: 5;
+      .implantaat_image_top {
+        position: absolute;
+        bottom: 33px;
+        img {
+          z-index: 99;
+          width: 105px !important;
+        }
+      }
+    }
+  }
+  .tooth_buttons_bottom {
+    display: flex;
+    position: absolute;
+    top: 317px;
+    left: 86px;
+    .teeth_btn_bottom {
+      box-sizing: border-box;
+      height: 100px;
+      position: relative;
+      background-color: transparent;
+      cursor: pointer;
+      z-index: 5;
+      .implantaat_image_bottom {
+        position: absolute;
+        top: 27px;
+        img {
+          z-index: 99;
+          width: 105px !important;
+          // object-fit: fill;
+        }
+      }
+    }
+  }
 }
