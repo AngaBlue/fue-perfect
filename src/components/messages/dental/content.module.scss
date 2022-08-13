@@ -52,22 +52,27 @@
 }
 .tooth_content {
   margin-top: 75px;
-  display: flex;
-  justify-content: center;
   background-image: url('./assets/tooth.png');
   background-repeat: no-repeat;
-  width: 900px !important;
-  height: 640px;
-  object-fit: scale-down !important;
+  width: 1281px !important;
+  height: 738px !important;
   position: relative;
+  .top_teeth_image {
+    img {
+      position: absolute;
+    }
+  }
   .tooth_buttons_top {
     display: flex;
+    // position: relative;
     position: absolute;
-    top: 205px;
-    left: 73px;
+    top: 278px;
+    left: 53px;
+
     .teeth_btn_top {
+      z-index: 99;
       box-sizing: border-box;
-      height: 100px;
+      height: 158px;
       position: relative;
       background-color: transparent;
       cursor: pointer;
@@ -82,14 +87,19 @@
       }
     }
   }
+  .bottom_teeth_image {
+    img {
+      position: absolute;
+    }
+  }
   .tooth_buttons_bottom {
     display: flex;
     position: absolute;
-    top: 317px;
-    left: 86px;
+    top: 450px;
+    left: 74px;
     .teeth_btn_bottom {
       box-sizing: border-box;
-      height: 100px;
+      height: 129px;
       position: relative;
       background-color: transparent;
       cursor: pointer;
