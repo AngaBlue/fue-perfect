@@ -50,6 +50,8 @@
   justify-content: space-between;
   transform: translateY(30px);
 }
+
+// Tooth Content ClassName
 .tooth_content {
   margin-top: 75px;
   background-image: url('./assets/main.png');
@@ -57,6 +59,62 @@
   width: 1281px !important;
   height: 738px !important;
   position: relative;
+  .description {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    border: solid 3px #1a79c6;
+    position: absolute;
+    color: #1a79c6;
+    width: 410px;
+    top: 25px;
+    left: 15px;
+    border-radius: 8px;
+    height: 100px;
+  }
+  .important_notes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bolder;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 370px;
+    height: 300px;
+    color: #1a79c6;
+
+    .note {
+      display: flex;
+      align-items: center;
+      img {
+        width: 40px;
+        height: auto;
+        margin-right: 10px;
+      }
+    }
+    .implant_note {
+    }
+    .brug_note {
+    }
+    .understand_note {
+      display: flex;
+      align-items: center;
+      img {
+        width: 44px !important;
+        cursor: pointer;
+        height: auto;
+        margin-right: 10px;
+      }
+      span {
+        background-color: #1a79c6;
+        // border: solid 1px #1a79c6;
+        // margin-right: 10px;
+        // text-decoration: underline;
+      }
+    }
+  }
   .slide_tooth_btn {
     position: absolute;
     top: 75px;
@@ -105,8 +163,28 @@
       color: red;
       cursor: pointer;
       border: solid 1px red;
+      .Top_brug_hover {
+        display: none;
+      }
       &:hover {
         border: solid 1px red;
+        .Top_brug_hover {
+          top: -40px;
+          left: -40px;
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 14px;
+          background-color: red;
+          width: 170px;
+          height: 35px;
+          // border: solid 1px red;
+          border-radius: 10px;
+          padding: 5px 10px;
+          color: white;
+          font-weight: bold;
+        }
       }
       &:active {
         background-color: red;
@@ -120,6 +198,7 @@
     left: 82px;
     z-index: 10;
     display: flex;
+
     .teethBottomNumber {
       position: relative;
       padding: 10px;
@@ -130,7 +209,27 @@
       color: red;
       cursor: pointer;
       border: solid 1px red;
+      .Bottom_brug_hover {
+        display: none;
+      }
       &:hover {
+        .Bottom_brug_hover {
+          top: 46px;
+          left: -40px;
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 14px;
+          background-color: red;
+          width: 170px;
+          height: 35px;
+          // border: solid 1px red;
+          border-radius: 10px;
+          padding: 5px 10px;
+          color: white;
+          font-weight: bold;
+        }
         border: solid 1px red;
       }
       &:active {
@@ -148,8 +247,7 @@
   }
   .tooth_buttons_top {
     display: flex;
-    // position: relative;
-    position: absolute;
+    position: relative;
     top: 278px;
     left: 53px;
 
@@ -161,6 +259,27 @@
       background-color: transparent;
       cursor: pointer;
       z-index: 5;
+      .top_implant_hover {
+        display: none;
+      }
+      &:hover {
+        .top_implant_hover {
+          z-index: 999;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          position: relative;
+          top: -20px;
+          left: 45px;
+          width: 200px !important;
+          height: 50px !important;
+          border-radius: 7px;
+          background-color: #1a79c6;
+          color: white;
+          font-size: 14px;
+        }
+      }
       .implantaat_image_top {
         position: absolute;
         bottom: 33px;

@@ -9,11 +9,7 @@ export const Gender = {
     FEMALE: 'Vrouwelijk'
 };
 // Brug
-export const BrugOptions = [
-    'Driedelige brug   3x material-crown',
-    'Vierdelige brug   4x material-crown',
-    'Vijfdelige brug   5x material-crown'
-];
+export const BrugOptions = ['Driedelige brug 3x material-crown', 'Vierdelige brug 4x material-crown', 'Vijfdelige brug 5x material-crown'];
 export const BrugMaterials = ['Porselein €195', 'Zirconium €295', 'E-Maz €315'];
 // AllOn
 export const AllOn = ['All on 4', 'All on 6'];

@@ -58,6 +58,7 @@ export default function Form({ state, setState }: { state: DentalState; setState
     };
     return (
         <div>
+            {/* Tooth Options */}
             <SimpleGrid columns={[1, null, 2, 3, 4]} spacing={4}>
                 <Box>
                     <FormLabel>Voornaam Klant</FormLabel>
@@ -128,12 +129,46 @@ export default function Form({ state, setState }: { state: DentalState; setState
                     </NumberInput>
                 </Box>
             </SimpleGrid>
-            <div className={styles.tooth_content}>
-                <div className={styles.slide_tooth_btn}>
-                    <div className={styles.permanent_tooth_btn}>Het vlijvende gebit</div>
-                    <div className={styles.child_tooth_btn}>Melktanden</div>
-                </div>
-                <div className={styles.top_tooth_numbers}>
+            {/* End Options */}
+
+            {/* Tooth Image */}
+            <Box className={styles.tooth_content}>
+                <Box className={styles.slide_tooth_btn}>
+                    <Box className={styles.permanent_tooth_btn}>Het vlijvende gebit</Box>
+                    <Box className={styles.child_tooth_btn}>Melktanden</Box>
+                </Box>
+                <Box className={styles.description}>
+                    <Box>
+                        <h1 style={{ fontWeight: 'bold' }}>Implantaat:</h1>
+                        <p>A-Kwaliteit €895</p>
+                        <p>Porselein €195</p>
+                    </Box>
+                    <Box>
+                        <h1 style={{ fontWeight: 'bold' }}>Brug: </h1>
+                        <p>Driedelige brug 3x material-crown</p>
+                        <p>Porselein €195</p>
+                    </Box>
+                </Box>
+                <Box className={styles.important_notes}>
+                    <Box className={styles.note}>
+                        <img src='/important.png' alt='Important_image' />
+                        <p>Notes</p>
+                    </Box>
+
+                    <Box className={styles.implant_note}>
+                        <p>Clicking teeth, you can have implant.</p>
+                    </Box>
+                    <Box className={styles.brug_note}>
+                        <p>Clicking the number of teeth, you can have brug</p>
+                    </Box>
+                    <Box className={styles.understand_note}>
+                        <img src='/nomsg.png' alt='No_message' />
+
+                        <p>Do you make sense of notes?</p>
+                    </Box>
+                </Box>
+                <Box className={styles.all_price}></Box>
+                <Box className={styles.top_tooth_numbers}>
                     {state.topTooth.map((teeth, index) => (
                         <div
                             key={index}
@@ -153,11 +188,12 @@ export default function Form({ state, setState }: { state: DentalState; setState
                                 color: teeth.clickBrug % 2 === 1 ? 'white' : 'red'
                             }}
                         >
+                            <span className={styles.Top_brug_hover}>Brug: Porselein €195</span>
                             {teeth.teethNum}
                         </div>
                     ))}
-                </div>
-                <div className={styles.bottom_tooth_numbers}>
+                </Box>
+                <Box className={styles.bottom_tooth_numbers}>
                     {state.bottomTooth.map((teeth, index) => (
                         <div
                             key={index}
@@ -176,10 +212,11 @@ export default function Form({ state, setState }: { state: DentalState; setState
                                 color: teeth.clickBrug % 2 === 1 ? 'white' : 'red'
                             }}
                         >
+                            <span className={styles.Bottom_brug_hover}>Brug: Porselein €195</span>
                             {teeth.teethNum}
                         </div>
                     ))}
-                </div>
+                </Box>
                 <>
                     {state.topTooth.map((item, id) =>
                         item.clickImplant % 2 === 1 && item.clickImplant > 0 && item.clickBrug % 2 === 0 ? (
@@ -212,7 +249,7 @@ export default function Form({ state, setState }: { state: DentalState; setState
                         ) : null
                     )}
                 </>
-                <div className={styles.tooth_buttons_top}>
+                <Box className={styles.tooth_buttons_top}>
                     {state.topTooth.map((topT, index) => (
                         <div
                             key={index}
@@ -227,11 +264,15 @@ export default function Form({ state, setState }: { state: DentalState; setState
                             }}
                             className={styles.teeth_btn_top}
                             style={{ width: topT.teethWidth }}
-                        ></div>
+                        >
+                            <span className={styles.top_implant_hover}>
+                                <p>Implantaat: A-Kwaliteit €895</p>
+                                <p>Material: Porselein €195</p>
+                            </span>
+                        </div>
                     ))}
-                </div>
-
-                <div className={styles.tooth_buttons_bottom}>
+                </Box>
+                <Box className={styles.tooth_buttons_bottom}>
                     {state.bottomTooth.map((bottomT, index) => (
                         <div
                             key={index}
@@ -247,8 +288,8 @@ export default function Form({ state, setState }: { state: DentalState; setState
                             style={{ width: bottomT.teethWidth }}
                         ></div>
                     ))}
-                </div>
-            </div>
+                </Box>
+            </Box>
         </div>
     );
 }
