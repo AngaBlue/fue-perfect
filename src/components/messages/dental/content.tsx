@@ -12,24 +12,84 @@ export default function Content(props: DentalState) {
 
     return (
         <div className={styles.message}>
-            <p>Beste {props.firstname},</p>
-            <p>Het gaat om de volgende.</p>
-            <p>Een tool ontwikkelen waarbij handmatig een behandelplan opgesteld kan worden, hieronder vindt je de gegevens terug.</p>
-
-            <p></p>
-            <p>Met vriendelijke groeten,</p>
-            <p style={{ color: 'grey' }}>
+            <p>Geachte: {`${props.firstname} ${props.lastname}`}</p>
+            <p>
+                Bedankt voor de interesse die u getoond heeft in onze organisatie. Aan de hand van uw röntgenfoto zijn wij uitgekomen tot de
+                onderstaande behandelplan.
+            </p>
+            <span style={{ color: 'red', fontSize: '19px' }}>The price of implantaat</span> <br />
+            <p style={{ color: '#1a79c6', fontSize: '19px' }}>Extracties: {}</p>
+            <p style={{ color: '#1a79c6', fontSize: '19px' }}>Implantaat: {}</p>
+            <p style={{ color: '#1a79c6', fontSize: '19px' }}>Bone graft: {}</p>
+            <p style={{ color: '#1a79c6', fontSize: '19px' }}>Brug: {}</p>
+            <p style={{ color: '#1a79c6', fontSize: '19px' }}>
+                U behoort voor uw behandeling in totaal 2 keer af te reizen naar Turkije, tijdens uw eerste bezoek (3 werkdagen) worden de
+                extracties uitgevoerd, sinus grafting uitgevoerd, en de implantaten geplaatst. Na 3 maanden genezingstijd behoort u nogmaals
+                af te reizen (6 werkdagen) voor de opbouw (kroon en brugwerk){' '}
+            </p>
+            {/* Description */}
+            <p style={{ fontWeight: 'bold' }}>Kwaliteit en garantie</p>
+            <p>
+                Onze privé tand kliniek in Istanbul beschikt over de meest ervaren tand specialisten met de modernste apparatuur. Wij gaan
+                bij onze behandelingen voor de beste en duurzaamste kwaliteit om al onze klanten tevreden te houden.{' '}
+            </p>
+            <p>
+                Daarom geven wij liefst 10 jaar garantie op facings, kroon- en brugwerk en levenslang garantie op implantaten bij verzorging
+                van het gebit naar voorschriften.
+            </p>
+            <p style={{ fontWeight: 'bold' }}>Reis en verblijf</p>
+            <p>
+                Wij boeken uw ticket(s) naar Turkije / istanbul, en u wordt op het vliegveld opgevangen door onze shuttle service. Deze
+                brengt u naar uw Hotel.
+            </p>
+            <div style={{ display: 'flex' }}>
+                <p>Tijdens uw verblijf zult u overnachten in een vijf sterren hotel </p>
+                <p
+                    style={{
+                        color: '#1a79c6',
+                        textDecoration: 'underline',
+                        paddingLeft: '10px'
+                    }}
+                >
+                    <a href='www.hotelsuadiye.com'>Hotel Suadiye</a>
+                </p>
+            </div>
+            <p style={{ fontWeight: 'bold' }}>Nazorg Controles</p>
+            <p>
+                Voor eventuele nazorg hoeft u niet naar Turkije af te reizen. In Nederland beschikken wij over twee tandartspraktijken waar
+                u terecht kunt voor controles en spoedeisende hulp.
+            </p>
+            <p style={{ fontWeight: 'bold' }}>Heeft u nog twijfels?</p>
+            <p>
+                Zeer begrijpelijk. Het is ook niet niets. Als u wilt, kunnen wij enkele telefoonnummers van onze klanten die recent zijn
+                behandeld aan u doorgeven. Dan kunt u met hen contact opnemen en naar hun ervaringen en tips vragen.
+            </p>
+            <p style={{ fontWeight: 'bold' }}>Vragen?</p>
+            <div style={{ display: 'flex' }}>
+                <p>Tijdens uw verblijf zult u overnachten in een vijf sterren hotel </p>
+                <p
+                    style={{
+                        color: '#1a79c6',
+                        textDecoration: 'underline',
+                        paddingLeft: '10px'
+                    }}
+                >
+                    <a href='www.dentperfect.nl'>www.dentperfect.nl</a>
+                </p>
+            </div>
+            <p>Wij vertrouwen erop u voldoende te hebben geïnformeerd en zien uit naar uw reactie.</p>
+            {/*  */}
+            <p style={{ fontWeight: 'bold', fontStyle: 'italic' }}>Met vriendelijke groeten,</p>
+            <p style={{ color: 'grey', fontWeight: 'bold', fontStyle: 'italic' }}>
                 <strong>Arkın Şentürk</strong>
             </p>
             <img src={logo} alt='Dutch Clinic' />
             <p>
                 <i>
                     <strong style={{ color: 'orange' }}>
-                        Hoofdweg 848A
+                        Houtstraat 70, 1353 BD Almere
                         <br />
-                        2132 MC, Hoofddorp
-                        <br />
-                        Tel: 020-261 32 00
+                        Tel: 036-202 21 15
                         <br />
                         Mobiel: 06-15 03 87 65 <br />
                     </strong>
