@@ -59,7 +59,7 @@
   position: relative;
   .slide_tooth_btn {
     position: absolute;
-    top: 90px;
+    top: 75px;
     display: flex;
     width: 100%;
     justify-content: center;
@@ -69,7 +69,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 300px;
+      width: 200px;
       height: 50px;
       border-radius: 50px;
       z-index: 9;
@@ -81,15 +81,64 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 300px;
+      width: 200px;
       height: 60px;
       border-radius: 50px;
-      transform: translate(-80px, -5px);
+      transform: translate(-40px, -5px);
       z-index: 2;
       padding: 10px !important;
     }
   }
-
+  .top_tooth_numbers {
+    position: absolute;
+    top: 170px;
+    left: 72px;
+    z-index: 10;
+    display: flex;
+    .teethTopNumber {
+      position: relative;
+      padding: 10px;
+      background-color: white;
+      border-radius: 50%;
+      font-weight: bold;
+      width: 43px;
+      color: red;
+      cursor: pointer;
+      border: solid 1px white;
+      &:hover {
+        border: solid 1px red;
+      }
+      &:active {
+        background-color: red;
+        color: white;
+      }
+    }
+  }
+  .bottom_tooth_numbers {
+    position: absolute;
+    bottom: 37px;
+    left: 82px;
+    z-index: 10;
+    display: flex;
+    .teethBottomNumber {
+      position: relative;
+      padding: 10px;
+      background-color: white;
+      border-radius: 50%;
+      font-weight: bold;
+      width: 43px;
+      color: red;
+      cursor: pointer;
+      border: solid 1px white;
+      &:hover {
+        border: solid 1px red;
+      }
+      &:active {
+        background-color: red;
+        color: white;
+      }
+    }
+  }
   .top_teeth_image {
     img {
       position: absolute;

@@ -133,9 +133,56 @@ export default function Form({ state, setState }: { state: DentalState; setState
                     <div className={styles.permanent_tooth_btn}>Het vlijvende gebit</div>
                     <div className={styles.child_tooth_btn}>Melktanden</div>
                 </div>
+                <div className={styles.top_tooth_numbers}>
+                    {state.topTooth.map((teeth, index) => (
+                        <div
+                            key={index}
+                            onClick={() => {
+                                const TopTeeth = state.topTooth.map((item, count) =>
+                                    count === index && teeth.clickImplant % 2 === 0 ? { ...item, clickBrug: item.clickBrug + 1 } : item
+                                );
+                                setState({
+                                    ...state,
+                                    topTooth: TopTeeth
+                                });
+                            }}
+                            className={styles.teethTopNumber}
+                            style={{
+                                marginRight: teeth.marginRight,
+                                backgroundColor: teeth.clickBrug % 2 === 1 ? 'red' : 'white',
+                                color: teeth.clickBrug % 2 === 1 ? 'white' : 'red'
+                            }}
+                        >
+                            {teeth.teethNum}
+                        </div>
+                    ))}
+                </div>
+                <div className={styles.bottom_tooth_numbers}>
+                    {state.bottomTooth.map((teeth, index) => (
+                        <div
+                            key={index}
+                            onClick={() => {
+                                setState({
+                                    ...state,
+                                    bottomTooth: state.bottomTooth.map((item, count) =>
+                                        count === index && teeth.clickImplant % 2 === 0 ? { ...item, clickBrug: item.clickBrug + 1 } : item
+                                    )
+                                });
+                            }}
+                            className={styles.teethBottomNumber}
+                            style={{
+                                marginRight: teeth.marginRight,
+                                backgroundColor: teeth.clickBrug % 2 === 1 ? 'red' : 'white',
+                                color: teeth.clickBrug % 2 === 1 ? 'white' : 'red'
+                            }}
+                        >
+                            {teeth.teethNum}
+                        </div>
+                    ))}
+                </div>
                 <>
                     {state.topTooth.map((item, id) =>
-                        item.clickNum % 2 === 1 && item.clickNum > 0 ? (
+                        item.clickImplant % 2 === 1 && item.clickImplant > 0 && item.clickBrug % 2 === 0 ? (
                             <div className={styles.top_teeth_image}>
                                 <img
                                     src={TopToothImages[id].imageUrl}
@@ -151,7 +198,7 @@ export default function Form({ state, setState }: { state: DentalState; setState
                 </>
                 <>
                     {state.bottomTooth.map((item, id) =>
-                        item.clickNum % 2 === 1 && item.clickNum > 0 ? (
+                        item.clickImplant % 2 === 1 && item.clickImplant > 0 && item.clickBrug % 2 === 0 ? (
                             <div className={styles.bottom_teeth_image}>
                                 <img
                                     src={BottomToothImages[id].imageUrl}
@@ -171,7 +218,7 @@ export default function Form({ state, setState }: { state: DentalState; setState
                             key={index}
                             onClick={() => {
                                 const TopTeeth = state.topTooth.map((item, count) =>
-                                    count === index ? { ...item, clickNum: item.clickNum + 1 } : item
+                                    count === index ? { ...item, clickImplant: item.clickImplant + 1 } : item
                                 );
                                 setState({
                                     ...state,
@@ -192,23 +239,13 @@ export default function Form({ state, setState }: { state: DentalState; setState
                                 setState({
                                     ...state,
                                     bottomTooth: state.bottomTooth.map((item, count) =>
-                                        count === index ? { ...item, clickNum: item.clickNum + 1 } : item
+                                        count === index ? { ...item, clickImplant: item.clickImplant + 1 } : item
                                     )
                                 });
                             }}
                             className={styles.teeth_btn_bottom}
                             style={{ width: bottomT.teethWidth }}
-                        >
-                            {/* {bottomT.clickNum % 2 === 1 && bottomT.clickNum > 0 ? (
-                <span className={styles.implantaat_image_bottom}>
-                  <img
-                    src="/implantImg.png"
-                    alt="Fue Perfect Banner"
-                    style={{ height: bottomT.teethHeight }}
-                  />
-                </span>
-              ) : null} */}
-                        </div>
+                        ></div>
                     ))}
                 </div>
             </div>

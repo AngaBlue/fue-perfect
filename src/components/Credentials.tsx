@@ -1,6 +1,7 @@
-import { EmailIcon } from '@chakra-ui/icons';
 import { Box, FormLabel, Input, InputGroup, InputLeftElement, SimpleGrid } from '@chakra-ui/react';
 import { Dispatch, SetStateAction } from 'react';
+
+import { EmailIcon } from '@chakra-ui/icons';
 import { defaultProvider } from '../data/provider';
 
 export interface CredentialsProps {

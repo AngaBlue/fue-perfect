@@ -23,26 +23,139 @@ export const Wortel = ['1   €125', '2   €165', '3     €195'];
 export const Sinuslift = ['Open €1155', 'Gesloten €750'];
 // Selected Implantaat tooth
 export const SelectedImplantaatTeeth = [];
-// Top Tooth Buttons 11-18 and 21-28
+// Top Tooth Buttons and implant images 11-18 and 21-28
 export const TopTooth = [
-    { teethWidth: 82, teethNum: 18, clickNum: 0, teethHeight: 69 },
-    { teethWidth: 89, teethNum: 17, clickNum: 0, teethHeight: 69 },
-    { teethWidth: 98, teethNum: 16, clickNum: 0, teethHeight: 69 },
-    { teethWidth: 54, teethNum: 15, clickNum: 0, teethHeight: 64 },
-    { teethWidth: 68, teethNum: 14, clickNum: 0, teethHeight: 75 },
-    { teethWidth: 67, teethNum: 13, clickNum: 0, teethHeight: 84 },
-    { teethWidth: 60, teethNum: 12, clickNum: 0, teethHeight: 70 },
-    { teethWidth: 71, teethNum: 11, clickNum: 0, teethHeight: 76 },
+    {
+        teethWidth: 82,
+        teethNum: 18,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 69,
+        marginRight: '27px'
+    },
+    {
+        teethWidth: 89,
+        teethNum: 17,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 69,
+        marginRight: '46px'
+    },
+    {
+        teethWidth: 98,
+        teethNum: 16,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 69,
+        marginRight: '47px'
+    },
+    {
+        teethWidth: 54,
+        teethNum: 15,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 64,
+        marginRight: '20px'
+    },
+    {
+        teethWidth: 68,
+        teethNum: 14,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 75,
+        marginRight: '35px'
+    },
+    {
+        teethWidth: 67,
+        teethNum: 13,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 84,
+        marginRight: '20px'
+    },
+    {
+        teethWidth: 60,
+        teethNum: 12,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 70,
+        marginRight: '20px'
+    },
+    {
+        teethWidth: 71,
+        teethNum: 11,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 76,
+        marginRight: '30px'
+    },
 
-    { teethWidth: 73, teethNum: 21, clickNum: 0, teethHeight: 76 },
-    { teethWidth: 58, teethNum: 22, clickNum: 0, teethHeight: 70 },
-    { teethWidth: 70, teethNum: 23, clickNum: 0, teethHeight: 85 },
-    { teethWidth: 64, teethNum: 24, clickNum: 0, teethHeight: 74 },
-    { teethWidth: 57, teethNum: 25, clickNum: 0, teethHeight: 64 },
-    { teethWidth: 94, teethNum: 26, clickNum: 0, teethHeight: 71 },
-    { teethWidth: 95, teethNum: 27, clickNum: 0, teethHeight: 71 },
-    { teethWidth: 82, teethNum: 28, clickNum: 0, teethHeight: 71 }
+    {
+        teethWidth: 73,
+        teethNum: 21,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 76,
+        marginRight: '20px'
+    },
+    {
+        teethWidth: 58,
+        teethNum: 22,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 70,
+        marginRight: '20px'
+    },
+    {
+        teethWidth: 70,
+        teethNum: 23,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 85,
+        marginRight: '30px'
+    },
+    {
+        teethWidth: 64,
+        teethNum: 24,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 74,
+        marginRight: '20px'
+    },
+    {
+        teethWidth: 57,
+        teethNum: 25,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 64,
+        marginRight: '41px'
+    },
+    {
+        teethWidth: 94,
+        teethNum: 26,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 71,
+        marginRight: '47px'
+    },
+    {
+        teethWidth: 95,
+        teethNum: 27,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 71,
+        marginRight: '34px'
+    },
+    {
+        teethWidth: 82,
+        teethNum: 28,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 71,
+        marginRight: '0px'
+    }
 ];
+
 export const TopToothImages = [
     { top: '172px', left: '40.5px', imageUrl: '/top/18.png' },
     { top: '223.5px', left: '118.8px', imageUrl: '/top/17.png' },
@@ -62,25 +175,137 @@ export const TopToothImages = [
     { top: '239px', left: '1048.7px', imageUrl: '/top/27.png' },
     { top: '236px', left: '1140.8px', imageUrl: '/top/28.png' }
 ];
-// Bottom Tooth Buttons 31-38 and 41-48
+// Bottom Tooth Buttons and implant images 31-38 and 41-48
 export const BottomTooth = [
-    { teethWidth: 86, teethNum: 48, clickNum: 0, teethHeight: 58 },
-    { teethWidth: 88, teethNum: 47, clickNum: 0, teethHeight: 50 },
-    { teethWidth: 92, teethNum: 46, clickNum: 0, teethHeight: 62 },
-    { teethWidth: 65, teethNum: 45, clickNum: 0, teethHeight: 81 },
-    { teethWidth: 72, teethNum: 44, clickNum: 0, teethHeight: 90 },
-    { teethWidth: 69, teethNum: 43, clickNum: 0, teethHeight: 96 },
-    { teethWidth: 49, teethNum: 42, clickNum: 0, teethHeight: 74 },
-    { teethWidth: 50, teethNum: 41, clickNum: 0, teethHeight: 77 },
+    {
+        teethWidth: 86,
+        teethNum: 48,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 58,
+        marginRight: '51px'
+    },
+    {
+        teethWidth: 88,
+        teethNum: 47,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 50,
+        marginRight: '48px'
+    },
+    {
+        teethWidth: 92,
+        teethNum: 46,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 62,
+        marginRight: '45px'
+    },
+    {
+        teethWidth: 65,
+        teethNum: 45,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 81,
+        marginRight: '23px'
+    },
+    {
+        teethWidth: 72,
+        teethNum: 44,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 90,
+        marginRight: '23px'
+    },
+    {
+        teethWidth: 69,
+        teethNum: 43,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 96,
+        marginRight: '28px'
+    },
+    {
+        teethWidth: 49,
+        teethNum: 42,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 74,
+        marginRight: '2px'
+    },
+    {
+        teethWidth: 50,
+        teethNum: 41,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 77,
+        marginRight: '5px'
+    },
 
-    { teethWidth: 48, teethNum: 31, clickNum: 0, teethHeight: 78 },
-    { teethWidth: 50, teethNum: 32, clickNum: 0, teethHeight: 72 },
-    { teethWidth: 68, teethNum: 33, clickNum: 0, teethHeight: 97 },
-    { teethWidth: 72, teethNum: 34, clickNum: 0, teethHeight: 87 },
-    { teethWidth: 66, teethNum: 35, clickNum: 0, teethHeight: 81 },
-    { teethWidth: 93, teethNum: 36, clickNum: 0, teethHeight: 61 },
-    { teethWidth: 87, teethNum: 37, clickNum: 0, teethHeight: 50 },
-    { teethWidth: 82, teethNum: 38, clickNum: 0, teethHeight: 58 }
+    {
+        teethWidth: 48,
+        teethNum: 31,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 78,
+        marginRight: '1px'
+    },
+    {
+        teethWidth: 50,
+        teethNum: 32,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 72,
+        marginRight: '19px'
+    },
+    {
+        teethWidth: 68,
+        teethNum: 33,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 97,
+        marginRight: '29px'
+    },
+    {
+        teethWidth: 72,
+        teethNum: 34,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 87,
+        marginRight: '22px'
+    },
+    {
+        teethWidth: 66,
+        teethNum: 35,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 81,
+        marginRight: '48px'
+    },
+    {
+        teethWidth: 93,
+        teethNum: 36,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 61,
+        marginRight: '52px'
+    },
+    {
+        teethWidth: 87,
+        teethNum: 37,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 50,
+        marginRight: '40px'
+    },
+    {
+        teethWidth: 82,
+        teethNum: 38,
+        clickBrug: 0,
+        clickImplant: 0,
+        teethHeight: 58,
+        marginRight: '0px'
+    }
 ];
 
 export const BottomToothImages = [
