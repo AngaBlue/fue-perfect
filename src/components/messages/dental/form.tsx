@@ -174,7 +174,7 @@ export default function Form({ state, setState }: { state: DentalState; setState
                             key={index}
                             onClick={() => {
                                 const TopTeeth = state.topTooth.map((item, count) =>
-                                    count === index && teeth.clickImplant % 2 === 0 ? { ...item, clickBrug: item.clickBrug + 1 } : item
+                                    count === index ? { ...item, clickBrug: item.clickBrug + 1 } : item
                                 );
                                 setState({
                                     ...state,
@@ -201,7 +201,7 @@ export default function Form({ state, setState }: { state: DentalState; setState
                                 setState({
                                     ...state,
                                     bottomTooth: state.bottomTooth.map((item, count) =>
-                                        count === index && teeth.clickImplant % 2 === 0 ? { ...item, clickBrug: item.clickBrug + 1 } : item
+                                        count === index ? { ...item, clickBrug: item.clickBrug + 1 } : item
                                     )
                                 });
                             }}
@@ -219,7 +219,7 @@ export default function Form({ state, setState }: { state: DentalState; setState
                 </Box>
                 <>
                     {state.topTooth.map((item, id) =>
-                        item.clickImplant % 2 === 1 && item.clickImplant > 0 && item.clickBrug % 2 === 0 ? (
+                        item.clickImplant % 2 === 1 && item.clickImplant > 0 ? (
                             <div className={styles.top_teeth_image}>
                                 <img
                                     src={TopToothImages[id].imageUrl}
@@ -235,7 +235,7 @@ export default function Form({ state, setState }: { state: DentalState; setState
                 </>
                 <>
                     {state.bottomTooth.map((item, id) =>
-                        item.clickImplant % 2 === 1 && item.clickImplant > 0 && item.clickBrug % 2 === 0 ? (
+                        item.clickImplant % 2 === 1 && item.clickImplant > 0 ? (
                             <div className={styles.bottom_teeth_image}>
                                 <img
                                     src={BottomToothImages[id].imageUrl}

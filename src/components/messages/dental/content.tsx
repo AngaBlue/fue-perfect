@@ -17,11 +17,112 @@ export default function Content(props: DentalState) {
                 Bedankt voor de interesse die u getoond heeft in onze organisatie. Aan de hand van uw röntgenfoto zijn wij uitgekomen tot de
                 onderstaande behandelplan.
             </p>
-            <span style={{ color: 'red', fontSize: '19px' }}>The price of implantaat</span> <br />
+            {/* Tooth Image */}
+            <div className={styles.tooth_content}>
+                <div className={styles.slide_tooth_btn}>
+                    <div className={styles.permanent_tooth_btn}>Het vlijvende gebit</div>
+                    <div className={styles.child_tooth_btn}>Melktanden</div>
+                </div>
+                <div className={styles.description_mail}>
+                    <div>
+                        <h1 style={{ fontWeight: 'bold' }}>Implantaat:</h1>
+                        <p>A-Kwaliteit €895</p>
+                        <p>Porselein €195</p>
+                    </div>
+                    <div>
+                        <h1 style={{ fontWeight: 'bold' }}>Brug: </h1>
+                        <p>Driedelige brug 3x material-crown</p>
+                        <p>Porselein €195</p>
+                    </div>
+                </div>
+
+                <div className={styles.all_price}></div>
+                <div className={styles.top_tooth_numbers}>
+                    {props.topTooth.map((teeth, index) => (
+                        <div
+                            key={index}
+                            className={styles.teethTopNumber}
+                            style={{
+                                marginRight: teeth.marginRight,
+                                backgroundColor: teeth.clickBrug % 2 === 1 ? 'red' : 'white',
+                                color: teeth.clickBrug % 2 === 1 ? 'white' : 'red'
+                            }}
+                        >
+                            <span className={styles.Top_brug_hover}>Brug: Porselein €195</span>
+                            {teeth.teethNum}
+                        </div>
+                    ))}
+                </div>
+                <div className={styles.bottom_tooth_numbers}>
+                    {props.bottomTooth.map((teeth, index) => (
+                        <div
+                            key={index}
+                            className={styles.teethBottomNumber}
+                            style={{
+                                marginRight: teeth.marginRight,
+                                backgroundColor: teeth.clickBrug % 2 === 1 ? 'red' : 'white',
+                                color: teeth.clickBrug % 2 === 1 ? 'white' : 'red'
+                            }}
+                        >
+                            <span className={styles.Bottom_brug_hover}>Brug: Porselein €195</span>
+                            {teeth.teethNum}
+                        </div>
+                    ))}
+                </div>
+                <>
+                    {props.topTooth.map((item, id) =>
+                        item.clickImplant % 2 === 1 && item.clickImplant > 0 ? (
+                            <div className={styles.top_teeth_image}>
+                                <img
+                                    src={props.topToothImages[id].imageUrl}
+                                    alt=''
+                                    style={{
+                                        top: props.topToothImages[id].top,
+                                        left: props.topToothImages[id].left
+                                    }}
+                                />
+                            </div>
+                        ) : null
+                    )}
+                </>
+                <>
+                    {props.bottomTooth.map((item, id) =>
+                        item.clickImplant % 2 === 1 && item.clickImplant > 0 ? (
+                            <div className={styles.bottom_teeth_image}>
+                                <img
+                                    src={props.bottomToothImages[id].imageUrl}
+                                    alt=''
+                                    style={{
+                                        bottom: props.bottomToothImages[id].bottom,
+                                        left: props.bottomToothImages[id].left
+                                    }}
+                                />
+                            </div>
+                        ) : null
+                    )}
+                </>
+                <div className={styles.tooth_buttons_top}>
+                    {props.topTooth.map((topT, index) => (
+                        <div key={index} className={styles.teeth_btn_top} style={{ width: topT.teethWidth }}>
+                            <span className={styles.top_implant_hover}>
+                                <p>Implantaat: A-Kwaliteit €895</p>
+                                <p>Material: Porselein €195</p>
+                            </span>
+                        </div>
+                    ))}
+                </div>
+                <div className={styles.tooth_buttons_bottom}>
+                    {props.bottomTooth.map((bottomT, index) => (
+                        <div key={index} className={styles.teeth_btn_bottom} style={{ width: bottomT.teethWidth }}></div>
+                    ))}
+                </div>
+            </div>
+            {/* Price */}
+            <span style={{ color: 'red', fontSize: '19px', marginTop: '20px' }}>The price of implantaat</span> <br />
             <p style={{ color: '#1a79c6', fontSize: '19px' }}>Extracties: {}</p>
             <p style={{ color: '#1a79c6', fontSize: '19px' }}>Implantaat: {}</p>
             <p style={{ color: '#1a79c6', fontSize: '19px' }}>Bone graft: {}</p>
-            <p style={{ color: '#1a79c6', fontSize: '19px' }}>Brug: {}</p>
+            <p style={{ color: 'red', fontSize: '19px' }}>Brug: {}</p>
             <p style={{ color: '#1a79c6', fontSize: '19px' }}>
                 U behoort voor uw behandeling in totaal 2 keer af te reizen naar Turkije, tijdens uw eerste bezoek (3 werkdagen) worden de
                 extracties uitgevoerd, sinus grafting uitgevoerd, en de implantaten geplaatst. Na 3 maanden genezingstijd behoort u nogmaals

@@ -156,18 +156,18 @@ export const TopToothImages = [
     { top: '172px', left: '40.5px', imageUrl: '/top/18.png' },
     { top: '223.5px', left: '118.8px', imageUrl: '/top/17.png' },
     { top: '249.4px', left: '166px', imageUrl: '/top/16.png' },
-    { top: '222px', left: '322.8px', imageUrl: '/top/15.png' },
-    { top: '227px', left: '379px', imageUrl: '/top/14.png' },
-    { top: '225px', left: '443px', imageUrl: '/top/13.png' },
-    { top: '230px', left: '512px', imageUrl: '/top/12.png' },
-    { top: '221px', left: '571px', imageUrl: '/top/11.png' },
+    { top: '240px', left: '322px', imageUrl: '/top/15.png' },
+    { top: '239px', left: '379px', imageUrl: '/top/14.png' },
+    { top: '211px', left: '442px', imageUrl: '/top/13.png' },
+    { top: '240px', left: '512px', imageUrl: '/top/12.png' },
+    { top: '210px', left: '572.5px', imageUrl: '/top/11.png' },
 
-    { top: '218px', left: '641.5px', imageUrl: '/top/21.png' },
-    { top: '233px', left: '713.5px', imageUrl: '/top/22.png' },
-    { top: '225.5px', left: '773px', imageUrl: '/top/23.png' },
-    { top: '239px', left: '842.6px', imageUrl: '/top/24.png' },
+    { top: '212px', left: '642.5px', imageUrl: '/top/21.png' },
+    { top: '212px', left: '714.5px', imageUrl: '/top/22.png' },
+    { top: '203.5px', left: '773px', imageUrl: '/top/23.png' },
+    { top: '215px', left: '843.6px', imageUrl: '/top/24.png' },
     { top: '241px', left: '908px', imageUrl: '/top/25.png' },
-    { top: '229px', left: '941px', imageUrl: '/top/26.png' },
+    { top: '228.5px', left: '941px', imageUrl: '/top/26.png' },
     { top: '239px', left: '1048.7px', imageUrl: '/top/27.png' },
     { top: '236px', left: '1140.8px', imageUrl: '/top/28.png' }
 ];
@@ -305,49 +305,49 @@ export const BottomTooth = [
 ];
 
 export const BottomToothImages = [
-    { bottom: '91.5px', left: '74px', imageUrl: '/bottom/48.png' },
+    { bottom: '111px', left: '73.2px', imageUrl: '/bottom/48.png' },
     {
-        bottom: '101px',
+        bottom: '64px',
         left: '161.5px',
         imageUrl: '/bottom/47.png'
     },
-    { bottom: '106px', left: '251px', imageUrl: '/bottom/46.png' },
-    { bottom: '81px', left: '340px', imageUrl: '/bottom/45.png' },
-    { bottom: '85px', left: '406px', imageUrl: '/bottom/44.png' },
-    { bottom: '73px', left: '477px', imageUrl: '/bottom/43.png' },
-    { bottom: '87px', left: '547px', imageUrl: '/bottom/42.png' },
-    { bottom: '85px', left: '595px', imageUrl: '/bottom/41.png' },
+    { bottom: '62px', left: '249px', imageUrl: '/bottom/46.png' },
+    { bottom: '68px', left: '339.3px', imageUrl: '/bottom/45.png' },
+    { bottom: '53px', left: '404px', imageUrl: '/bottom/44.png' },
+    { bottom: '55px', left: '477px', imageUrl: '/bottom/43.png' },
+    { bottom: '72px', left: '546px', imageUrl: '/bottom/42.png' },
+    { bottom: '77px', left: '595px', imageUrl: '/bottom/41.png' },
 
-    { bottom: '88px', left: '645px', imageUrl: '/bottom/31.png' },
-    { bottom: '85px', left: '694px', imageUrl: '/bottom/32.png' },
+    { bottom: '77px', left: '644px', imageUrl: '/bottom/31.png' },
+    { bottom: '87px', left: '694px', imageUrl: '/bottom/32.png' },
     {
-        bottom: '73px',
+        bottom: '55px',
         left: '744.7px',
         imageUrl: '/bottom/33.png'
     },
     {
-        bottom: '76.8px',
+        bottom: '62.8px',
         left: '811px',
         imageUrl: '/bottom/34.png'
     },
     {
         bottom: '83px',
-        left: '883.7px',
+        left: '882.7px',
         imageUrl: '/bottom/35.png'
     },
     {
-        bottom: '103.8px',
-        left: '950px',
+        bottom: '104px',
+        left: '949px',
         imageUrl: '/bottom/36.png'
     },
     {
-        bottom: '102px',
-        left: '1041.4px',
+        bottom: '104.5px',
+        left: '1040.7px',
         imageUrl: '/bottom/37.png'
     },
     {
-        bottom: '95.7px',
-        left: '1130px',
+        bottom: '101.7px',
+        left: '1129px',
         imageUrl: '/bottom/38.png'
     }
 ];
@@ -368,7 +368,9 @@ export const defaultState = {
     sinuslift: Sinuslift[0],
     treatments: '',
     topTooth: TopTooth,
-    bottomTooth: BottomTooth
+    bottomTooth: BottomTooth,
+    bottomToothImages: BottomToothImages,
+    topToothImages: TopToothImages
 };
 
 export type DentalState = typeof defaultState;

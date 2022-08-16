@@ -73,6 +73,20 @@
     border-radius: 8px;
     height: 100px;
   }
+  .description_mail {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    border: solid 3px #1a79c6;
+    position: absolute;
+    color: #1a79c6;
+    width: 410px;
+    top: 10px;
+    left: 15px;
+    border-radius: 8px;
+    height: 120px;
+  }
   .important_notes {
     display: flex;
     flex-direction: column;
