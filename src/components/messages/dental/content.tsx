@@ -126,13 +126,13 @@ export default function Content(props: DentalState) {
             <p style={{ color: '#1a79c6', fontSize: '19px' }}>
                 U behoort voor uw behandeling in totaal 2 keer af te reizen naar Turkije, tijdens uw eerste bezoek (3 werkdagen) worden de
                 extracties uitgevoerd, sinus grafting uitgevoerd, en de implantaten geplaatst. Na 3 maanden genezingstijd behoort u nogmaals
-                af te reizen (6 werkdagen) voor de opbouw (kroon en brugwerk){' '}
+                af te reizen (6 werkdagen) voor de opbouw (kroon en brugwerk)
             </p>
             {/* Description */}
             <p style={{ fontWeight: 'bold' }}>Kwaliteit en garantie</p>
             <p>
                 Onze privé tand kliniek in Istanbul beschikt over de meest ervaren tand specialisten met de modernste apparatuur. Wij gaan
-                bij onze behandelingen voor de beste en duurzaamste kwaliteit om al onze klanten tevreden te houden.{' '}
+                bij onze behandelingen voor de beste en duurzaamste kwaliteit om al onze klanten tevreden te houden.
             </p>
             <p>
                 Daarom geven wij liefst 10 jaar garantie op facings, kroon- en brugwerk en levenslang garantie op implantaten bij verzorging
