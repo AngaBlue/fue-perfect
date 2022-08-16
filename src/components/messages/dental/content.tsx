@@ -11,7 +11,7 @@ export default function Content(props: DentalState) {
     }, []);
 
     return (
-        <div className={styles.message}>
+        <div className={styles.message} style={{ fontFamily: 'Sans-Serif' }}>
             <p>Geachte: {`${props.firstname} ${props.lastname}`}</p>
             <p>
                 Bedankt voor de interesse die u getoond heeft in onze organisatie. Aan de hand van uw röntgenfoto zijn wij uitgekomen tot de
