@@ -34,21 +34,26 @@ import styles from './content.module.scss';
 export default function Form({ state, setState }: { state: DentalState; setState: Dispatch<SetStateAction<DentalState>> }) {
     // ChangeHandler Techniek in Selector
     const changeTechniken: ChangeEventHandler<HTMLSelectElement> = e => setState({ ...state, technic: e.target.value });
-
     // Select Componentin Selector
     const SelectTechniek = () => {
         switch (state.technic) {
             case 'Implantaat':
                 return <ImplantaatCom state={state} setState={setState} />;
+                break;
             case 'Brug':
                 return <BrugCom state={state} setState={setState} />;
+                break;
             case 'Sinuslift':
                 return <SinusliftCom state={state} setState={setState} />;
+                break;
             case 'All-on':
                 return <AllOnCom state={state} setState={setState} />;
+                break;
             case 'Wortelkanaal behandeling':
                 return <WortelkanaalCom state={state} setState={setState} />;
+                break;
             default:
+                break;
         }
     };
     return (

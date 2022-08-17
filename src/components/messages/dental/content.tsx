@@ -19,7 +19,7 @@ export default function Content(props: DentalState) {
     }, []);
 
     return (
-        <div className={styles.message} style={{ fontFamily: 'Sans-Serif' }}>
+        <div className={styles.message}>
             <p>Geachte: {`${props.firstname} ${props.lastname}`}</p>
             <p>
                 Bedankt voor de interesse die u getoond heeft in onze organisatie. Aan de hand van uw röntgenfoto zijn wij uitgekomen tot de
@@ -54,7 +54,6 @@ export default function Content(props: DentalState) {
                 <div className={styles.mail_child_btn}>Melktanden</div>
             </div>
             {/* Price */}
-<<<<<<< HEAD
             <div className={styles.detail}>
                 <div style={{ color: 'red', fontSize: '19px', marginTop: '20px' }}>The price of implantaat</div> <br />
                 <p style={{ color: '#1a79c6', fontSize: '19px' }}>Extracties: {}</p>
@@ -138,43 +137,6 @@ export default function Content(props: DentalState) {
                             <a href='mailto:info@dentperfect.nl'>info@dentperfect.nl</a>
                         </strong>
                     </i>
-=======
-            <span style={{ color: 'red', fontSize: '19px', marginTop: '20px' }}>The price of implantaat</span> <br />
-            <p style={{ color: '#1a79c6', fontSize: '19px' }}>Extracties: {}</p>
-            <p style={{ color: '#1a79c6', fontSize: '19px' }}>Implantaat: {}</p>
-            <p style={{ color: '#1a79c6', fontSize: '19px' }}>Bone graft: {}</p>
-            <p style={{ color: 'red', fontSize: '19px' }}>Brug: {}</p>
-            <p style={{ color: '#1a79c6', fontSize: '19px' }}>
-                U behoort voor uw behandeling in totaal 2 keer af te reizen naar Turkije, tijdens uw eerste bezoek (3 werkdagen) worden de
-                extracties uitgevoerd, sinus grafting uitgevoerd, en de implantaten geplaatst. Na 3 maanden genezingstijd behoort u nogmaals
-                af te reizen (6 werkdagen) voor de opbouw (kroon en brugwerk)
-            </p>
-            {/* Description */}
-            <p style={{ fontWeight: 'bold' }}>Kwaliteit en garantie</p>
-            <p>
-                Onze privé tand kliniek in Istanbul beschikt over de meest ervaren tand specialisten met de modernste apparatuur. Wij gaan
-                bij onze behandelingen voor de beste en duurzaamste kwaliteit om al onze klanten tevreden te houden.
-            </p>
-            <p>
-                Daarom geven wij liefst 10 jaar garantie op facings, kroon- en brugwerk en levenslang garantie op implantaten bij verzorging
-                van het gebit naar voorschriften.
-            </p>
-            <p style={{ fontWeight: 'bold' }}>Reis en verblijf</p>
-            <p>
-                Wij boeken uw ticket(s) naar Turkije / istanbul, en u wordt op het vliegveld opgevangen door onze shuttle service. Deze
-                brengt u naar uw Hotel.
-            </p>
-            <div style={{ display: 'flex' }}>
-                <p>Tijdens uw verblijf zult u overnachten in een vijf sterren hotel </p>
-                <p
-                    style={{
-                        color: '#1a79c6',
-                        textDecoration: 'underline',
-                        paddingLeft: '10px'
-                    }}
-                >
-                    <a href='www.hotelsuadiye.com'>Hotel Suadiye</a>
->>>>>>> 85e3e32de28343f3ad8286939d8f9e84f7ef9f45
                 </p>
             </div>
         </div>
