@@ -4,6 +4,55 @@
     margin: 1em 0;
     white-space: pre-line;
   }
+  .mail_main_tooth {
+    position: relative;
+    // display: flex;
+    .main_tooth {
+      z-index: -1;
+      position: absolute;
+      // padding-bottom: 500px !important;
+
+      top: 0px;
+      left: 0px;
+    }
+  }
+  .mail_slide_btn {
+    position: absolute;
+    // display: flex;
+
+    .mail_permanent_btn {
+      position: absolute;
+      top: 40px;
+      left: 400px;
+      z-index: 90;
+      cursor: pointer;
+      width: 200px;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #1a79c6;
+      border-radius: 50px;
+    }
+    .mail_child_btn {
+      position: absolute;
+      top: 40px;
+      left: 500px;
+      color: gray;
+      background-color: #eeeeee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      border-radius: 50px;
+      z-index: 2;
+      transform: translate(55px, -5px);
+      padding: 16px 20px !important;
+    }
+  }
+  .detail {
+    margin-top: 720px;
+  }
 }
 
 .datepicker {

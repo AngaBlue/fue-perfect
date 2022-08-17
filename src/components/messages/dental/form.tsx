@@ -134,7 +134,7 @@ export default function Form({ state, setState }: { state: DentalState; setState
             {/* Tooth Image */}
             <Box className={styles.tooth_content}>
                 <Box className={styles.slide_tooth_btn}>
-                    <Box className={styles.permanent_tooth_btn}>Het vlijvende gebit</Box>
+                    <Box className={styles.permanent_tooth_btn}>Het blijvende gebit</Box>
                     <Box className={styles.child_tooth_btn}>Melktanden</Box>
                 </Box>
                 <Box className={styles.description}>
