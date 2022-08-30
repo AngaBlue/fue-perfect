@@ -20,8 +20,9 @@ import {
 } from '@chakra-ui/react';
 import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker';
 import { Dispatch, SetStateAction, useEffect } from 'react';
+
 import nl from 'date-fns/locale/nl';
-import { Countries, Discounts, Gender, Grafts, HairState, HairType, Prices, PRPPrices, Techniques } from './data';
+import { Countries, Discounts, Gender, Grafts, HairState, HairType, Prices, Techniques } from './data';
 import styles from './form.module.scss';
 
 registerLocale('nl', nl);
@@ -371,18 +372,6 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                         onChange={e => setState({ ...state, opmerkingNotes: e.target.value })}
                     />
                 </InputGroup>
-            </Box>
-            <Box>
-                <FormLabel>PRP Behandeling {state.prp}</FormLabel>
-                <RadioGroup value={state.prp} onChange={d => setState({ ...state, prp: Number(d) })}>
-                    <VStack align='left'>
-                        {Array(4).fill(null).map((v, i) => (
-                            <Radio key={i} value={i + 1}>
-                                {i + 1}xPRP behandeling - €{PRPPrices[i]}
-                            </Radio>
-                        ))}
-                    </VStack>
-                </RadioGroup>
             </Box>
         </SimpleGrid>
     );

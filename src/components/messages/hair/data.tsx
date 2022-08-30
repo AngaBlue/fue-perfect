@@ -28,8 +28,6 @@ export const Prices = {
     [Countries.TURKEY]: [2150, 2250, 2350, 2450, 2550, 2650, 2750]
 };
 
-export const PRPPrices = [275, 250, 225, 200];
-
 export const Discounts = [0, -100, -200, -300];
 
 export const defaultState = {
@@ -58,8 +56,7 @@ export const defaultState = {
     discount: Discounts[0],
     zones: [[] as boolean[], [] as boolean[]],
     notes: '',
-    opmerkingNotes: '',
-    prp: 1
+    opmerkingNotes: ''
 };
 
 export type HairState = typeof defaultState;

@@ -1,9 +1,10 @@
-import { Box, Flex, Heading, Spacer, Select } from '@chakra-ui/react';
+import { Box, Flex, Heading, Select, Spacer } from '@chakra-ui/react';
+
 import { GetServerSideProps } from 'next';
 import { useState } from 'react';
-import messages from '../data/messages';
-import { defaultProvider } from '../data/provider';
 import authorize from '../util/authorize';
+import { defaultProvider } from '../data/provider';
+import messages from '../data/messages';
 
 export default function Index() {
     const [template, setTemplate] = useState({ index: 0 });
