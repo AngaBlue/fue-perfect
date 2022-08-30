@@ -20,7 +20,6 @@ export default function Index() {
   const router = useRouter()
   const colorMode = useColorMode()
   const [welcome, setWelcome] = useState<boolean>(false)
-  // After 2 sec, change welcome state
   useEffect(() => {
     if (router.query.navigate) router.push(router.query.navigate as string)
     setTimeout(() => {
