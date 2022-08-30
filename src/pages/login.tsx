@@ -25,7 +25,7 @@ export default function Index() {
     if (router.query.navigate) router.push(router.query.navigate as string)
     setTimeout(() => {
       setWelcome(true)
-    }, 2000)
+    }, 3500)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.query])
 
@@ -38,7 +38,7 @@ export default function Index() {
           alignItems="center"
           justifyContent="center"
         >
-          <Box className="animate__animated animate__flipInY animate__delay-2s animate__zoomOutRight">
+          <Box className="animate__animated animate__delay-3s animate__zoomOutRight">
             <Image
               src="/welcome.png"
               alt="Fue Perfect Banner"
