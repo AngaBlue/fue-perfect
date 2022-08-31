@@ -13,25 +13,26 @@ export default function Index() {
     const router = useRouter();
     const colorMode = useColorMode();
     const [welcome, setWelcome] = useState<boolean>(false);
+
     useEffect(() => {
         if (router.query.navigate) router.push(router.query.navigate as string);
         setTimeout(() => {
             setWelcome(true);
-        }, 5700);
-    }, [router.query]);
+        }, 1700);
+    }, [router]);
 
     return (
         <>
             {welcome === false ? (
                 <Flex height='100vh' w='full' alignItems='center' justifyContent='center'>
-                    <Box className='animate__animated animate__flipInY animate__delay-5s animate__zoomOutRight'>
+                    <Box className='animate__animated animate__flipInY animate__delay-1s animate__zoomOutRight'>
                         <Image src='/welcome.png' alt='Fue Perfect Banner' height={150} width={413} />
                     </Box>
                 </Flex>
             ) : null}
             <SEO />
             {welcome === true ? (
-                <Box className='animate__animated animate__delay-1s animate__zoomInLeft'>
+                <Box className='animate__animated animate__zoomInLeft'>
                     <Flex p={4} pt={2} height='100vh' w='full' alignItems='center' justifyContent='center' direction='column'>
                         <Box>
                             <Box>
