@@ -24,7 +24,7 @@ export default function Index() {
         <>
             {welcome === false ? (
                 <Flex height='100vh' w='full' alignItems='center' justifyContent='center'>
-                    <Box className='animate__animated animate__flipInY animate__delay-5s animate__zoomOutRight'>
+                    <Box className='animate__animated animate__flipInY animate__delay-4s animate__zoomOutRight'>
                         <Image src='/welcome.png' alt='Fue Perfect Banner' height={150} width={413} />
                     </Box>
                 </Flex>
