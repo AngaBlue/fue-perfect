@@ -22,7 +22,7 @@ import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker';
 import { Dispatch, SetStateAction, useEffect } from 'react';
 
 import nl from 'date-fns/locale/nl';
-import { Countries, Discounts, Gender, Grafts, HairState, HairType, Prices, Techniques } from './data';
+import { Countries, Discounts, Gender, Grafts, HairState, HairType, Prices, PRPPrices, Techniques } from './data';
 import styles from './form.module.scss';
 
 registerLocale('nl', nl);
@@ -372,6 +372,18 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                         onChange={e => setState({ ...state, opmerkingNotes: e.target.value })}
                     />
                 </InputGroup>
+            </Box>
+            <Box>
+                <FormLabel>PRP Behandeling</FormLabel>
+                <RadioGroup value={state.prp} onChange={d => setState({ ...state, prp: Number(d) as typeof state.prp })}>
+                    <VStack align='left'>
+                        {PRPPrices.map((v, i) => (
+                            <Radio key={i} value={i + 1}>
+                                {i + 1}xPRP Behandeling - €{v}
+                            </Radio>
+                        ))}
+                    </VStack>
+                </RadioGroup>
             </Box>
         </SimpleGrid>
     );
