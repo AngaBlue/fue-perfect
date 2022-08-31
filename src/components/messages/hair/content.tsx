@@ -3,7 +3,7 @@ import { ReactNode, useEffect, useState } from 'react';
 import { format } from 'date-fns';
 import merge from 'merge-images';
 import nl from 'date-fns/locale/nl';
-import { Countries, Gender, HairState, HairType } from './data';
+import { Countries, Gender, HairState, HairType, PRPPrices } from './data';
 import styles from './content.module.scss';
 
 export default function Content(state: HairState) {
@@ -140,6 +140,12 @@ export default function Content(state: HairState) {
                                 </span>
                             </>
                         )}
+                        <strong style={{ color: '#c82613' }}>
+                            <br />
+                            Kosten PRP behandeling: €{PRPPrices[state.prp - 1] * state.prp}
+                            <br />
+                            Totaal: €{state.price[0][0] + state.price[0][1] + PRPPrices[state.prp - 1] * state.prp}
+                        </strong>
                     </p>
                     <p>
                         <strong>Inhoud All-in pakket Nederland:</strong>
@@ -173,6 +179,12 @@ export default function Content(state: HairState) {
                                 </span>
                             </>
                         )}
+                        <strong style={{ color: '#c82613' }}>
+                            <br />
+                            Kosten PRP behandeling: €{PRPPrices[state.prp - 1] * state.prp}
+                            <br />
+                            Totaal: €{state.price[1][0] + state.price[1][1] + PRPPrices[state.prp - 1] * state.prp}
+                        </strong>
                     </p>
                     <p>
                         <strong>Inhoud All-in pakket Turkije/Istanbul:</strong>
