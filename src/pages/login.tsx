@@ -17,21 +17,21 @@ export default function Index() {
         if (router.query.navigate) router.push(router.query.navigate as string);
         setTimeout(() => {
             setWelcome(true);
-        }, 4500);
+        }, 5200);
     }, [router.query]);
 
     return (
         <>
             {welcome === false ? (
                 <Flex height='100vh' w='full' alignItems='center' justifyContent='center'>
-                    <Box className='animate__animated animate__flipInY animate__delay-4s animate__zoomOutRight'>
+                    <Box className='animate__animated animate__flipInY animate__delay-4.5s animate__zoomOutRight'>
                         <Image src='/welcome.png' alt='Fue Perfect Banner' height={150} width={413} />
                     </Box>
                 </Flex>
             ) : null}
             <SEO />
             {welcome === true ? (
-                <Box className='animate__animated animate__delay-1s animate__zoomInLeft'>
+                <Box className='animate__animated animate__delay-0.8s animate__zoomInLeft'>
                     <Flex p={4} pt={2} height='100vh' w='full' alignItems='center' justifyContent='center' direction='column'>
                         <Box>
                             <Box>
