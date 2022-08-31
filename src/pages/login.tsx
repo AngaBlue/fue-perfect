@@ -1,20 +1,11 @@
-import 'animate.css'
-
-import {
-  Box,
-  Center,
-  Flex,
-  Heading,
-  Text,
-  useColorMode,
-} from '@chakra-ui/react'
-import { useEffect, useState } from 'react'
-
-import GoogleButton from 'react-google-button'
-import Image from 'next/image'
-import NextLink from 'next/link'
-import { SEO } from '../components/SEO'
-import { useRouter } from 'next/router'
+import 'animate.css';
+import { Box, Center, Flex, Heading, Text, useColorMode } from '@chakra-ui/react';
+import { useEffect, useState } from 'react';
+import GoogleButton from 'react-google-button';
+import Image from 'next/image';
+import NextLink from 'next/link';
+import { useRouter } from 'next/router';
+import { SEO } from '../components/SEO';
 
 export default function Index() {
     const router = useRouter();
