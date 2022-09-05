@@ -55,12 +55,12 @@ export default function Content(props: DentalState) {
             </div>
             {/* Price */}
             <div className={styles.detail}>
-                <div style={{ color: 'red', fontSize: '19px', marginTop: '20px' }}>The price of implantaat</div> <br />
-                <p style={{ color: '#1a79c6', fontSize: '19px' }}>Extracties: {}</p>
-                <p style={{ color: '#1a79c6', fontSize: '19px' }}>Implantaat: {}</p>
-                <p style={{ color: '#1a79c6', fontSize: '19px' }}>Bone graft: {}</p>
-                <p style={{ color: 'red', fontSize: '19px' }}>Brug: {}</p>
-                <p style={{ color: '#1a79c6', fontSize: '19px' }}>
+                <div style={{ color: 'red', marginTop: '20px' }}>The price of implantaat</div> <br />
+                <p style={{ color: '#1a79c6'}}>Extracties: {}</p>
+                <p style={{ color: '#1a79c6' }}>Implantaat: {}</p>
+                <p style={{ color: '#1a79c6' }}>Bone graft: {}</p>
+                <p style={{ color: 'red' }}>Brug: {}</p>
+                <p style={{ color: '#1a79c6' }}>
                     U behoort voor uw behandeling in totaal 2 keer af te reizen naar Turkije, tijdens uw eerste bezoek (3 werkdagen) worden
                     de extracties uitgevoerd, sinus grafting uitgevoerd, en de implantaten geplaatst. Na 3 maanden genezingstijd behoort u
                     nogmaals af te reizen (6 werkdagen) voor de opbouw (kroon en brugwerk){' '}
