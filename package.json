@@ -40,7 +40,7 @@
     "@babel/core": "^7.18.13",
     "@types/jsonwebtoken": "^8.5.9",
     "@types/merge-images": "^1.2.1",
-    "@types/node": "18.7.14",
+    "@types/node": "18.7.15",
     "@types/nodemailer": "^6.4.5",
     "@types/react": "18.0.18",
     "@types/react-datepicker": "^4.4.2",
@@ -48,7 +48,7 @@
     "eslint": "8.23.0",
     "eslint-config-next": "12.2.5",
     "prettier": "^2.7.1",
-    "sass": "^1.54.7",
+    "sass": "^1.54.8",
     "typescript": "4.8.2"
   }
 }

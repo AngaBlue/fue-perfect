@@ -16,7 +16,7 @@ export default function Index() {
         if (router.query.navigate) router.push(router.query.navigate as string);
         setTimeout(() => {
             setWelcome(true);
-        }, 1700);
+        }, 1_700);
     }, [router]);
 
     return (

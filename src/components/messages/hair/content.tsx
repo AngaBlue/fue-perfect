@@ -142,7 +142,7 @@ export default function Content(state: HairState) {
                         )}
                         <strong style={{ color: '#c82613' }}>
                             <br />
-                            Kosten PRP behandeling: €{PRPPrices[state.prp - 1] * state.prp}
+                            Kosten PRP behandeling (1 gratis): €{PRPPrices[state.prp - 1] * state.prp}
                             <br />
                             Totaal: €{state.price[0][0] + state.price[0][1] + PRPPrices[state.prp - 1] * state.prp}
                         </strong>
@@ -195,7 +195,7 @@ export default function Content(state: HairState) {
                         <li>3 overnachtingen in Hilton Doubbletree Istanbul</li>
                         <li>FUE-haartransplantatie behandeling</li>
                         <li>Shampoo, lotion en medicatie</li>
-                        <li>1x prp behandeling in NL</li>
+                        <li>{state.prp}x prp behandeling in NL</li>
                         <li>4x Nacontrole gedurende 10 maanden</li>
                     </ul>
                 </>
