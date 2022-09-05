@@ -142,9 +142,9 @@ export default function Content(state: HairState) {
                         )}
                         <strong style={{ color: '#c82613' }}>
                             <br />
-                            Kosten PRP behandeling (1 gratis): €{PRPPrices[state.prp - 1] * state.prp}
+                            Kosten PRP behandeling (1 gratis): €{PRPPrices[state.prp - 1] * (state.prp - 1)}
                             <br />
-                            Totaal: €{state.price[0][0] + state.price[0][1] + PRPPrices[state.prp - 1] * state.prp}
+                            Totaal: €{state.price[0][0] + state.price[0][1] + PRPPrices[state.prp - 1] * (state.prp - 1)}
                         </strong>
                     </p>
                     <p>
@@ -181,9 +181,9 @@ export default function Content(state: HairState) {
                         )}
                         <strong style={{ color: '#c82613' }}>
                             <br />
-                            Kosten PRP behandeling: €{PRPPrices[state.prp - 1] * state.prp}
+                            Kosten PRP behandeling: €{PRPPrices[state.prp - 1] * (state.prp - 1)}
                             <br />
-                            Totaal: €{state.price[1][0] + state.price[1][1] + PRPPrices[state.prp - 1] * state.prp}
+                            Totaal: €{state.price[1][0] + state.price[1][1] + PRPPrices[state.prp - 1] * (state.prp - 1)}
                         </strong>
                     </p>
                     <p>
