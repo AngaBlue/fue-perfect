@@ -154,7 +154,7 @@ export default function Content(state: HairState) {
                         <li>Vooronderzoek</li>
                         <li>FUE-haartransplantatie behandeling</li>
                         <li>Shampoo, lotion en medicatie</li>
-                        <li>1x prp behandeling in NL</li>
+                        <li>{state.prp}x prp behandeling in NL</li>
                         <li>4x Nacontrole gedurende 10 maanden</li>
                     </ul>
                 </>
