@@ -1,10 +1,10 @@
 import { Box, Flex, Heading, Select, Spacer } from '@chakra-ui/react';
-
 import { GetServerSideProps } from 'next';
 import { useState } from 'react';
 import authorize from '../util/authorize';
 import { defaultProvider } from '../data/provider';
 import messages from '../data/messages';
+import getI18nProps from '../util/getI18nProps';
 
 export default function Index() {
     const [template, setTemplate] = useState({ index: 0 });
@@ -31,15 +31,19 @@ export default function Index() {
     );
 }
 
-export const getServerSideProps: GetServerSideProps = async ctx => {
-    const props = {};
-    if (!authorize(ctx.req.cookies))
+export const getServerSideProps: GetServerSideProps = async context => {
+    const props = await getI18nProps(context);
+
+    // Check if user is logged in
+    if (!authorize(context.req.cookies)) {
         return {
+            ...props,
             redirect: {
                 destination: '/login',
                 permanent: false
-            },
-            props
+            }
         };
-    return { props };
+    }
+
+    return props;
 };

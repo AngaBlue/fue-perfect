@@ -1,12 +1,14 @@
 import { ReactNode, useEffect, useState } from 'react';
-
 import { format } from 'date-fns';
 import merge from 'merge-images';
 import nl from 'date-fns/locale/nl';
 import { Countries, Gender, HairState, HairType, PRPPrices } from './data';
 import styles from './content.module.scss';
+import { useI18nContext } from '../../../i18n/i18n-react';
 
 export default function Content(state: HairState) {
+    const { LL } = useI18nContext();
+
     const [zone64, setZone64] = useState('');
     const [logo, setLogo] = useState('');
 
@@ -25,7 +27,12 @@ export default function Content(state: HairState) {
     return (
         <div className={styles.message} style={{ fontFamily: 'Sans-Serif' }}>
             <p>
-                Geachte {state.gender === Gender.MALE ? 'heer' : 'mevrouw'} {state.firstname} {state.lastname},
+                {LL.GENERIC.DEAR({
+                    title: state.gender === Gender.MALE ? LL.GENERIC.MR() : LL.GENERIC.MRS(),
+                    name: state.firstname,
+                    surname: state.lastname
+                })}
+                ,
             </p>
             {state.inspection ? (
                 <>
