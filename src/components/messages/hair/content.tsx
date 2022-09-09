@@ -1,10 +1,9 @@
 import { ReactNode, useEffect, useState } from 'react';
-import { format } from 'date-fns';
 import merge from 'merge-images';
-import nl from 'date-fns/locale/nl';
 import { Countries, Gender, HairState, HairType, PRPPrices } from './data';
 import styles from './content.module.scss';
 import { useI18nContext } from '../../../i18n/i18n-react';
+import BoldTranslation from '../../BoldTranslation';
 
 export default function Content(state: HairState) {
     const { LL } = useI18nContext();
@@ -26,6 +25,7 @@ export default function Content(state: HairState) {
 
     return (
         <div className={styles.message} style={{ fontFamily: 'Sans-Serif' }}>
+            {/* Introduction */}
             <p>
                 {LL.GENERIC.DEAR({
                     title: state.gender === Gender.MALE ? LL.GENERIC.MR() : LL.GENERIC.MRS(),
@@ -34,6 +34,7 @@ export default function Content(state: HairState) {
                 })}
                 ,
             </p>
+            {/* Display hair inspection notice/results */}
             {state.inspection ? (
                 <>
                     <p>{LL.HAIR.CONTENT.INSPECTION_1()}</p>
@@ -42,18 +43,20 @@ export default function Content(state: HairState) {
                 </>
             ) : (
                 <>
-                    <p>{LL.HAIR.CONTENT.NO_INSPECTION_1({ date: new Date(state.date) })}</p>
-                    <p>Hieronder vindt u de analyse en de samenvatting terug wat wij hebben gesproken.</p>
+                    <p>
+                        <BoldTranslation>{LL.HAIR.CONTENT.NO_INSPECTION_1({ date: new Date(state.date) })}</BoldTranslation>
+                    </p>
+                    <p>{LL.HAIR.CONTENT.NO_INSPECTION_2()}</p>
                 </>
             )}
-
+            {/* Inspection results */}
             <p>
                 <strong>{LL.HAIR.CONTENT.MEDICAL_TEAM_REPORT()}:</strong>
             </p>
             <p>
-                <strong>Behandeling</strong>: FUE Haartransplantatie behandeling
+                <BoldTranslation>{LL.HAIR.CONTENT.TREATMENT()}</BoldTranslation>:
                 <br />
-                <strong>Kwaliteit/ Volume donor</strong>:{' '}
+                <strong>{LL.HAIR.CONTENT.QUALITY_VOLUME()}</strong>:{' '}
                 {(Object.keys(HairType) as Array<keyof typeof HairType>)
                     .map<ReactNode>(v => (
                         <span key={v} style={state.hair.volume[v] ? { color: 'orange', textDecoration: 'underline' } : {}}>
@@ -62,7 +65,7 @@ export default function Content(state: HairState) {
                     ))
                     .reduce((prev, curr, i) => [prev, <span key={i}> - </span>, curr])}
                 <br />
-                <strong>Kwaliteit/ Type haar</strong>:{' '}
+                <strong>{LL.HAIR.CONTENT.QUALITY_TYPE()}</strong>:{' '}
                 {(Object.keys(HairType) as Array<keyof typeof HairType>)
                     .map<ReactNode>(v => (
                         <span key={v} style={state.hair.type[v] ? { color: 'orange', textDecoration: 'underline' } : {}}>
@@ -71,17 +74,20 @@ export default function Content(state: HairState) {
                     ))
                     .reduce((prev, curr, i) => [prev, <span key={i}> - </span>, curr])}
                 <br />
-                <strong>Aantal grafts eerste sessie</strong>: {state.grafts[0]} grafts
+                <BoldTranslation>{LL.HAIR.CONTENT.GRAFT_COUNT({ session: LL.GENERIC.FIRST(), range: state.grafts[0] })}</BoldTranslation>
                 <br />
                 {state.sessions === 2 && (
                     <>
-                        <strong>Aantal grafts tweede sessie</strong>: {state.grafts[1]} grafts (niet verplicht)
+                        <BoldTranslation>
+                            {LL.HAIR.CONTENT.GRAFT_COUNT({ session: LL.GENERIC.SECOND(), range: state.grafts[0] })}
+                        </BoldTranslation>{' '}
+                        ({LL.HAIR.CONTENT.NOT_REQUIRED()})
                         <br />
                     </>
                 )}
-                <strong>Techniek</strong>: {state.technique}
+                <strong>{LL.HAIR.CONTENT.TECHNIQUE()}</strong>: {state.technique}
                 <br />
-                <strong>Zone</strong>: 1e sessie zone:{' '}
+                <strong>{LL.HAIR.CONTENT.ZONES()}</strong>: 1e sessie zone:{' '}
                 {state.zones[0]
                     .map((_v, i) => i + 1)
                     .filter((_v, i) => state.zones[0][i])
@@ -112,7 +118,9 @@ export default function Content(state: HairState) {
                 <strong>Extra Opmerking</strong>: {state.opmerkingNotes || '-'}
                 <br />
             </p>
+            {/* Hair transplant regions image */}
             <img src={zone64} alt='Zones' style={{ maxHeight: '300px' }} />
+            {/* Treatment price breakdown */}
             {state.country !== Countries.TURKEY && (
                 <>
                     <p>
@@ -174,7 +182,7 @@ export default function Content(state: HairState) {
                         )}
                         <strong style={{ color: '#c82613' }}>
                             <br />
-                            Kosten PRP behandeling: €{PRPPrices[state.prp - 1] * state.prp}
+                            Kosten PRP behandeling (1 gratis): €{PRPPrices[state.prp - 1] * state.prp}
                             <br />
                             Totaal: €{state.price[1][0] + state.price[1][1] + PRPPrices[state.prp - 1] * state.prp}
                         </strong>
@@ -193,6 +201,7 @@ export default function Content(state: HairState) {
                     </ul>
                 </>
             )}
+            {/* Closing statement */}
             <p>
                 Wij hopen u hiermee voldoende te hebben geïnformeerd en kijken uit naar uw bevindingen, mocht u vragen of opmerkingen hebben
                 dan horen wij deze graag van u.
@@ -201,6 +210,7 @@ export default function Content(state: HairState) {
             <p style={{ color: 'grey' }}>
                 <strong>A.Senturk</strong>
             </p>
+            {/* Footer */}
             <img src={logo} alt='Fue Perfect' style={{ height: '100px' }} />
             <p>
                 <i>

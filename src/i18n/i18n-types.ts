@@ -30,6 +30,14 @@ type RootTranslation = {
 		 * mevrouw
 		 */
 		MRS: string
+		/**
+		 * eerste
+		 */
+		FIRST: string
+		/**
+		 * tweede
+		 */
+		SECOND: string
 	}
 	HAIR: {
 		CONTENT: {
@@ -46,14 +54,49 @@ type RootTranslation = {
 			 */
 			INSPECTION_3: string
 			/**
-			 * Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op {date|date} een vooronderzoek ondergaan omtrent uw FUE Haartransplantatie behandeling.
+			 * Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op <>{date|date}<> een vooronderzoek ondergaan omtrent uw FUE Haartransplantatie behandeling.
 			 * @param {Date} date
 			 */
 			NO_INSPECTION_1: RequiredParams<'date|date'>
 			/**
+			 * Hieronder vindt u de analyse en de samenvatting terug wat wij hebben gesproken.
+			 */
+			NO_INSPECTION_2: string
+			/**
 			 * Rapport medisch team
 			 */
 			MEDICAL_TEAM_REPORT: string
+			/**
+			 * <>Behandeling<>: FUE Haartransplantatie behandeling
+			 */
+			TREATMENT: string
+			FUE_HAIR_TRANSPLANT: string
+			/**
+			 * Kwaliteit/ Volume donor
+			 */
+			QUALITY_VOLUME: string
+			/**
+			 * Kwaliteit/ Type haar
+			 */
+			QUALITY_TYPE: string
+			/**
+			 * <>Aantal grafts {session} sessie<>: {range}
+			 * @param {string} range
+			 * @param {string} session
+			 */
+			GRAFT_COUNT: RequiredParams<'range' | 'session'>
+			/**
+			 * niet verplicht
+			 */
+			NOT_REQUIRED: string
+			/**
+			 * Techniek
+			 */
+			TECHNIQUE: string
+			/**
+			 * Zone
+			 */
+			ZONES: string
 		}
 	}
 }
@@ -72,6 +115,14 @@ export type TranslationFunctions = {
 		 * mevrouw
 		 */
 		MRS: () => LocalizedString
+		/**
+		 * eerste
+		 */
+		FIRST: () => LocalizedString
+		/**
+		 * tweede
+		 */
+		SECOND: () => LocalizedString
 	}
 	HAIR: {
 		CONTENT: {
@@ -88,13 +139,46 @@ export type TranslationFunctions = {
 			 */
 			INSPECTION_3: () => LocalizedString
 			/**
-			 * Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op {date|date} een vooronderzoek ondergaan omtrent uw FUE Haartransplantatie behandeling.
+			 * Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op <>{date|date}<> een vooronderzoek ondergaan omtrent uw FUE Haartransplantatie behandeling.
 			 */
 			NO_INSPECTION_1: (arg: { date: Date }) => LocalizedString
+			/**
+			 * Hieronder vindt u de analyse en de samenvatting terug wat wij hebben gesproken.
+			 */
+			NO_INSPECTION_2: () => LocalizedString
 			/**
 			 * Rapport medisch team
 			 */
 			MEDICAL_TEAM_REPORT: () => LocalizedString
+			/**
+			 * <>Behandeling<>: FUE Haartransplantatie behandeling
+			 */
+			TREATMENT: () => LocalizedString
+			FUE_HAIR_TRANSPLANT: () => LocalizedString
+			/**
+			 * Kwaliteit/ Volume donor
+			 */
+			QUALITY_VOLUME: () => LocalizedString
+			/**
+			 * Kwaliteit/ Type haar
+			 */
+			QUALITY_TYPE: () => LocalizedString
+			/**
+			 * <>Aantal grafts {session} sessie<>: {range}
+			 */
+			GRAFT_COUNT: (arg: { range: string, session: string }) => LocalizedString
+			/**
+			 * niet verplicht
+			 */
+			NOT_REQUIRED: () => LocalizedString
+			/**
+			 * Techniek
+			 */
+			TECHNIQUE: () => LocalizedString
+			/**
+			 * Zone
+			 */
+			ZONES: () => LocalizedString
 		}
 	}
 }
