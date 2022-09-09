@@ -36,33 +36,19 @@ export default function Content(state: HairState) {
             </p>
             {state.inspection ? (
                 <>
-                    <p>
-                        Bedankt voor de interesse die u getoond heeft in onze organisatie, wij hebben uw aanvraag + foto&apos;s in goede
-                        orde ontvangen.
-                    </p>
-                    <p>
-                        Uw foto&apos;s / toelichting zijn beoordeeld en hieronder vindt u de analyse terug m.b.t uw Haartransplantatie
-                        behandeling, u bent altijd van harte welkom voor een vrijblijvend consult naar onze kliniek te Hoofddorp!
-                    </p>
-                    <p>
-                        * Aangezien de beoordeling d.m.v. foto&apos;s is vastgesteld, bestaat een kleine kans van afwijking na de
-                        definitieve onderzoek in onze kliniek.
-                    </p>
+                    <p>{LL.HAIR.CONTENT.INSPECTION_1()}</p>
+                    <p>{LL.HAIR.CONTENT.INSPECTION_2()}</p>
+                    <p>{LL.HAIR.CONTENT.INSPECTION_3()}</p>
                 </>
             ) : (
                 <>
-                    {' '}
-                    <p>
-                        Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op{' '}
-                        <strong>{format(state.date, 'PPP', { locale: nl })}</strong> een vooronderzoek ondergaan omtrent uw FUE
-                        Haartransplantatie behandeling.
-                    </p>
+                    <p>{LL.HAIR.CONTENT.NO_INSPECTION_1({ date: new Date(state.date) })}</p>
                     <p>Hieronder vindt u de analyse en de samenvatting terug wat wij hebben gesproken.</p>
                 </>
             )}
 
             <p>
-                <strong>Rapport medisch team:</strong>
+                <strong>{LL.HAIR.CONTENT.MEDICAL_TEAM_REPORT()}:</strong>
             </p>
             <p>
                 <strong>Behandeling</strong>: FUE Haartransplantatie behandeling

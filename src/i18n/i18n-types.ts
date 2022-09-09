@@ -31,6 +31,31 @@ type RootTranslation = {
 		 */
 		MRS: string
 	}
+	HAIR: {
+		CONTENT: {
+			/**
+			 * Bedankt voor de interesse die u getoond heeft in onze organisatie, wij hebben uw aanvraag + foto's in goede orde ontvangen.
+			 */
+			INSPECTION_1: string
+			/**
+			 * Uw foto's / toelichting zijn beoordeeld en hieronder vindt u de analyse terug m.b.t uw Haartransplantatie behandeling, u bent altijd van harte welkom voor een vrijblijvend consult naar onze kliniek te Hoofddorp!
+			 */
+			INSPECTION_2: string
+			/**
+			 * * Aangezien de beoordeling d.m.v. foto's is vastgesteld, bestaat een kleine kans van afwijking na de definitieve onderzoek in onze kliniek.
+			 */
+			INSPECTION_3: string
+			/**
+			 * Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op {date|date} een vooronderzoek ondergaan omtrent uw FUE Haartransplantatie behandeling.
+			 * @param {Date} date
+			 */
+			NO_INSPECTION_1: RequiredParams<'date|date'>
+			/**
+			 * Rapport medisch team
+			 */
+			MEDICAL_TEAM_REPORT: string
+		}
+	}
 }
 
 export type TranslationFunctions = {
@@ -48,6 +73,32 @@ export type TranslationFunctions = {
 		 */
 		MRS: () => LocalizedString
 	}
+	HAIR: {
+		CONTENT: {
+			/**
+			 * Bedankt voor de interesse die u getoond heeft in onze organisatie, wij hebben uw aanvraag + foto's in goede orde ontvangen.
+			 */
+			INSPECTION_1: () => LocalizedString
+			/**
+			 * Uw foto's / toelichting zijn beoordeeld en hieronder vindt u de analyse terug m.b.t uw Haartransplantatie behandeling, u bent altijd van harte welkom voor een vrijblijvend consult naar onze kliniek te Hoofddorp!
+			 */
+			INSPECTION_2: () => LocalizedString
+			/**
+			 * * Aangezien de beoordeling d.m.v. foto's is vastgesteld, bestaat een kleine kans van afwijking na de definitieve onderzoek in onze kliniek.
+			 */
+			INSPECTION_3: () => LocalizedString
+			/**
+			 * Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op {date|date} een vooronderzoek ondergaan omtrent uw FUE Haartransplantatie behandeling.
+			 */
+			NO_INSPECTION_1: (arg: { date: Date }) => LocalizedString
+			/**
+			 * Rapport medisch team
+			 */
+			MEDICAL_TEAM_REPORT: () => LocalizedString
+		}
+	}
 }
 
-export type Formatters = {}
+export type Formatters = {
+	date: (value: Date) => unknown
+}
