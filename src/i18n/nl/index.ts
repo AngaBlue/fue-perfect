@@ -27,7 +27,27 @@ const nl: BaseTranslation = {
             GRAFT_COUNT: '<>Aantal grafts {session:string} sessie<>: {range:string}',
             NOT_REQUIRED: 'niet verplicht',
             TECHNIQUE: 'Techniek',
-            ZONES: 'Zone'
+            ZONES: 'Zone',
+            ENDING_COMMENT:
+                'Wij hopen u hiermee voldoende te hebben geïnformeerd en kijken uit naar uw bevindingen, mocht u vragen of opmerkingen hebben dan horen wij deze graag van u.',
+            KIND_REGARDS: 'Met vriendelijke groeten',
+            EXTRA_REMARKS: 'Extra Opmerking',
+            TREATMENT_NOTES: 'Behandeling data',
+            TREATMENT_LOCATION: 'Behandeling bestemming',
+            PRP_PRICE: 'Kosten PRP behandeling (1 gratis): €{0:number}',
+            TOTAL: 'Totaal: €{0:number}',
+            DISCOUNT: '€{0:number} korting',
+            FLIGHT_1: 'Retour vliegticket met KLM of Turkish Airlines',
+            FLIGHT_2: '3 overnachtingen in Hilton Doubbletree Istanbul',
+            ANESTHESIA: '<>Verdoving<>: Pijnloos lokaal verdoving',
+            SESSIONS: '<>Sessie<>: {0:number} sessie behandeling',
+            SHAMPOO: 'Shampoo, lotion en medicatie',
+            FOLLOW_UP: '4x Nacontrole gedurende 10 maanden',
+            PRP_COUNT: '{0:number}x prp behandeling in NL',
+            INVESTIGATION: 'Vooronderzoek'
+        },
+        TREATMENT: {
+            FUE_HAIR: 'FUE-haartransplantatie behandeling'
         }
     }
 };

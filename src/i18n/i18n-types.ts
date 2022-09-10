@@ -97,6 +97,81 @@ type RootTranslation = {
 			 * Zone
 			 */
 			ZONES: string
+			/**
+			 * Wij hopen u hiermee voldoende te hebben geïnformeerd en kijken uit naar uw bevindingen, mocht u vragen of opmerkingen hebben dan horen wij deze graag van u.
+			 */
+			ENDING_COMMENT: string
+			/**
+			 * Met vriendelijke groeten
+			 */
+			KIND_REGARDS: string
+			/**
+			 * Extra Opmerking
+			 */
+			EXTRA_REMARKS: string
+			/**
+			 * Behandeling data
+			 */
+			TREATMENT_NOTES: string
+			/**
+			 * Behandeling bestemming
+			 */
+			TREATMENT_LOCATION: string
+			/**
+			 * Kosten PRP behandeling (1 gratis): €{0}
+			 * @param {number} 0
+			 */
+			PRP_PRICE: RequiredParams<'0'>
+			/**
+			 * Totaal: €{0}
+			 * @param {number} 0
+			 */
+			TOTAL: RequiredParams<'0'>
+			/**
+			 * €{0} korting
+			 * @param {number} 0
+			 */
+			DISCOUNT: RequiredParams<'0'>
+			/**
+			 * Retour vliegticket met KLM of Turkish Airlines
+			 */
+			FLIGHT_1: string
+			/**
+			 * 3 overnachtingen in Hilton Doubbletree Istanbul
+			 */
+			FLIGHT_2: string
+			/**
+			 * <>Verdoving<>: Pijnloos lokaal verdoving
+			 */
+			ANESTHESIA: string
+			/**
+			 * <>Sessie<>: {0} sessie behandeling
+			 * @param {number} 0
+			 */
+			SESSIONS: RequiredParams<'0'>
+			/**
+			 * Shampoo, lotion en medicatie
+			 */
+			SHAMPOO: string
+			/**
+			 * 4x Nacontrole gedurende 10 maanden
+			 */
+			FOLLOW_UP: string
+			/**
+			 * {0}x prp behandeling in NL
+			 * @param {number} 0
+			 */
+			PRP_COUNT: RequiredParams<'0'>
+			/**
+			 * Vooronderzoek
+			 */
+			INVESTIGATION: string
+		}
+		TREATMENT: {
+			/**
+			 * FUE-haartransplantatie behandeling
+			 */
+			FUE_HAIR: string
 		}
 	}
 }
@@ -179,6 +254,76 @@ export type TranslationFunctions = {
 			 * Zone
 			 */
 			ZONES: () => LocalizedString
+			/**
+			 * Wij hopen u hiermee voldoende te hebben geïnformeerd en kijken uit naar uw bevindingen, mocht u vragen of opmerkingen hebben dan horen wij deze graag van u.
+			 */
+			ENDING_COMMENT: () => LocalizedString
+			/**
+			 * Met vriendelijke groeten
+			 */
+			KIND_REGARDS: () => LocalizedString
+			/**
+			 * Extra Opmerking
+			 */
+			EXTRA_REMARKS: () => LocalizedString
+			/**
+			 * Behandeling data
+			 */
+			TREATMENT_NOTES: () => LocalizedString
+			/**
+			 * Behandeling bestemming
+			 */
+			TREATMENT_LOCATION: () => LocalizedString
+			/**
+			 * Kosten PRP behandeling (1 gratis): €{0}
+			 */
+			PRP_PRICE: (arg0: number) => LocalizedString
+			/**
+			 * Totaal: €{0}
+			 */
+			TOTAL: (arg0: number) => LocalizedString
+			/**
+			 * €{0} korting
+			 */
+			DISCOUNT: (arg0: number) => LocalizedString
+			/**
+			 * Retour vliegticket met KLM of Turkish Airlines
+			 */
+			FLIGHT_1: () => LocalizedString
+			/**
+			 * 3 overnachtingen in Hilton Doubbletree Istanbul
+			 */
+			FLIGHT_2: () => LocalizedString
+			/**
+			 * <>Verdoving<>: Pijnloos lokaal verdoving
+			 */
+			ANESTHESIA: () => LocalizedString
+			/**
+			 * <>Sessie<>: {0} sessie behandeling
+			 */
+			SESSIONS: (arg0: number) => LocalizedString
+			/**
+			 * Shampoo, lotion en medicatie
+			 */
+			SHAMPOO: () => LocalizedString
+			/**
+			 * 4x Nacontrole gedurende 10 maanden
+			 */
+			FOLLOW_UP: () => LocalizedString
+			/**
+			 * {0}x prp behandeling in NL
+			 */
+			PRP_COUNT: (arg0: number) => LocalizedString
+			/**
+			 * Vooronderzoek
+			 */
+			INVESTIGATION: () => LocalizedString
+		}
+		TREATMENT: {
+			/**
+			 * FUE-haartransplantatie behandeling
+			 */
+			FUE_HAIR: () => LocalizedString
 		}
 	}
 }

@@ -4,6 +4,7 @@ import { Countries, Gender, HairState, HairType, PRPPrices } from './data';
 import styles from './content.module.scss';
 import { useI18nContext } from '../../../i18n/i18n-react';
 import BoldTranslation from '../../BoldTranslation';
+import PriceBreakdown from './PriceBreakdown';
 
 export default function Content(state: HairState) {
     const { LL } = useI18nContext();
@@ -107,106 +108,25 @@ export default function Content(state: HairState) {
                         <br />
                     </>
                 )}
-                <strong>Sessie</strong>: {state.sessions} sessie behandeling
+                <BoldTranslation>{LL.HAIR.CONTENT.SESSIONS(state.sessions)}</BoldTranslation>
                 <br />
-                <strong>Verdoving</strong>: Pijnloos lokaal verdoving
+                <BoldTranslation>{LL.HAIR.CONTENT.ANESTHESIA()}</BoldTranslation>
                 <br />
-                <strong>Behandeling bestemming</strong>: {state.country}
+                <strong>{LL.HAIR.CONTENT.TREATMENT_LOCATION()}</strong>: {state.country}
                 <br />
-                <strong>Behandeling data</strong>: {state.notes || '-'}
+                <strong>{LL.HAIR.CONTENT.TREATMENT_NOTES()}</strong>: {state.notes || '-'}
                 <br />
-                <strong>Extra Opmerking</strong>: {state.opmerkingNotes || '-'}
+                <strong>{LL.HAIR.CONTENT.EXTRA_REMARKS()}</strong>: {state.opmerkingNotes || '-'}
                 <br />
             </p>
             {/* Hair transplant regions image */}
             <img src={zone64} alt='Zones' style={{ maxHeight: '300px' }} />
             {/* Treatment price breakdown */}
-            {state.country !== Countries.TURKEY && (
-                <>
-                    <p>
-                        <strong style={{ color: '#c82613' }}>
-                            Kosten behandeling {state.sessions} sessie
-                            {state.sessions === 1 ? '' : 's'} in Nederland All-in €{state.price[0][0] + state.price[0][1]}{' '}
-                            {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
-                        </strong>
-                        {state.sessions === 2 && (
-                            <>
-                                <br />
-                                <strong style={{ textDecoration: 'underline' }}>
-                                    Eerste sessie: €{state.price[0][0]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
-                                </strong>
-                                <br />
-                                <span style={{ textDecoration: 'underline' }}>
-                                    <strong>Tweede sessie: €{state.price[0][1]} </strong>(na min 12 maanden genezingstijd, niet verplicht)
-                                </span>
-                            </>
-                        )}
-                        <strong style={{ color: '#c82613' }}>
-                            <br />
-                            Kosten PRP behandeling (1 gratis): €{PRPPrices[state.prp - 1] * state.prp}
-                            <br />
-                            Totaal: €{state.price[0][0] + state.price[0][1] + PRPPrices[state.prp - 1] * state.prp}
-                        </strong>
-                    </p>
-                    <p>
-                        <strong>Inhoud All-in pakket Nederland:</strong>
-                    </p>
-                    <ul style={{ marginLeft: '32px' }}>
-                        <li>Vooronderzoek</li>
-                        <li>FUE-haartransplantatie behandeling</li>
-                        <li>Shampoo, lotion en medicatie</li>
-                        <li>{state.prp}x prp behandeling in NL</li>
-                        <li>4x Nacontrole gedurende 10 maanden</li>
-                    </ul>
-                </>
-            )}
-            {state.country !== Countries.NETHERLANDS && (
-                <>
-                    <p>
-                        <strong style={{ color: '#c82613' }}>
-                            Kosten behandeling {state.sessions} sessie
-                            {state.sessions === 1 ? '' : 's'} in Turkije All-in €{state.price[1][0] + state.price[1][1]}{' '}
-                            {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
-                        </strong>
-                        {state.sessions === 2 && (
-                            <>
-                                <br />
-                                <strong style={{ textDecoration: 'underline' }}>
-                                    Eerste sessie: €{state.price[1][0]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
-                                </strong>
-                                <br />
-                                <span style={{ textDecoration: 'underline' }}>
-                                    <strong>Tweede sessie: €{state.price[1][1]} </strong>(na min 12 maanden genezingstijd, niet verplicht)
-                                </span>
-                            </>
-                        )}
-                        <strong style={{ color: '#c82613' }}>
-                            <br />
-                            Kosten PRP behandeling (1 gratis): €{PRPPrices[state.prp - 1] * state.prp}
-                            <br />
-                            Totaal: €{state.price[1][0] + state.price[1][1] + PRPPrices[state.prp - 1] * state.prp}
-                        </strong>
-                    </p>
-                    <p>
-                        <strong>Inhoud All-in pakket Turkije/Istanbul:</strong>
-                    </p>
-                    <ul style={{ marginLeft: '32px' }}>
-                        <li>Vooronderzoek</li>
-                        <li>Retour vliegticket met KLM of Turkish Airlines</li>
-                        <li>3 overnachtingen in Hilton Doubbletree Istanbul</li>
-                        <li>FUE-haartransplantatie behandeling</li>
-                        <li>Shampoo, lotion en medicatie</li>
-                        <li>{state.prp}x prp behandeling in NL</li>
-                        <li>4x Nacontrole gedurende 10 maanden</li>
-                    </ul>
-                </>
-            )}
+            {state.country !== Countries.TURKEY && <PriceBreakdown {...state} />}
+            {state.country !== Countries.NETHERLANDS && <PriceBreakdown {...state} />}
             {/* Closing statement */}
-            <p>
-                Wij hopen u hiermee voldoende te hebben geïnformeerd en kijken uit naar uw bevindingen, mocht u vragen of opmerkingen hebben
-                dan horen wij deze graag van u.
-            </p>
-            <p>Met vriendelijke groeten,</p>
+            <p>{LL.HAIR.CONTENT.ENDING_COMMENT()}</p>
+            <p>{LL.HAIR.CONTENT.KIND_REGARDS()},</p>
             <p style={{ color: 'grey' }}>
                 <strong>A.Senturk</strong>
             </p>
