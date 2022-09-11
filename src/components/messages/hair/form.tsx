@@ -20,13 +20,17 @@ import {
 import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker';
 import { Dispatch, SetStateAction, useEffect } from 'react';
 import nl from 'date-fns/locale/nl';
-import { Countries, Discounts, Gender, Grafts, HairState, HairType, Prices, PRPPrices, Techniques } from './data';
+import { Country, Discounts, Gender, Grafts, HairState, HairQuality, Prices, PRPPrices, Technique } from './data';
 import styles from './form.module.scss';
+import { useI18nContext } from '../../../i18n/i18n-react';
+import { enumIterable, enumLength } from '../../../util';
 
 registerLocale('nl', nl);
 setDefaultLocale('nl');
 
 export default function Form({ state, setState }: { state: HairState; setState: Dispatch<SetStateAction<HairState>> }) {
+    const { LL } = useI18nContext();
+    
     // Pricing
     useEffect(() => {
         // Row = Country, Col = Session
@@ -34,17 +38,17 @@ export default function Form({ state, setState }: { state: HairState; setState: 
             [0, 0],
             [0, 0]
         ];
-        price[0][0] = state.priceOverride[0][0] || Prices[Countries.NETHERLANDS][Grafts.first.findIndex(g => g === state.grafts[0])];
+        price[0][0] = state.priceOverride[0][0] || Prices[Country.NETHERLANDS][Grafts.first.findIndex(g => g === state.grafts[0])];
         price[0][0] += state.discount;
 
         if (state.sessions === 2)
-            price[0][1] = state.priceOverride[0][1] || Prices[Countries.NETHERLANDS][Grafts.first.findIndex(g => g === state.grafts[1])];
+            price[0][1] = state.priceOverride[0][1] || Prices[Country.NETHERLANDS][Grafts.first.findIndex(g => g === state.grafts[1])];
 
-        price[1][0] = state.priceOverride[1][0] || Prices[Countries.TURKEY][Grafts.first.findIndex(g => g === state.grafts[0])];
+        price[1][0] = state.priceOverride[1][0] || Prices[Country.TURKEY][Grafts.first.findIndex(g => g === state.grafts[0])];
         price[1][0] += state.discount;
 
         if (state.sessions === 2)
-            price[1][1] = state.priceOverride[1][1] || Prices[Countries.TURKEY][Grafts.first.findIndex(g => g === state.grafts[1])];
+            price[1][1] = state.priceOverride[1][1] || Prices[Country.TURKEY][Grafts.first.findIndex(g => g === state.grafts[1])];
 
         setState({ ...state, price });
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -66,11 +70,11 @@ export default function Form({ state, setState }: { state: HairState; setState: 
             </Box>
             <Box>
                 <FormLabel>Geslacht</FormLabel>
-                <RadioGroup value={state.gender} onChange={gender => setState({ ...state, gender })}>
+                <RadioGroup value={state.gender} onChange={gender => setState({ ...state, gender: Number(gender) as Gender })}>
                     <VStack align='left'>
-                        {Object.values(Gender).map(c => (
-                            <Radio key={c} value={c}>
-                                {c}
+                        {enumIterable(Gender).map(g => (
+                            <Radio key={g} value={g}>
+                                {LL.HAIR.GENDER[g as Gender]()}
                             </Radio>
                         ))}
                     </VStack>
@@ -110,7 +114,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                         setState({ ...state, technique: e.target.value });
                     }}
                 >
-                    {Techniques.map(v => (
+                    {Technique.map(v => (
                         <option key={v} value={v}>
                             {v}
                         </option>
@@ -119,11 +123,11 @@ export default function Form({ state, setState }: { state: HairState; setState: 
             </Box>
             <Box>
                 <FormLabel>Klant Land</FormLabel>
-                <RadioGroup value={state.country} onChange={country => setState({ ...state, country })}>
+                <RadioGroup value={state.country} onChange={country => setState({ ...state, country: Number(country) as Country })}>
                     <VStack align='left'>
-                        {Object.values(Countries).map(c => (
-                            <Radio key={c} value={c}>
-                                {c}
+                        {Array(enumLength(Country)).map((_, i) => (
+                            <Radio key={i} value={i}>
+                                {LL.HAIR.COUNTRY[i as Country]()}
                             </Radio>
                         ))}
                     </VStack>
@@ -132,7 +136,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
             <Box>
                 <FormLabel>Type Haar</FormLabel>
                 <VStack align='left'>
-                    {(Object.keys(HairType) as Array<keyof typeof HairType>).map(v => (
+                    {(Object.keys(HairQuality) as Array<keyof typeof HairQuality>).map(v => (
                         <Checkbox
                             isChecked={state.hair.type[v]}
                             key={v}
@@ -150,17 +154,17 @@ export default function Form({ state, setState }: { state: HairState; setState: 
             <Box>
                 <FormLabel>Volume Donor</FormLabel>
                 <VStack align='left'>
-                    {(Object.keys(HairType) as Array<keyof typeof HairType>).map(v => (
+                    {state.hair.volume.map((v, i) => (
                         <Checkbox
-                            isChecked={state.hair.volume[v]}
-                            key={v}
+                            isChecked={v}
+                            key={i}
                             onChange={() => {
                                 const volume = { ...state.hair.volume };
-                                volume[v] = !volume[v];
+                                volume[i] = !volume[i];
                                 setState({ ...state, hair: { ...state.hair, volume } });
                             }}
                         >
-                            {v}
+                            {LL.}
                         </Checkbox>
                     ))}
                 </VStack>
@@ -190,7 +194,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                         </option>
                     ))}
                 </Select>
-                {state.country !== Countries.TURKEY && (
+                {state.country !== Country.TURKEY && (
                     <>
                         <FormLabel mt={2}>Prijsoverschrijving: Nederland</FormLabel>
                         <NumberInput
@@ -212,7 +216,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                         </NumberInput>
                     </>
                 )}
-                {state.country !== Countries.NETHERLANDS && (
+                {state.country !== Country.NETHERLANDS && (
                     <>
                         <FormLabel mt={2}>Prijsoverschrijving: Turkije</FormLabel>
                         <NumberInput
@@ -274,7 +278,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                         </option>
                     ))}
                 </Select>
-                {state.country !== Countries.TURKEY && (
+                {state.country !== Country.TURKEY && (
                     <>
                         <FormLabel mt={2}>Prijsoverschrijving: Nederland</FormLabel>
                         <NumberInput
@@ -296,7 +300,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                         </NumberInput>
                     </>
                 )}
-                {state.country !== Countries.NETHERLANDS && (
+                {state.country !== Country.NETHERLANDS && (
                     <>
                         <FormLabel mt={2}>Prijsoverschrijving: Turkije</FormLabel>
                         <NumberInput

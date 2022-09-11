@@ -80,11 +80,11 @@ type RootTranslation = {
 			 */
 			QUALITY_TYPE: string
 			/**
-			 * <>Aantal grafts {session} sessie<>: {range}
+			 * <>Aantal grafts {session|{1: eerste, 2: tweede}} sessie<>: {range} grafts
 			 * @param {string} range
-			 * @param {string} session
+			 * @param {'1' | '2'} session
 			 */
-			GRAFT_COUNT: RequiredParams<'range' | 'session'>
+			GRAFT_COUNT: RequiredParams<'range' | `session|{1:${string}, 2:${string}}`>
 			/**
 			 * niet verplicht
 			 */
@@ -166,12 +166,100 @@ type RootTranslation = {
 			 * Vooronderzoek
 			 */
 			INVESTIGATION: string
-		}
-		TREATMENT: {
 			/**
-			 * FUE-haartransplantatie behandeling
+			 * Kosten behandeling {0} sessie{{s}} in {1} All-in €{2}
+			 * @param {number} 0
+			 * @param {string} 1
+			 * @param {number} 2
 			 */
-			FUE_HAIR: string
+			TREATMENT_COST: RequiredParams<'0' | '1' | '2'>
+			/**
+			 * {session|{1: Eerste, 2: Tweede}} sessie: €{cost}
+			 * @param {number} cost
+			 * @param {'1' | '2'} session
+			 */
+			SESSION_COST: RequiredParams<'cost' | `session|{1:${string}, 2:${string}}`>
+			/**
+			 * na min 12 maanden genezingstijd, niet verplicht
+			 */
+			SECOND_SESSION_NOTE: string
+			/**
+			 * Inhoud All-in pakket {0}:
+			 * @param {string} 0
+			 */
+			PACKAGE_CONTENT: RequiredParams<'0'>
+			/**
+			 * <>Duur behandeling {0}e sessie<>: {1} uur
+			 * @param {number} 0
+			 * @param {string} 1
+			 */
+			SESSION_DURATION: RequiredParams<'0' | '1'>
+			/**
+			 * {0}e sessie zone: {1} (zie schema onder)
+			 * @param {number} 0
+			 * @param {string} 1
+			 */
+			SESSION_ZONES: RequiredParams<'0' | '1'>
+		}
+		TECHNIQUE: {
+			/**
+			 * FUE Haartransplantatie
+			 */
+			'0': string
+			/**
+			 * DHI Haartransplantatie
+			 */
+			'1': string
+			/**
+			 * FUE Baardtransplantatie
+			 */
+			'2': string
+			/**
+			 * DHI Baardtransplantatie
+			 */
+			'3': string
+		}
+		COUNTRY: {
+			/**
+			 * Turkije
+			 */
+			'0': string
+			/**
+			 * Nederland
+			 */
+			'1': string
+			/**
+			 * Turkije/Nederland
+			 */
+			'2': string
+		}
+		GENDER: {
+			/**
+			 * Mannelijk
+			 */
+			'0': string
+			/**
+			 * Vrouwelijk
+			 */
+			'1': string
+		}
+		QUALITY: {
+			/**
+			 * Shlect
+			 */
+			'0': string
+			/**
+			 * Normaal
+			 */
+			'1': string
+			/**
+			 * Goed
+			 */
+			'2': string
+			/**
+			 * P
+			 */
+			'3': string
 		}
 	}
 }
@@ -239,9 +327,9 @@ export type TranslationFunctions = {
 			 */
 			QUALITY_TYPE: () => LocalizedString
 			/**
-			 * <>Aantal grafts {session} sessie<>: {range}
+			 * <>Aantal grafts {session|{1: eerste, 2: tweede}} sessie<>: {range} grafts
 			 */
-			GRAFT_COUNT: (arg: { range: string, session: string }) => LocalizedString
+			GRAFT_COUNT: (arg: { range: string, session: '1' | '2' }) => LocalizedString
 			/**
 			 * niet verplicht
 			 */
@@ -318,12 +406,90 @@ export type TranslationFunctions = {
 			 * Vooronderzoek
 			 */
 			INVESTIGATION: () => LocalizedString
-		}
-		TREATMENT: {
 			/**
-			 * FUE-haartransplantatie behandeling
+			 * Kosten behandeling {0} sessie{{s}} in {1} All-in €{2}
 			 */
-			FUE_HAIR: () => LocalizedString
+			TREATMENT_COST: (arg0: number, arg1: string, arg2: number) => LocalizedString
+			/**
+			 * {session|{1: Eerste, 2: Tweede}} sessie: €{cost}
+			 */
+			SESSION_COST: (arg: { cost: number, session: '1' | '2' }) => LocalizedString
+			/**
+			 * na min 12 maanden genezingstijd, niet verplicht
+			 */
+			SECOND_SESSION_NOTE: () => LocalizedString
+			/**
+			 * Inhoud All-in pakket {0}:
+			 */
+			PACKAGE_CONTENT: (arg0: string) => LocalizedString
+			/**
+			 * <>Duur behandeling {0}e sessie<>: {1} uur
+			 */
+			SESSION_DURATION: (arg0: number, arg1: string) => LocalizedString
+			/**
+			 * {0}e sessie zone: {1} (zie schema onder)
+			 */
+			SESSION_ZONES: (arg0: number, arg1: string) => LocalizedString
+		}
+		TECHNIQUE: {
+			/**
+			 * FUE Haartransplantatie
+			 */
+			'0': () => LocalizedString
+			/**
+			 * DHI Haartransplantatie
+			 */
+			'1': () => LocalizedString
+			/**
+			 * FUE Baardtransplantatie
+			 */
+			'2': () => LocalizedString
+			/**
+			 * DHI Baardtransplantatie
+			 */
+			'3': () => LocalizedString
+		}
+		COUNTRY: {
+			/**
+			 * Turkije
+			 */
+			'0': () => LocalizedString
+			/**
+			 * Nederland
+			 */
+			'1': () => LocalizedString
+			/**
+			 * Turkije/Nederland
+			 */
+			'2': () => LocalizedString
+		}
+		GENDER: {
+			/**
+			 * Mannelijk
+			 */
+			'0': () => LocalizedString
+			/**
+			 * Vrouwelijk
+			 */
+			'1': () => LocalizedString
+		}
+		QUALITY: {
+			/**
+			 * Shlect
+			 */
+			'0': () => LocalizedString
+			/**
+			 * Normaal
+			 */
+			'1': () => LocalizedString
+			/**
+			 * Goed
+			 */
+			'2': () => LocalizedString
+			/**
+			 * P
+			 */
+			'3': () => LocalizedString
 		}
 	}
 }

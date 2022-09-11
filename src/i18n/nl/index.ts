@@ -24,7 +24,7 @@ const nl: BaseTranslation = {
             FUE_HAIR_TRANSPLANT: '',
             QUALITY_VOLUME: 'Kwaliteit/ Volume donor',
             QUALITY_TYPE: 'Kwaliteit/ Type haar',
-            GRAFT_COUNT: '<>Aantal grafts {session:string} sessie<>: {range:string}',
+            GRAFT_COUNT: '<>Aantal grafts {session|{1: eerste, 2: tweede}} sessie<>: {range:string} grafts',
             NOT_REQUIRED: 'niet verplicht',
             TECHNIQUE: 'Techniek',
             ZONES: 'Zone',
@@ -44,11 +44,18 @@ const nl: BaseTranslation = {
             SHAMPOO: 'Shampoo, lotion en medicatie',
             FOLLOW_UP: '4x Nacontrole gedurende 10 maanden',
             PRP_COUNT: '{0:number}x prp behandeling in NL',
-            INVESTIGATION: 'Vooronderzoek'
+            INVESTIGATION: 'Vooronderzoek',
+            TREATMENT_COST: 'Kosten behandeling {0:number} sessie{{s}} in {1:string} All-in €{2:number}',
+            SESSION_COST: '{session|{1: Eerste, 2: Tweede}} sessie: €{cost:number}',
+            SECOND_SESSION_NOTE: 'na min 12 maanden genezingstijd, niet verplicht',
+            PACKAGE_CONTENT: 'Inhoud All-in pakket {0:string}:',
+            SESSION_DURATION: '<>Duur behandeling {0:number}e sessie<>: {1:string} uur',
+            SESSION_ZONES: '{0:number}e sessie zone: {1:string} (zie schema onder)'
         },
-        TREATMENT: {
-            FUE_HAIR: 'FUE-haartransplantatie behandeling'
-        }
+        TECHNIQUE: ['FUE Haartransplantatie', 'DHI Haartransplantatie', 'FUE Baardtransplantatie', 'DHI Baardtransplantatie'],
+        COUNTRY: ['Turkije', 'Nederland', 'Turkije/Nederland'],
+        GENDER: ['Mannelijk', 'Vrouwelijk'],
+        QUALITY: ['Shlect', 'Normaal', 'Goed', 'Perfect']
     }
 };
 

@@ -1,10 +1,17 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import merge from 'merge-images';
-import { Countries, Gender, HairState, HairType, PRPPrices } from './data';
+import { Country, Gender, HairState, HairQuality } from './data';
 import styles from './content.module.scss';
 import { useI18nContext } from '../../../i18n/i18n-react';
 import BoldTranslation from '../../BoldTranslation';
 import PriceBreakdown from './PriceBreakdown';
+
+function createZoneString(zones: boolean[]) {
+    return zones
+        .map((_v, i) => i + 1)
+        .filter((_v, i) => zones[i])
+        .join(', ');
+}
 
 export default function Content(state: HairState) {
     const { LL } = useI18nContext();
@@ -55,56 +62,49 @@ export default function Content(state: HairState) {
                 <strong>{LL.HAIR.CONTENT.MEDICAL_TEAM_REPORT()}:</strong>
             </p>
             <p>
-                <BoldTranslation>{LL.HAIR.CONTENT.TREATMENT()}</BoldTranslation>:
+                <BoldTranslation>{LL.HAIR.CONTENT.TREATMENT()}</BoldTranslation>
                 <br />
                 <strong>{LL.HAIR.CONTENT.QUALITY_VOLUME()}</strong>:{' '}
-                {(Object.keys(HairType) as Array<keyof typeof HairType>)
-                    .map<ReactNode>(v => (
-                        <span key={v} style={state.hair.volume[v] ? { color: 'orange', textDecoration: 'underline' } : {}}>
-                            {v}
+                {state.hair.volume.map((volume, i) => (
+                    <>
+                        <span key={i} style={volume ? { color: 'orange', textDecoration: 'underline' } : {}}>
+                            {LL.HAIR.QUALITY[i as HairQuality]()}
                         </span>
-                    ))
-                    .reduce((prev, curr, i) => [prev, <span key={i}> - </span>, curr])}
+                        {/* Render divider for every but last */}
+                        {i !== state.hair.volume.length - 1 && <span> - </span>}
+                    </>
+                ))}
                 <br />
                 <strong>{LL.HAIR.CONTENT.QUALITY_TYPE()}</strong>:{' '}
-                {(Object.keys(HairType) as Array<keyof typeof HairType>)
-                    .map<ReactNode>(v => (
-                        <span key={v} style={state.hair.type[v] ? { color: 'orange', textDecoration: 'underline' } : {}}>
-                            {v}
+                {state.hair.type.map((volume, i) => (
+                    <>
+                        <span key={i} style={volume ? { color: 'orange', textDecoration: 'underline' } : {}}>
+                            {LL.HAIR.QUALITY[i as HairQuality]()}
                         </span>
-                    ))
-                    .reduce((prev, curr, i) => [prev, <span key={i}> - </span>, curr])}
+                        {/* Render divider for every but last */}
+                        {i !== state.hair.volume.length - 1 && <span> - </span>}
+                    </>
+                ))}
                 <br />
-                <BoldTranslation>{LL.HAIR.CONTENT.GRAFT_COUNT({ session: LL.GENERIC.FIRST(), range: state.grafts[0] })}</BoldTranslation>
+                <BoldTranslation>{LL.HAIR.CONTENT.GRAFT_COUNT({ session: '1', range: state.grafts[0] })}</BoldTranslation>
                 <br />
                 {state.sessions === 2 && (
                     <>
-                        <BoldTranslation>
-                            {LL.HAIR.CONTENT.GRAFT_COUNT({ session: LL.GENERIC.SECOND(), range: state.grafts[0] })}
-                        </BoldTranslation>{' '}
-                        ({LL.HAIR.CONTENT.NOT_REQUIRED()})
+                        <BoldTranslation>{LL.HAIR.CONTENT.GRAFT_COUNT({ session: '2', range: state.grafts[0] })}</BoldTranslation> (
+                        {LL.HAIR.CONTENT.NOT_REQUIRED()})
                         <br />
                     </>
                 )}
                 <strong>{LL.HAIR.CONTENT.TECHNIQUE()}</strong>: {state.technique}
                 <br />
-                <strong>{LL.HAIR.CONTENT.ZONES()}</strong>: 1e sessie zone:{' '}
-                {state.zones[0]
-                    .map((_v, i) => i + 1)
-                    .filter((_v, i) => state.zones[0][i])
-                    .join(', ')}{' '}
-                (zie schema onder)
-                {state.sessions === 2 &&
-                    `/ 2e sessie zone: ${state.zones[1]
-                        .map((_v, i) => i + 1)
-                        .filter((_v, i) => state.zones[1][i])
-                        .join(', ')} (zie schema onder)`}
+                <strong>{LL.HAIR.CONTENT.ZONES()}</strong>: {LL.HAIR.CONTENT.SESSION_ZONES(1, createZoneString(state.zones[0]))}
+                {state.sessions === 2 && ` / ${LL.HAIR.CONTENT.SESSION_ZONES(2, createZoneString(state.zones[1]))}`}
                 <br />
-                <strong>Duur behandeling 1e sessie</strong>: 6-7 uur
+                <BoldTranslation>{LL.HAIR.CONTENT.SESSION_DURATION(1, '6-7')}</BoldTranslation>
                 <br />
                 {state.sessions === 2 && (
                     <>
-                        <strong>Duur behandeling 2e sessie</strong>: 5-6 uur
+                        <BoldTranslation>{LL.HAIR.CONTENT.SESSION_DURATION(2, '5-6')}</BoldTranslation>
                         <br />
                     </>
                 )}
@@ -112,7 +112,7 @@ export default function Content(state: HairState) {
                 <br />
                 <BoldTranslation>{LL.HAIR.CONTENT.ANESTHESIA()}</BoldTranslation>
                 <br />
-                <strong>{LL.HAIR.CONTENT.TREATMENT_LOCATION()}</strong>: {state.country}
+                <strong>{LL.HAIR.CONTENT.TREATMENT_LOCATION()}</strong>: {LL.HAIR.COUNTRY[state.country]()}
                 <br />
                 <strong>{LL.HAIR.CONTENT.TREATMENT_NOTES()}</strong>: {state.notes || '-'}
                 <br />
@@ -122,8 +122,8 @@ export default function Content(state: HairState) {
             {/* Hair transplant regions image */}
             <img src={zone64} alt='Zones' style={{ maxHeight: '300px' }} />
             {/* Treatment price breakdown */}
-            {state.country !== Countries.TURKEY && <PriceBreakdown {...state} />}
-            {state.country !== Countries.NETHERLANDS && <PriceBreakdown {...state} />}
+            {state.country !== Country.TURKEY && <PriceBreakdown state={state} country={Country.NETHERLANDS} />}
+            {state.country !== Country.NETHERLANDS && <PriceBreakdown state={state} country={Country.TURKEY} />}
             {/* Closing statement */}
             <p>{LL.HAIR.CONTENT.ENDING_COMMENT()}</p>
             <p>{LL.HAIR.CONTENT.KIND_REGARDS()},</p>
