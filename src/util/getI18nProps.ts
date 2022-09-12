@@ -3,7 +3,7 @@ import { loadedLocales } from '../i18n/i18n-util';
 import { loadAllLocalesAsync } from '../i18n/i18n-util.async';
 
 const getI18nProps: GetStaticProps = async () => {
-    const locale = 'fr';
+    const locale = 'nl';
     await loadAllLocalesAsync();
 
     return {
