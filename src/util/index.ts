@@ -14,7 +14,7 @@ export function enumLength(enumerable: object): number {
  * @param enumerable The enum to get the values of.
  * @returns The enum values.
  */
-export function enumIterable<T extends object>(enumerable: T): T[] {
+export function enumIterable<T extends object>(enumerable: T): T[keyof T][] {
     const length = enumLength(enumerable);
     const values = [];
 
@@ -22,5 +22,5 @@ export function enumIterable<T extends object>(enumerable: T): T[] {
         values.push(i);
     }
 
-    return values as unknown as T[];
+    return values as unknown as T[keyof T][];
 }

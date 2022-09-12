@@ -52,7 +52,7 @@ export const defaultState = {
         volume: Array<boolean>(enumLength(HairQuality)).fill(false)
     },
     sessions: 1 as 1 | 2,
-    technique: Technique[0],
+    technique: Technique.FUE_HAIR,
     grafts: [Grafts.first[0], Grafts.first[1]],
     price: [
         [0, 0],

@@ -1,11 +1,10 @@
 import { GetStaticProps } from 'next';
-import { Locales } from '../i18n/i18n-types';
-import { baseLocale, loadedLocales } from '../i18n/i18n-util';
-import { loadLocaleAsync } from '../i18n/i18n-util.async';
+import { loadedLocales } from '../i18n/i18n-util';
+import { loadAllLocalesAsync } from '../i18n/i18n-util.async';
 
-const getI18nProps: GetStaticProps = async context => {
-    const locale = (context.locale as Locales) ?? baseLocale;
-    await loadLocaleAsync(locale);
+const getI18nProps: GetStaticProps = async () => {
+    const locale = 'en';
+    await loadAllLocalesAsync();
 
     return {
         props: {

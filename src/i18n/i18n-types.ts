@@ -40,6 +40,12 @@ type RootTranslation = {
 		SECOND: string
 	}
 	HAIR: {
+		/**
+		 * Offerte + Analyse FUE Haartransplantatie behandeling te Hoofddorp voor dhr {0} {1}
+		 * @param {string} 0
+		 * @param {string} 1
+		 */
+		SUBJECT: RequiredParams<'0' | '1'>
 		CONTENT: {
 			/**
 			 * Bedankt voor de interesse die u getoond heeft in onze organisatie, wij hebben uw aanvraag + foto's in goede orde ontvangen.
@@ -257,7 +263,7 @@ type RootTranslation = {
 			 */
 			'2': string
 			/**
-			 * P
+			 * Perfect
 			 */
 			'3': string
 		}
@@ -288,6 +294,10 @@ export type TranslationFunctions = {
 		SECOND: () => LocalizedString
 	}
 	HAIR: {
+		/**
+		 * Offerte + Analyse FUE Haartransplantatie behandeling te Hoofddorp voor dhr {0} {1}
+		 */
+		SUBJECT: (arg0: string, arg1: string) => LocalizedString
 		CONTENT: {
 			/**
 			 * Bedankt voor de interesse die u getoond heeft in onze organisatie, wij hebben uw aanvraag + foto's in goede orde ontvangen.
@@ -487,7 +497,7 @@ export type TranslationFunctions = {
 			 */
 			'2': () => LocalizedString
 			/**
-			 * P
+			 * Perfect
 			 */
 			'3': () => LocalizedString
 		}

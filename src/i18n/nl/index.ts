@@ -9,6 +9,7 @@ const nl: BaseTranslation = {
         SECOND: 'tweede'
     },
     HAIR: {
+        SUBJECT: 'Offerte + Analyse FUE Haartransplantatie behandeling te Hoofddorp voor dhr {0:string} {1:string}',
         CONTENT: {
             INSPECTION_1:
                 "Bedankt voor de interesse die u getoond heeft in onze organisatie, wij hebben uw aanvraag + foto's in goede orde ontvangen.",
