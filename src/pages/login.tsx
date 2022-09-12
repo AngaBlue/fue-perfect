@@ -6,6 +6,9 @@ import Image from 'next/image';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { SEO } from '../components/SEO';
+import getI18nProps from '../util/getI18nProps';
+
+export const getStaticProps = getI18nProps;
 
 export default function Index() {
     const router = useRouter();

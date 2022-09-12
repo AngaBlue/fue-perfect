@@ -1,11 +1,11 @@
 import { Box, Button, Divider, Heading, useToast } from '@chakra-ui/react';
 import { Dispatch, SetStateAction, useState } from 'react';
-
 import ReactDOMServer from 'react-dom/server';
 import { SpinnerIcon } from '@chakra-ui/icons';
 import Credentials from './Credentials';
 import { defaultProvider } from '../data/provider';
 import styles from './Layout.module.scss';
+import TypesafeI18n, { useI18nContext } from '../i18n/i18n-react';
 
 interface LayoutProps {
     credentials: {
@@ -18,6 +18,8 @@ interface LayoutProps {
 }
 
 export default function Layout({ credentials, content, form, subject }: LayoutProps) {
+    const { locale } = useI18nContext();
+
     const [loading, setLoading] = useState({
         sending: false,
         error: null as Error | null
@@ -30,7 +32,7 @@ export default function Layout({ credentials, content, form, subject }: LayoutPr
 
     function send() {
         if (loading.sending || Object.values(credentials.state).some(v => !v)) return;
-        const html = ReactDOMServer.renderToStaticMarkup(content);
+        const html = ReactDOMServer.renderToStaticMarkup(<TypesafeI18n locale={locale}>{content}</TypesafeI18n>);
 
         setLoading({ ...loading, sending: true, error: null });
         toast({

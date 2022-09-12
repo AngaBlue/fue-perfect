@@ -1,12 +1,21 @@
-import { ReactNode, useEffect, useState } from 'react';
-
-import { format } from 'date-fns';
+import { useEffect, useState } from 'react';
 import merge from 'merge-images';
-import nl from 'date-fns/locale/nl';
-import { Countries, Gender, HairState, HairType, PRPPrices } from './data';
+import { Country, Gender, HairState, HairQuality } from './data';
 import styles from './content.module.scss';
+import { useI18nContext } from '../../../i18n/i18n-react';
+import BoldTranslation from '../../BoldTranslation';
+import PriceBreakdown from './PriceBreakdown';
+
+function createZoneString(zones: boolean[]) {
+    return zones
+        .map((_v, i) => i + 1)
+        .filter((_v, i) => zones[i])
+        .join(', ');
+}
 
 export default function Content(state: HairState) {
+    const { LL } = useI18nContext();
+
     const [zone64, setZone64] = useState('');
     const [logo, setLogo] = useState('');
 
@@ -24,190 +33,104 @@ export default function Content(state: HairState) {
 
     return (
         <div className={styles.message} style={{ fontFamily: 'Sans-Serif' }}>
+            {/* Introduction */}
             <p>
-                Geachte {state.gender === Gender.MALE ? 'heer' : 'mevrouw'} {state.firstname} {state.lastname},
+                {LL.GENERIC.DEAR({
+                    title: state.gender === Gender.MALE ? LL.GENERIC.MR() : LL.GENERIC.MRS(),
+                    name: state.firstname,
+                    surname: state.lastname
+                })}
+                ,
             </p>
+            {/* Display hair inspection notice/results */}
             {state.inspection ? (
                 <>
-                    <p>
-                        Bedankt voor de interesse die u getoond heeft in onze organisatie, wij hebben uw aanvraag + foto&apos;s in goede
-                        orde ontvangen.
-                    </p>
-                    <p>
-                        Uw foto&apos;s / toelichting zijn beoordeeld en hieronder vindt u de analyse terug m.b.t uw Haartransplantatie
-                        behandeling, u bent altijd van harte welkom voor een vrijblijvend consult naar onze kliniek te Hoofddorp!
-                    </p>
-                    <p>
-                        * Aangezien de beoordeling d.m.v. foto&apos;s is vastgesteld, bestaat een kleine kans van afwijking na de
-                        definitieve onderzoek in onze kliniek.
-                    </p>
+                    <p>{LL.HAIR.CONTENT.INSPECTION_1()}</p>
+                    <p>{LL.HAIR.CONTENT.INSPECTION_2()}</p>
+                    <p>{LL.HAIR.CONTENT.INSPECTION_3()}</p>
                 </>
             ) : (
                 <>
-                    {' '}
                     <p>
-                        Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op{' '}
-                        <strong>{format(state.date, 'PPP', { locale: nl })}</strong> een vooronderzoek ondergaan omtrent uw FUE
-                        Haartransplantatie behandeling.
+                        <BoldTranslation>{LL.HAIR.CONTENT.NO_INSPECTION_1({ date: new Date(state.date) })}</BoldTranslation>
                     </p>
-                    <p>Hieronder vindt u de analyse en de samenvatting terug wat wij hebben gesproken.</p>
+                    <p>{LL.HAIR.CONTENT.NO_INSPECTION_2()}</p>
                 </>
             )}
-
+            {/* Inspection results */}
             <p>
-                <strong>Rapport medisch team:</strong>
+                <strong>{LL.HAIR.CONTENT.MEDICAL_TEAM_REPORT()}:</strong>
             </p>
             <p>
-                <strong>Behandeling</strong>: FUE Haartransplantatie behandeling
+                <BoldTranslation>{LL.HAIR.CONTENT.TREATMENT()}</BoldTranslation>
                 <br />
-                <strong>Kwaliteit/ Volume donor</strong>:{' '}
-                {(Object.keys(HairType) as Array<keyof typeof HairType>)
-                    .map<ReactNode>(v => (
-                        <span key={v} style={state.hair.volume[v] ? { color: 'orange', textDecoration: 'underline' } : {}}>
-                            {v}
+                <strong>{LL.HAIR.CONTENT.QUALITY_VOLUME()}</strong>:{' '}
+                {state.hair.volume.map((volume, i) => (
+                    <>
+                        <span key={i} style={volume ? { color: 'orange', textDecoration: 'underline' } : {}}>
+                            {LL.HAIR.QUALITY[i as HairQuality]()}
                         </span>
-                    ))
-                    .reduce((prev, curr, i) => [prev, <span key={i}> - </span>, curr])}
+                        {/* Render divider for every but last */}
+                        {i !== state.hair.volume.length - 1 && <span> - </span>}
+                    </>
+                ))}
                 <br />
-                <strong>Kwaliteit/ Type haar</strong>:{' '}
-                {(Object.keys(HairType) as Array<keyof typeof HairType>)
-                    .map<ReactNode>(v => (
-                        <span key={v} style={state.hair.type[v] ? { color: 'orange', textDecoration: 'underline' } : {}}>
-                            {v}
+                <strong>{LL.HAIR.CONTENT.QUALITY_TYPE()}</strong>:{' '}
+                {state.hair.type.map((volume, i) => (
+                    <>
+                        <span key={i} style={volume ? { color: 'orange', textDecoration: 'underline' } : {}}>
+                            {LL.HAIR.QUALITY[i as HairQuality]()}
                         </span>
-                    ))
-                    .reduce((prev, curr, i) => [prev, <span key={i}> - </span>, curr])}
+                        {/* Render divider for every but last */}
+                        {i !== state.hair.volume.length - 1 && <span> - </span>}
+                    </>
+                ))}
                 <br />
-                <strong>Aantal grafts eerste sessie</strong>: {state.grafts[0]} grafts
+                <BoldTranslation>{LL.HAIR.CONTENT.GRAFT_COUNT({ session: '1', range: state.grafts[0] })}</BoldTranslation>
                 <br />
                 {state.sessions === 2 && (
                     <>
-                        <strong>Aantal grafts tweede sessie</strong>: {state.grafts[1]} grafts (niet verplicht)
+                        <BoldTranslation>{LL.HAIR.CONTENT.GRAFT_COUNT({ session: '2', range: state.grafts[0] })}</BoldTranslation> (
+                        {LL.HAIR.CONTENT.NOT_REQUIRED()})
                         <br />
                     </>
                 )}
-                <strong>Techniek</strong>: {state.technique}
+                <strong>{LL.HAIR.CONTENT.TECHNIQUE()}</strong>: {LL.HAIR.TECHNIQUE[state.technique]()}
                 <br />
-                <strong>Zone</strong>: 1e sessie zone:{' '}
-                {state.zones[0]
-                    .map((_v, i) => i + 1)
-                    .filter((_v, i) => state.zones[0][i])
-                    .join(', ')}{' '}
-                (zie schema onder)
-                {state.sessions === 2 &&
-                    `/ 2e sessie zone: ${state.zones[1]
-                        .map((_v, i) => i + 1)
-                        .filter((_v, i) => state.zones[1][i])
-                        .join(', ')} (zie schema onder)`}
+                <strong>{LL.HAIR.CONTENT.ZONES()}</strong>: {LL.HAIR.CONTENT.SESSION_ZONES(1, createZoneString(state.zones[0]))}
+                {state.sessions === 2 && ` / ${LL.HAIR.CONTENT.SESSION_ZONES(2, createZoneString(state.zones[1]))}`}
                 <br />
-                <strong>Duur behandeling 1e sessie</strong>: 6-7 uur
+                <BoldTranslation>{LL.HAIR.CONTENT.SESSION_DURATION(1, '6-7')}</BoldTranslation>
                 <br />
                 {state.sessions === 2 && (
                     <>
-                        <strong>Duur behandeling 2e sessie</strong>: 5-6 uur
+                        <BoldTranslation>{LL.HAIR.CONTENT.SESSION_DURATION(2, '5-6')}</BoldTranslation>
                         <br />
                     </>
                 )}
-                <strong>Sessie</strong>: {state.sessions} sessie behandeling
+                <BoldTranslation>{LL.HAIR.CONTENT.SESSIONS(state.sessions)}</BoldTranslation>
                 <br />
-                <strong>Verdoving</strong>: Pijnloos lokaal verdoving
+                <BoldTranslation>{LL.HAIR.CONTENT.ANESTHESIA()}</BoldTranslation>
                 <br />
-                <strong>Behandeling bestemming</strong>: {state.country}
+                <strong>{LL.HAIR.CONTENT.TREATMENT_LOCATION()}</strong>: {LL.HAIR.COUNTRY[state.country]()}
                 <br />
-                <strong>Behandeling data</strong>: {state.notes || '-'}
+                <strong>{LL.HAIR.CONTENT.TREATMENT_NOTES()}</strong>: {state.notes || '-'}
                 <br />
-                <strong>Extra Opmerking</strong>: {state.opmerkingNotes || '-'}
+                <strong>{LL.HAIR.CONTENT.EXTRA_REMARKS()}</strong>: {state.opmerkingNotes || '-'}
                 <br />
             </p>
+            {/* Hair transplant regions image */}
             <img src={zone64} alt='Zones' style={{ maxHeight: '300px' }} />
-            {state.country !== Countries.TURKEY && (
-                <>
-                    <p>
-                        <strong style={{ color: '#c82613' }}>
-                            Kosten behandeling {state.sessions} sessie
-                            {state.sessions === 1 ? '' : 's'} in Nederland All-in €{state.price[0][0] + state.price[0][1]}{' '}
-                            {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
-                        </strong>
-                        {state.sessions === 2 && (
-                            <>
-                                <br />
-                                <strong style={{ textDecoration: 'underline' }}>
-                                    Eerste sessie: €{state.price[0][0]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
-                                </strong>
-                                <br />
-                                <span style={{ textDecoration: 'underline' }}>
-                                    <strong>Tweede sessie: €{state.price[0][1]} </strong>(na min 12 maanden genezingstijd, niet verplicht)
-                                </span>
-                            </>
-                        )}
-                        <strong style={{ color: '#c82613' }}>
-                            <br />
-                            Kosten PRP behandeling (1 gratis): €{PRPPrices[state.prp - 1] * (state.prp - 1)}
-                            <br />
-                            Totaal: €{state.price[0][0] + state.price[0][1] + PRPPrices[state.prp - 1] * (state.prp - 1)}
-                        </strong>
-                    </p>
-                    <p>
-                        <strong>Inhoud All-in pakket Nederland:</strong>
-                    </p>
-                    <ul style={{ marginLeft: '32px' }}>
-                        <li>Vooronderzoek</li>
-                        <li>FUE-haartransplantatie behandeling</li>
-                        <li>Shampoo, lotion en medicatie</li>
-                        <li>{state.prp}x prp behandeling in NL</li>
-                        <li>4x Nacontrole gedurende 10 maanden</li>
-                    </ul>
-                </>
-            )}
-            {state.country !== Countries.NETHERLANDS && (
-                <>
-                    <p>
-                        <strong style={{ color: '#c82613' }}>
-                            Kosten behandeling {state.sessions} sessie
-                            {state.sessions === 1 ? '' : 's'} in Turkije All-in €{state.price[1][0] + state.price[1][1]}{' '}
-                            {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
-                        </strong>
-                        {state.sessions === 2 && (
-                            <>
-                                <br />
-                                <strong style={{ textDecoration: 'underline' }}>
-                                    Eerste sessie: €{state.price[1][0]} {!!state.discount && `(€${Math.abs(state.discount)} korting)`}
-                                </strong>
-                                <br />
-                                <span style={{ textDecoration: 'underline' }}>
-                                    <strong>Tweede sessie: €{state.price[1][1]} </strong>(na min 12 maanden genezingstijd, niet verplicht)
-                                </span>
-                            </>
-                        )}
-                        <strong style={{ color: '#c82613' }}>
-                            <br />
-                            Kosten PRP behandeling: €{PRPPrices[state.prp - 1] * (state.prp - 1)}
-                            <br />
-                            Totaal: €{state.price[1][0] + state.price[1][1] + PRPPrices[state.prp - 1] * (state.prp - 1)}
-                        </strong>
-                    </p>
-                    <p>
-                        <strong>Inhoud All-in pakket Turkije/Istanbul:</strong>
-                    </p>
-                    <ul style={{ marginLeft: '32px' }}>
-                        <li>Vooronderzoek</li>
-                        <li>Retour vliegticket met KLM of Turkish Airlines</li>
-                        <li>3 overnachtingen in Hilton Doubbletree Istanbul</li>
-                        <li>FUE-haartransplantatie behandeling</li>
-                        <li>Shampoo, lotion en medicatie</li>
-                        <li>{state.prp}x prp behandeling in NL</li>
-                        <li>4x Nacontrole gedurende 10 maanden</li>
-                    </ul>
-                </>
-            )}
-            <p>
-                Wij hopen u hiermee voldoende te hebben geïnformeerd en kijken uit naar uw bevindingen, mocht u vragen of opmerkingen hebben
-                dan horen wij deze graag van u.
-            </p>
-            <p>Met vriendelijke groeten,</p>
+            {/* Treatment price breakdown */}
+            {state.country !== Country.TURKEY && <PriceBreakdown state={state} country={Country.NETHERLANDS} />}
+            {state.country !== Country.NETHERLANDS && <PriceBreakdown state={state} country={Country.TURKEY} />}
+            {/* Closing statement */}
+            <p>{LL.HAIR.CONTENT.ENDING_COMMENT()}</p>
+            <p>{LL.HAIR.CONTENT.KIND_REGARDS()},</p>
             <p style={{ color: 'grey' }}>
                 <strong>A.Senturk</strong>
             </p>
+            {/* Footer */}
             <img src={logo} alt='Fue Perfect' style={{ height: '100px' }} />
             <p>
                 <i>
