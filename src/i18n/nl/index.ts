@@ -22,7 +22,6 @@ const nl: BaseTranslation = {
             NO_INSPECTION_2: 'Hieronder vindt u de analyse en de samenvatting terug wat wij hebben gesproken.',
             MEDICAL_TEAM_REPORT: 'Rapport medisch team',
             TREATMENT: '<>Behandeling<>: FUE Haartransplantatie behandeling',
-            FUE_HAIR_TRANSPLANT: '',
             QUALITY_VOLUME: 'Kwaliteit/ Volume donor',
             QUALITY_TYPE: 'Kwaliteit/ Type haar',
             GRAFT_COUNT: '<>Aantal grafts {session|{1: eerste, 2: tweede}} sessie<>: {range:string} grafts',

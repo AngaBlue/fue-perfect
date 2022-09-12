@@ -22,7 +22,6 @@ const en: Translation = {
             NO_INSPECTION_2: 'Below is the analysis and summary which we discussed.',
             MEDICAL_TEAM_REPORT: 'Medical team report',
             TREATMENT: '<>Treatment<>: FUE Hair Transplant Treatment',
-            FUE_HAIR_TRANSPLANT: '',
             QUALITY_VOLUME: 'Quality/Volume donor',
             QUALITY_TYPE: 'Quality/ Type of hair',
             GRAFT_COUNT: '<>Number of grafts {session|{1: first, 2: second}} session<>: {range} grafts',

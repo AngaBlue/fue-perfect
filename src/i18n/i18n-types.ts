@@ -7,6 +7,7 @@ export type BaseLocale = 'nl'
 
 export type Locales =
 	| 'en'
+	| 'fr'
 	| 'nl'
 
 export type Translation = RootTranslation
@@ -76,7 +77,6 @@ type RootTranslation = {
 			 * <>Behandeling<>: FUE Haartransplantatie behandeling
 			 */
 			TREATMENT: string
-			FUE_HAIR_TRANSPLANT: string
 			/**
 			 * Kwaliteit/ Volume donor
 			 */
@@ -327,7 +327,6 @@ export type TranslationFunctions = {
 			 * <>Behandeling<>: FUE Haartransplantatie behandeling
 			 */
 			TREATMENT: () => LocalizedString
-			FUE_HAIR_TRANSPLANT: () => LocalizedString
 			/**
 			 * Kwaliteit/ Volume donor
 			 */
