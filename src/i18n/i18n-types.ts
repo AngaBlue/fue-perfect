@@ -7,8 +7,10 @@ export type BaseLocale = 'nl'
 
 export type Locales =
 	| 'en'
+	| 'es'
 	| 'fr'
 	| 'nl'
+	| 'tr'
 
 export type Translation = RootTranslation
 
