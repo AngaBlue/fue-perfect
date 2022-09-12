@@ -56,7 +56,7 @@ export default function Content(props: DentalState) {
             {/* Price */}
             <div className={styles.detail}>
                 <div style={{ color: 'red', marginTop: '20px' }}>The price of implantaat</div> <br />
-                <p style={{ color: '#1a79c6'}}>Extracties: {}</p>
+                <p style={{ color: '#1a79c6' }}>Extracties: {}</p>
                 <p style={{ color: '#1a79c6' }}>Implantaat: {}</p>
                 <p style={{ color: '#1a79c6' }}>Bone graft: {}</p>
                 <p style={{ color: 'red' }}>Brug: {}</p>
