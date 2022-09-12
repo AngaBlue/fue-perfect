@@ -1,15 +1,26 @@
 import { Box, Flex, Heading, Select, Spacer } from '@chakra-ui/react';
 import { GetServerSideProps } from 'next';
-import { useState } from 'react';
+import { ChangeEventHandler, useState } from 'react';
 import authorize from '../util/authorize';
 import { defaultProvider } from '../data/provider';
 import messages from '../data/messages';
 import getI18nProps from '../util/getI18nProps';
+import { useI18nContext } from '../i18n/i18n-react';
+import { Locales } from '../i18n/i18n-types';
+import { locales } from '../i18n/i18n-util';
+import { loadLocaleAsync } from '../i18n/i18n-util.async';
 
 export default function Index() {
+    const { locale, setLocale } = useI18nContext();
     const [template, setTemplate] = useState({ index: 0 });
     const [state, setState] = useState(defaultProvider);
     const Component = messages[template.index].component;
+
+    const updateLocale: ChangeEventHandler<HTMLSelectElement> = async e => {
+        const newLocale = e.target.value as Locales;
+        await loadLocaleAsync(newLocale);
+        setLocale(newLocale);
+    };
 
     return (
         <>
@@ -21,6 +32,13 @@ export default function Index() {
                         {messages.map((m, i) => (
                             <option value={i} key={i}>
                                 {m.name}
+                            </option>
+                        ))}
+                    </Select>
+                    <Select value={locale} width='max-content' onChange={updateLocale} ml={4}>
+                        {locales.map(l => (
+                            <option value={l} key={l}>
+                                {l}
                             </option>
                         ))}
                     </Select>
