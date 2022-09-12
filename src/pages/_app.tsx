@@ -5,15 +5,18 @@ import theme from '../data/theme';
 import { DefaultSEO } from '../components/SEO';
 import TypesafeI18n from '../i18n/i18n-react';
 import { Locales, Translation } from '../i18n/i18n-types';
-import { loadedLocales } from '../i18n/i18n-util';
+import { loadedLocales, baseLocale } from '../i18n/i18n-util';
 import { loadFormatters } from '../i18n/i18n-util.async';
 
 function App({ Component, pageProps }: AppProps) {
-    const { locale } = pageProps.i18n;
-    const { dictionary } = pageProps.i18n;
+    const locale = pageProps.i18n ?? baseLocale;
 
-    loadedLocales[locale as Locales] = dictionary as Translation;
-    loadFormatters(locale);
+    if (pageProps.i18n) {
+        const { dictionary } = pageProps.i18n;
+
+        loadedLocales[locale as Locales] = dictionary as Translation;
+        loadFormatters(locale);
+    }
 
     return (
         <TypesafeI18n locale={locale}>
