@@ -8,13 +8,18 @@ import { Locales, Translation } from '../i18n/i18n-types';
 import { loadedLocales, baseLocale } from '../i18n/i18n-util';
 import { loadFormatters } from '../i18n/i18n-util.async';
 
-function App({ Component, pageProps }: AppProps) {
-    const locale = pageProps.i18n ?? baseLocale;
+interface I18nProps {
+    locale: Locales;
+    dictionary: Translation;
+}
+
+function App({ Component, pageProps }: AppProps<{ i18n?: I18nProps }>) {
+    const locale = pageProps.i18n?.locale ?? baseLocale;
 
     if (pageProps.i18n) {
         const { dictionary } = pageProps.i18n;
 
-        loadedLocales[locale as Locales] = dictionary as Translation;
+        loadedLocales[locale] = dictionary;
         loadFormatters(locale);
     }
 
