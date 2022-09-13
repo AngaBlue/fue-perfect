@@ -35,7 +35,7 @@ export const Prices = {
     [Country.TURKEY]: [2150, 2250, 2350, 2450, 2550, 2650, 2750]
 };
 
-export const PRPPrices = [0, 250, 225, 200];
+export const PRPPrices = [0, 275, 250, 225, 200];
 
 export const Discounts = [0, -100, -200, -300];
 
