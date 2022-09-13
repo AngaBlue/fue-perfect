@@ -10,8 +10,6 @@ export default function PriceBreakdown({ state, country }: PriceBreakdownProps) 
     const context = useI18nContext();
     const { LL } = context;
 
-    if (!LL) console.log(context);
-
     // Calculate the PRP price, noting that the first session is free
     const PRPPrice = PRPPrices[state.prp - 1] * (state.prp - 1);
 
