@@ -80,11 +80,11 @@ type RootTranslation = {
 			 */
 			TREATMENT: string
 			/**
-			 * Kwaliteit/ Volume donor
+			 * Kwaliteit / Volume donor
 			 */
 			QUALITY_VOLUME: string
 			/**
-			 * Kwaliteit/ Type haar
+			 * Kwaliteit / Type haar
 			 */
 			QUALITY_TYPE: string
 			/**
@@ -166,7 +166,7 @@ type RootTranslation = {
 			 */
 			FOLLOW_UP: string
 			/**
-			 * {0}x prp behandeling in NL
+			 * {0}x prp behandeling in Nederland
 			 * @param {number} 0
 			 */
 			PRP_COUNT: RequiredParams<'0'>
@@ -197,17 +197,17 @@ type RootTranslation = {
 			 */
 			PACKAGE_CONTENT: RequiredParams<'0'>
 			/**
-			 * <>Duur behandeling {0}e sessie<>: {1} uur
-			 * @param {number} 0
+			 * <>Duur behandeling {0|{1: eerste, 2: tweede}} sessie<>: {1} uur
+			 * @param {'1' | '2'} 0
 			 * @param {string} 1
 			 */
-			SESSION_DURATION: RequiredParams<'0' | '1'>
+			SESSION_DURATION: RequiredParams<`0|{1:${string}, 2:${string}}` | '1'>
 			/**
-			 * {0}e sessie zone: {1} (zie schema onder)
-			 * @param {number} 0
+			 * {0|{1: Eerste, 2: Tweede}} sessie zone: {1} (zie schema onder)
+			 * @param {'1' | '2'} 0
 			 * @param {string} 1
 			 */
-			SESSION_ZONES: RequiredParams<'0' | '1'>
+			SESSION_ZONES: RequiredParams<`0|{1:${string}, 2:${string}}` | '1'>
 		}
 		TECHNIQUE: {
 			/**
@@ -330,11 +330,11 @@ export type TranslationFunctions = {
 			 */
 			TREATMENT: () => LocalizedString
 			/**
-			 * Kwaliteit/ Volume donor
+			 * Kwaliteit / Volume donor
 			 */
 			QUALITY_VOLUME: () => LocalizedString
 			/**
-			 * Kwaliteit/ Type haar
+			 * Kwaliteit / Type haar
 			 */
 			QUALITY_TYPE: () => LocalizedString
 			/**
@@ -410,7 +410,7 @@ export type TranslationFunctions = {
 			 */
 			FOLLOW_UP: () => LocalizedString
 			/**
-			 * {0}x prp behandeling in NL
+			 * {0}x prp behandeling in Nederland
 			 */
 			PRP_COUNT: (arg0: number) => LocalizedString
 			/**
@@ -434,13 +434,13 @@ export type TranslationFunctions = {
 			 */
 			PACKAGE_CONTENT: (arg0: string) => LocalizedString
 			/**
-			 * <>Duur behandeling {0}e sessie<>: {1} uur
+			 * <>Duur behandeling {0|{1: eerste, 2: tweede}} sessie<>: {1} uur
 			 */
-			SESSION_DURATION: (arg0: number, arg1: string) => LocalizedString
+			SESSION_DURATION: (arg0: '1' | '2', arg1: string) => LocalizedString
 			/**
-			 * {0}e sessie zone: {1} (zie schema onder)
+			 * {0|{1: Eerste, 2: Tweede}} sessie zone: {1} (zie schema onder)
 			 */
-			SESSION_ZONES: (arg0: number, arg1: string) => LocalizedString
+			SESSION_ZONES: (arg0: '1' | '2', arg1: string) => LocalizedString
 		}
 		TECHNIQUE: {
 			/**
