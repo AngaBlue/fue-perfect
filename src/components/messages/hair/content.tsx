@@ -97,14 +97,14 @@ export default function Content(state: HairState) {
                 )}
                 <strong>{LL.HAIR.CONTENT.TECHNIQUE()}</strong>: {LL.HAIR.TECHNIQUE[state.technique]()}
                 <br />
-                <strong>{LL.HAIR.CONTENT.ZONES()}</strong>: {LL.HAIR.CONTENT.SESSION_ZONES(1, createZoneString(state.zones[0]))}
-                {state.sessions === 2 && ` / ${LL.HAIR.CONTENT.SESSION_ZONES(2, createZoneString(state.zones[1]))}`}
+                <strong>{LL.HAIR.CONTENT.ZONES()}</strong>: {LL.HAIR.CONTENT.SESSION_ZONES('1', createZoneString(state.zones[0]))}
+                {state.sessions === 2 && ` / ${LL.HAIR.CONTENT.SESSION_ZONES('2', createZoneString(state.zones[1]))}`}
                 <br />
-                <BoldTranslation>{LL.HAIR.CONTENT.SESSION_DURATION(1, '6-7')}</BoldTranslation>
+                <BoldTranslation>{LL.HAIR.CONTENT.SESSION_DURATION('1', '6-7')}</BoldTranslation>
                 <br />
                 {state.sessions === 2 && (
                     <>
-                        <BoldTranslation>{LL.HAIR.CONTENT.SESSION_DURATION(2, '5-6')}</BoldTranslation>
+                        <BoldTranslation>{LL.HAIR.CONTENT.SESSION_DURATION('2', '5-6')}</BoldTranslation>
                         <br />
                     </>
                 )}
