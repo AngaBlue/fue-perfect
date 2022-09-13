@@ -13,7 +13,7 @@ export default function PriceBreakdown({ state, country }: PriceBreakdownProps) 
     if (!LL) console.log(context);
 
     // Calculate the PRP price, noting that the first session is free
-    const PRPPrice = PRPPrices[state.prp - 1] * state.prp;
+    const PRPPrice = PRPPrices[state.prp - 1] * (state.prp - 1);
 
     const countryIndex = country === Country.NETHERLANDS ? 0 : 1;
     const firstSessionPrice = state.price[countryIndex][0];
