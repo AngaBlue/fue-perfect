@@ -44,7 +44,7 @@ const tr: Translation = {
             FOLLOW_UP: '10 ay boyunca 4 kez takip muayenesi',
             PRP_COUNT: "Hollanda'da {0}x prp tedavisi",
             INVESTIGATION: 'Ön inceleme',
-            TREATMENT_COST: 'Cost of treatment {0} session{{s}} in {1} all-inclusive €{2}',
+            TREATMENT_COST: "Tedavi maliyeti {1}'de {0} seans her şey dahil {2} €",
             SESSION_COST: '{session|{1: İlk, 2: İkinci}} seans: {cost} €',
             SECOND_SESSION_NOTE: 'en az 12 aylık iyileşme süresinden sonra, zorunlu değil',
             PACKAGE_CONTENT: 'İçerik Hepsi bir arada paket {0}:',
