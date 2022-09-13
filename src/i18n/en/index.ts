@@ -32,7 +32,7 @@ const en: Translation = {
                 'We hope to have informed you sufficiently with this and look forward to your findings, should you have any questions or comments we would be happy to hear from you.',
             KIND_REGARDS: 'Yours sincerely',
             EXTRA_REMARKS: 'Additional Note',
-            TREATMENT_NOTES: 'Treatment dates',
+            TREATMENT_NOTES: 'Treatment notes',
             TREATMENT_LOCATION: 'Treatment destination',
             PRP_PRICE: 'Cost of PRP treatment (1 free): €{0}',
             TOTAL: 'Total: €{0}',
