@@ -51,7 +51,7 @@ const tr: Translation = {
             SESSION_DURATION: '<>Tedavi süresi {0|{1: ilk, 2: ikinci}} seans<>: {1} saat',
             SESSION_ZONES: '{0|{1: Birinci, 2: İkinci}} seans bölgesi: {1} (aşağıdaki şemaya bakın)'
         },
-        TECHNIQUE: ['FUE Saç Ekimi', 'DHI Saç Ekimi', 'FUE Beard Transplant', 'DHI Sakal Ekimi'],
+        TECHNIQUE: ['FUE Saç Ekimi', 'DHI Saç Ekimi', 'FUE Sakal Ekimi', 'DHI Sakal Ekimi'],
         COUNTRY: ['Türkiye', 'Hollanda', 'Türkiye/Hollanda'],
         GENDER: ['Bay', 'Bayan'],
         QUALITY: ['Kötü', 'Normal', 'İyi', 'Mükemmel']
