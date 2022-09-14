@@ -55,7 +55,7 @@ const nl: BaseTranslation = {
         TECHNIQUE: ['FUE Haartransplantatie', 'DHI Haartransplantatie', 'FUE Baardtransplantatie', 'DHI Baardtransplantatie'],
         COUNTRY: ['Turkije', 'Nederland', 'Turkije/Nederland'],
         GENDER: ['Mannelijk', 'Vrouwelijk'],
-        QUALITY: ['Shlect', 'Normaal', 'Goed', 'Perfect']
+        QUALITY: ['Slecht', 'Normaal', 'Goed', 'Perfect']
     }
 };
 

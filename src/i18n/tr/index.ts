@@ -53,8 +53,8 @@ const tr: Translation = {
         },
         TECHNIQUE: ['FUE Saç Ekimi', 'DHI Saç Ekimi', 'FUE Beard Transplant', 'DHI Sakal Ekimi'],
         COUNTRY: ['Türkiye', 'Hollanda', 'Türkiye/Hollanda'],
-        GENDER: ['Erkek', 'Kadın'],
-        QUALITY: ['Şık', 'Normal', 'İyi', 'Mükemmel']
+        GENDER: ['Bay', 'Bayan'],
+        QUALITY: ['Kötü', 'Normal', 'İyi', 'Mükemmel']
     }
 };
 
