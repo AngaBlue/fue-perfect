@@ -9,16 +9,16 @@ const fr: Translation = {
         SECOND: 'deuxième'
     },
     HAIR: {
-        SUBJECT: "Devis + Analyse d'un traitement de transplantation capillaire FUE à Hoofddorp pour {0} {1}",
+        SUBJECT: "Devis + Analyse d'un traitement de {2} à Hoofddorp pour {0} {1}",
         CONTENT: {
             INSPECTION_1:
                 "Merci de l'intérêt que vous portez à notre organisation, nous avons reçu votre demande + les photos en bon ordre",
             INSPECTION_2:
-                "Vos photos / commentaires ont été examinés et vous trouverez ci-dessous l'analyse de votre traitement de greffe de cheveux, vous êtes toujours le bienvenu pour une consultation gratuite à notre clinique de Hoofddorp !",
+                "Vos photos / commentaires ont été examinés et vous trouverez ci-dessous l'analyse de votre traitement de {0}, vous êtes toujours le bienvenu pour une consultation gratuite à notre clinique de Hoofddorp !",
             INSPECTION_3:
                 "* L'évaluation étant déterminée par des photographies, il existe un faible risque de déviation après l'examen final dans notre clinique",
             NO_INSPECTION_1:
-                "Nous vous remercions de l'intérêt que vous portez à notre organisation, vous avez subi un examen préliminaire le <>{date|date}<> concernant votre traitement de transplantation capillaire FUE.",
+                "Nous vous remercions de l'intérêt que vous portez à notre organisation, vous avez subi un examen préliminaire le <>{0|date}<> concernant votre traitement de {1}.",
             NO_INSPECTION_2: "Veuillez trouver ci-dessous l'analyse et le résumé de ce que nous avons discuté.",
             MEDICAL_TEAM_REPORT: "Rapport de l'équipe médicale",
             TREATMENT: '<>Traitement<>: {0}',

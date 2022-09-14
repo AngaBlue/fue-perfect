@@ -1,5 +1,5 @@
 import { useI18nContext } from '../../../i18n/i18n-react';
-import { Country, HairState, PRPPrices, Technique } from './data';
+import { Country, HairState, PRPPrices } from './data';
 
 interface PriceBreakdownProps {
     state: HairState;
@@ -62,7 +62,7 @@ export default function PriceBreakdown({ state, country }: PriceBreakdownProps) 
                         <li>{LL.HAIR.CONTENT.FLIGHT_2()}</li>
                     </>
                 )}
-                <li>{LL.HAIR.TECHNIQUE[Technique.FUE_HAIR]()}</li>
+                <li>{LL.HAIR.TECHNIQUE[state.technique]()}</li>
                 <li>{LL.HAIR.CONTENT.SHAMPOO()}</li>
                 <li>{LL.HAIR.CONTENT.PRP_COUNT(state.prp)}</li>
                 <li>{LL.HAIR.CONTENT.FOLLOW_UP()}</li>

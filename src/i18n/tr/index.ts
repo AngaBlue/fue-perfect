@@ -9,15 +9,15 @@ const tr: Translation = {
         SECOND: 'i̇kinci'
     },
     HAIR: {
-        SUBJECT: "{0} {1} için Hoofddorp'ta FUE Saç Ekimi tedavisi için fiyat teklifi + Analiz",
+        SUBJECT: "{0} {1} için Hoofddorp'ta {2} tedavisi için fiyat teklifi + Analiz",
         CONTENT: {
             INSPECTION_1:
                 'Organizasyonumuza göstermiş olduğunuz ilgi için teşekkür ederiz, talebinizi + fotoğraflarınızı iyi bir şekilde aldık.',
             INSPECTION_2:
-                "Fotoğraflarınız / yorumlarınız incelendi ve aşağıda saç ekimi tedavinizin analizini bulacaksınız, Hoofddorp'taki kliniğimizde her zaman ücretsiz bir konsültasyona davetlisiniz!",
+                "Fotoğraflarınız / yorumlarınız incelendi ve aşağıda {0} tedavinizin analizini bulacaksınız, Hoofddorp'taki kliniğimizde her zaman ücretsiz bir konsültasyona davetlisiniz!",
             INSPECTION_3: 'Değerlendirme fotoğraflarla belirlendiği için kliniğimizdeki son muayeneden sonra küçük bir sapma şansı vardır.',
             NO_INSPECTION_1:
-                'Kuruluşumuza göstermiş olduğunuz ilgiden dolayı teşekkür ederiz. <>{date|date}<> tarihinde FUE Saç Ekimi tedaviniz ile ilgili ön incelemeden geçtiniz.',
+                'Kuruluşumuza göstermiş olduğunuz ilgiden dolayı teşekkür ederiz. <>{0|date}<> tarihinde {1} tedaviniz ile ilgili ön incelemeden geçtiniz.',
             NO_INSPECTION_2: 'Aşağıda konuştuklarımızın analizini ve özetini bulacaksınız.',
             MEDICAL_TEAM_REPORT: 'Tıbbi ekip raporut',
             TREATMENT: '<>Tedavi<>: {0}',

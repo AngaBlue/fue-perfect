@@ -46,13 +46,15 @@ export default function Content(state: HairState) {
             {state.inspection ? (
                 <>
                     <p>{LL.HAIR.CONTENT.INSPECTION_1()}</p>
-                    <p>{LL.HAIR.CONTENT.INSPECTION_2()}</p>
+                    <p>{LL.HAIR.CONTENT.INSPECTION_2(LL.HAIR.TECHNIQUE[state.technique]())}</p>
                     <p>{LL.HAIR.CONTENT.INSPECTION_3()}</p>
                 </>
             ) : (
                 <>
                     <p>
-                        <BoldTranslation>{LL.HAIR.CONTENT.NO_INSPECTION_1({ date: new Date(state.date) })}</BoldTranslation>
+                        <BoldTranslation>
+                            {LL.HAIR.CONTENT.NO_INSPECTION_1(new Date(state.date), LL.HAIR.TECHNIQUE[state.technique]())}
+                        </BoldTranslation>
                     </p>
                     <p>{LL.HAIR.CONTENT.NO_INSPECTION_2()}</p>
                 </>

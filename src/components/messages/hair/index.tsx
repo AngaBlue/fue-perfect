@@ -10,7 +10,7 @@ export default function Hair(props: CredentialsProps) {
     const { LL } = useI18nContext();
     const [state, setState] = useState(defaultState);
 
-    const subject = LL.HAIR.SUBJECT(state.firstname, state.lastname);
+    const subject = LL.HAIR.SUBJECT(state.firstname, state.lastname, LL.HAIR.TECHNIQUE[state.technique]());
 
     return <Layout credentials={props} subject={subject} content={content(state)} form={form({ state, setState })} />;
 }

@@ -9,16 +9,16 @@ const en: Translation = {
         SECOND: 'second'
     },
     HAIR: {
-        SUBJECT: 'Quote + Analysis for FUE Hair Transplant treatment in Hoofddorp for {0} {1}',
+        SUBJECT: 'Quote + Analysis for {2} treatment in Hoofddorp for {0} {1}',
         CONTENT: {
             INSPECTION_1:
                 'Thank you for the interest you have shown in our organization, we have received your request + photos in good order.',
             INSPECTION_2:
-                'Your photos / comments have been reviewed and below you will find the analysis of your hair transplant treatment, you are always welcome for a free consultation at our clinic in Hoofddorp!',
+                'Your photos / comments have been reviewed and below you will find the analysis of your {0} treatment, you are always welcome for a free consultation at our clinic in Hoofddorp!',
             INSPECTION_3:
                 'Since the assessment is determined by photographs, there is a small chance of deviation after the final examination in our clinic.',
             NO_INSPECTION_1:
-                'Thank you for the interest you have shown in our organization, you underwent a preliminary examination on <>{date|date}<> regarding your FUE Hair Transplant treatment.',
+                'Thank you for the interest you have shown in our organization, you underwent a preliminary examination on <>{0|date}<> regarding your {1}.',
             NO_INSPECTION_2: 'Below is the analysis and summary which we discussed.',
             MEDICAL_TEAM_REPORT: 'Medical team report',
             TREATMENT: '<>Treatment<>: {0}',

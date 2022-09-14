@@ -44,29 +44,32 @@ type RootTranslation = {
 	}
 	HAIR: {
 		/**
-		 * Offerte + Analyse FUE Haartransplantatie behandeling te Hoofddorp voor dhr {0} {1}
+		 * Offerte + Analyse {2} behandeling te Hoofddorp voor dhr {0} {1}
 		 * @param {string} 0
 		 * @param {string} 1
+		 * @param {LocalizedString} 2
 		 */
-		SUBJECT: RequiredParams<'0' | '1'>
+		SUBJECT: RequiredParams<'0' | '1' | '2'>
 		CONTENT: {
 			/**
 			 * Bedankt voor de interesse die u getoond heeft in onze organisatie, wij hebben uw aanvraag + foto's in goede orde ontvangen.
 			 */
 			INSPECTION_1: string
 			/**
-			 * Uw foto's / toelichting zijn beoordeeld en hieronder vindt u de analyse terug m.b.t uw Haartransplantatie behandeling, u bent altijd van harte welkom voor een vrijblijvend consult naar onze kliniek te Hoofddorp!
+			 * Uw foto's / toelichting zijn beoordeeld en hieronder vindt u de analyse terug m.b.t uw {0} behandeling, u bent altijd van harte welkom voor een vrijblijvend consult naar onze kliniek te Hoofddorp!
+			 * @param {unknown} 0
 			 */
-			INSPECTION_2: string
+			INSPECTION_2: RequiredParams<'0'>
 			/**
 			 * * Aangezien de beoordeling d.m.v. foto's is vastgesteld, bestaat een kleine kans van afwijking na de definitieve onderzoek in onze kliniek.
 			 */
 			INSPECTION_3: string
 			/**
-			 * Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op <>{date|date}<> een vooronderzoek ondergaan omtrent uw FUE Haartransplantatie behandeling.
-			 * @param {Date} date
+			 * Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op <>{0|date}<> een vooronderzoek ondergaan omtrent uw {1} behandeling.
+			 * @param {Date} 0
+			 * @param {LocalizedString} 1
 			 */
-			NO_INSPECTION_1: RequiredParams<'date|date'>
+			NO_INSPECTION_1: RequiredParams<'0|date' | '1'>
 			/**
 			 * Hieronder vindt u de analyse en de samenvatting terug wat wij hebben gesproken.
 			 */
@@ -298,26 +301,26 @@ export type TranslationFunctions = {
 	}
 	HAIR: {
 		/**
-		 * Offerte + Analyse FUE Haartransplantatie behandeling te Hoofddorp voor dhr {0} {1}
+		 * Offerte + Analyse {2} behandeling te Hoofddorp voor dhr {0} {1}
 		 */
-		SUBJECT: (arg0: string, arg1: string) => LocalizedString
+		SUBJECT: (arg0: string, arg1: string, arg2: LocalizedString) => LocalizedString
 		CONTENT: {
 			/**
 			 * Bedankt voor de interesse die u getoond heeft in onze organisatie, wij hebben uw aanvraag + foto's in goede orde ontvangen.
 			 */
 			INSPECTION_1: () => LocalizedString
 			/**
-			 * Uw foto's / toelichting zijn beoordeeld en hieronder vindt u de analyse terug m.b.t uw Haartransplantatie behandeling, u bent altijd van harte welkom voor een vrijblijvend consult naar onze kliniek te Hoofddorp!
+			 * Uw foto's / toelichting zijn beoordeeld en hieronder vindt u de analyse terug m.b.t uw {0} behandeling, u bent altijd van harte welkom voor een vrijblijvend consult naar onze kliniek te Hoofddorp!
 			 */
-			INSPECTION_2: () => LocalizedString
+			INSPECTION_2: (arg0: unknown) => LocalizedString
 			/**
 			 * * Aangezien de beoordeling d.m.v. foto's is vastgesteld, bestaat een kleine kans van afwijking na de definitieve onderzoek in onze kliniek.
 			 */
 			INSPECTION_3: () => LocalizedString
 			/**
-			 * Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op <>{date|date}<> een vooronderzoek ondergaan omtrent uw FUE Haartransplantatie behandeling.
+			 * Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op <>{0|date}<> een vooronderzoek ondergaan omtrent uw {1} behandeling.
 			 */
-			NO_INSPECTION_1: (arg: { date: Date }) => LocalizedString
+			NO_INSPECTION_1: (arg0: Date, arg1: LocalizedString) => LocalizedString
 			/**
 			 * Hieronder vindt u de analyse en de samenvatting terug wat wij hebben gesproken.
 			 */
