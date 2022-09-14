@@ -20,7 +20,7 @@ const tr: Translation = {
                 'Kuruluşumuza göstermiş olduğunuz ilgiden dolayı teşekkür ederiz. <>{date|date}<> tarihinde FUE Saç Ekimi tedaviniz ile ilgili ön incelemeden geçtiniz.',
             NO_INSPECTION_2: 'Aşağıda konuştuklarımızın analizini ve özetini bulacaksınız.',
             MEDICAL_TEAM_REPORT: 'Tıbbi ekip raporut',
-            TREATMENT: '<>Tedavi<>: FUE Saç Ekimi Tedavisi',
+            TREATMENT: '<>Tedavi<>: {0}',
             QUALITY_VOLUME: 'Kalite / Hacim donörü',
             QUALITY_TYPE: 'Saç Kalitesi / Tipi',
             GRAFT_COUNT: '<>{session|{1: İlk seanstaki, 2: İkinci seans}} greft sayısı<>: {range} greft',

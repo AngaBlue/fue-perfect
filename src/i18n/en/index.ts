@@ -21,7 +21,7 @@ const en: Translation = {
                 'Thank you for the interest you have shown in our organization, you underwent a preliminary examination on <>{date|date}<> regarding your FUE Hair Transplant treatment.',
             NO_INSPECTION_2: 'Below is the analysis and summary which we discussed.',
             MEDICAL_TEAM_REPORT: 'Medical team report',
-            TREATMENT: '<>Treatment<>: FUE Hair Transplant Treatment',
+            TREATMENT: '<>Treatment<>: {0}',
             QUALITY_VOLUME: 'Quality / Volume donor',
             QUALITY_TYPE: 'Quality / Type of hair',
             GRAFT_COUNT: '<>Number of grafts {session|{1: first, 2: second}} session<>: {range} grafts',

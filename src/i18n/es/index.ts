@@ -20,7 +20,7 @@ const es: Translation = {
                 'Gracias por el interés que ha mostrado en nuestra organización, se ha sometido a un examen preliminar el <>{date|date}<> con respecto a su tratamiento.',
             NO_INSPECTION_2: 'A continuación encontrarás el análisis y un resumen de lo que hemos hablado.',
             MEDICAL_TEAM_REPORT: 'Informe del equipo médico',
-            TREATMENT: '<>Tratamiento<>: Tratamiento de Trasplante Capilar FUE',
+            TREATMENT: '<>Tratamiento<>: {0}',
             QUALITY_VOLUME: 'Calidad / Donante de volumen',
             QUALITY_TYPE: 'Calidad / Tipo de cabello',
             GRAFT_COUNT: '<>Número de injertos {session|{1: primera, 2: segunda}} sesión<>: {range} injertos',

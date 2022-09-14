@@ -21,7 +21,7 @@ const nl: BaseTranslation = {
                 'Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op <>{date:Date|date}<> een vooronderzoek ondergaan omtrent uw FUE Haartransplantatie behandeling.',
             NO_INSPECTION_2: 'Hieronder vindt u de analyse en de samenvatting terug wat wij hebben gesproken.',
             MEDICAL_TEAM_REPORT: 'Rapport medisch team',
-            TREATMENT: '<>Behandeling<>: FUE Haartransplantatie behandeling',
+            TREATMENT: '<>Behandeling<>: {0:LocalizedString}',
             QUALITY_VOLUME: 'Kwaliteit / Volume donor',
             QUALITY_TYPE: 'Kwaliteit / Type haar',
             GRAFT_COUNT: '<>Aantal grafts {session|{1: eerste, 2: tweede}} sessie<>: {range:string} grafts',

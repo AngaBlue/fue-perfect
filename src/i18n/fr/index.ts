@@ -21,7 +21,7 @@ const fr: Translation = {
                 "Nous vous remercions de l'intérêt que vous portez à notre organisation, vous avez subi un examen préliminaire le <>{date|date}<> concernant votre traitement de transplantation capillaire FUE.",
             NO_INSPECTION_2: "Veuillez trouver ci-dessous l'analyse et le résumé de ce que nous avons discuté.",
             MEDICAL_TEAM_REPORT: "Rapport de l'équipe médicale",
-            TREATMENT: '<>Traitement<>: Traitement par greffe de cheveux FUE',
+            TREATMENT: '<>Traitement<>: {0}',
             QUALITY_VOLUME: 'Qualité / volume',
             QUALITY_TYPE: 'Qualité / type de cheveux',
             GRAFT_COUNT: '<>Nombre de greffes {session|{1: première, 2: deuxième}} session<>: {range} greffes',

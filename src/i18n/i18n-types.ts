@@ -76,9 +76,10 @@ type RootTranslation = {
 			 */
 			MEDICAL_TEAM_REPORT: string
 			/**
-			 * <>Behandeling<>: FUE Haartransplantatie behandeling
+			 * <>Behandeling<>: {0}
+			 * @param {LocalizedString} 0
 			 */
-			TREATMENT: string
+			TREATMENT: RequiredParams<'0'>
 			/**
 			 * Kwaliteit / Volume donor
 			 */
@@ -253,7 +254,7 @@ type RootTranslation = {
 		}
 		QUALITY: {
 			/**
-			 * Shlect
+			 * Slecht
 			 */
 			'0': string
 			/**
@@ -326,9 +327,9 @@ export type TranslationFunctions = {
 			 */
 			MEDICAL_TEAM_REPORT: () => LocalizedString
 			/**
-			 * <>Behandeling<>: FUE Haartransplantatie behandeling
+			 * <>Behandeling<>: {0}
 			 */
-			TREATMENT: () => LocalizedString
+			TREATMENT: (arg0: LocalizedString) => LocalizedString
 			/**
 			 * Kwaliteit / Volume donor
 			 */
@@ -486,7 +487,7 @@ export type TranslationFunctions = {
 		}
 		QUALITY: {
 			/**
-			 * Shlect
+			 * Slecht
 			 */
 			'0': () => LocalizedString
 			/**

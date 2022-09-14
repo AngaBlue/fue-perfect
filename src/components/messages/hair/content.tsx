@@ -62,7 +62,7 @@ export default function Content(state: HairState) {
                 <strong>{LL.HAIR.CONTENT.MEDICAL_TEAM_REPORT()}:</strong>
             </p>
             <p>
-                <BoldTranslation>{LL.HAIR.CONTENT.TREATMENT()}</BoldTranslation>
+                <BoldTranslation>{LL.HAIR.CONTENT.TREATMENT(LL.HAIR.TECHNIQUE[state.technique]())}</BoldTranslation>
                 <br />
                 <strong>{LL.HAIR.CONTENT.QUALITY_VOLUME()}</strong>:{' '}
                 {state.hair.volume.map((volume, i) => (
