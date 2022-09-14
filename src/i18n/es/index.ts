@@ -3,8 +3,8 @@ import type { Translation } from '../i18n-types';
 const es: Translation = {
     GENERIC: {
         DEAR: 'Estimado {title} {name} {surname}',
-        MR: '',
-        MRS: '',
+        MR: 'Sr.',
+        MRS: 'Sra.',
         FIRST: 'primera',
         SECOND: 'segunda'
     },
