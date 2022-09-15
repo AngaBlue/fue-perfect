@@ -1,8 +1,8 @@
 import { enumLength } from '../../../util';
 
 export enum Country {
-    NETHERLANDS,
     TURKEY,
+    NETHERLANDS,
     BOTH
 }
 

@@ -124,8 +124,8 @@ export default function Content(state: HairState) {
             {/* Hair transplant regions image */}
             <img src={zone64} alt='Zones' style={{ maxHeight: '300px' }} />
             {/* Treatment price breakdown */}
-            {state.country !== Country.TURKEY && <PriceBreakdown state={state} country={Country.NETHERLANDS} />}
             {state.country !== Country.NETHERLANDS && <PriceBreakdown state={state} country={Country.TURKEY} />}
+            {state.country !== Country.TURKEY && <PriceBreakdown state={state} country={Country.NETHERLANDS} />}
             {/* Closing statement */}
             <p>{LL.HAIR.CONTENT.ENDING_COMMENT()}</p>
             <p>{LL.HAIR.CONTENT.KIND_REGARDS()},</p>

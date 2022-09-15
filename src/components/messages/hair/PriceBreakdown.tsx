@@ -13,9 +13,8 @@ export default function PriceBreakdown({ state, country }: PriceBreakdownProps) 
     // Calculate the PRP price, noting that the first session is free
     const PRPPrice = PRPPrices[state.prp - 1] * (state.prp - 1);
 
-    const countryIndex = country === Country.NETHERLANDS ? 0 : 1;
-    const firstSessionPrice = state.price[countryIndex][0];
-    const secondSessionPrice = state.price[countryIndex][1];
+    const firstSessionPrice = state.price[country][0];
+    const secondSessionPrice = state.price[country][1];
 
     const bothSessionPrice = firstSessionPrice + secondSessionPrice;
 
@@ -56,7 +55,7 @@ export default function PriceBreakdown({ state, country }: PriceBreakdownProps) 
             <ul style={{ marginLeft: '32px' }}>
                 <li>{LL.HAIR.CONTENT.INVESTIGATION()}</li>
                 {/* Include flight information for Turkey */}
-                {country === Country.TURKEY && (
+                {country === Country.NETHERLANDS && (
                     <>
                         <li>{LL.HAIR.CONTENT.FLIGHT_1()}</li>
                         <li>{LL.HAIR.CONTENT.FLIGHT_2()}</li>
