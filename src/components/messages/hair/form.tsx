@@ -61,7 +61,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
 
         setState({ ...state, price });
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [state.priceOverride, state.sessions, state.grafts.toString(), state.country, state.discount]);
+    }, [state.priceOverride, state.sessions, state.grafts, state.country, state.discount]);
 
     return (
         <SimpleGrid columns={[1, null, 2, 3, 4]} spacing={4}>
@@ -207,7 +207,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                             onChange={(_, v) =>
                                 setState({
                                     ...state,
-                                    priceOverride: [[v, state.priceOverride[Country.NETHERLANDS][1]], state.priceOverride[Country.TURKEY]]
+                                    priceOverride: [state.priceOverride[Country.TURKEY], [v, state.priceOverride[Country.NETHERLANDS][1]]]
                                 })
                             }
                             precision={0}
@@ -229,7 +229,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                             onChange={(_, v) =>
                                 setState({
                                     ...state,
-                                    priceOverride: [state.priceOverride[Country.NETHERLANDS], [v, state.priceOverride[Country.TURKEY][1]]]
+                                    priceOverride: [[v, state.priceOverride[Country.TURKEY][1]], state.priceOverride[Country.NETHERLANDS]]
                                 })
                             }
                             precision={0}
@@ -291,7 +291,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                             onChange={(_, v) =>
                                 setState({
                                     ...state,
-                                    priceOverride: [[state.priceOverride[Country.NETHERLANDS][0], v], state.priceOverride[Country.TURKEY]]
+                                    priceOverride: [state.priceOverride[Country.TURKEY], [state.priceOverride[Country.NETHERLANDS][0], v]]
                                 })
                             }
                             precision={0}
@@ -313,7 +313,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                             onChange={(_, v) =>
                                 setState({
                                     ...state,
-                                    priceOverride: [state.priceOverride[Country.NETHERLANDS], [state.priceOverride[Country.TURKEY][0], v]]
+                                    priceOverride: [[state.priceOverride[Country.TURKEY][0], v], state.priceOverride[Country.NETHERLANDS]]
                                 })
                             }
                             precision={0}
