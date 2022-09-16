@@ -55,7 +55,7 @@ export default function PriceBreakdown({ state, country }: PriceBreakdownProps) 
             <ul style={{ marginLeft: '32px' }}>
                 <li>{LL.HAIR.CONTENT.INVESTIGATION()}</li>
                 {/* Include flight information for Turkey */}
-                {country === Country.NETHERLANDS && (
+                {country === Country.TURKEY && (
                     <>
                         <li>{LL.HAIR.CONTENT.FLIGHT_1()}</li>
                         <li>{LL.HAIR.CONTENT.FLIGHT_2()}</li>
