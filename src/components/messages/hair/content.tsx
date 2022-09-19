@@ -92,7 +92,7 @@ export default function Content(state: HairState) {
                 <br />
                 {state.sessions === 2 && (
                     <>
-                        <BoldTranslation>{LL.HAIR.CONTENT.GRAFT_COUNT({ session: '2', range: state.grafts[0] })}</BoldTranslation> (
+                        <BoldTranslation>{LL.HAIR.CONTENT.GRAFT_COUNT({ session: '2', range: state.grafts[1] })}</BoldTranslation> (
                         {LL.HAIR.CONTENT.NOT_REQUIRED()})
                         <br />
                     </>
