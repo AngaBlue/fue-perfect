@@ -30,9 +30,10 @@ export enum Technique {
     DHI_BEARD
 }
 
+// TODO: Add 7th session price
 export const Prices = {
-    [Country.NETHERLANDS]: [2750, 2950, 3250, 3350, 3450, 3550, 3650],
-    [Country.TURKEY]: [2150, 2250, 2350, 2450, 2550, 2650, 2750]
+    [Country.NETHERLANDS]: [2750, 2950, 3250, 3350, 3450, 3550, 3650, 3650],
+    [Country.TURKEY]: [2150, 2250, 2350, 2450, 2550, 2650, 2750, 2750]
 };
 
 export const PRPPrices = [0, 275, 250, 225, 200];

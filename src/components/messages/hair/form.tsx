@@ -246,7 +246,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
             <Box>
                 <FormLabel>Sessie 1: Zones</FormLabel>
                 <VStack align='left'>
-                    {Array(6)
+                    {Array(7)
                         .fill(0)
                         .map((_v, i) => (
                             <Checkbox
@@ -331,7 +331,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
             <Box display={state.sessions === 2 ? 'block' : 'none'}>
                 <FormLabel>Sessie 2: Zones</FormLabel>
                 <VStack align='left'>
-                    {Array(6)
+                    {Array(7)
                         .fill(0)
                         .map((_v, i) => (
                             <Checkbox
