@@ -5,17 +5,9 @@ import styles from './content.module.scss';
 
 export default function Content(props: DentalState) {
     const [logo, setLogo] = useState('');
-    const [mainToothImg, setMainToothImg] = useState('');
-    // const [topMainImage, setTopMainImage] = useState([]);
-    // const [bottomMainImage, setBottomMainImage] = useState([]);
 
     useEffect(() => {
         import('!url-loader!./assets/dutch-clinic.png').then(({ default: img }) => setLogo(img));
-        import('./zones').then(({ mainTooth }) => {
-            setMainToothImg(mainTooth);
-            //   setTopMainImage(tops)
-            //   setBottomMainImage(bottoms)
-        });
     }, []);
 
     return (
@@ -25,29 +17,6 @@ export default function Content(props: DentalState) {
                 Bedankt voor de interesse die u getoond heeft in onze organisatie. Aan de hand van uw röntgenfoto zijn wij uitgekomen tot de
                 onderstaande behandelplan.
             </p>
-            {/* Tooth Image */}
-            <div className={styles.mail_main_tooth}>
-                <div className={styles.main_tooth}>
-                    <img
-                        src={mainToothImg}
-                        alt=''
-                        style={{
-                            width: 'auto',
-                            height: 'auto',
-                            zIndex: '19',
-                            top: '160px'
-                        }}
-                    />
-                    {/* <div
-            style={{ display: 'flex', position: 'absolute', bottom: '160px' }}
-          >
-            {bottomMainImage.map((item, index) => (
-              <img src={item} alt="" />
-            ))}
-          </div> */}
-                </div>
-            </div>
-            {/* End Tooth Image */}
             {/* Test */}
             <div className={styles.mail_slide_btn}>
                 <div className={styles.mail_permanent_btn}>Het blijvende gebit</div>

@@ -1,10 +1,13 @@
+export type Enum = Record<string, number | string>;
+export type EnumValue<E extends Enum> = E extends { [key: string]: infer ET | string } ? ET : never;
+
 /**
  * Finds the length of an enum.
  *
  * @param enumerable The enum to find the length of.
  * @returns The length of the enum.
  */
-export function enumLength(enumerable: object): number {
+export function enumLength(enumerable: Enum): number {
     return Object.keys(enumerable).length / 2;
 }
 
@@ -14,7 +17,7 @@ export function enumLength(enumerable: object): number {
  * @param enumerable The enum to get the values of.
  * @returns The enum values.
  */
-export function enumIterable<T extends object>(enumerable: T): T[keyof T][] {
+export function enumIterable<T extends Enum>(enumerable: T): EnumValue<T>[] {
     const length = enumLength(enumerable);
     const values = [];
 
@@ -22,5 +25,5 @@ export function enumIterable<T extends object>(enumerable: T): T[keyof T][] {
         values.push(i);
     }
 
-    return values as unknown as T[keyof T][];
+    return values as EnumValue<T>[];
 }

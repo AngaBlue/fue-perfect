@@ -17,16 +17,12 @@ import {
     Textarea,
     VStack
 } from '@chakra-ui/react';
-import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker';
 import { Dispatch, SetStateAction, useEffect } from 'react';
-import nl from 'date-fns/locale/nl';
 import { Country, Discounts, Gender, Grafts, HairState, HairQuality, Prices, PRPPrices, Technique } from './data';
-import styles from './form.module.scss';
 import { useI18nContext } from '../../../i18n/i18n-react';
 import { enumIterable } from '../../../util';
-
-registerLocale('nl', nl);
-setDefaultLocale('nl');
+import EnumSelect from '../../inputs/EnumSelect';
+import DateSelector from '../../inputs/DateSelector';
 
 export default function Form({ state, setState }: { state: HairState; setState: Dispatch<SetStateAction<HairState>> }) {
     const { LL } = useI18nContext();
@@ -77,66 +73,34 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                     <Input placeholder='Smith' value={state.lastname} onChange={e => setState({ ...state, lastname: e.target.value })} />
                 </InputGroup>
             </Box>
-            <Box>
-                <FormLabel>Geslacht</FormLabel>
-                <RadioGroup value={state.gender} onChange={gender => setState({ ...state, gender: Number(gender) as Gender })}>
-                    <VStack align='left'>
-                        {enumIterable(Gender).map(g => (
-                            <Radio key={g} value={g}>
-                                {LL.HAIR.GENDER[g]()}
-                            </Radio>
-                        ))}
-                    </VStack>
-                </RadioGroup>
-            </Box>
+            <EnumSelect
+                name='Geslacht'
+                enumerable={Gender}
+                state={state.gender}
+                setState={gender => setState({ ...state, gender })}
+                labels={LL.HAIR.GENDER}
+            />
             <Box>
                 <FormLabel>Haarinspectie</FormLabel>
                 <Checkbox isChecked={state.inspection} onChange={e => setState({ ...state, inspection: e.target.checked })}>
                     Haarinspectie
                 </Checkbox>
             </Box>
-            <Box>
-                <FormLabel>Datum</FormLabel>
-                <InputGroup className={styles.datepicker}>
-                    <DatePicker
-                        selected={new Date(state.date)}
-                        onChange={e =>
-                            setState({
-                                ...state,
-                                date: e instanceof Date ? e.getTime() : Date.now()
-                            })
-                        }
-                        dateFormat='PPP'
-                    />
-                </InputGroup>
-            </Box>
-            <Box>
-                <FormLabel>Techniek</FormLabel>
-                <RadioGroup
-                    value={state.technique}
-                    onChange={technique => setState({ ...state, technique: Number(technique) as Technique })}
-                >
-                    <VStack align='left'>
-                        {enumIterable(Technique).map(t => (
-                            <Radio key={t} value={t}>
-                                {LL.HAIR.TECHNIQUE[t]()}
-                            </Radio>
-                        ))}
-                    </VStack>
-                </RadioGroup>
-            </Box>
-            <Box>
-                <FormLabel>Klant Land</FormLabel>
-                <RadioGroup value={state.country} onChange={country => setState({ ...state, country: Number(country) as Country })}>
-                    <VStack align='left'>
-                        {enumIterable(Country).map(c => (
-                            <Radio key={c} value={c}>
-                                {LL.HAIR.COUNTRY[c]()}
-                            </Radio>
-                        ))}
-                    </VStack>
-                </RadioGroup>
-            </Box>
+            <DateSelector state={state.date} setState={date => setState({ ...state, date })} />
+            <EnumSelect
+                name='Techniek'
+                enumerable={Technique}
+                state={state.technique}
+                setState={technique => setState({ ...state, technique })}
+                labels={LL.HAIR.TECHNIQUE}
+            />
+            <EnumSelect
+                name='Klant Land'
+                enumerable={Country}
+                state={state.country}
+                setState={country => setState({ ...state, country })}
+                labels={LL.HAIR.COUNTRY}
+            />
             <Box>
                 <FormLabel>Type Haar</FormLabel>
                 <VStack align='left'>

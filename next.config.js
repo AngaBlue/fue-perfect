@@ -1,8 +1,10 @@
 // @ts-check
+const withBundleAnalyzer = require('@next/bundle-analyzer');
+
 const isDev = process.env.NODE_ENV !== 'production';
 
 /** @type {import('next').NextConfig} */
-module.exports = {
+const config = {
     reactStrictMode: true,
     headers: async () => {
         const csp = [
@@ -95,3 +97,5 @@ module.exports = {
         ];
     }
 };
+
+module.exports = withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })(config);
