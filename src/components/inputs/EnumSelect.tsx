@@ -14,7 +14,7 @@ export default function EnumSelect<T extends Enum>({ state, setState, enumerable
     return (
         <Box>
             <FormLabel>{name}</FormLabel>
-            <RadioGroup value={state} onChange={value => setState(value as unknown as T[keyof T])}>
+            <RadioGroup value={state} onChange={value => setState(Number(value) as T[keyof T])}>
                 <VStack align='left'>
                     {enumIterable(enumerable).map(i => (
                         <Radio key={i} value={i}>
