@@ -1,13 +1,6 @@
-import {
-    Box,
-    FormLabel,
-    Input,
-    InputGroup,
-    Select,
-    SimpleGrid
-} from '@chakra-ui/react';
+import { Box, FormLabel, Input, InputGroup, Select, SimpleGrid } from '@chakra-ui/react';
 import { Dispatch, SetStateAction } from 'react';
-import { DentalState, implantType, Technic } from './data';
+import { DentalState, implantType } from './data';
 import { Gender } from '../hair/data';
 import { useI18nContext } from '../../../i18n/i18n-react';
 import EnumSelect from '../../inputs/EnumSelect';

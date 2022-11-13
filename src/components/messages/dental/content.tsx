@@ -25,7 +25,7 @@ export default function Content({ state, setState }: { state: DentalState; setSt
                 for (let j = 0; j < 16; j++) {
                     const type = implantType[state.teeth[i][j]];
                     console.log(type);
-                    teethImages.push({ src: images[type][i][j], x: COLUMN_OFFSETS[j], y: i * HEIGHT / 2 });
+                    teethImages.push({ src: images[type][i][j], x: COLUMN_OFFSETS[j], y: (i * HEIGHT) / 2 });
                 }
             }
 
@@ -33,12 +33,12 @@ export default function Content({ state, setState }: { state: DentalState; setSt
         });
     }, [state.teeth]);
 
-    const onClick: MouseEventHandler<HTMLImageElement> = (e) => {
+    const onClick: MouseEventHandler<HTMLImageElement> = e => {
         if (!ref.current) return;
         // Get mouse position on the image
         const { left, top, width, height } = ref.current.getBoundingClientRect();
-        const x = WIDTH * (e.clientX - left) / width;
-        const y = HEIGHT * (e.clientY - top) / height;
+        const x = (WIDTH * (e.clientX - left)) / width;
+        const y = (HEIGHT * (e.clientY - top)) / height;
 
         // Find associated column & row
         const column = COLUMN_OFFSETS.findIndex(o => o >= x) - 1;
@@ -47,8 +47,8 @@ export default function Content({ state, setState }: { state: DentalState; setSt
         // Update with correct implant type
         const newTeeth = [[...state.teeth[0]], [...state.teeth[1]]];
         newTeeth[row][column] = state.type;
-        setState((state) => ({ ...state, teeth: newTeeth }));
-    }
+        setState({ ...state, teeth: newTeeth });
+    };
 
     return (
         <div className={styles.message}>
