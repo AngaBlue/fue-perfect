@@ -58,7 +58,7 @@ export default function Content({ state, setState }: { state: DentalState; setSt
                 onderstaande behandelplan.
             </p>
             {/* Image */}
-            <img src={zone64} alt='Teeth' ref={ref} onClick={onClick} />
+            <img src={zone64} alt='Teeth' ref={ref} onClick={onClick} className={styles.image} />
             {/* Test */}
             <div className={styles.mail_slide_btn}>
                 <div className={styles.mail_permanent_btn}>Het blijvende gebit</div>
