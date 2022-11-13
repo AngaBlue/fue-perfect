@@ -1,22 +1,64 @@
-import { useEffect, useState } from 'react';
-
-import { DentalState } from './data';
+import { Dispatch, MouseEventHandler, SetStateAction, useEffect, useRef, useState } from 'react';
+import merge, { ImageSource } from 'merge-images';
+import { DentalState, implantType } from './data';
 import styles from './content.module.scss';
 
-export default function Content(props: DentalState) {
+const WIDTH = 1_200;
+const HEIGHT = 640;
+const BASE_OFFSETS = [0, 108, 179, 250, 318, 391, 462, 533];
+const COLUMN_OFFSETS = [...BASE_OFFSETS, WIDTH / 2, ...BASE_OFFSETS.reverse().map(o => WIDTH - o)];
+
+export default function Content({ state, setState }: { state: DentalState; setState: Dispatch<SetStateAction<DentalState>> }) {
+    const [zone64, setZone64] = useState('');
     const [logo, setLogo] = useState('');
+    const ref = useRef(null as HTMLImageElement | null);
 
     useEffect(() => {
         import('!url-loader!./assets/dutch-clinic.png').then(({ default: img }) => setLogo(img));
     }, []);
 
+    // Head images w/ zones
+    useEffect(() => {
+        import('./teeth').then(({ default: images }) => {
+            const teethImages: ImageSource[] = [];
+            for (let i = 0; i < 2; i++) {
+                for (let j = 0; j < 16; j++) {
+                    const type = implantType[state.teeth[i][j]];
+                    console.log(type);
+                    teethImages.push({ src: images[type][i][j], x: COLUMN_OFFSETS[j], y: i * HEIGHT / 2 });
+                }
+            }
+
+            merge(teethImages, { width: WIDTH, height: HEIGHT }).then(setZone64);
+        });
+    }, [state.teeth]);
+
+    const onClick: MouseEventHandler<HTMLImageElement> = (e) => {
+        if (!ref.current) return;
+        // Get mouse position on the image
+        const { left, top, width, height } = ref.current.getBoundingClientRect();
+        const x = WIDTH * (e.clientX - left) / width;
+        const y = HEIGHT * (e.clientY - top) / height;
+
+        // Find associated column & row
+        const column = COLUMN_OFFSETS.findIndex(o => o >= x) - 1;
+        const row = Math.floor(y / (HEIGHT / 2));
+
+        // Update with correct implant type
+        const newTeeth = [[...state.teeth[0]], [...state.teeth[1]]];
+        newTeeth[row][column] = state.type;
+        setState((state) => ({ ...state, teeth: newTeeth }));
+    }
+
     return (
         <div className={styles.message}>
-            <p>Geachte: {`${props.firstname} ${props.lastname}`}</p>
+            <p>Geachte: {`${state.firstname} ${state.lastname}`}</p>
             <p>
                 Bedankt voor de interesse die u getoond heeft in onze organisatie. Aan de hand van uw röntgenfoto zijn wij uitgekomen tot de
                 onderstaande behandelplan.
             </p>
+            {/* Image */}
+            <img src={zone64} alt='Teeth' ref={ref} onClick={onClick} />
             {/* Test */}
             <div className={styles.mail_slide_btn}>
                 <div className={styles.mail_permanent_btn}>Het blijvende gebit</div>

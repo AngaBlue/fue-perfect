@@ -1,6 +1,7 @@
 import { Gender } from '../hair/data';
 
 // Technic as Techniek
+export const implantType = ['teeth', 'screws', 'white', 'purple', 'green', 'zirconium'] as const;
 export const Technic = ['Implantaat', 'Brug', 'Sinuslift', 'All-on', 'Wortelkanaal behandeling'];
 // Implant as Im plantaat
 export const ImplantOptions = ['A-Kwaliteit €895', 'B-Kwaliteit €695'];
@@ -28,7 +29,7 @@ export const defaultState = {
     gender: Gender.MALE,
     email: '',
     date: new Date(),
-    technic: Technic[0],
+    type: 0,
     implantOptions: ImplantOptions[0],
     implantMaterials: ImplantMaterials[0],
     brugOptions: BrugOptions[0],
@@ -36,7 +37,8 @@ export const defaultState = {
     allOn: AllOn[0],
     wortel: Wortel[0],
     sinuslift: Sinuslift[0],
-    treatments: ''
+    treatments: '',
+    teeth: [Array(16).fill(0), Array(16).fill(0)]
 };
 
 export type DentalState = typeof defaultState;
