@@ -22,6 +22,15 @@ export const Sinuslift = ['Open €1155', 'Gesloten €750'];
 // Selected Implantaat tooth
 export const SelectedImplantaatTeeth = [];
 
+export enum ImplantType {
+    DEFAULT,
+    SCREW,
+    ZIRCONIUM,
+    WHITE,
+    PURPLE,
+    GREEN
+}
+
 // defaultState for DentalState
 export const defaultState = {
     firstname: '',
