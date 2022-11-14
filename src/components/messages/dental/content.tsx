@@ -24,7 +24,6 @@ export default function Content({ state, setState }: { state: DentalState; setSt
             for (let i = 0; i < 2; i++) {
                 for (let j = 0; j < 16; j++) {
                     const type = implantType[state.teeth[i][j]];
-                    console.log(type);
                     teethImages.push({ src: images[type][i][j], x: COLUMN_OFFSETS[j], y: (i * HEIGHT) / 2 });
                 }
             }
