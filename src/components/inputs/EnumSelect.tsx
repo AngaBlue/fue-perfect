@@ -2,7 +2,7 @@ import { Box, FormLabel, RadioGroup, VStack, Radio } from '@chakra-ui/react';
 import { LocalizedString } from 'typesafe-i18n';
 import { Enum, enumIterable, EnumValue } from '../../util';
 
-interface EnumSelectProps<T extends Enum> {
+export interface EnumSelectProps<T extends Enum> {
     state: EnumValue<T>;
     setState: (value: T[keyof T]) => any;
     enumerable: T;

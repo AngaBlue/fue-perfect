@@ -1,7 +1,8 @@
 import { Dispatch, MouseEventHandler, SetStateAction, useEffect, useRef, useState } from 'react';
 import merge, { ImageSource } from 'merge-images';
-import { DentalState, ImplantType, implantType } from './data';
+import { DentalState, ImplantType } from './data';
 import styles from './content.module.scss';
+import images from './teeth';
 
 const WIDTH = 1_200;
 const HEIGHT = 640;
@@ -19,17 +20,15 @@ export default function Content({ state, setState }: { state: DentalState; setSt
 
     // Head images w/ zones
     useEffect(() => {
-        import('./teeth').then(({ default: images }) => {
-            const teethImages: ImageSource[] = [];
-            for (let i = 0; i < 2; i++) {
-                for (let j = 0; j < 16; j++) {
-                    const type = implantType[state.teeth[i][j]];
-                    teethImages.push({ src: images[type][i][j], x: COLUMN_OFFSETS[j], y: (i * HEIGHT) / 2 });
-                }
+        const teethImages: ImageSource[] = [];
+        for (let i = 0; i < 2; i++) {
+            for (let j = 0; j < 16; j++) {
+                const type = state.teeth[i][j];
+                teethImages.push({ src: images[type][i][j], x: COLUMN_OFFSETS[j], y: (i * HEIGHT) / 2 });
             }
+        }
 
-            merge(teethImages, { width: WIDTH, height: HEIGHT }).then(setZone64);
-        });
+        merge(teethImages, { width: WIDTH, height: HEIGHT }).then(setZone64);
     }, [state.teeth]);
 
     const onTeethClick: MouseEventHandler<HTMLImageElement> = e => {

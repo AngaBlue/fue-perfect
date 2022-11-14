@@ -1,10 +1,11 @@
-import { Box, FormLabel, Input, InputGroup, Select, SimpleGrid } from '@chakra-ui/react';
+import { Box, FormLabel, Input, InputGroup, SimpleGrid } from '@chakra-ui/react';
 import { Dispatch, SetStateAction } from 'react';
-import { DentalState, implantType } from './data';
+import { DentalState, ImplantType } from './data';
 import { Gender } from '../hair/data';
 import { useI18nContext } from '../../../i18n/i18n-react';
 import EnumSelect from '../../inputs/EnumSelect';
 import DateSelector from '../../inputs/DateSelector';
+import EnumDropdown from '../../inputs/EnumDropdown';
 
 export default function Form({ state, setState }: { state: DentalState; setState: Dispatch<SetStateAction<DentalState>> }) {
     const { LL } = useI18nContext();
@@ -49,16 +50,13 @@ export default function Form({ state, setState }: { state: DentalState; setState
                 labels={LL.HAIR.GENDER}
             />
             <DateSelector state={state.date} setState={date => setState({ ...state, date })} />
-            <Box>
-                <FormLabel>Techniek</FormLabel>
-                <Select value={state.type} onChange={e => setState({ ...state, type: Number(e.target.value) })}>
-                    {implantType.map((v, key) => (
-                        <option key={key} value={key}>
-                            {v}
-                        </option>
-                    ))}
-                </Select>
-            </Box>
+            <EnumDropdown
+                name='Techniek'
+                enumerable={ImplantType}
+                state={state.type}
+                setState={type => setState({ ...state, type })}
+                labels={LL.DENTAL.IMPLANT_TYPE}
+            />
         </SimpleGrid>
     );
 }

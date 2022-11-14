@@ -56,6 +56,9 @@ const nl: BaseTranslation = {
         COUNTRY: ['Turkije', 'Nederland', 'Turkije/Nederland'],
         GENDER: ['Mannelijk', 'Vrouwelijk'],
         QUALITY: ['Slecht', 'Normaal', 'Goed', 'Perfect']
+    },
+    DENTAL: {
+        IMPLANT_TYPE: ['Normaal', 'Schroef', 'Zirconium', 'Groen', 'Paars', 'Wit']
     }
 };
 

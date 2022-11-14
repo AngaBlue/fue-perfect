@@ -1,8 +1,5 @@
 import { Gender } from '../hair/data';
 
-// Technic as Techniek
-export const implantType = ['teeth', 'screws', 'white', 'purple', 'green', 'zirconium'] as const;
-export const Technic = ['Implantaat', 'Brug', 'Sinuslift', 'All-on', 'Wortelkanaal behandeling'];
 // Implant as Im plantaat
 export const ImplantOptions = ['A-Kwaliteit €895', 'B-Kwaliteit €695'];
 export const ImplantMaterials = ['Porselein €195', 'Zirconium €295', 'E-Maz €315'];
@@ -26,9 +23,9 @@ export enum ImplantType {
     DEFAULT,
     SCREW,
     ZIRCONIUM,
-    WHITE,
+    GREEN,
     PURPLE,
-    GREEN
+    WHITE
 }
 
 // defaultState for DentalState
@@ -38,7 +35,7 @@ export const defaultState = {
     gender: Gender.MALE,
     email: '',
     date: new Date(),
-    type: 0,
+    type: ImplantType.DEFAULT,
     implantOptions: ImplantOptions[0],
     implantMaterials: ImplantMaterials[0],
     brugOptions: BrugOptions[0],
@@ -47,7 +44,7 @@ export const defaultState = {
     wortel: Wortel[0],
     sinuslift: Sinuslift[0],
     treatments: '',
-    teeth: [Array(16).fill(0), Array(16).fill(0)]
+    teeth: [Array(16).fill(ImplantType.DEFAULT), Array(16).fill(ImplantType.DEFAULT)] as ImplantType[][]
 };
 
 export type DentalState = typeof defaultState;

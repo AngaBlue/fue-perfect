@@ -1,4 +1,5 @@
 import type { Translation } from '../i18n-types';
+import nl from '../nl';
 
 const tr: Translation = {
     GENERIC: {
@@ -55,7 +56,8 @@ const tr: Translation = {
         COUNTRY: ['Türkiye', 'Hollanda', 'Türkiye/Hollanda'],
         GENDER: ['Bay', 'Bayan'],
         QUALITY: ['Kötü', 'Normal', 'İyi', 'Mükemmel']
-    }
+    },
+    DENTAL: (nl as Translation).DENTAL
 };
 
 export default tr;

@@ -274,6 +274,34 @@ type RootTranslation = {
 			'3': string
 		}
 	}
+	DENTAL: {
+		IMPLANT_TYPE: {
+			/**
+			 * N​o​r​m​a​a​l
+			 */
+			'0': string
+			/**
+			 * S​c​h​r​o​e​f
+			 */
+			'1': string
+			/**
+			 * Z​i​r​c​o​n​i​u​m
+			 */
+			'2': string
+			/**
+			 * G​r​o​e​n
+			 */
+			'3': string
+			/**
+			 * P​a​a​r​s
+			 */
+			'4': string
+			/**
+			 * W​i​t
+			 */
+			'5': string
+		}
+	}
 }
 
 export type TranslationFunctions = {
@@ -505,6 +533,34 @@ export type TranslationFunctions = {
 			 * Perfect
 			 */
 			'3': () => LocalizedString
+		}
+	}
+	DENTAL: {
+		IMPLANT_TYPE: {
+			/**
+			 * Normaal
+			 */
+			'0': () => LocalizedString
+			/**
+			 * Schroef
+			 */
+			'1': () => LocalizedString
+			/**
+			 * Zirconium
+			 */
+			'2': () => LocalizedString
+			/**
+			 * Groen
+			 */
+			'3': () => LocalizedString
+			/**
+			 * Paars
+			 */
+			'4': () => LocalizedString
+			/**
+			 * Wit
+			 */
+			'5': () => LocalizedString
 		}
 	}
 }

@@ -1,3 +1,5 @@
+import { ImplantType } from './data';
+
 function generateImports(name: string) {
     const imports: string[][] = [[], []];
 
@@ -10,13 +12,13 @@ function generateImports(name: string) {
     return imports;
 }
 
-const images = {
-    teeth: generateImports('teeth'),
-    screws: generateImports('screws'),
-    white: generateImports('white'),
-    purple: generateImports('purple'),
-    green: generateImports('green'),
-    zirconium: generateImports('zirconium')
+const images: Record<ImplantType, string[][]> = {
+    [ImplantType.DEFAULT]: generateImports('teeth'),
+    [ImplantType.SCREW]: generateImports('screws'),
+    [ImplantType.ZIRCONIUM]: generateImports('zirconium'),
+    [ImplantType.GREEN]: generateImports('green'),
+    [ImplantType.PURPLE]: generateImports('purple'),
+    [ImplantType.WHITE]: generateImports('white')
 };
 
 export default images;
