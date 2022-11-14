@@ -19,32 +19,32 @@ export type Translations = RootTranslation
 type RootTranslation = {
 	GENERIC: {
 		/**
-		 * Geachte {title} {name} {surname}
+		 * G​e​a​c​h​t​e​ ​{​t​i​t​l​e​}​ ​{​n​a​m​e​}​ ​{​s​u​r​n​a​m​e​}
 		 * @param {string} name
 		 * @param {string} surname
 		 * @param {string} title
 		 */
 		DEAR: RequiredParams<'name' | 'surname' | 'title'>
 		/**
-		 * heer
+		 * h​e​e​r
 		 */
 		MR: string
 		/**
-		 * mevrouw
+		 * m​e​v​r​o​u​w
 		 */
 		MRS: string
 		/**
-		 * eerste
+		 * e​e​r​s​t​e
 		 */
 		FIRST: string
 		/**
-		 * tweede
+		 * t​w​e​e​d​e
 		 */
 		SECOND: string
 	}
 	HAIR: {
 		/**
-		 * Offerte + Analyse {2} behandeling te Hoofddorp voor dhr {0} {1}
+		 * O​f​f​e​r​t​e​ ​+​ ​A​n​a​l​y​s​e​ ​{​2​}​ ​b​e​h​a​n​d​e​l​i​n​g​ ​t​e​ ​H​o​o​f​d​d​o​r​p​ ​v​o​o​r​ ​d​h​r​ ​{​0​}​ ​{​1​}
 		 * @param {string} 0
 		 * @param {string} 1
 		 * @param {LocalizedString} 2
@@ -52,162 +52,162 @@ type RootTranslation = {
 		SUBJECT: RequiredParams<'0' | '1' | '2'>
 		CONTENT: {
 			/**
-			 * Bedankt voor de interesse die u getoond heeft in onze organisatie, wij hebben uw aanvraag + foto's in goede orde ontvangen.
+			 * B​e​d​a​n​k​t​ ​v​o​o​r​ ​d​e​ ​i​n​t​e​r​e​s​s​e​ ​d​i​e​ ​u​ ​g​e​t​o​o​n​d​ ​h​e​e​f​t​ ​i​n​ ​o​n​z​e​ ​o​r​g​a​n​i​s​a​t​i​e​,​ ​w​i​j​ ​h​e​b​b​e​n​ ​u​w​ ​a​a​n​v​r​a​a​g​ ​+​ ​f​o​t​o​'​s​ ​i​n​ ​g​o​e​d​e​ ​o​r​d​e​ ​o​n​t​v​a​n​g​e​n​.
 			 */
 			INSPECTION_1: string
 			/**
-			 * Uw foto's / toelichting zijn beoordeeld en hieronder vindt u de analyse terug m.b.t uw {0} behandeling, u bent altijd van harte welkom voor een vrijblijvend consult naar onze kliniek te Hoofddorp!
+			 * U​w​ ​f​o​t​o​'​s​ ​/​ ​t​o​e​l​i​c​h​t​i​n​g​ ​z​i​j​n​ ​b​e​o​o​r​d​e​e​l​d​ ​e​n​ ​h​i​e​r​o​n​d​e​r​ ​v​i​n​d​t​ ​u​ ​d​e​ ​a​n​a​l​y​s​e​ ​t​e​r​u​g​ ​m​.​b​.​t​ ​u​w​ ​{​0​}​ ​b​e​h​a​n​d​e​l​i​n​g​,​ ​u​ ​b​e​n​t​ ​a​l​t​i​j​d​ ​v​a​n​ ​h​a​r​t​e​ ​w​e​l​k​o​m​ ​v​o​o​r​ ​e​e​n​ ​v​r​i​j​b​l​i​j​v​e​n​d​ ​c​o​n​s​u​l​t​ ​n​a​a​r​ ​o​n​z​e​ ​k​l​i​n​i​e​k​ ​t​e​ ​H​o​o​f​d​d​o​r​p​!
 			 * @param {unknown} 0
 			 */
 			INSPECTION_2: RequiredParams<'0'>
 			/**
-			 * * Aangezien de beoordeling d.m.v. foto's is vastgesteld, bestaat een kleine kans van afwijking na de definitieve onderzoek in onze kliniek.
+			 * *​ ​A​a​n​g​e​z​i​e​n​ ​d​e​ ​b​e​o​o​r​d​e​l​i​n​g​ ​d​.​m​.​v​.​ ​f​o​t​o​'​s​ ​i​s​ ​v​a​s​t​g​e​s​t​e​l​d​,​ ​b​e​s​t​a​a​t​ ​e​e​n​ ​k​l​e​i​n​e​ ​k​a​n​s​ ​v​a​n​ ​a​f​w​i​j​k​i​n​g​ ​n​a​ ​d​e​ ​d​e​f​i​n​i​t​i​e​v​e​ ​o​n​d​e​r​z​o​e​k​ ​i​n​ ​o​n​z​e​ ​k​l​i​n​i​e​k​.
 			 */
 			INSPECTION_3: string
 			/**
-			 * Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op <>{0|date}<> een vooronderzoek ondergaan omtrent uw {1} behandeling.
+			 * B​e​d​a​n​k​t​ ​v​o​o​r​ ​d​e​ ​i​n​t​e​r​e​s​s​e​ ​d​i​e​ ​u​ ​g​e​t​o​o​n​d​ ​h​e​e​f​t​ ​i​n​ ​o​n​z​e​ ​o​r​g​a​n​i​s​a​t​i​e​,​ ​u​ ​h​e​e​f​t​ ​o​p​ ​<​>​{​0​|​d​a​t​e​}​<​>​ ​e​e​n​ ​v​o​o​r​o​n​d​e​r​z​o​e​k​ ​o​n​d​e​r​g​a​a​n​ ​o​m​t​r​e​n​t​ ​u​w​ ​{​1​}​ ​b​e​h​a​n​d​e​l​i​n​g​.
 			 * @param {Date} 0
 			 * @param {LocalizedString} 1
 			 */
 			NO_INSPECTION_1: RequiredParams<'0|date' | '1'>
 			/**
-			 * Hieronder vindt u de analyse en de samenvatting terug wat wij hebben gesproken.
+			 * H​i​e​r​o​n​d​e​r​ ​v​i​n​d​t​ ​u​ ​d​e​ ​a​n​a​l​y​s​e​ ​e​n​ ​d​e​ ​s​a​m​e​n​v​a​t​t​i​n​g​ ​t​e​r​u​g​ ​w​a​t​ ​w​i​j​ ​h​e​b​b​e​n​ ​g​e​s​p​r​o​k​e​n​.
 			 */
 			NO_INSPECTION_2: string
 			/**
-			 * Rapport medisch team
+			 * R​a​p​p​o​r​t​ ​m​e​d​i​s​c​h​ ​t​e​a​m
 			 */
 			MEDICAL_TEAM_REPORT: string
 			/**
-			 * <>Behandeling<>: {0}
+			 * <​>​B​e​h​a​n​d​e​l​i​n​g​<​>​:​ ​{​0​}
 			 * @param {LocalizedString} 0
 			 */
 			TREATMENT: RequiredParams<'0'>
 			/**
-			 * Kwaliteit / Volume donor
+			 * K​w​a​l​i​t​e​i​t​ ​/​ ​V​o​l​u​m​e​ ​d​o​n​o​r
 			 */
 			QUALITY_VOLUME: string
 			/**
-			 * Kwaliteit / Type haar
+			 * K​w​a​l​i​t​e​i​t​ ​/​ ​T​y​p​e​ ​h​a​a​r
 			 */
 			QUALITY_TYPE: string
 			/**
-			 * <>Aantal grafts {session|{1: eerste, 2: tweede}} sessie<>: {range} grafts
+			 * <​>​A​a​n​t​a​l​ ​g​r​a​f​t​s​ ​{​s​e​s​s​i​o​n​|​{​1​:​ ​e​e​r​s​t​e​,​ ​2​:​ ​t​w​e​e​d​e​}​}​ ​s​e​s​s​i​e​<​>​:​ ​{​r​a​n​g​e​}​ ​g​r​a​f​t​s
 			 * @param {string} range
 			 * @param {'1' | '2'} session
 			 */
 			GRAFT_COUNT: RequiredParams<'range' | `session|{1:${string}, 2:${string}}`>
 			/**
-			 * niet verplicht
+			 * n​i​e​t​ ​v​e​r​p​l​i​c​h​t
 			 */
 			NOT_REQUIRED: string
 			/**
-			 * Techniek
+			 * T​e​c​h​n​i​e​k
 			 */
 			TECHNIQUE: string
 			/**
-			 * Zone
+			 * Z​o​n​e
 			 */
 			ZONES: string
 			/**
-			 * Wij hopen u hiermee voldoende te hebben geïnformeerd en kijken uit naar uw bevindingen, mocht u vragen of opmerkingen hebben dan horen wij deze graag van u.
+			 * W​i​j​ ​h​o​p​e​n​ ​u​ ​h​i​e​r​m​e​e​ ​v​o​l​d​o​e​n​d​e​ ​t​e​ ​h​e​b​b​e​n​ ​g​e​ï​n​f​o​r​m​e​e​r​d​ ​e​n​ ​k​i​j​k​e​n​ ​u​i​t​ ​n​a​a​r​ ​u​w​ ​b​e​v​i​n​d​i​n​g​e​n​,​ ​m​o​c​h​t​ ​u​ ​v​r​a​g​e​n​ ​o​f​ ​o​p​m​e​r​k​i​n​g​e​n​ ​h​e​b​b​e​n​ ​d​a​n​ ​h​o​r​e​n​ ​w​i​j​ ​d​e​z​e​ ​g​r​a​a​g​ ​v​a​n​ ​u​.
 			 */
 			ENDING_COMMENT: string
 			/**
-			 * Met vriendelijke groeten
+			 * M​e​t​ ​v​r​i​e​n​d​e​l​i​j​k​e​ ​g​r​o​e​t​e​n
 			 */
 			KIND_REGARDS: string
 			/**
-			 * Extra Opmerking
+			 * E​x​t​r​a​ ​O​p​m​e​r​k​i​n​g
 			 */
 			EXTRA_REMARKS: string
 			/**
-			 * Behandeling data
+			 * B​e​h​a​n​d​e​l​i​n​g​ ​d​a​t​a
 			 */
 			TREATMENT_NOTES: string
 			/**
-			 * Behandeling bestemming
+			 * B​e​h​a​n​d​e​l​i​n​g​ ​b​e​s​t​e​m​m​i​n​g
 			 */
 			TREATMENT_LOCATION: string
 			/**
-			 * Kosten PRP behandeling (1 gratis): €{0}
+			 * K​o​s​t​e​n​ ​P​R​P​ ​b​e​h​a​n​d​e​l​i​n​g​ ​(​1​ ​g​r​a​t​i​s​)​:​ ​€​{​0​}
 			 * @param {number} 0
 			 */
 			PRP_PRICE: RequiredParams<'0'>
 			/**
-			 * Totaal: €{0}
+			 * T​o​t​a​a​l​:​ ​€​{​0​}
 			 * @param {number} 0
 			 */
 			TOTAL: RequiredParams<'0'>
 			/**
-			 * €{0} korting
+			 * €​{​0​}​ ​k​o​r​t​i​n​g
 			 * @param {number} 0
 			 */
 			DISCOUNT: RequiredParams<'0'>
 			/**
-			 * Retour vliegticket met KLM of Turkish Airlines
+			 * R​e​t​o​u​r​ ​v​l​i​e​g​t​i​c​k​e​t​ ​m​e​t​ ​K​L​M​ ​o​f​ ​T​u​r​k​i​s​h​ ​A​i​r​l​i​n​e​s
 			 */
 			FLIGHT_1: string
 			/**
-			 * 3 overnachtingen in Hilton Doubbletree Istanbul
+			 * 3​ ​o​v​e​r​n​a​c​h​t​i​n​g​e​n​ ​i​n​ ​H​i​l​t​o​n​ ​D​o​u​b​b​l​e​t​r​e​e​ ​I​s​t​a​n​b​u​l
 			 */
 			FLIGHT_2: string
 			/**
-			 * <>Verdoving<>: Pijnloos lokaal verdoving
+			 * <​>​V​e​r​d​o​v​i​n​g​<​>​:​ ​P​i​j​n​l​o​o​s​ ​l​o​k​a​a​l​ ​v​e​r​d​o​v​i​n​g
 			 */
 			ANESTHESIA: string
 			/**
-			 * <>Sessie<>: {0} sessie behandeling
+			 * <​>​S​e​s​s​i​e​<​>​:​ ​{​0​}​ ​s​e​s​s​i​e​ ​b​e​h​a​n​d​e​l​i​n​g
 			 * @param {number} 0
 			 */
 			SESSIONS: RequiredParams<'0'>
 			/**
-			 * Shampoo, lotion en medicatie
+			 * S​h​a​m​p​o​o​,​ ​l​o​t​i​o​n​ ​e​n​ ​m​e​d​i​c​a​t​i​e
 			 */
 			SHAMPOO: string
 			/**
-			 * 4x Nacontrole gedurende 10 maanden
+			 * 4​x​ ​N​a​c​o​n​t​r​o​l​e​ ​g​e​d​u​r​e​n​d​e​ ​1​0​ ​m​a​a​n​d​e​n
 			 */
 			FOLLOW_UP: string
 			/**
-			 * {0}x prp behandeling in Nederland
+			 * {​0​}​x​ ​p​r​p​ ​b​e​h​a​n​d​e​l​i​n​g​ ​i​n​ ​N​e​d​e​r​l​a​n​d
 			 * @param {number} 0
 			 */
 			PRP_COUNT: RequiredParams<'0'>
 			/**
-			 * Vooronderzoek
+			 * V​o​o​r​o​n​d​e​r​z​o​e​k
 			 */
 			INVESTIGATION: string
 			/**
-			 * Kosten behandeling {0} sessie{{s}} in {1} All-in €{2}
+			 * K​o​s​t​e​n​ ​b​e​h​a​n​d​e​l​i​n​g​ ​{​0​}​ ​s​e​s​s​i​e​{​{​s​}​}​ ​i​n​ ​{​1​}​ ​A​l​l​-​i​n​ ​€​{​2​}
 			 * @param {number} 0
 			 * @param {string} 1
 			 * @param {number} 2
 			 */
 			TREATMENT_COST: RequiredParams<'0' | '1' | '2'>
 			/**
-			 * {session|{1: Eerste, 2: Tweede}} sessie: €{cost}
+			 * {​s​e​s​s​i​o​n​|​{​1​:​ ​E​e​r​s​t​e​,​ ​2​:​ ​T​w​e​e​d​e​}​}​ ​s​e​s​s​i​e​:​ ​€​{​c​o​s​t​}
 			 * @param {number} cost
 			 * @param {'1' | '2'} session
 			 */
 			SESSION_COST: RequiredParams<'cost' | `session|{1:${string}, 2:${string}}`>
 			/**
-			 * na min 12 maanden genezingstijd, niet verplicht
+			 * n​a​ ​m​i​n​ ​1​2​ ​m​a​a​n​d​e​n​ ​g​e​n​e​z​i​n​g​s​t​i​j​d​,​ ​n​i​e​t​ ​v​e​r​p​l​i​c​h​t
 			 */
 			SECOND_SESSION_NOTE: string
 			/**
-			 * Inhoud All-in pakket {0}:
+			 * I​n​h​o​u​d​ ​A​l​l​-​i​n​ ​p​a​k​k​e​t​ ​{​0​}​:
 			 * @param {string} 0
 			 */
 			PACKAGE_CONTENT: RequiredParams<'0'>
 			/**
-			 * <>Duur behandeling {0|{1: eerste, 2: tweede}} sessie<>: {1} uur
+			 * <​>​D​u​u​r​ ​b​e​h​a​n​d​e​l​i​n​g​ ​{​0​|​{​1​:​ ​e​e​r​s​t​e​,​ ​2​:​ ​t​w​e​e​d​e​}​}​ ​s​e​s​s​i​e​<​>​:​ ​{​1​}​ ​u​u​r
 			 * @param {'1' | '2'} 0
 			 * @param {string} 1
 			 */
 			SESSION_DURATION: RequiredParams<`0|{1:${string}, 2:${string}}` | '1'>
 			/**
-			 * {0|{1: Eerste, 2: Tweede}} sessie zone: {1} (zie schema onder)
+			 * {​0​|​{​1​:​ ​E​e​r​s​t​e​,​ ​2​:​ ​T​w​e​e​d​e​}​}​ ​s​e​s​s​i​e​ ​z​o​n​e​:​ ​{​1​}​ ​(​z​i​e​ ​s​c​h​e​m​a​ ​o​n​d​e​r​)
 			 * @param {'1' | '2'} 0
 			 * @param {string} 1
 			 */
@@ -215,61 +215,61 @@ type RootTranslation = {
 		}
 		TECHNIQUE: {
 			/**
-			 * FUE Haartransplantatie
+			 * F​U​E​ ​H​a​a​r​t​r​a​n​s​p​l​a​n​t​a​t​i​e
 			 */
 			'0': string
 			/**
-			 * DHI Haartransplantatie
+			 * D​H​I​ ​H​a​a​r​t​r​a​n​s​p​l​a​n​t​a​t​i​e
 			 */
 			'1': string
 			/**
-			 * FUE Baardtransplantatie
+			 * F​U​E​ ​B​a​a​r​d​t​r​a​n​s​p​l​a​n​t​a​t​i​e
 			 */
 			'2': string
 			/**
-			 * DHI Baardtransplantatie
+			 * D​H​I​ ​B​a​a​r​d​t​r​a​n​s​p​l​a​n​t​a​t​i​e
 			 */
 			'3': string
 		}
 		COUNTRY: {
 			/**
-			 * Turkije
+			 * T​u​r​k​i​j​e
 			 */
 			'0': string
 			/**
-			 * Nederland
+			 * N​e​d​e​r​l​a​n​d
 			 */
 			'1': string
 			/**
-			 * Turkije/Nederland
+			 * T​u​r​k​i​j​e​/​N​e​d​e​r​l​a​n​d
 			 */
 			'2': string
 		}
 		GENDER: {
 			/**
-			 * Mannelijk
+			 * M​a​n​n​e​l​i​j​k
 			 */
 			'0': string
 			/**
-			 * Vrouwelijk
+			 * V​r​o​u​w​e​l​i​j​k
 			 */
 			'1': string
 		}
 		QUALITY: {
 			/**
-			 * Slecht
+			 * S​l​e​c​h​t
 			 */
 			'0': string
 			/**
-			 * Normaal
+			 * N​o​r​m​a​a​l
 			 */
 			'1': string
 			/**
-			 * Goed
+			 * G​o​e​d
 			 */
 			'2': string
 			/**
-			 * Perfect
+			 * P​e​r​f​e​c​t
 			 */
 			'3': string
 		}

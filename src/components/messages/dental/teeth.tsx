@@ -3,8 +3,7 @@ function generateImports(name: string) {
 
     for (let i = 0; i < 2; i++) {
         for (let j = 0; j < 16; j++) {
-            // eslint-disable-next-line import/no-dynamic-require, global-require
-            imports[i].push(require(`!url-loader!./assets/teeth/${name}-${i}-${j}.png`).default);
+            imports[i].push(`/assets/teeth/${name}-${i}-${j}.png`);
         }
     }
 
