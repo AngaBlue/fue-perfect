@@ -1,6 +1,6 @@
 import { Dispatch, MouseEventHandler, SetStateAction, useEffect, useRef, useState } from 'react';
 import merge, { ImageSource } from 'merge-images';
-import { DentalState, implantType } from './data';
+import { DentalState, ImplantType, implantType } from './data';
 import styles from './content.module.scss';
 
 const WIDTH = 1_200;
@@ -33,7 +33,7 @@ export default function Content({ state, setState }: { state: DentalState; setSt
         });
     }, [state.teeth]);
 
-    const onClick: MouseEventHandler<HTMLImageElement> = e => {
+    const onTeethClick: MouseEventHandler<HTMLImageElement> = e => {
         if (!ref.current) return;
         // Get mouse position on the image
         const { left, top, width, height } = ref.current.getBoundingClientRect();
@@ -46,19 +46,23 @@ export default function Content({ state, setState }: { state: DentalState; setSt
 
         // Update with correct implant type
         const newTeeth = [[...state.teeth[0]], [...state.teeth[1]]];
-        newTeeth[row][column] = state.type;
+
+        // Reset to teeth if clicking on the same type
+        newTeeth[row][column] = newTeeth[row][column] === state.type ? ImplantType.DEFAULT : state.type;
         setState({ ...state, teeth: newTeeth });
     };
 
     return (
         <div className={styles.message}>
-            <p>Geachte: {`${state.firstname} ${state.lastname}`}</p>
+            <p>
+                Geachte: {state.firstname} {state.lastname}
+            </p>
             <p>
                 Bedankt voor de interesse die u getoond heeft in onze organisatie. Aan de hand van uw röntgenfoto zijn wij uitgekomen tot de
                 onderstaande behandelplan.
             </p>
             {/* Image */}
-            <img src={zone64} alt='Teeth' ref={ref} onClick={onClick} className={styles.image} />
+            <img src={zone64} alt='Teeth' ref={ref} onClick={onTeethClick} className={styles.image} />
             {/* Test */}
             <div className={styles.mail_slide_btn}>
                 <div className={styles.mail_permanent_btn}>Het blijvende gebit</div>
