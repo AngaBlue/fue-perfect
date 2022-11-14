@@ -5,7 +5,7 @@ function generateImports(name: string) {
 
     for (let i = 0; i < 2; i++) {
         for (let j = 0; j < 16; j++) {
-            imports[i].push(`/assets/teeth/${name}-${i}-${j}.png`);
+            imports[i].push(`/assets/dental/${name}-${i}-${j}.png`);
         }
     }
 

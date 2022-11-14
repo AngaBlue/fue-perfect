@@ -20,7 +20,7 @@ export default function Content({ state, setState }: { state: DentalState; setSt
 
     // Head images w/ zones
     useEffect(() => {
-        const teethImages: ImageSource[] = [];
+        const teethImages: ImageSource[] = ['/assets/dental/labels.png'];
         for (let i = 0; i < 2; i++) {
             for (let j = 0; j < 16; j++) {
                 const type = state.teeth[i][j];
