@@ -24,33 +24,25 @@ export default function AllOnCom({ state, setState }: { state: DentalState; setS
             {state.allOn === 'All on 4' ? (
                 <div className={styles.all_on}>
                     <Box>
-                        <Checkbox size='sm' colorScheme='green'>
-                            Porselein
-                        </Checkbox>
+                        <Checkbox colorScheme='green'>Porselein</Checkbox>
                         <br />
-                        <Checkbox size='sm' colorScheme='green'>
-                            Zirconium
-                        </Checkbox>
+                        <Checkbox colorScheme='green'>Zirconium</Checkbox>
                     </Box>
                     <Box>
-                        <Text fontSize='sm'>All On 4 Porselein: €13,500</Text>
-                        <Text fontSize='sm'>All On 4 Zirconium: €14,500</Text>
+                        <Text>All On 4 Porselein: €13,500</Text>
+                        <Text>All On 4 Zirconium: €14,500</Text>
                     </Box>
                 </div>
             ) : (
                 <div className={styles.all_on}>
                     <Box>
-                        <Checkbox size='sm' colorScheme='green'>
-                            Porselein
-                        </Checkbox>
+                        <Checkbox colorScheme='green'>Porselein</Checkbox>
                         <br />
-                        <Checkbox size='sm' colorScheme='green'>
-                            Zirconium
-                        </Checkbox>
+                        <Checkbox colorScheme='green'>Zirconium</Checkbox>
                     </Box>
                     <Box>
-                        <Text fontSize='sm'>All On 6 Porselein: €15,500</Text>
-                        <Text fontSize='sm'>All On 6 Zirconium: €15,500</Text>
+                        <Text>All On 6 Porselein: €15,500</Text>
+                        <Text>All On 6 Zirconium: €15,500</Text>
                     </Box>
                 </div>
             )}
