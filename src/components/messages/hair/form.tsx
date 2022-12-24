@@ -139,10 +139,13 @@ export default function Form({ state, setState }: { state: HairState; setState: 
             </Box>
             <Box>
                 <FormLabel>Sessies</FormLabel>
-                <RadioGroup value={state.sessions} onChange={s => setState({ ...state, sessions: Number(s) as typeof state.sessions })}>
+                <RadioGroup
+                    value={state.sessions.toString()}
+                    onChange={s => setState({ ...state, sessions: Number(s) as typeof state.sessions })}
+                >
                     <VStack align='left'>
-                        <Radio value={1}>1 sessie</Radio>
-                        <Radio value={2}>2 sessie</Radio>
+                        <Radio value='1'>1 sessie</Radio>
+                        <Radio value='2'>2 sessie</Radio>
                     </VStack>
                 </RadioGroup>
             </Box>
@@ -317,10 +320,13 @@ export default function Form({ state, setState }: { state: HairState; setState: 
             </Box>
             <Box>
                 <FormLabel>Korting</FormLabel>
-                <RadioGroup value={state.discount} onChange={d => setState({ ...state, discount: Number(d) as typeof state.discount })}>
+                <RadioGroup
+                    value={state.discount.toString()}
+                    onChange={d => setState({ ...state, discount: Number(d) as typeof state.discount })}
+                >
                     <VStack align='left'>
                         {Discounts.map(v => (
-                            <Radio key={v} value={v}>
+                            <Radio key={v} value={v.toString()}>
                                 {v < 0 && '-'}€{Math.abs(v)}
                             </Radio>
                         ))}
@@ -345,10 +351,10 @@ export default function Form({ state, setState }: { state: HairState; setState: 
             </Box>
             <Box>
                 <FormLabel>PRP Behandeling</FormLabel>
-                <RadioGroup value={state.prp} onChange={d => setState({ ...state, prp: Number(d) as typeof state.prp })}>
+                <RadioGroup value={state.prp.toString()} onChange={d => setState({ ...state, prp: Number(d) as typeof state.prp })}>
                     <VStack align='left'>
                         {PRPPrices.map((v, i) => (
-                            <Radio key={i} value={i + 1}>
+                            <Radio key={i} value={(i + 1).toString()}>
                                 {i + 1}xPRP Behandeling - €{v}
                             </Radio>
                         ))}
