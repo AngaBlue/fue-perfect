@@ -58,7 +58,7 @@ const nl: BaseTranslation = {
         QUALITY: ['Slecht', 'Normaal', 'Goed', 'Perfect']
     },
     DENTAL: {
-        IMPLANT_TYPE: ['Normaal', 'Schroef', 'Zirconium', 'Groen', 'Paars', 'Wit']
+        IMPLANT_TYPE: ['Normaal', 'Schroef', 'Zirconium', 'Groen', 'Paars', 'Wit', 'Blank', 'E-max']
     }
 };
 

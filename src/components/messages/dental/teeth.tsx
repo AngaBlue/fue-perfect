@@ -18,7 +18,9 @@ const images: Record<ImplantType, string[][]> = {
     [ImplantType.ZIRCONIUM]: generateImports('zirconium'),
     [ImplantType.GREEN]: generateImports('green'),
     [ImplantType.PURPLE]: generateImports('purple'),
-    [ImplantType.WHITE]: generateImports('white')
+    [ImplantType.WHITE]: generateImports('white'),
+    [ImplantType.BLANK]: generateImports('blank'),
+    [ImplantType.EMAX]: generateImports('e-max')
 };
 
 export default images;

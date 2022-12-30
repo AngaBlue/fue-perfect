@@ -25,7 +25,9 @@ export enum ImplantType {
     ZIRCONIUM,
     GREEN,
     PURPLE,
-    WHITE
+    WHITE,
+    BLANK,
+    EMAX
 }
 
 // defaultState for DentalState
