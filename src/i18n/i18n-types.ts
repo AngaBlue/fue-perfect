@@ -300,6 +300,14 @@ type RootTranslation = {
 			 * W​i​t
 			 */
 			'5': string
+			/**
+			 * B​l​a​n​k
+			 */
+			'6': string
+			/**
+			 * E​-​m​a​x
+			 */
+			'7': string
 		}
 	}
 }
@@ -561,6 +569,14 @@ export type TranslationFunctions = {
 			 * Wit
 			 */
 			'5': () => LocalizedString
+			/**
+			 * Blank
+			 */
+			'6': () => LocalizedString
+			/**
+			 * E-max
+			 */
+			'7': () => LocalizedString
 		}
 	}
 }
