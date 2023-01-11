@@ -12,16 +12,16 @@
     "typesafe-i18n": "typesafe-i18n"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.15",
-    "@chakra-ui/react": "^2.4.6",
-    "@chakra-ui/system": "^2.3.7",
+    "@chakra-ui/icons": "^2.0.16",
+    "@chakra-ui/react": "^2.4.7",
+    "@chakra-ui/system": "^2.3.8",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@next/bundle-analyzer": "^13.1.1",
     "animate.css": "^4.1.1",
     "date-fns": "^2.29.3",
     "dayjs": "^1.11.7",
-    "framer-motion": "^8.1.4",
+    "framer-motion": "^8.4.1",
     "googleapis": "^110.0.0",
     "joi": "^17.7.0",
     "jsonwebtoken": "^9.0.0",
@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@angablue/eslint-config": "^1.4.3",
-    "@babel/core": "^7.20.7",
+    "@babel/core": "^7.20.12",
     "@types/jsonwebtoken": "^9.0.0",
     "@types/merge-images": "^1.2.1",
     "@types/node": "18.11.18",
@@ -50,7 +50,7 @@
     "@types/react-dom": "^18.0.10",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",
-    "prettier": "^2.8.1",
+    "prettier": "^2.8.2",
     "sass": "^1.57.1",
     "typescript": "4.9.4"
   }
