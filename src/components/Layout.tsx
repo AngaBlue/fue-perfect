@@ -12,12 +12,13 @@ interface LayoutProps {
         state: typeof defaultProvider;
         setState: Dispatch<SetStateAction<typeof defaultProvider>>;
     };
+    name: string;
     content: JSX.Element;
     form: JSX.Element;
     subject: string;
 }
 
-export default function Layout({ credentials, content, form, subject }: LayoutProps) {
+export default function Layout({ credentials, content, form, subject, name }: LayoutProps) {
     const { locale } = useI18nContext();
 
     const [loading, setLoading] = useState({
@@ -47,7 +48,8 @@ export default function Layout({ credentials, content, form, subject }: LayoutPr
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                credentials: credentials.state,
+                name,
+                recipient: credentials.state.recipient,
                 subject,
                 content: html
             })

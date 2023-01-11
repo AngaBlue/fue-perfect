@@ -15,8 +15,9 @@ const mail: NextApiHandler = async (req, res): Promise<void> => {
         // Validate
         const validation = message.validate(req.body);
         if (validation.error) return res.status(400).json({ name: validation.error.name, message: validation.error.message });
-        const { credentials, subject }: Message = validation.value;
-        const { content }: Message = validation.value;
+
+        // Destructure
+        const { recipient, subject, name, content }: Message = validation.value;
 
         // Create Transport
         const transport = NodeMailer.createTransport({
@@ -37,17 +38,25 @@ const mail: NextApiHandler = async (req, res): Promise<void> => {
         // Send
         const err = await new Promise<Error | null>(resolve => {
             const options: Mail.Options = {
-                from: auth.email,
-                to: credentials.recipient,
+                from: {
+                    name,
+                    address: auth.email
+                },
+                to: recipient,
                 subject,
                 html: content
             };
             transport.sendMail(options, resolve);
         });
 
+        // If there is an error, return it
         if (err) return res.status(500).send({ name: 'Fout', message: err.message });
+
+        // Otherwise, return OK
         return res.status(200).send('OK');
     }
+
+    // If the method is not POST, return Method Not Allowed
     return res.status(405).send('Method Not Allowed');
 };
 

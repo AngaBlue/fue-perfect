@@ -12,5 +12,5 @@ export default function Hair(props: CredentialsProps) {
 
     const subject = LL.HAIR.SUBJECT(state.firstname, state.lastname, LL.HAIR.TECHNIQUE[state.technique]());
 
-    return <Layout credentials={props} subject={subject} content={content(state)} form={form({ state, setState })} />;
+    return <Layout name='Fue Perfect' credentials={props} subject={subject} content={content(state)} form={form({ state, setState })} />;
 }

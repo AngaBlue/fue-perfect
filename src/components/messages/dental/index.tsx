@@ -11,5 +11,13 @@ export default function Dental(props: CredentialsProps) {
     const fullname = `${state.firstname} ${state.lastname}`;
     const subject = `Incomplete Subject: ${fullname}`;
 
-    return <Layout credentials={props} subject={subject} content={content({ state, setState })} form={form({ state, setState })} />;
+    return (
+        <Layout
+            name='Dent Perfect'
+            credentials={props}
+            subject={subject}
+            content={content({ state, setState })}
+            form={form({ state, setState })}
+        />
+    );
 }
