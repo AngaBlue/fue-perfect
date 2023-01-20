@@ -21,7 +21,7 @@ export default function Form({ state, setState }: { state: DentalState; setState
                 return <ImplantaatCom state={state} setState={setState} />;
             case ImplantType.SCREW:
                 return <BrugCom state={state} setState={setState} />;
-            case ImplantType.GREEN:
+            case ImplantType.PORCELAIN:
                 return <SinusliftCom state={state} setState={setState} />;
             case ImplantType.PURPLE:
                 return <AllOnCom state={state} setState={setState} />;

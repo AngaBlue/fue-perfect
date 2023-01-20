@@ -23,8 +23,11 @@ export default function Content({ state, setState }: { state: DentalState; setSt
         const teethImages: ImageSource[] = ['/assets/dental/labels.png'];
         for (let i = 0; i < 2; i++) {
             for (let j = 0; j < 16; j++) {
-                const type = state.teeth[i][j];
-                teethImages.push({ src: images[type][i][j], x: COLUMN_OFFSETS[j], y: (i * HEIGHT) / 2 });
+                teethImages.push({
+                    src: images[state.teeth[i][j] as keyof typeof images][i][j],
+                    x: COLUMN_OFFSETS[j],
+                    y: (i * HEIGHT) / 2
+                });
             }
         }
 

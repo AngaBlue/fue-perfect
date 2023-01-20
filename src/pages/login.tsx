@@ -13,7 +13,7 @@ export const getStaticProps = getI18nProps;
 export default function Index() {
     const router = useRouter();
     const colorMode = useColorMode();
-    const [welcome, setWelcome] = useState<boolean>(false);
+    const [welcome, setWelcome] = useState(false);
 
     useEffect(() => {
         if (router.query.navigate) router.push(router.query.navigate as string);

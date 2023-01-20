@@ -289,7 +289,7 @@ type RootTranslation = {
 			 */
 			'2': string
 			/**
-			 * G​r​o​e​n
+			 * P​o​r​c​e​l​e​i​n
 			 */
 			'3': string
 			/**
@@ -308,6 +308,22 @@ type RootTranslation = {
 			 * E​-​m​a​x
 			 */
 			'7': string
+			/**
+			 * S​c​h​r​o​e​f​ ​P​o​r​c​e​l​e​i​n
+			 */
+			'8': string
+			/**
+			 * S​c​h​r​o​e​f​ ​W​i​t
+			 */
+			'9': string
+			/**
+			 * S​c​h​r​o​e​f​ ​Z​i​r​c​o​n​i​u​m
+			 */
+			'10': string
+			/**
+			 * S​c​h​r​o​e​f​ ​E​-​m​a​x
+			 */
+			'11': string
 		}
 	}
 }
@@ -558,7 +574,7 @@ export type TranslationFunctions = {
 			 */
 			'2': () => LocalizedString
 			/**
-			 * Groen
+			 * Porcelein
 			 */
 			'3': () => LocalizedString
 			/**
@@ -577,6 +593,22 @@ export type TranslationFunctions = {
 			 * E-max
 			 */
 			'7': () => LocalizedString
+			/**
+			 * Schroef Porcelein
+			 */
+			'8': () => LocalizedString
+			/**
+			 * Schroef Wit
+			 */
+			'9': () => LocalizedString
+			/**
+			 * Schroef Zirconium
+			 */
+			'10': () => LocalizedString
+			/**
+			 * Schroef E-max
+			 */
+			'11': () => LocalizedString
 		}
 	}
 }

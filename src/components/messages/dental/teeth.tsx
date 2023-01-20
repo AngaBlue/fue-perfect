@@ -12,15 +12,18 @@ function generateImports(name: string) {
     return imports;
 }
 
-const images: Record<ImplantType, string[][]> = {
+const images = {
     [ImplantType.DEFAULT]: generateImports('teeth'),
     [ImplantType.SCREW]: generateImports('screws'),
     [ImplantType.ZIRCONIUM]: generateImports('zirconium'),
-    [ImplantType.GREEN]: generateImports('green'),
+    [ImplantType.PORCELAIN]: generateImports('porcelain'),
     [ImplantType.PURPLE]: generateImports('purple'),
     [ImplantType.WHITE]: generateImports('white'),
     [ImplantType.BLANK]: generateImports('blank'),
-    [ImplantType.EMAX]: generateImports('e-max')
+    [ImplantType.EMAX]: generateImports('e-max'),
+    [ImplantType.PORCELAIN_SCREW]: generateImports('porcelain-screws'),
+    [ImplantType.EMAX_SCREW]: generateImports('emax-screws'),
+    [ImplantType.ZIRCONIUM_SCREW]: generateImports('zirconium-porcelain-screws')
 };
 
 export default images;
