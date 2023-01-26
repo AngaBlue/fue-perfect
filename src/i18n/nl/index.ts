@@ -60,17 +60,17 @@ const nl: BaseTranslation = {
     DENTAL: {
         IMPLANT_TYPE: [
             'Normaal',
-            'Schroef',
+            'Implantaat',
             'Zirconium',
             'Porcelein',
             'Paars',
             'Wit',
             'Blank',
             'E-max',
-            'Schroef Porcelein',
-            'Schroef Wit',
-            'Schroef Zirconium',
-            'Schroef E-max'
+            'Implantaat Porcelein',
+            'Implantaat Wit',
+            'Implantaat Zirconium',
+            'Implantaat E-max'
         ]
     }
 };

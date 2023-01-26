@@ -281,7 +281,7 @@ type RootTranslation = {
 			 */
 			'0': string
 			/**
-			 * S​c​h​r​o​e​f
+			 * I​m​p​l​a​n​t​a​a​t
 			 */
 			'1': string
 			/**
@@ -309,19 +309,19 @@ type RootTranslation = {
 			 */
 			'7': string
 			/**
-			 * S​c​h​r​o​e​f​ ​P​o​r​c​e​l​e​i​n
+			 * I​m​p​l​a​n​t​a​a​t​ ​P​o​r​c​e​l​e​i​n
 			 */
 			'8': string
 			/**
-			 * S​c​h​r​o​e​f​ ​W​i​t
+			 * I​m​p​l​a​n​t​a​a​t​ ​W​i​t
 			 */
 			'9': string
 			/**
-			 * S​c​h​r​o​e​f​ ​Z​i​r​c​o​n​i​u​m
+			 * I​m​p​l​a​n​t​a​a​t​ ​Z​i​r​c​o​n​i​u​m
 			 */
 			'10': string
 			/**
-			 * S​c​h​r​o​e​f​ ​E​-​m​a​x
+			 * I​m​p​l​a​n​t​a​a​t​ ​E​-​m​a​x
 			 */
 			'11': string
 		}
@@ -566,7 +566,7 @@ export type TranslationFunctions = {
 			 */
 			'0': () => LocalizedString
 			/**
-			 * Schroef
+			 * Implantaat
 			 */
 			'1': () => LocalizedString
 			/**
@@ -594,19 +594,19 @@ export type TranslationFunctions = {
 			 */
 			'7': () => LocalizedString
 			/**
-			 * Schroef Porcelein
+			 * Implantaat Porcelein
 			 */
 			'8': () => LocalizedString
 			/**
-			 * Schroef Wit
+			 * Implantaat Wit
 			 */
 			'9': () => LocalizedString
 			/**
-			 * Schroef Zirconium
+			 * Implantaat Zirconium
 			 */
 			'10': () => LocalizedString
 			/**
-			 * Schroef E-max
+			 * Implantaat E-max
 			 */
 			'11': () => LocalizedString
 		}
