@@ -1,28 +1,28 @@
-import { ImplantType } from './data';
+import { ImplantType, TeethOptions } from './data';
 
-function mirror(base: ImplantType[]) {
-    const row = [...base, ...base.reverse()];
-    return [[...row], [...row]];
+function mirror(base: TeethOptions[]) {
+    const row = [...base, ...base.reverse().map(v => ({ ...v }))];
+    return [row.map(v => ({ ...v })), row.map(v => ({ ...v }))];
 }
 
 export const allOn4 = mirror([
-    ImplantType.BLANK,
-    ImplantType.BLANK,
-    ImplantType.BLANK,
-    ImplantType.ZIRCONIUM,
-    ImplantType.DEFAULT,
-    ImplantType.ZIRCONIUM,
-    ImplantType.DEFAULT,
-    ImplantType.DEFAULT
+    { type: ImplantType.BLANK },
+    { type: ImplantType.BLANK },
+    { type: ImplantType.BLANK },
+    { type: ImplantType.ZIRCONIUM, quality: 'A' },
+    { type: ImplantType.DEFAULT },
+    { type: ImplantType.ZIRCONIUM, quality: 'A' },
+    { type: ImplantType.DEFAULT },
+    { type: ImplantType.DEFAULT }
 ]);
 
 export const allOn6 = mirror([
-    ImplantType.BLANK,
-    ImplantType.BLANK,
-    ImplantType.ZIRCONIUM,
-    ImplantType.DEFAULT,
-    ImplantType.ZIRCONIUM,
-    ImplantType.DEFAULT,
-    ImplantType.ZIRCONIUM,
-    ImplantType.DEFAULT
+    { type: ImplantType.BLANK },
+    { type: ImplantType.BLANK },
+    { type: ImplantType.ZIRCONIUM, quality: 'A' },
+    { type: ImplantType.DEFAULT },
+    { type: ImplantType.ZIRCONIUM, quality: 'A' },
+    { type: ImplantType.DEFAULT },
+    { type: ImplantType.ZIRCONIUM, quality: 'A' },
+    { type: ImplantType.DEFAULT }
 ]);

@@ -33,6 +33,24 @@ export enum ImplantType {
     EMAX_SCREW
 }
 
+type TeethOption<T extends ImplantType, TData extends object = {}> = { type: T } & TData;
+
+type ImplantQuality = 'A' | 'B';
+
+type Implant = TeethOption<
+    | ImplantType.ZIRCONIUM
+    | ImplantType.PORCELAIN
+    | ImplantType.EMAX
+    | ImplantType.ZIRCONIUM_SCREW
+    | ImplantType.PORCELAIN_SCREW
+    | ImplantType.EMAX_SCREW,
+    { quality: ImplantQuality }
+>;
+
+type Other = TeethOption<ImplantType.DEFAULT | ImplantType.WHITE | ImplantType.SCREW | ImplantType.PURPLE | ImplantType.BLANK>;
+
+export type TeethOptions = Implant | Other;
+
 // defaultState for DentalState
 export const defaultState = {
     firstname: '',
@@ -49,7 +67,7 @@ export const defaultState = {
     wortel: Wortel[0],
     sinuslift: Sinuslift[0],
     treatments: '',
-    teeth: [Array(16).fill(ImplantType.DEFAULT), Array(16).fill(ImplantType.DEFAULT)] as ImplantType[][]
+    teeth: [Array(16).fill(ImplantType.DEFAULT), Array(16).fill(ImplantType.DEFAULT)] as TeethOptions[][]
 };
 
 export type DentalState = typeof defaultState;

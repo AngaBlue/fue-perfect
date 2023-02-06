@@ -13,10 +13,10 @@ const localeTranslationLoaders = {
 	tr: () => import('./tr'),
 }
 
-const updateDictionary = (locale: Locales, dictionary: Partial<Translations>): Translations =>
+const updateDictionary = (locale: Locales, dictionary: Partial<Translations>) =>
 	loadedLocales[locale] = { ...loadedLocales[locale], ...dictionary }
 
-export const importLocaleAsync = async (locale: Locales): Promise<Translations> =>
+export const importLocaleAsync = async (locale: Locales) =>
 	(await localeTranslationLoaders[locale]()).default as unknown as Translations
 
 export const loadLocaleAsync = async (locale: Locales): Promise<void> => {

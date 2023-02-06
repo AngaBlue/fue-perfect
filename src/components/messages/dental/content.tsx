@@ -24,7 +24,7 @@ export default function Content({ state, setState }: { state: DentalState; setSt
         for (let i = 0; i < 2; i++) {
             for (let j = 0; j < 16; j++) {
                 teethImages.push({
-                    src: images[state.teeth[i][j] as keyof typeof images][i][j],
+                    src: images[state.teeth[i][j].type as keyof typeof images][i][j],
                     x: COLUMN_OFFSETS[j],
                     y: (i * HEIGHT) / 2
                 });
@@ -49,7 +49,8 @@ export default function Content({ state, setState }: { state: DentalState; setSt
         const newTeeth = [[...state.teeth[0]], [...state.teeth[1]]];
 
         // Reset to teeth if clicking on the same type
-        newTeeth[row][column] = newTeeth[row][column] === state.type ? ImplantType.DEFAULT : state.type;
+        const type = newTeeth[row][column].type === state.type ? ImplantType.DEFAULT : state.type;
+        newTeeth[row][column].type = type;
         setState({ ...state, teeth: newTeeth });
     };
 
