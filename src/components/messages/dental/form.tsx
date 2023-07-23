@@ -1,6 +1,6 @@
 import { Box, FormLabel, Input, InputGroup, SimpleGrid } from '@chakra-ui/react';
 import { Dispatch, SetStateAction } from 'react';
-import { DentalState, ImplantType } from './data';
+import { DentalState } from './data';
 import { Gender } from '../hair/data';
 import { useI18nContext } from '../../../i18n/i18n-react';
 import EnumSelect from '../../inputs/EnumSelect';
@@ -11,6 +11,7 @@ import BrugCom from './techniques/BrugCom';
 import ImplantaatCom from './techniques/ImplantaatCom';
 import SinusliftCom from './techniques/SinusliftCom';
 import WortelkanaalCom from './techniques/WortelkanaalCom';
+import { ImplantType } from './templates';
 
 export default function Form({ state, setState }: { state: DentalState; setState: Dispatch<SetStateAction<DentalState>> }) {
     const { LL } = useI18nContext();

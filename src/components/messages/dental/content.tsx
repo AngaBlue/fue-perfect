@@ -1,8 +1,9 @@
 import { Dispatch, MouseEventHandler, SetStateAction, useEffect, useRef, useState } from 'react';
 import merge, { ImageSource } from 'merge-images';
-import { DentalState, ImplantType } from './data';
+import { DentalState } from './data';
 import styles from './content.module.scss';
 import images from './teeth';
+import { ImplantType } from './templates';
 
 const WIDTH = 1_200;
 const HEIGHT = 640;

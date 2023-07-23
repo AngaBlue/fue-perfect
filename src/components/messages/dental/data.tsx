@@ -1,4 +1,5 @@
 import { Gender } from '../hair/data';
+import { ImplantType, initial } from './templates';
 
 // Implant as Im plantaat
 export const ImplantOptions = ['A-Kwaliteit €895', 'B-Kwaliteit €695'];
@@ -18,20 +19,6 @@ export const Sinuslift = ['Open €1155', 'Gesloten €750'];
 
 // Selected Implantaat tooth
 export const SelectedImplantaatTeeth = [];
-
-export enum ImplantType {
-    DEFAULT,
-    SCREW,
-    ZIRCONIUM,
-    PORCELAIN,
-    PURPLE,
-    WHITE,
-    BLANK,
-    EMAX,
-    PORCELAIN_SCREW,
-    ZIRCONIUM_SCREW,
-    EMAX_SCREW
-}
 
 type TeethOption<T extends ImplantType, TData extends object = {}> = { type: T } & TData;
 
@@ -67,7 +54,7 @@ export const defaultState = {
     wortel: Wortel[0],
     sinuslift: Sinuslift[0],
     treatments: '',
-    teeth: [Array(16).fill(ImplantType.DEFAULT), Array(16).fill(ImplantType.DEFAULT)] as TeethOptions[][]
+    teeth: initial
 };
 
 export type DentalState = typeof defaultState;

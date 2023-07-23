@@ -1,4 +1,4 @@
-import { ImplantType } from './data';
+import { ImplantType } from "./templates";
 
 function generateImports(name: string) {
     const imports: string[][] = [[], []];
