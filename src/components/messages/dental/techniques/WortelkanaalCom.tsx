@@ -8,7 +8,7 @@ export default function WortelCom({ state, setState }: { state: DentalState; set
     return (
         <Box>
             <FormLabel mt={6}>Opties</FormLabel>
-            <Select mt={6} onChange={changeWortelOptions}>
+            <Select mt={6} onChange={changeWortelOptions} value={state.wortel}>
                 {Wortel.map(v => (
                     <option key={v} value={v}>
                         {v}

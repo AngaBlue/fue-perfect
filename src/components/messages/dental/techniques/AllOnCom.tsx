@@ -1,6 +1,6 @@
-import { Box, Checkbox, FormLabel, Select, Text } from '@chakra-ui/react';
+import { Box, FormLabel, Radio, RadioGroup, Select } from '@chakra-ui/react';
 import { Dispatch, SetStateAction } from 'react';
-import { AllOn, DentalState } from '../data';
+import { AllOn, AllOn4Options, AllOn6Options, DentalState } from '../data';
 
 import styles from '../content.module.scss';
 
@@ -12,8 +12,13 @@ export default function AllOnCom({ state, setState }: { state: DentalState; setS
             <Select
                 mt={6}
                 onChange={e => {
-                    setState({ ...state, allOn: e.target.value });
+                    setState({
+                        ...state,
+                        allOn: e.target.value,
+                        AllOnOptions: e.target.value === 'All on 4' ? AllOn4Options[0] : AllOn6Options[0]
+                    });
                 }}
+                value={state.allOn}
             >
                 {AllOn.map(v => (
                     <option key={v} value={v}>
@@ -23,27 +28,29 @@ export default function AllOnCom({ state, setState }: { state: DentalState; setS
             </Select>
             {state.allOn === 'All on 4' ? (
                 <div className={styles.all_on}>
-                    <Box>
-                        <Checkbox colorScheme='green'>Porselein</Checkbox>
-                        <br />
-                        <Checkbox colorScheme='green'>Zirconium</Checkbox>
-                    </Box>
-                    <Box>
-                        <Text>All On 4 Porselein: €13,500</Text>
-                        <Text>All On 4 Zirconium: €14,500</Text>
-                    </Box>
+                    <RadioGroup onChange={e => setState({ ...state, AllOnOptions: e })} value={state.AllOnOptions}>
+                        {AllOn4Options.map((option, idx) => (
+                            <>
+                                {idx !== 0 && <br />}
+                                <Radio colorScheme='green' value={option}>
+                                    {option}
+                                </Radio>
+                            </>
+                        ))}
+                    </RadioGroup>
                 </div>
             ) : (
                 <div className={styles.all_on}>
-                    <Box>
-                        <Checkbox colorScheme='green'>Porselein</Checkbox>
-                        <br />
-                        <Checkbox colorScheme='green'>Zirconium</Checkbox>
-                    </Box>
-                    <Box>
-                        <Text>All On 6 Porselein: €15,500</Text>
-                        <Text>All On 6 Zirconium: €15,500</Text>
-                    </Box>
+                    <RadioGroup onChange={e => setState({ ...state, AllOnOptions: e })} value={state.AllOnOptions}>
+                        {AllOn6Options.map((option, idx) => (
+                            <>
+                                {idx !== 0 && <br />}
+                                <Radio colorScheme='green' value={option}>
+                                    {option}
+                                </Radio>
+                            </>
+                        ))}
+                    </RadioGroup>
                 </div>
             )}
         </Box>

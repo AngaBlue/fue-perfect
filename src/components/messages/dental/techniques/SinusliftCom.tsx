@@ -8,7 +8,7 @@ export default function SinusliftCom({ state, setState }: { state: DentalState; 
     return (
         <Box>
             <FormLabel mt={6}>Opties</FormLabel>
-            <Select mt={6} onChange={changeSinusliftOptions}>
+            <Select mt={6} onChange={changeSinusliftOptions} value={state.sinuslift}>
                 {Sinuslift.map(v => (
                     <option key={v} value={v}>
                         {v}

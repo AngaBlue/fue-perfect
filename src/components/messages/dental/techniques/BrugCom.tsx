@@ -9,7 +9,7 @@ export default function BrugCom({ state, setState }: { state: DentalState; setSt
     return (
         <Box>
             <FormLabel mt={6}>Opties</FormLabel>
-            <Select mt={6} onChange={changeBrugOptions}>
+            <Select mt={6} onChange={changeBrugOptions} value={state.brugOptions}>
                 {BrugOptions.map(v => (
                     <option key={v} value={v}>
                         {v}
@@ -17,7 +17,7 @@ export default function BrugCom({ state, setState }: { state: DentalState; setSt
                 ))}
             </Select>
             <FormLabel mt={6}>Material</FormLabel>
-            <Select onChange={changeBrugMaterials}>
+            <Select onChange={changeBrugMaterials} value={state.brugMaterials}>
                 {BrugMaterials.map(v => (
                     <option key={v} value={v}>
                         {v}

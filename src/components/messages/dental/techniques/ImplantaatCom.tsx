@@ -33,7 +33,7 @@ export default function ImplantaatCom({ state, setState }: { state: DentalState;
                 </NumberInput>
             </Box>
             <FormLabel mt={6}>Kualiteit Implantaat</FormLabel>
-            <Select onChange={changeImplantaatOptions}>
+            <Select onChange={changeImplantaatOptions} value={state.implantOptions}>
                 {ImplantOptions.map(v => (
                     <option key={v} value={v}>
                         {v}
@@ -41,7 +41,7 @@ export default function ImplantaatCom({ state, setState }: { state: DentalState;
                 ))}
             </Select>
             <FormLabel mt={6}>Material</FormLabel>
-            <Select onChange={changeImplantaatMaterials}>
+            <Select onChange={changeImplantaatMaterials} value={state.implantMaterials}>
                 {ImplantMaterials.map(v => (
                     <option key={v} value={v}>
                         {v}
