@@ -27,8 +27,8 @@ export const initial = mirror([
     { type: ImplantType.DEFAULT },
     { type: ImplantType.DEFAULT },
     { type: ImplantType.DEFAULT },
-    { type: ImplantType.DEFAULT },
-])
+    { type: ImplantType.DEFAULT }
+]);
 
 export const allOn4 = mirror([
     { type: ImplantType.BLANK },
