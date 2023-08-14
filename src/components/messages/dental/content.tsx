@@ -4,6 +4,8 @@ import { DentalState } from './data';
 import styles from './content.module.scss';
 import images from './teeth';
 import { ImplantType } from './templates';
+import { useI18nContext } from '../../../i18n/i18n-react';
+import { Gender } from '../hair/data';
 
 const WIDTH = 1_200;
 const HEIGHT = 640;
@@ -11,6 +13,8 @@ const BASE_OFFSETS = [0, 108, 179, 250, 318, 391, 462, 533];
 const COLUMN_OFFSETS = [...BASE_OFFSETS, WIDTH / 2, ...BASE_OFFSETS.reverse().map(o => WIDTH - o)];
 
 export default function Content({ state, setState }: { state: DentalState; setState: Dispatch<SetStateAction<DentalState>> }) {
+    const { LL } = useI18nContext();
+
     const [zone64, setZone64] = useState('');
     const [logo, setLogo] = useState('');
     const ref = useRef(null as HTMLImageElement | null);
@@ -58,7 +62,11 @@ export default function Content({ state, setState }: { state: DentalState; setSt
     return (
         <div className={styles.message}>
             <p>
-                Geachte: {state.firstname} {state.lastname}
+                {LL.GENERIC.DEAR({
+                    title: state.gender === Gender.MALE ? LL.GENERIC.MR() : LL.GENERIC.MRS(),
+                    name: state.firstname,
+                    surname: state.lastname
+                })}
             </p>
             <p>
                 Bedankt voor de interesse die u getoond heeft in onze organisatie. Aan de hand van uw röntgenfoto zijn wij uitgekomen tot de
