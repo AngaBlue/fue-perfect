@@ -6,7 +6,9 @@ export default function ExtractionCom({ state, setState }: { state: DentalState;
     return (
         <Box>
             <FormLabel>Extraction</FormLabel>
-            <Checkbox>Extraction</Checkbox>
+            <Checkbox isChecked={state.extraction} onChange={e => setState({ ...state, extraction: e.target.checked })}>
+                Extraction
+            </Checkbox>
         </Box>
     );
 }

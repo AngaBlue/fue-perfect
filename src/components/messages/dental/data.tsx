@@ -58,6 +58,7 @@ export const defaultState = {
     email: '',
     date: new Date(),
     type: ImplantType.DEFAULT,
+    extraction: false,
     implantOptions: ImplantOptions[0],
     implantMaterials: ImplantMaterials[0],
     brugOptions: BrugOptions[0],
