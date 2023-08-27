@@ -1,9 +1,9 @@
 import { Dispatch, MouseEventHandler, SetStateAction, useEffect, useRef, useState } from 'react';
 import merge, { ImageSource } from 'merge-images';
-import { DentalState } from './data';
+import { AllOn, DentalState } from './data';
 import styles from './content.module.scss';
 import images from './teeth';
-import { ImplantType } from './templates';
+import { ImplantType, allOn4, allOn6 } from './templates';
 import { useI18nContext } from '../../../i18n/i18n-react';
 import { Gender } from '../hair/data';
 
@@ -26,10 +26,13 @@ export default function Content({ state, setState }: { state: DentalState; setSt
     // Head images w/ zones
     useEffect(() => {
         const teethImages: ImageSource[] = ['/assets/dental/labels.png'];
+        let { teeth } = state;
+        if (state.allOn === AllOn.ALL_ON_4) teeth = allOn4;
+        if (state.allOn === AllOn.ALL_ON_6) teeth = allOn6;
         for (let i = 0; i < 2; i++) {
             for (let j = 0; j < 16; j++) {
                 teethImages.push({
-                    src: images[state.teeth[i][j].type as keyof typeof images][i][j],
+                    src: images[teeth[i][j].type as keyof typeof images][i][j],
                     x: COLUMN_OFFSETS[j],
                     y: (i * HEIGHT) / 2
                 });
@@ -37,10 +40,12 @@ export default function Content({ state, setState }: { state: DentalState; setSt
         }
 
         merge(teethImages, { width: WIDTH, height: HEIGHT }).then(setZone64);
-    }, [state.teeth]);
+    }, [state.teeth, state.allOn]);
 
     const onTeethClick: MouseEventHandler<HTMLImageElement> = e => {
         if (!ref.current) return;
+        // All On is a template, if it is set do not allow the picture to be changed
+        if (state.allOn !== AllOn.NONE) return;
         // Get mouse position on the image
         const { left, top, width, height } = ref.current.getBoundingClientRect();
         const x = (WIDTH * (e.clientX - left)) / width;

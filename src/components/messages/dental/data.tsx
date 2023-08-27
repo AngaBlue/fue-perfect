@@ -8,10 +8,20 @@ export const ImplantMaterials = ['Porselein €195', 'Zirconium €295', 'E-Maz 
 // Brug
 export const BrugOptions = ['Driedelige brug 3x material-crown', 'Vierdelige brug 4x material-crown', 'Vijfdelige brug 5x material-crown'];
 export const BrugMaterials = ['Porselein €195', 'Zirconium €295', 'E-Maz €315'];
+
 // AllOn
-export const AllOn = ['All on 4', 'All on 6'];
-export const AllOn4Options = ['Porselein  €13,500', 'Zirconium  €14,500'];
-export const AllOn6Options = ['Porselein  €15,500', 'Zirconium  €15,500'];
+export enum AllOn {
+    NONE,
+    ALL_ON_4,
+    ALL_ON_6
+}
+export enum AllOnMaterials {
+    PORSELEIN,
+    ZIRCOMIUM
+}
+// export const AllOn = ['All on 4', 'All on 6'];
+// export const AllOn4Options = ['Porselein  €13,500', 'Zirconium  €14,500'];
+// export const AllOn6Options = ['Porselein  €15,500', 'Zirconium  €15,500'];
 
 // Wortel
 export const Wortel = ['1   €125', '2   €165', '3     €195'];
@@ -52,8 +62,8 @@ export const defaultState = {
     implantMaterials: ImplantMaterials[0],
     brugOptions: BrugOptions[0],
     brugMaterials: BrugMaterials[0],
-    allOn: AllOn[0],
-    AllOnOptions: AllOn4Options[0],
+    allOn: AllOn.NONE,
+    AllOnOptions: AllOnMaterials.PORSELEIN,
     wortel: Wortel[0],
     sinuslift: Sinuslift[0],
     treatments: '',

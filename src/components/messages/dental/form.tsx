@@ -1,6 +1,6 @@
 import { Box, FormLabel, Input, InputGroup, SimpleGrid } from '@chakra-ui/react';
 import { Dispatch, SetStateAction } from 'react';
-import { DentalState } from './data';
+import { AllOn, DentalState } from './data';
 import { Gender } from '../hair/data';
 import { useI18nContext } from '../../../i18n/i18n-react';
 import EnumSelect from '../../inputs/EnumSelect';
@@ -12,20 +12,17 @@ import ImplantaatCom from './techniques/ImplantaatCom';
 import SinusliftCom from './techniques/SinusliftCom';
 import WortelkanaalCom from './techniques/WortelkanaalCom';
 import { ImplantType } from './templates';
+import ExtractionCom from './techniques/ExtractionCom';
 
 export default function Form({ state, setState }: { state: DentalState; setState: Dispatch<SetStateAction<DentalState>> }) {
     const { LL } = useI18nContext();
 
     const TechniqueOptions = () => {
         switch (state.type) {
-            case ImplantType.WHITE:
-                return <ImplantaatCom state={state} setState={setState} />;
             case ImplantType.SCREW:
                 return <BrugCom state={state} setState={setState} />;
             case ImplantType.PORCELAIN:
                 return <SinusliftCom state={state} setState={setState} />;
-            case ImplantType.PURPLE:
-                return <AllOnCom state={state} setState={setState} />;
             case ImplantType.ZIRCONIUM:
                 return <WortelkanaalCom state={state} setState={setState} />;
             default:
@@ -55,13 +52,20 @@ export default function Form({ state, setState }: { state: DentalState; setState
                 labels={LL.HAIR.GENDER}
             />
             <DateSelector state={state.date} setState={date => setState({ ...state, date })} />
-            <EnumDropdown
-                name='Techniek'
-                enumerable={ImplantType}
-                state={state.type}
-                setState={type => setState({ ...state, type })}
-                labels={LL.DENTAL.IMPLANT_TYPE}
-            />
+            <AllOnCom state={state} setState={setState} />
+            {state.allOn === AllOn.NONE && (
+                <>
+                    <EnumDropdown
+                        name='Techniek'
+                        enumerable={ImplantType}
+                        state={state.type}
+                        setState={type => setState({ ...state, type })}
+                        labels={LL.DENTAL.IMPLANT_TYPE}
+                    />
+                    <ExtractionCom state={state} setState={setState} />
+                    <ImplantaatCom state={state} setState={setState} />
+                </>
+            )}
             <TechniqueOptions />
         </SimpleGrid>
     );

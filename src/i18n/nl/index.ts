@@ -71,7 +71,9 @@ const nl: BaseTranslation = {
             'Implantaat Wit',
             'Implantaat Zirconium',
             'Implantaat E-max'
-        ]
+        ],
+        ALL_ON_TYPE: ['None', 'All On 4', 'All On 6'],
+        ALL_ON_MATERIAL: ['Porcelein', 'Zirconium']
     }
 };
 
