@@ -349,6 +349,12 @@ type RootTranslation = {
 			 */
 			'1': string
 		}
+		IMPLANT_BRAND: {
+			/**
+			 * M​I​S
+			 */
+			'0': string
+		}
 	}
 }
 
@@ -657,6 +663,12 @@ export type TranslationFunctions = {
 			 * Zirconium
 			 */
 			'1': () => LocalizedString
+		}
+		IMPLANT_BRAND: {
+			/**
+			 * MIS
+			 */
+			'0': () => LocalizedString
 		}
 	}
 }

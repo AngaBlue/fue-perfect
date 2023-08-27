@@ -2,8 +2,11 @@ import { Gender } from '../hair/data';
 import { ImplantType, initial } from './templates';
 
 // Implant as Im plantaat
-export const ImplantOptions = ['A-Kwaliteit €895', 'B-Kwaliteit €695'];
-export const ImplantMaterials = ['Porselein €195', 'Zirconium €295', 'E-Maz €315'];
+// export const ImplantOptions = ['A-Kwaliteit €895', 'B-Kwaliteit €695'];
+export enum ImplantBrand {
+    MIS
+}
+// export const ImplantMaterials = ['Porselein €195', 'Zirconium €295', 'E-Maz €315'];
 
 // Brug
 export const BrugOptions = ['Driedelige brug 3x material-crown', 'Vierdelige brug 4x material-crown', 'Vijfdelige brug 5x material-crown'];
@@ -59,8 +62,7 @@ export const defaultState = {
     date: new Date(),
     type: ImplantType.DEFAULT,
     extraction: false,
-    implantOptions: ImplantOptions[0],
-    implantMaterials: ImplantMaterials[0],
+    implantBrand: ImplantBrand.MIS,
     brugOptions: BrugOptions[0],
     brugMaterials: BrugMaterials[0],
     allOn: AllOn.NONE,
