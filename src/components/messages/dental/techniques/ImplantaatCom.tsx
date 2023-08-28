@@ -1,5 +1,6 @@
 import {
     Box,
+    Checkbox,
     FormLabel,
     NumberDecrementStepper,
     NumberIncrementStepper,
@@ -17,25 +18,33 @@ export default function ImplantaatCom({ state, setState }: { state: DentalState;
 
     return (
         <Box>
-            <Box pt={4}>
-                <FormLabel>Number of Bone graft</FormLabel>
-                <NumberInput min={0} max={32} step={1} precision={0} defaultValue={0}>
-                    <NumberInputField />
-                    <NumberInputStepper>
-                        <NumberIncrementStepper />
-                        <NumberDecrementStepper />
-                    </NumberInputStepper>
-                </NumberInput>
-            </Box>
-            <Box mt={6}>
-                <EnumDropdown
-                    name='Implant Brand'
-                    enumerable={ImplantBrand}
-                    state={state.implantBrand}
-                    setState={implantBrand => setState({ ...state, implantBrand })}
-                    labels={LL.DENTAL.IMPLANT_BRAND}
-                />
-            </Box>
+            <FormLabel>Implantaat</FormLabel>
+            <Checkbox isChecked={state.implant} onChange={e => setState({ ...state, implant: e.target.checked })}>
+                Implantaat
+            </Checkbox>
+            {state.implant && (
+                <>
+                    <Box pt={4}>
+                        <FormLabel>Number of Bone graft</FormLabel>
+                        <NumberInput min={0} max={32} step={1} precision={0} defaultValue={0}>
+                            <NumberInputField />
+                            <NumberInputStepper>
+                                <NumberIncrementStepper />
+                                <NumberDecrementStepper />
+                            </NumberInputStepper>
+                        </NumberInput>
+                    </Box>
+                    <Box mt={6}>
+                        <EnumDropdown
+                            name='Implant Brand'
+                            enumerable={ImplantBrand}
+                            state={state.implantBrand}
+                            setState={implantBrand => setState({ ...state, implantBrand })}
+                            labels={LL.DENTAL.IMPLANT_BRAND}
+                        />
+                    </Box>
+                </>
+            )}
         </Box>
     );
 }

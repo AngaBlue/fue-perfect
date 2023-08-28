@@ -62,6 +62,7 @@ export const defaultState = {
     date: new Date(),
     type: ImplantType.DEFAULT,
     extraction: false,
+    implant: false,
     implantBrand: ImplantBrand.MIS,
     brugOptions: BrugOptions[0],
     brugMaterials: BrugMaterials[0],
