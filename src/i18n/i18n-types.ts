@@ -355,6 +355,34 @@ type RootTranslation = {
 			 */
 			'0': string
 		}
+		ATTACHMENT_TYPE: {
+			/**
+			 * N​o​n​e
+			 */
+			'0': string
+			/**
+			 * F​a​c​i​n​g
+			 */
+			'1': string
+			/**
+			 * C​r​o​w​n
+			 */
+			'2': string
+		}
+		ATTACHMENT_MATERIAL: {
+			/**
+			 * P​o​r​s​e​l​e​i​n
+			 */
+			'0': string
+			/**
+			 * Z​i​r​c​o​n​i​u​m
+			 */
+			'1': string
+			/**
+			 * E​-​M​a​x
+			 */
+			'2': string
+		}
 	}
 }
 
@@ -669,6 +697,34 @@ export type TranslationFunctions = {
 			 * MIS
 			 */
 			'0': () => LocalizedString
+		}
+		ATTACHMENT_TYPE: {
+			/**
+			 * None
+			 */
+			'0': () => LocalizedString
+			/**
+			 * Facing
+			 */
+			'1': () => LocalizedString
+			/**
+			 * Crown
+			 */
+			'2': () => LocalizedString
+		}
+		ATTACHMENT_MATERIAL: {
+			/**
+			 * Porselein
+			 */
+			'0': () => LocalizedString
+			/**
+			 * Zirconium
+			 */
+			'1': () => LocalizedString
+			/**
+			 * E-Max
+			 */
+			'2': () => LocalizedString
 		}
 	}
 }

@@ -74,7 +74,9 @@ const nl: BaseTranslation = {
         ],
         ALL_ON_TYPE: ['None', 'All On 4', 'All On 6'],
         ALL_ON_MATERIAL: ['Porcelein', 'Zirconium'],
-        IMPLANT_BRAND: ['MIS']
+        IMPLANT_BRAND: ['MIS'],
+        ATTACHMENT_TYPE: ['None', 'Facing', 'Crown'],
+        ATTACHMENT_MATERIAL: ['Porselein', 'Zirconium', 'E-Max']
     }
 };
 

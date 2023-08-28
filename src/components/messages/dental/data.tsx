@@ -6,6 +6,19 @@ import { ImplantType, initial } from './templates';
 export enum ImplantBrand {
     MIS
 }
+
+export enum AttachmentType {
+    NONE,
+    FACING,
+    CROWN
+}
+
+export enum AttachmentMaterial {
+    PORCELAIN,
+    ZIRCONIUM,
+    EMAX
+}
+
 // export const ImplantMaterials = ['Porselein €195', 'Zirconium €295', 'E-Maz €315'];
 
 // Brug
@@ -64,6 +77,8 @@ export const defaultState = {
     extraction: false,
     implant: false,
     implantBrand: ImplantBrand.MIS,
+    attachmentType: AttachmentType.NONE,
+    attachemntMaterial: AttachmentMaterial.PORCELAIN,
     brugOptions: BrugOptions[0],
     brugMaterials: BrugMaterials[0],
     allOn: AllOn.NONE,

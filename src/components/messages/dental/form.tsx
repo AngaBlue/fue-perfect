@@ -1,6 +1,6 @@
 import { Box, FormLabel, Input, InputGroup, SimpleGrid } from '@chakra-ui/react';
 import { Dispatch, SetStateAction } from 'react';
-import { AllOn, DentalState } from './data';
+import { AllOn, AttachmentMaterial, AttachmentType, DentalState } from './data';
 import { Gender } from '../hair/data';
 import { useI18nContext } from '../../../i18n/i18n-react';
 import EnumSelect from '../../inputs/EnumSelect';
@@ -55,15 +55,25 @@ export default function Form({ state, setState }: { state: DentalState; setState
             <AllOnCom state={state} setState={setState} />
             {state.allOn === AllOn.NONE && (
                 <>
-                    <EnumDropdown
-                        name='Techniek'
-                        enumerable={ImplantType}
-                        state={state.type}
-                        setState={type => setState({ ...state, type })}
-                        labels={LL.DENTAL.IMPLANT_TYPE}
-                    />
                     <ExtractionCom state={state} setState={setState} />
                     <ImplantaatCom state={state} setState={setState} />
+                    <Box>
+                        <EnumDropdown
+                            name='Attachment'
+                            enumerable={AttachmentType}
+                            state={state.attachmentType}
+                            setState={attachmentType => setState({ ...state, attachmentType })}
+                            labels={LL.DENTAL.ATTACHMENT_TYPE}
+                        />
+
+                        <EnumDropdown
+                            name='Material'
+                            enumerable={AttachmentMaterial}
+                            state={state.attachemntMaterial}
+                            setState={attachemntMaterial => setState({ ...state, attachemntMaterial })}
+                            labels={LL.DENTAL.ATTACHMENT_MATERIAL}
+                        />
+                    </Box>
                 </>
             )}
             <TechniqueOptions />
