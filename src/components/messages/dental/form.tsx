@@ -6,29 +6,12 @@ import { useI18nContext } from '../../../i18n/i18n-react';
 import EnumSelect from '../../inputs/EnumSelect';
 import DateSelector from '../../inputs/DateSelector';
 import AllOnCom from './techniques/AllOnCom';
-import BrugCom from './techniques/BrugCom';
 import ImplantaatCom from './techniques/ImplantaatCom';
-import SinusliftCom from './techniques/SinusliftCom';
-import WortelkanaalCom from './techniques/WortelkanaalCom';
-import { ImplantType } from './templates';
 import ExtractionCom from './techniques/ExtractionCom';
 import ProcedureCom from './techniques/ProcedureCom';
 
 export default function Form({ state, setState }: { state: DentalState; setState: Dispatch<SetStateAction<DentalState>> }) {
     const { LL } = useI18nContext();
-
-    const TechniqueOptions = () => {
-        switch (state.type) {
-            case ImplantType.SCREW:
-                return <BrugCom state={state} setState={setState} />;
-            case ImplantType.PORCELAIN:
-                return <SinusliftCom state={state} setState={setState} />;
-            case ImplantType.ZIRCONIUM:
-                return <WortelkanaalCom state={state} setState={setState} />;
-            default:
-                return null;
-        }
-    };
 
     return (
         <SimpleGrid columns={[1, null, 2, 3, 4]} spacing={4}>
@@ -60,7 +43,6 @@ export default function Form({ state, setState }: { state: DentalState; setState
                     <ProcedureCom state={state} setState={setState} />
                 </>
             )}
-            <TechniqueOptions />
         </SimpleGrid>
     );
 }

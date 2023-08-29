@@ -1,6 +1,7 @@
 import { Dispatch, MouseEventHandler, SetStateAction, useEffect, useRef, useState } from 'react';
 import merge, { ImageSource } from 'merge-images';
-import { AllOn, DentalState } from './data';
+import isEqual from 'lodash.isequal';
+import { AllOn, AttachmentMaterial, AttachmentType, DentalState, TeethOptions, defaultTooth } from './data';
 import styles from './content.module.scss';
 import images from './teeth';
 import { ImplantType, allOn4, allOn6 } from './templates';
@@ -29,10 +30,25 @@ export default function Content({ state, setState }: { state: DentalState; setSt
         let { teeth } = state;
         if (state.allOn === AllOn.ALL_ON_4) teeth = allOn4;
         if (state.allOn === AllOn.ALL_ON_6) teeth = allOn6;
+        console.log(teeth[0][0]);
         for (let i = 0; i < 2; i++) {
             for (let j = 0; j < 16; j++) {
+                const tooth = teeth[i][j];
+                let type: ImplantType = ImplantType.DEFAULT;
+                if (tooth.extraction && !tooth.implantaat) type = ImplantType.BLANK;
+                else if (tooth.implantaat && tooth.attachment === AttachmentType.NONE) type = ImplantType.SCREW;
+                else if (tooth.implantaat && tooth.attachment !== AttachmentType.NONE) {
+                    if (tooth.attachmentMaterial === AttachmentMaterial.EMAX) type = ImplantType.EMAX_SCREW;
+                    else if (tooth.attachmentMaterial === AttachmentMaterial.PORCELAIN) type = ImplantType.PORCELAIN_SCREW;
+                    else if (tooth.attachmentMaterial === AttachmentMaterial.ZIRCONIUM) type = ImplantType.ZIRCONIUM_SCREW;
+                } else if (!tooth.implantaat && tooth.attachment !== AttachmentType.NONE) {
+                    if (tooth.attachmentMaterial === AttachmentMaterial.EMAX) type = ImplantType.EMAX;
+                    else if (tooth.attachmentMaterial === AttachmentMaterial.PORCELAIN) type = ImplantType.PORCELAIN;
+                    else if (tooth.attachmentMaterial === AttachmentMaterial.ZIRCONIUM) type = ImplantType.ZIRCONIUM;
+                }
+                if (i == 0 && j == 0) {console.log(type);console.log(images[type as keyof typeof images][i][j]);};
                 teethImages.push({
-                    src: images[teeth[i][j].type as keyof typeof images][i][j],
+                    src: images[type as keyof typeof images][i][j],
                     x: COLUMN_OFFSETS[j],
                     y: (i * HEIGHT) / 2
                 });
@@ -58,9 +74,18 @@ export default function Content({ state, setState }: { state: DentalState; setSt
         // Update with correct implant type
         const newTeeth = [[...state.teeth[0]], [...state.teeth[1]]];
 
+        const newTooth: TeethOptions = {
+            extraction: state.extraction,
+            implantaat: state.implant,
+            boneGraft: state.boneGraft,
+            implantaatBrand: state.implantBrand,
+            attachment: state.attachmentType,
+            attachmentMaterial: state.attachemntMaterial
+        };
+
         // Reset to teeth if clicking on the same type
-        const type = newTeeth[row][column].type === state.type ? ImplantType.DEFAULT : state.type;
-        newTeeth[row][column].type = type;
+        const tooth = isEqual(newTeeth[row][column], newTooth) ? { ...defaultTooth } : newTooth;
+        newTeeth[row][column] = tooth;
         setState({ ...state, teeth: newTeeth });
     };
 

@@ -1,5 +1,5 @@
 import { Gender } from '../hair/data';
-import { ImplantType, initial } from './templates';
+import { mirror } from './util';
 
 // Implant as Im plantaat
 // export const ImplantOptions = ['A-Kwaliteit €895', 'B-Kwaliteit €695'];
@@ -48,23 +48,50 @@ export const Sinuslift = ['Open €1155', 'Gesloten €750'];
 // Selected Implantaat tooth
 export const SelectedImplantaatTeeth = [];
 
-type TeethOption<T extends ImplantType, TData extends object = {}> = { type: T } & TData;
+// type TeethOption<T extends ImplantType, TData extends object = {}> = { type: T } & TData;
 
-type ImplantQuality = 'A' | 'B';
+// type Implant = TeethOption<
+//     | ImplantType.ZIRCONIUM
+//     | ImplantType.PORCELAIN
+//     | ImplantType.EMAX
+//     | ImplantType.ZIRCONIUM_SCREW
+//     | ImplantType.PORCELAIN_SCREW
+//     | ImplantType.EMAX_SCREW,
+//     { quality: ImplantQuality }
+// >;
 
-type Implant = TeethOption<
-    | ImplantType.ZIRCONIUM
-    | ImplantType.PORCELAIN
-    | ImplantType.EMAX
-    | ImplantType.ZIRCONIUM_SCREW
-    | ImplantType.PORCELAIN_SCREW
-    | ImplantType.EMAX_SCREW,
-    { quality: ImplantQuality }
->;
+// type Other = TeethOption<ImplantType.DEFAULT | ImplantType.WHITE | ImplantType.SCREW | ImplantType.PURPLE | ImplantType.BLANK>;
 
-type Other = TeethOption<ImplantType.DEFAULT | ImplantType.WHITE | ImplantType.SCREW | ImplantType.PURPLE | ImplantType.BLANK>;
+// export type TeethOptions = Implant | Other;
 
-export type TeethOptions = Implant | Other;
+export interface TeethOptions {
+    extraction: boolean;
+    implantaat: boolean;
+    boneGraft: boolean;
+    implantaatBrand: ImplantBrand;
+    attachment: AttachmentType;
+    attachmentMaterial: AttachmentMaterial;
+}
+
+export const defaultTooth: TeethOptions = {
+    extraction: false,
+    implantaat: false,
+    boneGraft: false,
+    implantaatBrand: ImplantBrand.MIS,
+    attachment: AttachmentType.NONE,
+    attachmentMaterial: AttachmentMaterial.PORCELAIN
+};
+
+export const initial = mirror([
+    { ...defaultTooth },
+    { ...defaultTooth },
+    { ...defaultTooth },
+    { ...defaultTooth },
+    { ...defaultTooth },
+    { ...defaultTooth },
+    { ...defaultTooth },
+    { ...defaultTooth }
+]);
 
 // defaultState for DentalState
 export const defaultState = {
@@ -73,19 +100,14 @@ export const defaultState = {
     gender: Gender.MALE,
     email: '',
     date: new Date(),
-    type: ImplantType.DEFAULT,
     extraction: false,
     implant: false,
     boneGraft: false,
     implantBrand: ImplantBrand.MIS,
     attachmentType: AttachmentType.NONE,
     attachemntMaterial: AttachmentMaterial.PORCELAIN,
-    brugOptions: BrugOptions[0],
-    brugMaterials: BrugMaterials[0],
     allOn: AllOn.NONE,
     AllOnOptions: AllOnMaterials.PORSELEIN,
-    wortel: Wortel[0],
-    sinuslift: Sinuslift[0],
     treatments: '',
     teeth: initial
 };

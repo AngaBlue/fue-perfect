@@ -1,4 +1,5 @@
-import { TeethOptions } from './data';
+import { AttachmentMaterial, AttachmentType, defaultTooth } from './data';
+import { mirror } from './util';
 
 export enum ImplantType {
     DEFAULT,
@@ -14,40 +15,54 @@ export enum ImplantType {
     EMAX_SCREW
 }
 
-function mirror(base: TeethOptions[]) {
-    const row = [...base, ...base.reverse().map(v => ({ ...v }))];
-    return [row.map(v => ({ ...v })), row.map(v => ({ ...v }))];
-}
-
-export const initial = mirror([
-    { type: ImplantType.DEFAULT },
-    { type: ImplantType.DEFAULT },
-    { type: ImplantType.DEFAULT },
-    { type: ImplantType.DEFAULT },
-    { type: ImplantType.DEFAULT },
-    { type: ImplantType.DEFAULT },
-    { type: ImplantType.DEFAULT },
-    { type: ImplantType.DEFAULT }
-]);
-
 export const allOn4 = mirror([
-    { type: ImplantType.BLANK },
-    { type: ImplantType.BLANK },
-    { type: ImplantType.BLANK },
-    { type: ImplantType.ZIRCONIUM, quality: 'A' },
-    { type: ImplantType.DEFAULT },
-    { type: ImplantType.ZIRCONIUM, quality: 'A' },
-    { type: ImplantType.DEFAULT },
-    { type: ImplantType.DEFAULT }
+    { ...defaultTooth, extraction: true },
+    { ...defaultTooth, extraction: true },
+    { ...defaultTooth, extraction: true },
+    {
+        ...defaultTooth,
+        extraction: true,
+        implantaat: true,
+        attachment: AttachmentType.CROWN,
+        attachmentMaterial: AttachmentMaterial.EMAX
+    },
+    { ...defaultTooth },
+    {
+        ...defaultTooth,
+        extraction: true,
+        implantaat: true,
+        attachment: AttachmentType.CROWN,
+        attachmentMaterial: AttachmentMaterial.EMAX
+    },
+    { ...defaultTooth },
+    { ...defaultTooth }
 ]);
 
 export const allOn6 = mirror([
-    { type: ImplantType.BLANK },
-    { type: ImplantType.BLANK },
-    { type: ImplantType.ZIRCONIUM, quality: 'A' },
-    { type: ImplantType.DEFAULT },
-    { type: ImplantType.ZIRCONIUM, quality: 'A' },
-    { type: ImplantType.DEFAULT },
-    { type: ImplantType.ZIRCONIUM, quality: 'A' },
-    { type: ImplantType.DEFAULT }
+    { ...defaultTooth, extraction: true },
+    { ...defaultTooth, extraction: true },
+    {
+        ...defaultTooth,
+        extraction: true,
+        implantaat: true,
+        attachment: AttachmentType.CROWN,
+        attachmentMaterial: AttachmentMaterial.EMAX
+    },
+    { ...defaultTooth },
+    {
+        ...defaultTooth,
+        extraction: true,
+        implantaat: true,
+        attachment: AttachmentType.CROWN,
+        attachmentMaterial: AttachmentMaterial.EMAX
+    },
+    { ...defaultTooth },
+    {
+        ...defaultTooth,
+        extraction: true,
+        implantaat: true,
+        attachment: AttachmentType.CROWN,
+        attachmentMaterial: AttachmentMaterial.EMAX
+    },
+    { ...defaultTooth }
 ]);
