@@ -76,6 +76,7 @@ export const defaultState = {
     type: ImplantType.DEFAULT,
     extraction: false,
     implant: false,
+    boneGraft: false,
     implantBrand: ImplantBrand.MIS,
     attachmentType: AttachmentType.NONE,
     attachemntMaterial: AttachmentMaterial.PORCELAIN,

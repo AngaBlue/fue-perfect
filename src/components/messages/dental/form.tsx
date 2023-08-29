@@ -1,11 +1,10 @@
 import { Box, FormLabel, Input, InputGroup, SimpleGrid } from '@chakra-ui/react';
 import { Dispatch, SetStateAction } from 'react';
-import { AllOn, AttachmentMaterial, AttachmentType, DentalState } from './data';
+import { AllOn, DentalState } from './data';
 import { Gender } from '../hair/data';
 import { useI18nContext } from '../../../i18n/i18n-react';
 import EnumSelect from '../../inputs/EnumSelect';
 import DateSelector from '../../inputs/DateSelector';
-import EnumDropdown from '../../inputs/EnumDropdown';
 import AllOnCom from './techniques/AllOnCom';
 import BrugCom from './techniques/BrugCom';
 import ImplantaatCom from './techniques/ImplantaatCom';
@@ -13,6 +12,7 @@ import SinusliftCom from './techniques/SinusliftCom';
 import WortelkanaalCom from './techniques/WortelkanaalCom';
 import { ImplantType } from './templates';
 import ExtractionCom from './techniques/ExtractionCom';
+import ProcedureCom from './techniques/ProcedureCom';
 
 export default function Form({ state, setState }: { state: DentalState; setState: Dispatch<SetStateAction<DentalState>> }) {
     const { LL } = useI18nContext();
@@ -57,23 +57,7 @@ export default function Form({ state, setState }: { state: DentalState; setState
                 <>
                     <ExtractionCom state={state} setState={setState} />
                     <ImplantaatCom state={state} setState={setState} />
-                    <Box>
-                        <EnumDropdown
-                            name='Attachment'
-                            enumerable={AttachmentType}
-                            state={state.attachmentType}
-                            setState={attachmentType => setState({ ...state, attachmentType })}
-                            labels={LL.DENTAL.ATTACHMENT_TYPE}
-                        />
-
-                        <EnumDropdown
-                            name='Material'
-                            enumerable={AttachmentMaterial}
-                            state={state.attachemntMaterial}
-                            setState={attachemntMaterial => setState({ ...state, attachemntMaterial })}
-                            labels={LL.DENTAL.ATTACHMENT_MATERIAL}
-                        />
-                    </Box>
+                    <ProcedureCom state={state} setState={setState} />
                 </>
             )}
             <TechniqueOptions />

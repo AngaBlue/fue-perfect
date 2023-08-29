@@ -1,13 +1,4 @@
-import {
-    Box,
-    Checkbox,
-    FormLabel,
-    NumberDecrementStepper,
-    NumberIncrementStepper,
-    NumberInput,
-    NumberInputField,
-    NumberInputStepper
-} from '@chakra-ui/react';
+import { Box, Checkbox, FormLabel } from '@chakra-ui/react';
 import { Dispatch, SetStateAction } from 'react';
 import { DentalState, ImplantBrand } from '../data';
 import EnumDropdown from '../../../inputs/EnumDropdown';
@@ -25,14 +16,9 @@ export default function ImplantaatCom({ state, setState }: { state: DentalState;
             {state.implant && (
                 <>
                     <Box pt={4}>
-                        <FormLabel>Number of Bone graft</FormLabel>
-                        <NumberInput min={0} max={32} step={1} precision={0} defaultValue={0}>
-                            <NumberInputField />
-                            <NumberInputStepper>
-                                <NumberIncrementStepper />
-                                <NumberDecrementStepper />
-                            </NumberInputStepper>
-                        </NumberInput>
+                        <Checkbox isChecked={state.boneGraft} onChange={e => setState({ ...state, boneGraft: e.target.checked })}>
+                            Bone graft
+                        </Checkbox>
                     </Box>
                     <Box mt={6}>
                         <EnumDropdown
