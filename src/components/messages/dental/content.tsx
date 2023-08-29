@@ -7,6 +7,8 @@ import images from './teeth';
 import { ImplantType, allOn4, allOn6 } from './templates';
 import { useI18nContext } from '../../../i18n/i18n-react';
 import { Gender } from '../hair/data';
+import BoldTranslation from '../../BoldTranslation';
+import ProcedureBreakdown from './ProcedureBreakdown';
 
 const WIDTH = 1_200;
 const HEIGHT = 640;
@@ -30,7 +32,6 @@ export default function Content({ state, setState }: { state: DentalState; setSt
         let { teeth } = state;
         if (state.allOn === AllOn.ALL_ON_4) teeth = allOn4;
         if (state.allOn === AllOn.ALL_ON_6) teeth = allOn6;
-        console.log(teeth[0][0]);
         for (let i = 0; i < 2; i++) {
             for (let j = 0; j < 16; j++) {
                 const tooth = teeth[i][j];
@@ -46,7 +47,6 @@ export default function Content({ state, setState }: { state: DentalState; setSt
                     else if (tooth.attachmentMaterial === AttachmentMaterial.PORCELAIN) type = ImplantType.PORCELAIN;
                     else if (tooth.attachmentMaterial === AttachmentMaterial.ZIRCONIUM) type = ImplantType.ZIRCONIUM;
                 }
-                if (i == 0 && j == 0) {console.log(type);console.log(images[type as keyof typeof images][i][j]);};
                 teethImages.push({
                     src: images[type as keyof typeof images][i][j],
                     x: COLUMN_OFFSETS[j],
@@ -98,22 +98,19 @@ export default function Content({ state, setState }: { state: DentalState; setSt
                     surname: state.lastname
                 })}
             </p>
+            <p>{LL.DENTAL.CONTENT.INTRO_1()}</p>
             <p>
-                Bedankt voor de interesse die u getoond heeft in onze organisatie. Aan de hand van uw röntgenfoto zijn wij uitgekomen tot de
-                onderstaande behandelplan.
+                <BoldTranslation>{LL.DENTAL.CONTENT.INTRO_2(new Date(state.date))}</BoldTranslation>
+            </p>
+            <p style={{ color: 'red' }}>
+                <strong>{LL.DENTAL.CONTENT.INTRO_3()}</strong>
             </p>
             {/* Image */}
             <img src={zone64} alt='Teeth' ref={ref} onClick={onTeethClick} className={styles.image} />
-            {/* Test */}
-            <div className={styles.mail_slide_btn}>
-                <div className={styles.mail_permanent_btn}>Het blijvende gebit</div>
-                <div className={styles.mail_child_btn}>Melktanden</div>
-            </div>
+
             {/* Price */}
             <div className={styles.detail}>
-                <div style={{ color: 'red', marginTop: '20px' }}>The price of implantaat</div> <br />
-                <p style={{ color: '#1a79c6' }}>Extracties: {}</p>
-                <p style={{ color: '#1a79c6' }}>Implantaat: {}</p>
+                <ProcedureBreakdown state={state} />
                 <p style={{ color: '#1a79c6' }}>Bone graft: {}</p>
                 <p style={{ color: 'red' }}>Brug: {}</p>
                 <p style={{ color: '#1a79c6' }}>

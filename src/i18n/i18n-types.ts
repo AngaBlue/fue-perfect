@@ -275,6 +275,57 @@ type RootTranslation = {
 		}
 	}
 	DENTAL: {
+		CONTENT: {
+			/**
+			 * B​e​d​a​n​k​t​ ​v​o​o​r​ ​d​e​ ​i​n​t​e​r​e​s​s​e​ ​d​i​e​ ​u​ ​g​e​t​o​o​n​d​ ​h​e​e​f​t​ ​i​n​ ​o​n​z​e​ ​o​r​g​a​n​i​s​a​t​i​e​.
+			 */
+			INTRO_1: string
+			/**
+			 * U​ ​h​e​e​f​t​ ​o​p​ ​<​>​{​0​|​d​a​t​e​}​<​>​ ​e​e​n​ ​v​o​o​r​o​n​d​e​r​z​o​e​k​ ​o​n​d​e​r​g​a​a​n​ ​i​n​ ​L​e​l​y​s​t​a​d​ ​o​m​t​r​e​n​t​ ​e​e​n​ ​g​e​b​i​t​s​b​e​h​a​n​d​e​l​i​n​g​.
+			 * @param {Date} 0
+			 */
+			INTRO_2: RequiredParams<'0|date'>
+			/**
+			 * H​i​e​r​o​n​d​e​r​ ​v​i​n​d​t​ ​d​e​ ​u​i​t​g​e​b​r​e​i​d​ ​b​e​h​a​n​d​e​l​p​l​a​n​ ​+​ ​k​o​s​t​e​n​p​l​a​a​t​j​e​ ​t​e​r​u​g​.
+			 */
+			INTRO_3: string
+			/**
+			 * B​E​H​A​N​D​E​L​P​L​A​N
+			 */
+			TREATMENT_PLAN: string
+			/**
+			 * E​x​t​r​a​c​t​i​e​s
+			 */
+			EXTRACTIONS: string
+			/**
+			 * I​m​p​l​a​n​t​a​a​t​ ​M​I​S​+​A​b​u​t​m​e​n
+			 */
+			MIS_IMPLANTS: string
+			/**
+			 * Z​i​r​c​o​n​i​u​m​ ​K​r​o​o​n
+			 */
+			ZIRCONIUM_CROWN: string
+			/**
+			 * P​o​r​c​e​l​e​i​n​ ​K​r​o​o​n
+			 */
+			PORCELAIN_CROWN: string
+			/**
+			 * E​-​M​a​x​ ​P​o​r​s​e​l​e​i​n​e​n​ ​K​r​o​o​n
+			 */
+			EMAX_CROWN: string
+			/**
+			 * Z​i​r​c​o​n​i​u​m​ ​F​a​c​i​n​g
+			 */
+			ZIRCONIUM_FACING: string
+			/**
+			 * P​o​r​c​e​l​e​i​n​ ​F​a​c​i​n​g
+			 */
+			PORCELAIN_FACING: string
+			/**
+			 * E​-​M​a​x​ ​P​o​r​s​e​l​e​i​n​e​n​ ​F​a​c​i​n​g
+			 */
+			EMAX_FACING: string
+		}
 		IMPLANT_TYPE: {
 			/**
 			 * N​o​r​m​a​a​l
@@ -618,6 +669,56 @@ export type TranslationFunctions = {
 		}
 	}
 	DENTAL: {
+		CONTENT: {
+			/**
+			 * Bedankt voor de interesse die u getoond heeft in onze organisatie.
+			 */
+			INTRO_1: () => LocalizedString
+			/**
+			 * U heeft op <>{0|date}<> een vooronderzoek ondergaan in Lelystad omtrent een gebitsbehandeling.
+			 */
+			INTRO_2: (arg0: Date) => LocalizedString
+			/**
+			 * Hieronder vindt de uitgebreid behandelplan + kostenplaatje terug.
+			 */
+			INTRO_3: () => LocalizedString
+			/**
+			 * BEHANDELPLAN
+			 */
+			TREATMENT_PLAN: () => LocalizedString
+			/**
+			 * Extracties
+			 */
+			EXTRACTIONS: () => LocalizedString
+			/**
+			 * Implantaat MIS+Abutmen
+			 */
+			MIS_IMPLANTS: () => LocalizedString
+			/**
+			 * Zirconium Kroon
+			 */
+			ZIRCONIUM_CROWN: () => LocalizedString
+			/**
+			 * Porcelein Kroon
+			 */
+			PORCELAIN_CROWN: () => LocalizedString
+			/**
+			 * E-Max Porseleinen Kroon
+			 */
+			EMAX_CROWN: () => LocalizedString
+			/**
+			 * Zirconium Facing
+			 */
+			ZIRCONIUM_FACING: () => LocalizedString
+			/**
+			 * Porcelein Facing
+			 */
+			PORCELAIN_FACING: () => LocalizedString
+			/**
+			 * E-Max Porseleinen Facing
+			 */
+			EMAX_FACING: () => LocalizedString
+		}
 		IMPLANT_TYPE: {
 			/**
 			 * Normaal

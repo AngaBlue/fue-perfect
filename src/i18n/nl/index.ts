@@ -58,6 +58,20 @@ const nl: BaseTranslation = {
         QUALITY: ['Slecht', 'Normaal', 'Goed', 'Perfect']
     },
     DENTAL: {
+        CONTENT: {
+            INTRO_1: 'Bedankt voor de interesse die u getoond heeft in onze organisatie.',
+            INTRO_2: 'U heeft op <>{0:Date|date}<> een vooronderzoek ondergaan in Lelystad omtrent een gebitsbehandeling.',
+            INTRO_3: 'Hieronder vindt de uitgebreid behandelplan + kostenplaatje terug.',
+            TREATMENT_PLAN: 'BEHANDELPLAN',
+            EXTRACTIONS: 'Extracties',
+            MIS_IMPLANTS: 'Implantaat MIS+Abutmen',
+            ZIRCONIUM_CROWN: 'Zirconium Kroon',
+            PORCELAIN_CROWN: 'Porcelein Kroon',
+            EMAX_CROWN: 'E-Max Porseleinen Kroon',
+            ZIRCONIUM_FACING: 'Zirconium Facing',
+            PORCELAIN_FACING: 'Porcelein Facing',
+            EMAX_FACING: 'E-Max Porseleinen Facing'
+        },
         IMPLANT_TYPE: [
             'Normaal',
             'Implantaat',
