@@ -5,6 +5,7 @@ import { filterToIdentifier } from './util';
 export default function ProcedureBreakdown({ state }: { state: DentalState }) {
     const { LL } = useI18nContext();
     const extractions = filterToIdentifier(state.teeth, tooth => tooth.extraction);
+    const boneGrafts = filterToIdentifier(state.teeth, tooth => tooth.boneGraft);
     const misImplants = filterToIdentifier(state.teeth, tooth => tooth.implantaat && tooth.implantaatBrand === ImplantBrand.MIS);
     const zircCrowns = filterToIdentifier(
         state.teeth,
@@ -33,12 +34,17 @@ export default function ProcedureBreakdown({ state }: { state: DentalState }) {
 
     return (
         <div>
-            <div style={{ marginTop: '20px' }}>
-                <p>{LL.DENTAL.CONTENT.TREATMENT_PLAN()}</p>
-            </div>
+            <p style={{ textDecoration: 'underline', color: 'red' }}>
+                <strong>{LL.DENTAL.CONTENT.TREATMENT_PLAN()}:</strong>
+            </p>
             {extractions.length > 0 && (
                 <p>
                     {LL.DENTAL.CONTENT.EXTRACTIONS()}: {extractions.join(', ')}
+                </p>
+            )}
+            {boneGrafts.length > 0 && (
+                <p>
+                    {LL.DENTAL.CONTENT.EXTRACTIONS()}: {boneGrafts.join(', ')}
                 </p>
             )}
             {misImplants.length > 0 && (

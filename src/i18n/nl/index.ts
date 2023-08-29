@@ -65,6 +65,7 @@ const nl: BaseTranslation = {
             TREATMENT_PLAN: 'BEHANDELPLAN',
             EXTRACTIONS: 'Extracties',
             MIS_IMPLANTS: 'Implantaat MIS+Abutmen',
+            BONE_GRAFTS: 'Bone grafting',
             ZIRCONIUM_CROWN: 'Zirconium Kroon',
             PORCELAIN_CROWN: 'Porcelein Kroon',
             EMAX_CROWN: 'E-Max Porseleinen Kroon',

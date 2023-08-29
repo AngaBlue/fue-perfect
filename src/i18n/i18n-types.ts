@@ -302,6 +302,10 @@ type RootTranslation = {
 			 */
 			MIS_IMPLANTS: string
 			/**
+			 * B​o​n​e​ ​g​r​a​f​t​i​n​g
+			 */
+			BONE_GRAFTS: string
+			/**
 			 * Z​i​r​c​o​n​i​u​m​ ​K​r​o​o​n
 			 */
 			ZIRCONIUM_CROWN: string
@@ -694,6 +698,10 @@ export type TranslationFunctions = {
 			 * Implantaat MIS+Abutmen
 			 */
 			MIS_IMPLANTS: () => LocalizedString
+			/**
+			 * Bone grafting
+			 */
+			BONE_GRAFTS: () => LocalizedString
 			/**
 			 * Zirconium Kroon
 			 */
