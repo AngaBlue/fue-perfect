@@ -44,7 +44,7 @@ export default function ProcedureBreakdown({ state }: { state: DentalState }) {
             )}
             {boneGrafts.length > 0 && (
                 <p>
-                    {LL.DENTAL.CONTENT.EXTRACTIONS()}: {boneGrafts.join(', ')}
+                    {LL.DENTAL.CONTENT.BONE_GRAFTS()}: {boneGrafts.join(', ')}
                 </p>
             )}
             {misImplants.length > 0 && (
