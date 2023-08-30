@@ -114,8 +114,6 @@ export default function Content({ state, setState }: { state: DentalState; setSt
                     {state.allOn === AllOn.NONE && <ProcedureBreakdown state={state} />}
                     {state.allOn !== AllOn.NONE && <AllOnBreakdown state={state} />}
                 </div>
-                <p style={{ color: '#1a79c6' }}>Bone graft: {}</p>
-                <p style={{ color: 'red' }}>Brug: {}</p>
                 <p style={{ color: '#1a79c6' }}>
                     U behoort voor uw behandeling in totaal 2 keer af te reizen naar Turkije, tijdens uw eerste bezoek (3 werkdagen) worden
                     de extracties uitgevoerd, sinus grafting uitgevoerd, en de implantaten geplaatst. Na 3 maanden genezingstijd behoort u
