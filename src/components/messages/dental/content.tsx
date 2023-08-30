@@ -4,7 +4,7 @@ import isEqual from 'lodash.isequal';
 import { AllOn, AttachmentMaterial, AttachmentType, DentalState, TeethOptions, defaultTooth } from './data';
 import styles from './content.module.scss';
 import images from './teeth';
-import { ImplantType, allOn4, allOn6, allOnEnumToLayout } from './templates';
+import { ImplantType, allOnEnumToLayout } from './templates';
 import { useI18nContext } from '../../../i18n/i18n-react';
 import { Gender } from '../hair/data';
 import BoldTranslation from '../../BoldTranslation';

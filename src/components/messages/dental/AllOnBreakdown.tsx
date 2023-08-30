@@ -6,7 +6,7 @@ import { filterToIdentifier } from './util';
 export default function AllOnBreakdown({ state }: { state: DentalState }) {
     const { LL } = useI18nContext();
 
-    let teethLayout = allOnEnumToLayout(state.allOn);
+    const teethLayout = allOnEnumToLayout(state.allOn);
 
     const implants = filterToIdentifier(teethLayout, tooth => tooth.implantaat);
 
