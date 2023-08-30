@@ -4,11 +4,12 @@ import isEqual from 'lodash.isequal';
 import { AllOn, AttachmentMaterial, AttachmentType, DentalState, TeethOptions, defaultTooth } from './data';
 import styles from './content.module.scss';
 import images from './teeth';
-import { ImplantType, allOn4, allOn6 } from './templates';
+import { ImplantType, allOn4, allOn6, allOnEnumToLayout } from './templates';
 import { useI18nContext } from '../../../i18n/i18n-react';
 import { Gender } from '../hair/data';
 import BoldTranslation from '../../BoldTranslation';
 import ProcedureBreakdown from './ProcedureBreakdown';
+import AllOnBreakdown from './AllOnBreakdown';
 
 const WIDTH = 1_200;
 const HEIGHT = 640;
@@ -30,8 +31,7 @@ export default function Content({ state, setState }: { state: DentalState; setSt
     useEffect(() => {
         const teethImages: ImageSource[] = ['/assets/dental/labels.png'];
         let { teeth } = state;
-        if (state.allOn === AllOn.ALL_ON_4) teeth = allOn4;
-        if (state.allOn === AllOn.ALL_ON_6) teeth = allOn6;
+        if (state.allOn !== AllOn.NONE) teeth = allOnEnumToLayout(state.allOn);
         for (let i = 0; i < 2; i++) {
             for (let j = 0; j < 16; j++) {
                 const tooth = teeth[i][j];
@@ -110,7 +110,10 @@ export default function Content({ state, setState }: { state: DentalState; setSt
 
             {/* Price */}
             <div className={styles.detail}>
-                <ProcedureBreakdown state={state} />
+                <div className={styles.breakdown}>
+                    {state.allOn === AllOn.NONE && <ProcedureBreakdown state={state} />}
+                    {state.allOn !== AllOn.NONE && <AllOnBreakdown state={state} />}
+                </div>
                 <p style={{ color: '#1a79c6' }}>Bone graft: {}</p>
                 <p style={{ color: 'red' }}>Brug: {}</p>
                 <p style={{ color: '#1a79c6' }}>

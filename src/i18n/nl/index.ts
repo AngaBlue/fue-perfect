@@ -71,7 +71,20 @@ const nl: BaseTranslation = {
             EMAX_CROWN: 'E-Max Porseleinen Kroon',
             ZIRCONIUM_FACING: 'Zirconium Facing',
             PORCELAIN_FACING: 'Porcelein Facing',
-            EMAX_FACING: 'E-Max Porseleinen Facing'
+            EMAX_FACING: 'E-Max Porseleinen Facing',
+            ALL_ON: {
+                PART_ONE: 'Eerste deel',
+                RESEARCH: 'UItgebreid onderzoek in Lelystad',
+                TOTAL_EXTRACTION: 'Totaal Extractie',
+                BOTTOM_AND_TOP: 'Bovenkaak en Onderkaak',
+                IF_NEEDED: 'Indien nodig',
+                FIXED_PROSTHESIS: 'Tijdelijk vaste prothese boven en onderkaak',
+                SEDATION: 'Sedatie verdoving gemiddeld 2 uur',
+                PART_TWO: 'Tweede deel',
+                IMPLANTS: 'Vaste  Hybride prothese porseleinen op implantaten',
+                MAINTAINENCE: 'Nazorg',
+                MAINTAINENCE_DESC: 'Elke jaar zal de kaakchirurg in Lelystad de protheses verwijderen, reinigen en weer vastmaken.'
+            }
         },
         IMPLANT_TYPE: [
             'Normaal',

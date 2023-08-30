@@ -1,4 +1,4 @@
-import { AttachmentMaterial, AttachmentType, defaultTooth } from './data';
+import { AllOn, AttachmentMaterial, AttachmentType, defaultTooth, initial } from './data';
 import { mirror } from './util';
 
 export enum ImplantType {
@@ -66,3 +66,15 @@ export const allOn6 = mirror([
     },
     { ...defaultTooth }
 ]);
+
+export function allOnEnumToLayout(allOn: AllOn) {
+    switch (allOn) {
+        case AllOn.ALL_ON_4:
+            return allOn4;
+        case AllOn.ALL_ON_6:
+            return allOn6;
+        case AllOn.NONE:
+        default:
+            return initial;
+    }
+}

@@ -329,6 +329,52 @@ type RootTranslation = {
 			 * E​-​M​a​x​ ​P​o​r​s​e​l​e​i​n​e​n​ ​F​a​c​i​n​g
 			 */
 			EMAX_FACING: string
+			ALL_ON: {
+				/**
+				 * E​e​r​s​t​e​ ​d​e​e​l
+				 */
+				PART_ONE: string
+				/**
+				 * U​I​t​g​e​b​r​e​i​d​ ​o​n​d​e​r​z​o​e​k​ ​i​n​ ​L​e​l​y​s​t​a​d
+				 */
+				RESEARCH: string
+				/**
+				 * T​o​t​a​a​l​ ​E​x​t​r​a​c​t​i​e
+				 */
+				TOTAL_EXTRACTION: string
+				/**
+				 * B​o​v​e​n​k​a​a​k​ ​e​n​ ​O​n​d​e​r​k​a​a​k
+				 */
+				BOTTOM_AND_TOP: string
+				/**
+				 * I​n​d​i​e​n​ ​n​o​d​i​g
+				 */
+				IF_NEEDED: string
+				/**
+				 * T​i​j​d​e​l​i​j​k​ ​v​a​s​t​e​ ​p​r​o​t​h​e​s​e​ ​b​o​v​e​n​ ​e​n​ ​o​n​d​e​r​k​a​a​k
+				 */
+				FIXED_PROSTHESIS: string
+				/**
+				 * S​e​d​a​t​i​e​ ​v​e​r​d​o​v​i​n​g​ ​g​e​m​i​d​d​e​l​d​ ​2​ ​u​u​r
+				 */
+				SEDATION: string
+				/**
+				 * T​w​e​e​d​e​ ​d​e​e​l
+				 */
+				PART_TWO: string
+				/**
+				 * V​a​s​t​e​ ​ ​H​y​b​r​i​d​e​ ​p​r​o​t​h​e​s​e​ ​p​o​r​s​e​l​e​i​n​e​n​ ​o​p​ ​i​m​p​l​a​n​t​a​t​e​n
+				 */
+				IMPLANTS: string
+				/**
+				 * N​a​z​o​r​g
+				 */
+				MAINTAINENCE: string
+				/**
+				 * E​l​k​e​ ​j​a​a​r​ ​z​a​l​ ​d​e​ ​k​a​a​k​c​h​i​r​u​r​g​ ​i​n​ ​L​e​l​y​s​t​a​d​ ​d​e​ ​p​r​o​t​h​e​s​e​s​ ​v​e​r​w​i​j​d​e​r​e​n​,​ ​r​e​i​n​i​g​e​n​ ​e​n​ ​w​e​e​r​ ​v​a​s​t​m​a​k​e​n​.
+				 */
+				MAINTAINENCE_DESC: string
+			}
 		}
 		IMPLANT_TYPE: {
 			/**
@@ -726,6 +772,52 @@ export type TranslationFunctions = {
 			 * E-Max Porseleinen Facing
 			 */
 			EMAX_FACING: () => LocalizedString
+			ALL_ON: {
+				/**
+				 * Eerste deel
+				 */
+				PART_ONE: () => LocalizedString
+				/**
+				 * UItgebreid onderzoek in Lelystad
+				 */
+				RESEARCH: () => LocalizedString
+				/**
+				 * Totaal Extractie
+				 */
+				TOTAL_EXTRACTION: () => LocalizedString
+				/**
+				 * Bovenkaak en Onderkaak
+				 */
+				BOTTOM_AND_TOP: () => LocalizedString
+				/**
+				 * Indien nodig
+				 */
+				IF_NEEDED: () => LocalizedString
+				/**
+				 * Tijdelijk vaste prothese boven en onderkaak
+				 */
+				FIXED_PROSTHESIS: () => LocalizedString
+				/**
+				 * Sedatie verdoving gemiddeld 2 uur
+				 */
+				SEDATION: () => LocalizedString
+				/**
+				 * Tweede deel
+				 */
+				PART_TWO: () => LocalizedString
+				/**
+				 * Vaste  Hybride prothese porseleinen op implantaten
+				 */
+				IMPLANTS: () => LocalizedString
+				/**
+				 * Nazorg
+				 */
+				MAINTAINENCE: () => LocalizedString
+				/**
+				 * Elke jaar zal de kaakchirurg in Lelystad de protheses verwijderen, reinigen en weer vastmaken.
+				 */
+				MAINTAINENCE_DESC: () => LocalizedString
+			}
 		}
 		IMPLANT_TYPE: {
 			/**
