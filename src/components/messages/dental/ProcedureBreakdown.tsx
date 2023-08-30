@@ -39,47 +39,47 @@ export default function ProcedureBreakdown({ state }: { state: DentalState }) {
             </p>
             {extractions.length > 0 && (
                 <p>
-                    {LL.DENTAL.CONTENT.EXTRACTIONS()}: {extractions.join(', ')}
+                    <strong>{LL.DENTAL.CONTENT.EXTRACTIONS()}:</strong> {extractions.join(', ')}
                 </p>
             )}
             {boneGrafts.length > 0 && (
                 <p>
-                    {LL.DENTAL.CONTENT.BONE_GRAFTS()}: {boneGrafts.join(', ')}
+                    <strong>{LL.DENTAL.CONTENT.BONE_GRAFTS()}:</strong> {boneGrafts.join(', ')}
                 </p>
             )}
             {misImplants.length > 0 && (
                 <p>
-                    {LL.DENTAL.CONTENT.MIS_IMPLANTS()}: {misImplants.join(', ')}
+                    <strong>{LL.DENTAL.CONTENT.MIS_IMPLANTS()}:</strong> {misImplants.join(', ')}
                 </p>
             )}
             {zircCrowns.length > 0 && (
                 <p>
-                    {LL.DENTAL.CONTENT.ZIRCONIUM_CROWN()}: {zircCrowns.join(', ')}
+                    <strong>{LL.DENTAL.CONTENT.ZIRCONIUM_CROWN()}:</strong> {zircCrowns.join(', ')}
                 </p>
             )}
             {porcCrowns.length > 0 && (
                 <p>
-                    {LL.DENTAL.CONTENT.PORCELAIN_CROWN()}: {porcCrowns.join(', ')}
+                    <strong>{LL.DENTAL.CONTENT.PORCELAIN_CROWN()}:</strong> {porcCrowns.join(', ')}
                 </p>
             )}
             {emaxCrowns.length > 0 && (
                 <p>
-                    {LL.DENTAL.CONTENT.EMAX_CROWN()}: {emaxCrowns.join(', ')}
+                    <strong>{LL.DENTAL.CONTENT.EMAX_CROWN()}:</strong> {emaxCrowns.join(', ')}
                 </p>
             )}
             {zircFacing.length > 0 && (
                 <p>
-                    {LL.DENTAL.CONTENT.ZIRCONIUM_FACING()}: {zircFacing.join(', ')}
+                    <strong>{LL.DENTAL.CONTENT.ZIRCONIUM_FACING()}:</strong> {zircFacing.join(', ')}
                 </p>
             )}
             {porcFacing.length > 0 && (
                 <p>
-                    {LL.DENTAL.CONTENT.PORCELAIN_FACING()}: {porcFacing.join(', ')}
+                    <strong>{LL.DENTAL.CONTENT.PORCELAIN_FACING()}:</strong> {porcFacing.join(', ')}
                 </p>
             )}
             {emaxFacing.length > 0 && (
                 <p>
-                    {LL.DENTAL.CONTENT.EMAX_FACING()}: {emaxFacing.join(', ')}
+                    <strong>{LL.DENTAL.CONTENT.EMAX_FACING()}:</strong> {emaxFacing.join(', ')}
                 </p>
             )}
         </div>
