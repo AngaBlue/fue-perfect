@@ -1,6 +1,6 @@
 import { Box, Checkbox, FormLabel } from '@chakra-ui/react';
 import { Dispatch, SetStateAction } from 'react';
-import { DentalState, ImplantBrand } from '../data';
+import { BoneGraftOptions, DentalState, ImplantBrand } from '../data';
 import EnumDropdown from '../../../inputs/EnumDropdown';
 import { useI18nContext } from '../../../../i18n/i18n-react';
 
@@ -15,10 +15,14 @@ export default function ImplantaatCom({ state, setState }: { state: DentalState;
             </Checkbox>
             {state.implant && (
                 <>
-                    <Box pt={4}>
-                        <Checkbox isChecked={state.boneGraft} onChange={e => setState({ ...state, boneGraft: e.target.checked })}>
-                            Bone graft
-                        </Checkbox>
+                    <Box mt={6}>
+                        <EnumDropdown
+                            name='Bone Graft'
+                            enumerable={BoneGraftOptions}
+                            state={state.boneGraft}
+                            setState={boneGraft => setState({ ...state, boneGraft })}
+                            labels={LL.DENTAL.BONE_GRAFT}
+                        />
                     </Box>
                     <Box mt={6}>
                         <EnumDropdown

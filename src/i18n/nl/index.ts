@@ -104,7 +104,8 @@ const nl: BaseTranslation = {
         ALL_ON_MATERIAL: ['Porcelein', 'Zirconium'],
         IMPLANT_BRAND: ['MIS'],
         ATTACHMENT_TYPE: ['None', 'Facing', 'Crown'],
-        ATTACHMENT_MATERIAL: ['Porselein', 'Zirconium', 'E-Max']
+        ATTACHMENT_MATERIAL: ['Porselein', 'Zirconium', 'E-Max'],
+        BONE_GRAFT: ['None', 'Onderkaak', 'Bovenkaak', 'Bovenkaak en Onderkaak']
     }
 };
 

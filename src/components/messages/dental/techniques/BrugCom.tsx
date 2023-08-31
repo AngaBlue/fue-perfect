@@ -5,7 +5,6 @@ import { BrugMaterials, BrugOptions, DentalState } from '../data';
 export default function BrugCom({ state, setState }: { state: DentalState; setState: Dispatch<SetStateAction<DentalState>> }) {
     // const changeBrugOptions: ChangeEventHandler<HTMLSelectElement> = e => setState({ ...state, brugOptions: e.target.value });
     // const changeBrugMaterials: ChangeEventHandler<HTMLSelectElement> = e => setState({ ...state, brugMaterials: e.target.value });
-
     // return (
     //     <Box>
     //         <FormLabel mt={6}>Opties</FormLabel>

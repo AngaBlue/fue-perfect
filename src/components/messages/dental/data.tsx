@@ -19,6 +19,13 @@ export enum AttachmentMaterial {
     EMAX
 }
 
+export enum BoneGraftOptions {
+    NONE,
+    TOP,
+    BOTTOM,
+    BOTH
+}
+
 // export const ImplantMaterials = ['Porselein €195', 'Zirconium €295', 'E-Maz €315'];
 
 // Brug
@@ -67,7 +74,6 @@ export const SelectedImplantaatTeeth = [];
 export interface TeethOptions {
     extraction: boolean;
     implantaat: boolean;
-    boneGraft: boolean;
     implantaatBrand: ImplantBrand;
     attachment: AttachmentType;
     attachmentMaterial: AttachmentMaterial;
@@ -76,7 +82,6 @@ export interface TeethOptions {
 export const defaultTooth: TeethOptions = {
     extraction: false,
     implantaat: false,
-    boneGraft: false,
     implantaatBrand: ImplantBrand.MIS,
     attachment: AttachmentType.NONE,
     attachmentMaterial: AttachmentMaterial.PORCELAIN
@@ -102,7 +107,7 @@ export const defaultState = {
     date: new Date(),
     extraction: false,
     implant: false,
-    boneGraft: false,
+    boneGraft: BoneGraftOptions.NONE,
     implantBrand: ImplantBrand.MIS,
     attachmentType: AttachmentType.NONE,
     attachemntMaterial: AttachmentMaterial.PORCELAIN,

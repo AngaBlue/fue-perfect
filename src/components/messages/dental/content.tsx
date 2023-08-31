@@ -77,7 +77,6 @@ export default function Content({ state, setState }: { state: DentalState; setSt
         const newTooth: TeethOptions = {
             extraction: state.extraction,
             implantaat: state.implant,
-            boneGraft: state.boneGraft,
             implantaatBrand: state.implantBrand,
             attachment: state.attachmentType,
             attachmentMaterial: state.attachemntMaterial

@@ -4,7 +4,6 @@ import { DentalState, Wortel } from '../data';
 
 export default function WortelCom({ state, setState }: { state: DentalState; setState: Dispatch<SetStateAction<DentalState>> }) {
     // const changeWortelOptions: ChangeEventHandler<HTMLSelectElement> = e => setState({ ...state, wortel: e.target.value });
-
     // return (
     //     <Box>
     //         <FormLabel mt={6}>Opties</FormLabel>

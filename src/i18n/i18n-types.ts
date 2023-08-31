@@ -484,6 +484,24 @@ type RootTranslation = {
 			 */
 			'2': string
 		}
+		BONE_GRAFT: {
+			/**
+			 * N​o​n​e
+			 */
+			'0': string
+			/**
+			 * O​n​d​e​r​k​a​a​k
+			 */
+			'1': string
+			/**
+			 * B​o​v​e​n​k​a​a​k
+			 */
+			'2': string
+			/**
+			 * B​o​v​e​n​k​a​a​k​ ​e​n​ ​O​n​d​e​r​k​a​a​k
+			 */
+			'3': string
+		}
 	}
 }
 
@@ -926,6 +944,24 @@ export type TranslationFunctions = {
 			 * E-Max
 			 */
 			'2': () => LocalizedString
+		}
+		BONE_GRAFT: {
+			/**
+			 * None
+			 */
+			'0': () => LocalizedString
+			/**
+			 * Onderkaak
+			 */
+			'1': () => LocalizedString
+			/**
+			 * Bovenkaak
+			 */
+			'2': () => LocalizedString
+			/**
+			 * Bovenkaak en Onderkaak
+			 */
+			'3': () => LocalizedString
 		}
 	}
 }
