@@ -24,7 +24,7 @@ export default function Content({ state, setState }: { state: DentalState; setSt
     const ref = useRef(null as HTMLImageElement | null);
 
     useEffect(() => {
-        import('!url-loader!./assets/dutch-clinic.png').then(({ default: img }) => setLogo(img));
+        import('!url-loader!./assets/logo.png').then(({ default: img }) => setLogo(img));
     }, []);
 
     // Head images w/ zones
@@ -174,13 +174,13 @@ export default function Content({ state, setState }: { state: DentalState; setSt
                 <p style={{ color: 'grey', fontWeight: 'bold', fontStyle: 'italic' }}>
                     <strong>Arkın Şentürk</strong>
                 </p>
-                <img src={logo} alt='Dutch Clinic' />
+                <img src={logo} alt='Dutch Clinic' style={{ height: '100px' }} />
                 <p>
                     <i>
                         <strong style={{ color: 'orange' }}>
-                            Houtstraat 70, 1353 BD Almere
+                            Zilverparkkade 3, 8232 WJ Lelystad.
                             <br />
-                            Tel: 036-202 21 15
+                            Tel: 085-401 81 12
                             <br />
                             Mobiel: 06-15 03 87 65 <br />
                         </strong>
