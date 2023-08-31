@@ -1,11 +1,11 @@
 import { useI18nContext } from '../../../i18n/i18n-react';
-import { AttachmentMaterial, AttachmentType, DentalState, ImplantBrand } from './data';
+import { enumIterable } from '../../../util';
+import { AttachmentMaterial, AttachmentType, BoneGraftOptions, DentalState, ImplantBrand } from './data';
 import { filterToIdentifier } from './util';
 
 export default function ProcedureBreakdown({ state }: { state: DentalState }) {
     const { LL } = useI18nContext();
     const extractions = filterToIdentifier(state.teeth, tooth => tooth.extraction);
-    const boneGrafts = filterToIdentifier(state.teeth, tooth => tooth.boneGraft);
     const misImplants = filterToIdentifier(state.teeth, tooth => tooth.implantaat && tooth.implantaatBrand === ImplantBrand.MIS);
     const zircCrowns = filterToIdentifier(
         state.teeth,
@@ -42,9 +42,9 @@ export default function ProcedureBreakdown({ state }: { state: DentalState }) {
                     <strong>{LL.DENTAL.CONTENT.EXTRACTIONS()}:</strong> {extractions.join(', ')}
                 </p>
             )}
-            {boneGrafts.length > 0 && (
+            {state.boneGraft !== BoneGraftOptions.NONE && (
                 <p>
-                    <strong>{LL.DENTAL.CONTENT.BONE_GRAFTS()}:</strong> {boneGrafts.join(', ')}
+                    <strong>{LL.DENTAL.CONTENT.BONE_GRAFTS()}:</strong> {LL.DENTAL.BONE_GRAFT[state.boneGraft]()}
                 </p>
             )}
             {misImplants.length > 0 && (
