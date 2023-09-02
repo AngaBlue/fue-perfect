@@ -23,7 +23,7 @@ const images = {
     [ImplantType.EMAX]: generateImports('e-max'),
     [ImplantType.PORCELAIN_SCREW]: generateImports('porcelain-screws'),
     [ImplantType.EMAX_SCREW]: generateImports('emax-screws'),
-    [ImplantType.ZIRCONIUM_SCREW]: generateImports('zirconium-porcelain-screws')
+    [ImplantType.ZIRCONIUM_SCREW]: generateImports('zirconium-screws')
 };
 
 export default images;
