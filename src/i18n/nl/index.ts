@@ -63,7 +63,8 @@ const nl: BaseTranslation = {
             'Bij deze willen wij uw totaal vrijblijvend vooronderzoek bevestigen op <>{0:Date|datetime} te {1:string}<> m.b.t. FUE Haartransplantatie behandeling.',
         LOCATIONS: ['Hoofddorp', 'Lelystad'],
         LOCATION_INTRO: 'Contact gegevens locatie:',
-        KIND_REGARDS: 'Met vriendelijke groeten'
+        KIND_REGARDS: 'Met vriendelijke groeten',
+        SUBJECT: 'Bevestiging vooronderzoek m.b.t. FUE Haartransplantatie behandeling in {0:LocalizedString}'
     },
     DENTAL: {
         CONTENT: {

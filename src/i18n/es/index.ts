@@ -57,6 +57,7 @@ const es: Translation = {
         GENDER: ['Masculino', 'Femenino'],
         QUALITY: ['Malo', 'Normal', 'Bueno', 'Perfecto']
     },
+    HAIR_APPOINTMENT: (nl as Translation).HAIR_APPOINTMENT,
     DENTAL: (nl as Translation).DENTAL
 };
 

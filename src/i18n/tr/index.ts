@@ -57,6 +57,7 @@ const tr: Translation = {
         GENDER: ['Bay', 'Bayan'],
         QUALITY: ['Kötü', 'Normal', 'İyi', 'Mükemmel']
     },
+    HAIR_APPOINTMENT: (nl as Translation).HAIR_APPOINTMENT,
     DENTAL: (nl as Translation).DENTAL
 };
 

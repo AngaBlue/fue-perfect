@@ -1,5 +1,4 @@
 import { useI18nContext } from '../../../i18n/i18n-react';
-import { enumIterable } from '../../../util';
 import { AttachmentMaterial, AttachmentType, BoneGraftOptions, DentalState, ImplantBrand } from './data';
 import { filterToIdentifier } from './util';
 

@@ -303,6 +303,11 @@ type RootTranslation = {
 		 * M​e​t​ ​v​r​i​e​n​d​e​l​i​j​k​e​ ​g​r​o​e​t​e​n
 		 */
 		KIND_REGARDS: string
+		/**
+		 * B​e​v​e​s​t​i​g​i​n​g​ ​v​o​o​r​o​n​d​e​r​z​o​e​k​ ​m​.​b​.​t​.​ ​F​U​E​ ​H​a​a​r​t​r​a​n​s​p​l​a​n​t​a​t​i​e​ ​b​e​h​a​n​d​e​l​i​n​g​ ​i​n​ ​{​0​}
+		 * @param {LocalizedString} 0
+		 */
+		SUBJECT: RequiredParams<'0'>
 	}
 	DENTAL: {
 		CONTENT: {
@@ -793,6 +798,10 @@ export type TranslationFunctions = {
 		 * Met vriendelijke groeten
 		 */
 		KIND_REGARDS: () => LocalizedString
+		/**
+		 * Bevestiging vooronderzoek m.b.t. FUE Haartransplantatie behandeling in {0}
+		 */
+		SUBJECT: (arg0: LocalizedString) => LocalizedString
 	}
 	DENTAL: {
 		CONTENT: {
