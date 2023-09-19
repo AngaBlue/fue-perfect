@@ -57,6 +57,14 @@ const nl: BaseTranslation = {
         GENDER: ['Mannelijk', 'Vrouwelijk'],
         QUALITY: ['Slecht', 'Normaal', 'Goed', 'Perfect']
     },
+    HAIR_APPOINTMENT: {
+        INTRO: 'Bedankt voor de interesse die u getoond heeft in onze organisatie, en uw aanvraag voor een vooronderzoek.',
+        APPOINTMENT_TIME:
+            'Bij deze willen wij uw totaal vrijblijvend vooronderzoek bevestigen op <>{0:Date|datetime} te {1:string}<> m.b.t. FUE Haartransplantatie behandeling.',
+        LOCATIONS: ['Hoofddorp', 'Lelystad'],
+        LOCATION_INTRO: 'Contact gegevens locatie:',
+        KIND_REGARDS: 'Met vriendelijke groeten'
+    },
     DENTAL: {
         CONTENT: {
             INTRO_1: 'Bedankt voor de interesse die u getoond heeft in onze organisatie.',

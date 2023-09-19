@@ -274,6 +274,36 @@ type RootTranslation = {
 			'3': string
 		}
 	}
+	HAIR_APPOINTMENT: {
+		/**
+		 * B​e​d​a​n​k​t​ ​v​o​o​r​ ​d​e​ ​i​n​t​e​r​e​s​s​e​ ​d​i​e​ ​u​ ​g​e​t​o​o​n​d​ ​h​e​e​f​t​ ​i​n​ ​o​n​z​e​ ​o​r​g​a​n​i​s​a​t​i​e​,​ ​e​n​ ​u​w​ ​a​a​n​v​r​a​a​g​ ​v​o​o​r​ ​e​e​n​ ​v​o​o​r​o​n​d​e​r​z​o​e​k​.
+		 */
+		INTRO: string
+		/**
+		 * B​i​j​ ​d​e​z​e​ ​w​i​l​l​e​n​ ​w​i​j​ ​u​w​ ​t​o​t​a​a​l​ ​v​r​i​j​b​l​i​j​v​e​n​d​ ​v​o​o​r​o​n​d​e​r​z​o​e​k​ ​b​e​v​e​s​t​i​g​e​n​ ​o​p​ ​<​>​{​0​|​d​a​t​e​t​i​m​e​}​ ​t​e​ ​{​1​}​<​>​ ​m​.​b​.​t​.​ ​F​U​E​ ​H​a​a​r​t​r​a​n​s​p​l​a​n​t​a​t​i​e​ ​b​e​h​a​n​d​e​l​i​n​g​.
+		 * @param {Date} 0
+		 * @param {string} 1
+		 */
+		APPOINTMENT_TIME: RequiredParams<'0|datetime' | '1'>
+		LOCATIONS: {
+			/**
+			 * H​o​o​f​d​d​o​r​p
+			 */
+			'0': string
+			/**
+			 * L​e​l​y​s​t​a​d
+			 */
+			'1': string
+		}
+		/**
+		 * C​o​n​t​a​c​t​ ​g​e​g​e​v​e​n​s​ ​l​o​c​a​t​i​e​:
+		 */
+		LOCATION_INTRO: string
+		/**
+		 * M​e​t​ ​v​r​i​e​n​d​e​l​i​j​k​e​ ​g​r​o​e​t​e​n
+		 */
+		KIND_REGARDS: string
+	}
 	DENTAL: {
 		CONTENT: {
 			/**
@@ -736,6 +766,34 @@ export type TranslationFunctions = {
 			'3': () => LocalizedString
 		}
 	}
+	HAIR_APPOINTMENT: {
+		/**
+		 * Bedankt voor de interesse die u getoond heeft in onze organisatie, en uw aanvraag voor een vooronderzoek.
+		 */
+		INTRO: () => LocalizedString
+		/**
+		 * Bij deze willen wij uw totaal vrijblijvend vooronderzoek bevestigen op <>{0|datetime} te {1}<> m.b.t. FUE Haartransplantatie behandeling.
+		 */
+		APPOINTMENT_TIME: (arg0: Date, arg1: string) => LocalizedString
+		LOCATIONS: {
+			/**
+			 * Hoofddorp
+			 */
+			'0': () => LocalizedString
+			/**
+			 * Lelystad
+			 */
+			'1': () => LocalizedString
+		}
+		/**
+		 * Contact gegevens locatie:
+		 */
+		LOCATION_INTRO: () => LocalizedString
+		/**
+		 * Met vriendelijke groeten
+		 */
+		KIND_REGARDS: () => LocalizedString
+	}
 	DENTAL: {
 		CONTENT: {
 			/**
@@ -968,4 +1026,5 @@ export type TranslationFunctions = {
 
 export type Formatters = {
 	date: (value: Date) => unknown
+	datetime: (value: Date) => unknown
 }

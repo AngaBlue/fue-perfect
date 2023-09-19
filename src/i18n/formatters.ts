@@ -4,7 +4,8 @@ import type { Locales, Formatters } from './i18n-types';
 
 export const initFormatters: FormattersInitializer<Locales, Formatters> = locale => {
     const formatters = {
-        date: date(locale, { year: 'numeric', month: 'long', day: 'numeric' })
+        date: date(locale, { year: 'numeric', month: 'long', day: 'numeric' }),
+        datetime: date(locale, { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })
     };
 
     return formatters;

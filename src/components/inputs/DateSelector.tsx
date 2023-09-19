@@ -10,14 +10,20 @@ setDefaultLocale('nl');
 interface DateSelectorProps {
     state: Date;
     setState: (value: Date) => any;
+    showTimeSelector?: boolean;
 }
 
-export default function DateSelector({ state, setState }: DateSelectorProps) {
+export default function DateSelector({ state, setState, showTimeSelector }: DateSelectorProps) {
     return (
         <Box>
             <FormLabel>Datum</FormLabel>
             <InputGroup className={styles.datepicker}>
-                <DatePicker selected={state} onChange={e => setState(e instanceof Date ? e : new Date())} dateFormat='PPP' />
+                <DatePicker
+                    selected={state}
+                    onChange={e => setState(e instanceof Date ? e : new Date())}
+                    dateFormat='PPP'
+                    showTimeSelect={showTimeSelector}
+                />
             </InputGroup>
         </Box>
     );
