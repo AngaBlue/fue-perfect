@@ -309,6 +309,37 @@ type RootTranslation = {
 		 */
 		SUBJECT: RequiredParams<'0'>
 	}
+	DENTAL_APPOINTMENT: {
+		/**
+		 * H​a​r​t​e​l​i​j​k​ ​d​a​n​k​ ​v​o​o​r​ ​u​w​ ​i​n​t​e​r​e​s​s​e​ ​i​n​ ​o​n​z​e​ ​o​r​g​a​n​i​s​a​t​i​e​.
+		 */
+		INTRO: string
+		/**
+		 * G​r​a​a​g​ ​b​e​v​e​s​t​i​g​e​n​ ​w​i​j​ ​h​i​e​r​b​i​j​ ​d​a​t​ ​w​i​j​ ​u​w​ ​a​f​s​p​r​a​a​k​ ​o​p​ ​<​>​{​0​|​d​a​t​e​t​i​m​e​}​ ​i​n​ ​{​1​}​<​>​ ​v​o​l​l​e​d​i​g​ ​v​r​i​j​b​l​i​j​v​e​n​d​ ​z​u​l​l​e​n​ ​n​a​k​o​m​e​n​.
+		 * @param {Date} 0
+		 * @param {string} 1
+		 */
+		APPOINTMENT_TIME: RequiredParams<'0|datetime' | '1'>
+		LOCATIONS: {
+			/**
+			 * L​e​l​y​s​t​a​d
+			 */
+			'0': string
+		}
+		/**
+		 * U​ ​k​u​n​t​ ​o​n​s​ ​v​i​n​d​e​n​ ​o​p​ ​h​e​t​ ​v​o​l​g​e​n​d​e​ ​a​d​r​e​s​:
+		 */
+		LOCATION_INTRO: string
+		/**
+		 * M​e​t​ ​v​r​i​e​n​d​e​l​i​j​k​e​ ​g​r​o​e​t​e​n
+		 */
+		KIND_REGARDS: string
+		/**
+		 * B​e​v​e​s​t​i​g​i​n​g​ ​v​o​o​r​o​n​d​e​r​z​o​e​k​ ​i​n​ ​{​0​}​ ​m​.​b​.​t​.​ ​u​w​ ​g​e​b​i​t​s​b​e​h​a​n​d​e​l​i​n​g
+		 * @param {LocalizedString} 0
+		 */
+		SUBJECT: RequiredParams<'0'>
+	}
 	DENTAL: {
 		CONTENT: {
 			/**
@@ -800,6 +831,34 @@ export type TranslationFunctions = {
 		KIND_REGARDS: () => LocalizedString
 		/**
 		 * Bevestiging vooronderzoek m.b.t. FUE Haartransplantatie behandeling in {0}
+		 */
+		SUBJECT: (arg0: LocalizedString) => LocalizedString
+	}
+	DENTAL_APPOINTMENT: {
+		/**
+		 * Hartelijk dank voor uw interesse in onze organisatie.
+		 */
+		INTRO: () => LocalizedString
+		/**
+		 * Graag bevestigen wij hierbij dat wij uw afspraak op <>{0|datetime} in {1}<> volledig vrijblijvend zullen nakomen.
+		 */
+		APPOINTMENT_TIME: (arg0: Date, arg1: string) => LocalizedString
+		LOCATIONS: {
+			/**
+			 * Lelystad
+			 */
+			'0': () => LocalizedString
+		}
+		/**
+		 * U kunt ons vinden op het volgende adres:
+		 */
+		LOCATION_INTRO: () => LocalizedString
+		/**
+		 * Met vriendelijke groeten
+		 */
+		KIND_REGARDS: () => LocalizedString
+		/**
+		 * Bevestiging vooronderzoek in {0} m.b.t. uw gebitsbehandeling
 		 */
 		SUBJECT: (arg0: LocalizedString) => LocalizedString
 	}

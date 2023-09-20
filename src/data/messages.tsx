@@ -1,6 +1,7 @@
 import dental from '../components/messages/dental';
 import hair from '../components/messages/hair';
 import hair_appointment from '../components/messages/hair-appointment';
+import dental_appointment from '../components/messages/dental-appointment';
 
 const messages = [
     {
@@ -14,6 +15,10 @@ const messages = [
     {
         name: 'Fue Afspraak',
         component: hair_appointment
+    },
+    {
+        name: 'Dent Afspraak',
+        component: dental_appointment
     }
 ];
 

@@ -58,6 +58,7 @@ const tr: Translation = {
         QUALITY: ['Kötü', 'Normal', 'İyi', 'Mükemmel']
     },
     HAIR_APPOINTMENT: (nl as Translation).HAIR_APPOINTMENT,
+    DENTAL_APPOINTMENT: (nl as Translation).DENTAL_APPOINTMENT,
     DENTAL: (nl as Translation).DENTAL
 };
 
