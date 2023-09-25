@@ -12,5 +12,5 @@ export default function Hair(props: CredentialsProps) {
 
     const subject = LL.DENTAL_APPOINTMENT.SUBJECT(LL.DENTAL_APPOINTMENT.LOCATIONS[state.location]());
 
-    return <Layout name='Fue Perfect' credentials={props} subject={subject} content={content(state)} form={form({ state, setState })} />;
+    return <Layout name='Dent Perfect' credentials={props} subject={subject} content={content(state)} form={form({ state, setState })} />;
 }
