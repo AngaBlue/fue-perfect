@@ -62,7 +62,7 @@ export default function Content(state: AppointmentState) {
                 <br />
                 <span>Team Dent Perfect</span>
             </p>
-            <img src={logo} alt='Fue Perfect' style={{ height: '100px' }} />
+            <img src={logo} alt='Fue Perfect' style={{ height: '75px' }} />
             <p>
                 <i>
                     <strong style={{ color: 'orange' }}>
