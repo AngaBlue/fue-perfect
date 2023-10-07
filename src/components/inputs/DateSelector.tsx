@@ -21,8 +21,9 @@ export default function DateSelector({ state, setState, showTimeSelector }: Date
                 <DatePicker
                     selected={state}
                     onChange={e => setState(e instanceof Date ? e : new Date())}
-                    dateFormat='PPP'
+                    dateFormat={showTimeSelector ? 'PPPp' : 'PPP'}
                     showTimeSelect={showTimeSelector}
+                    timeIntervals={15}
                 />
             </InputGroup>
         </Box>
