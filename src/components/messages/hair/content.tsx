@@ -139,11 +139,10 @@ export default function Content(state: HairState) {
                     <strong style={{ color: 'orange' }}>
                         Hoofdweg 848A, 2132 MC, Hoofddorp
                         <br />
-                        020-261 32 00 Nederland
+                        0854 01 81 12
                         <br />
-                        038-081 20 4 België
+                        06-15 03 87 65 Mobiel
                         <br />
-                        06-15 03 87 65 Mobiel <br />
                     </strong>
                     <strong style={{ color: 'cornflowerblue' }}>
                         <a href='mailto:arkin@fueperfect.com'>arkin@fueperfect.com</a>

@@ -81,9 +81,7 @@ export default function Content(state: AppointmentState) {
                     <strong style={{ color: 'orange' }}>
                         Hoofdweg 848A, 2132 MC, Hoofddorp
                         <br />
-                        020-261 32 00 Nederland
-                        <br />
-                        038-081 20 4 België
+                        0854 01 81 12
                         <br />
                         06-15 03 87 65 Mobiel
                         <br />
