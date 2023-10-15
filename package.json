@@ -17,6 +17,7 @@
     "@chakra-ui/system": "^2.6.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@vercel/kv": "^0.2.3",
     "animate.css": "^4.1.1",
     "date-fns": "^2.30.0",
     "dayjs": "^1.11.9",
