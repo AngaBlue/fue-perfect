@@ -89,7 +89,7 @@ export default function Layout({ credentials, content, form, subject, name }: La
             <Credentials {...credentials} />
             <Divider my={4} />
             {form}
-            <Button onClick={send} backgroundColor='brand.500' mt={4} w={48}>
+            <Button onClick={send} backgroundColor='brand.500' mt={4} w={48} position={'unset'}>
                 Stuur e-mail {loading.sending && <SpinnerIcon ml={4} className={styles.spin} />}
             </Button>
             <Divider my={4} />
