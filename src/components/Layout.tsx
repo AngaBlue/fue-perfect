@@ -6,6 +6,7 @@ import Credentials from './Credentials';
 import { defaultProvider } from '../data/provider';
 import styles from './Layout.module.scss';
 import TypesafeI18n, { useI18nContext } from '../i18n/i18n-react';
+import DateSelector from './inputs/DateSelector';
 
 interface LayoutProps {
     credentials: {
@@ -84,14 +85,76 @@ export default function Layout({ credentials, content, form, subject, name }: La
             });
     }
 
+    const [reminderDate, setReminderDate] = useState(new Date());
+
+    function queueReminder() {
+        if (loading.sending || Object.values(credentials.state).some(v => !v)) return;
+        const html = ReactDOMServer.renderToStaticMarkup(<TypesafeI18n locale={locale}>{content}</TypesafeI18n>);
+
+        setLoading({ ...loading, sending: true, error: null });
+        toast({
+            title: 'E-mail plannen...',
+            description: `E-mail plannen naar ${credentials.state.recipient}...`,
+            status: 'info'
+        });
+
+        fetch('/api/schedule_mail', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name,
+                recipient: credentials.state.recipient,
+                subject,
+                content: html,
+                date: reminderDate.getTime()
+            })
+        })
+            .then(async response => {
+                if (response.status === 200) {
+                    setLoading({ ...loading, sending: false, error: null });
+                    toast({
+                        title: 'Geplande e-mail',
+                        description: `E-mail gestuurd naar ${credentials.state.recipient}.`,
+                        status: 'success'
+                    });
+                } else {
+                    const body = await response.json();
+                    setLoading({ ...loading, sending: false, error: body });
+                    toast({
+                        title: 'Fout',
+                        description: `Fout bij het plannen van een e-mail. Probeer het opnieuw.\n${body.name}: ${body.message}`,
+                        status: 'error',
+                        duration: 20000
+                    });
+                }
+            })
+            .catch(err => {
+                setLoading({ ...loading, sending: false, error: err });
+                toast({
+                    title: 'Fout',
+                    description: `Fout bij het plannen van een e-mail. Probeer het opnieuw.\n${err.name}: ${err.message}`,
+                    status: 'error',
+                    duration: 20000
+                });
+            });
+    }
+
     return (
         <>
             <Credentials {...credentials} />
             <Divider my={4} />
             {form}
-            <Button onClick={send} backgroundColor='brand.500' mt={4} w={48} position={'unset'}>
-                Stuur e-mail {loading.sending && <SpinnerIcon ml={4} className={styles.spin} />}
-            </Button>
+            <Box display='flex' flexDirection='row' gap={4}>
+                <Button onClick={send} backgroundColor='brand.500' mt={4} w={48} position={'unset'}>
+                    Stuur e-mail {loading.sending && <SpinnerIcon ml={4} className={styles.spin} />}
+                </Button>
+                <DateSelector state={reminderDate} setState={setReminderDate} />
+                <Button onClick={queueReminder} backgroundColor='brand.500' mt={4} w={48} position={'unset'}>
+                    E-mail plannen {loading.sending && <SpinnerIcon ml={4} className={styles.spin} />}
+                </Button>
+            </Box>
             <Divider my={4} />
             <Heading mb={4} as='h2'>
                 Email voorbeeld
