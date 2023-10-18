@@ -44,7 +44,7 @@ const processMail: NextApiHandler = async (req, res): Promise<void> => {
             transport.sendMail(options, resolve);
         });
 
-        if (!err) kv.hdel(key);
+        if (!err) kv.del(key);
     }
 
     // Otherwise, return OK

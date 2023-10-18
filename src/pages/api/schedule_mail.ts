@@ -16,7 +16,12 @@ const scheduleMail: NextApiHandler = async (req, res): Promise<void> => {
 
         // Send
         try {
-            await kv.hset(`reminder:${randomUUID()}`, { ...validation.value, email: auth.email, token: auth.rt });
+            await kv.hset(`reminder:${randomUUID()}`, {
+                ...validation.value,
+                date: (validation.value.date as Date).getTime(),
+                email: auth.email,
+                token: auth.rt
+            });
         } catch (err) {
             // If there is an error, return it
             if (err) return res.status(500).send({ name: 'Fout', message: err });
