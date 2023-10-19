@@ -50,9 +50,15 @@ const nl: BaseTranslation = {
             SECOND_SESSION_NOTE: 'na min 12 maanden genezingstijd, niet verplicht',
             PACKAGE_CONTENT: 'Inhoud All-in pakket {0:string}:',
             SESSION_DURATION: '<>Duur behandeling {0|{1: eerste, 2: tweede}} sessie<>: {1:string} uur',
-            SESSION_ZONES: '{0|{1: Eerste, 2: Tweede}} sessie zone: {1:string} (zie schema onder)'
+            SESSION_ZONES: '{0|{1: Eerste, 2: Tweede, FUE: FUE, DHI: DHI}} sessie zone: {1:string} (zie schema onder)'
         },
-        TECHNIQUE: ['FUE Haartransplantatie', 'DHI Haartransplantatie', 'FUE Baardtransplantatie', 'DHI Baardtransplantatie'],
+        TECHNIQUE: [
+            'FUE Haartransplantatie',
+            'DHI Haartransplantatie',
+            'FUE + DHI Haartransplantatie',
+            'FUE Baardtransplantatie',
+            'DHI Baardtransplantatie'
+        ],
         COUNTRY: ['Turkije', 'Nederland', 'Turkije/Nederland'],
         GENDER: ['Mannelijk', 'Vrouwelijk'],
         QUALITY: ['Slecht', 'Normaal', 'Goed', 'Perfect']

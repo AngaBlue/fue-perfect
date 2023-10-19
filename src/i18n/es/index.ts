@@ -50,9 +50,15 @@ const es: Translation = {
             SECOND_SESSION_NOTE: 'después de un mínimo de 12 meses de curación, no es necesario',
             PACKAGE_CONTENT: 'Contenido Paquete todo incluido {0}:',
             SESSION_DURATION: '<>Duración del tratamiento de la {0|{1: primera, 2: segunda}} sesíon<>: {1} horas',
-            SESSION_ZONES: '{0|{1: Primera, 2: Segunda}} sesíon zona: {1} (véase el siguiente diagrama)'
+            SESSION_ZONES: '{0|{1: Primera, 2: Segunda, FUE: FUE, DHI: DHI}} sesíon zona: {1} (véase el siguiente diagrama)'
         },
-        TECHNIQUE: ['Trasplante Capilar FUE', 'Trasplante Capilar DHI', 'Trasplante de Barba FUE', 'Trasplante de Barba DHI'],
+        TECHNIQUE: [
+            'Trasplante Capilar FUE',
+            'Trasplante Capilar DHI',
+            'Trasplante Capilar FUE + DHI',
+            'Trasplante de Barba FUE',
+            'Trasplante de Barba DHI'
+        ],
         COUNTRY: ['Turquia', 'los Países Bajos', 'Turquia/los Países Bajos'],
         GENDER: ['Masculino', 'Femenino'],
         QUALITY: ['Malo', 'Normal', 'Bueno', 'Perfecto']

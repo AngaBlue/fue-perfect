@@ -51,9 +51,15 @@ const fr: Translation = {
             SECOND_SESSION_NOTE: 'après une période de guérison de 12 mois minimum, non obligatoire',
             PACKAGE_CONTENT: 'Contenu du paquet tout compris {0}:',
             SESSION_DURATION: '<>Durée du traitement de la {0|{1: première, 2: deuxième}} session<>: {1} heures',
-            SESSION_ZONES: '{0|{1: Première, 2: Deuxième}} session zone : {1} (voir le diagramme ci-dessous)'
+            SESSION_ZONES: '{0|{1: Première, 2: Deuxième, FUE: FUE, DHI: DHI}} session zone : {1} (voir le diagramme ci-dessous)'
         },
-        TECHNIQUE: ['Greffe de cheveux FUE', 'Greffe de cheveux DHI', 'Greffe de barbe FUE', 'Greffe de barbe DHI'],
+        TECHNIQUE: [
+            'Greffe de cheveux FUE',
+            'Greffe de cheveux DHI',
+            'Greffe de cheveux FUE + DHI',
+            'Greffe de barbe FUE',
+            'Greffe de barbe DHI'
+        ],
         COUNTRY: ['Turquie', 'les Pays-Bas', 'Turquie/les Pays-Bas'],
         GENDER: ['Homme', 'Femme'],
         QUALITY: ['Mauvaise', 'Normale', 'Bon', 'Parfait']

@@ -207,11 +207,11 @@ type RootTranslation = {
 			 */
 			SESSION_DURATION: RequiredParams<`0|{1:${string}, 2:${string}}` | '1'>
 			/**
-			 * {​0​|​{​1​:​ ​E​e​r​s​t​e​,​ ​2​:​ ​T​w​e​e​d​e​}​}​ ​s​e​s​s​i​e​ ​z​o​n​e​:​ ​{​1​}​ ​(​z​i​e​ ​s​c​h​e​m​a​ ​o​n​d​e​r​)
-			 * @param {'1' | '2'} 0
+			 * {​0​|​{​1​:​ ​E​e​r​s​t​e​,​ ​2​:​ ​T​w​e​e​d​e​,​ ​F​U​E​:​ ​F​U​E​,​ ​D​H​I​:​ ​D​H​I​}​}​ ​s​e​s​s​i​e​ ​z​o​n​e​:​ ​{​1​}​ ​(​z​i​e​ ​s​c​h​e​m​a​ ​o​n​d​e​r​)
+			 * @param {'1' | '2' | 'FUE' | 'DHI'} 0
 			 * @param {string} 1
 			 */
-			SESSION_ZONES: RequiredParams<`0|{1:${string}, 2:${string}}` | '1'>
+			SESSION_ZONES: RequiredParams<`0|{1:${string}, 2:${string}, FUE:${string}, DHI:${string}}` | '1'>
 		}
 		TECHNIQUE: {
 			/**
@@ -223,13 +223,17 @@ type RootTranslation = {
 			 */
 			'1': string
 			/**
-			 * F​U​E​ ​B​a​a​r​d​t​r​a​n​s​p​l​a​n​t​a​t​i​e
+			 * F​U​E​ ​+​ ​D​H​I​ ​H​a​a​r​t​r​a​n​s​p​l​a​n​t​a​t​i​e
 			 */
 			'2': string
 			/**
-			 * D​H​I​ ​B​a​a​r​d​t​r​a​n​s​p​l​a​n​t​a​t​i​e
+			 * F​U​E​ ​B​a​a​r​d​t​r​a​n​s​p​l​a​n​t​a​t​i​e
 			 */
 			'3': string
+			/**
+			 * D​H​I​ ​B​a​a​r​d​t​r​a​n​s​p​l​a​n​t​a​t​i​e
+			 */
+			'4': string
 		}
 		COUNTRY: {
 			/**
@@ -737,9 +741,9 @@ export type TranslationFunctions = {
 			 */
 			SESSION_DURATION: (arg0: '1' | '2', arg1: string) => LocalizedString
 			/**
-			 * {0|{1: Eerste, 2: Tweede}} sessie zone: {1} (zie schema onder)
+			 * {0|{1: Eerste, 2: Tweede, FUE: FUE, DHI: DHI}} sessie zone: {1} (zie schema onder)
 			 */
-			SESSION_ZONES: (arg0: '1' | '2', arg1: string) => LocalizedString
+			SESSION_ZONES: (arg0: '1' | '2' | 'FUE' | 'DHI', arg1: string) => LocalizedString
 		}
 		TECHNIQUE: {
 			/**
@@ -751,13 +755,17 @@ export type TranslationFunctions = {
 			 */
 			'1': () => LocalizedString
 			/**
-			 * FUE Baardtransplantatie
+			 * FUE + DHI Haartransplantatie
 			 */
 			'2': () => LocalizedString
 			/**
-			 * DHI Baardtransplantatie
+			 * FUE Baardtransplantatie
 			 */
 			'3': () => LocalizedString
+			/**
+			 * DHI Baardtransplantatie
+			 */
+			'4': () => LocalizedString
 		}
 		COUNTRY: {
 			/**

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import merge from 'merge-images';
-import { Country, Gender, HairState, HairQuality } from './data';
+import { Country, Gender, HairState, HairQuality, Technique } from './data';
 import styles from './content.module.scss';
 import { useI18nContext } from '../../../i18n/i18n-react';
 import BoldTranslation from '../../BoldTranslation';
@@ -99,8 +99,14 @@ export default function Content(state: HairState) {
                 )}
                 <strong>{LL.HAIR.CONTENT.TECHNIQUE()}</strong>: {LL.HAIR.TECHNIQUE[state.technique]()}
                 <br />
-                <strong>{LL.HAIR.CONTENT.ZONES()}</strong>: {LL.HAIR.CONTENT.SESSION_ZONES('1', createZoneString(state.zones[0]))}
-                {state.sessions === 2 && ` / ${LL.HAIR.CONTENT.SESSION_ZONES('2', createZoneString(state.zones[1]))}`}
+                <strong>{LL.HAIR.CONTENT.ZONES()}</strong>:{' '}
+                {LL.HAIR.CONTENT.SESSION_ZONES(state.technique === Technique.FUE_DHI_HAIR ? 'FUE' : '1', createZoneString(state.zones[0]))}
+                {state.sessions === 2 ||
+                    (state.technique === Technique.FUE_DHI_HAIR &&
+                        ` / ${LL.HAIR.CONTENT.SESSION_ZONES(
+                            state.technique === Technique.FUE_DHI_HAIR ? 'DHI' : '2',
+                            createZoneString(state.zones[1])
+                        )}`)}
                 <br />
                 <BoldTranslation>{LL.HAIR.CONTENT.SESSION_DURATION('1', '6-7')}</BoldTranslation>
                 <br />

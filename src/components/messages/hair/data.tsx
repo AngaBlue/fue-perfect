@@ -26,6 +26,7 @@ export const Grafts = {
 export enum Technique {
     FUE_HAIR,
     DHI_HAIR,
+    FUE_DHI_HAIR,
     FUE_BEARD,
     DHI_BEARD
 }

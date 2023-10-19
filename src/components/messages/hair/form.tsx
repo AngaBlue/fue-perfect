@@ -59,6 +59,9 @@ export default function Form({ state, setState }: { state: HairState; setState: 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state.priceOverride, state.sessions, state.grafts, state.country, state.discount]);
 
+    const showMultipleZoneSelection = state.sessions === 2 || state.technique === Technique.FUE_DHI_HAIR;
+    const multipleZoneText = state.technique === Technique.FUE_DHI_HAIR ? ['FUE', 'DHI'] : ['Sessie 1', 'Sessie 2'];
+
     return (
         <SimpleGrid columns={[1, null, 2, 3, 4]} spacing={4}>
             <Box>
@@ -150,7 +153,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                 </RadioGroup>
             </Box>
             <Box>
-                <FormLabel>Sessie 1: Grafts</FormLabel>
+                <FormLabel>{multipleZoneText[0]}: Grafts</FormLabel>
                 <Select
                     value={state.grafts[0]}
                     onChange={e => {
@@ -211,7 +214,7 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                 )}
             </Box>
             <Box>
-                <FormLabel>Sessie 1: Zones</FormLabel>
+                <FormLabel>{multipleZoneText[0]}: Zones</FormLabel>
                 <VStack align='left'>
                     {Array(7)
                         .fill(0)
@@ -233,8 +236,8 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                         ))}
                 </VStack>
             </Box>
-            <Box display={state.sessions === 2 ? 'block' : 'none'}>
-                <FormLabel>Sessie 2: Grafts</FormLabel>
+            <Box display={showMultipleZoneSelection ? 'block' : 'none'}>
+                <FormLabel>{multipleZoneText[1]}: Grafts</FormLabel>
                 <Select
                     value={state.grafts[1]}
                     onChange={e => {
@@ -295,8 +298,8 @@ export default function Form({ state, setState }: { state: HairState; setState: 
                 )}
             </Box>
 
-            <Box display={state.sessions === 2 ? 'block' : 'none'}>
-                <FormLabel>Sessie 2: Zones</FormLabel>
+            <Box display={showMultipleZoneSelection ? 'block' : 'none'}>
+                <FormLabel>{multipleZoneText[1]}: Zones</FormLabel>
                 <VStack align='left'>
                     {Array(7)
                         .fill(0)

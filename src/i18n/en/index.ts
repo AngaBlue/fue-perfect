@@ -51,9 +51,15 @@ const en: Translation = {
             SECOND_SESSION_NOTE: 'after min 12 months healing time, not required',
             PACKAGE_CONTENT: 'Contents all-inclusive package {0}:',
             SESSION_DURATION: '<>Duration of treatment {0|{1: first, 2: second}} session<>: {1} hours',
-            SESSION_ZONES: '{0|{1: First, 2: Second}} session zone: {1} (see diagram below)'
+            SESSION_ZONES: '{0|{1: First, 2: Second, FUE: FUE, DHI: DHI}} session zone: {1} (see diagram below)'
         },
-        TECHNIQUE: ['FUE Hair Transplant', 'DHI Hair Transplant', 'FUE Beard Transplant', 'DHI Beard Transplant'],
+        TECHNIQUE: [
+            'FUE Hair Transplant',
+            'DHI Hair Transplant',
+            'FUE + DHI Hair Transplant',
+            'FUE Beard Transplant',
+            'DHI Beard Transplant'
+        ],
         COUNTRY: ['Turkey', 'Netherlands', 'Turkey/Netherlands'],
         GENDER: ['Male', 'Female'],
         QUALITY: ['Poor', 'Normal', 'Good', 'Perfect']
