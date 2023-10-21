@@ -12,8 +12,14 @@ const processMail: NextApiHandler = async (req, res): Promise<void> => {
         const mail: KVMessage | null = (await kv.hgetall(key)) as KVMessage | null;
         if (!mail) continue;
 
+        const date: Date = new Date(mail.date);
+        // Calculate based on one day before the scheduled reminder time.
+        // The reminder date is when we want the mail to arrive *at or before*.
+        // Without the adjustment, reminders may be sent a day late.
+        date.setDate(date.getDate() - 1);
+
         // Ignore if we are not yet due to send the reminder
-        if (Date.now() < Number.parseInt(mail.date)) continue;
+        if (Date.now() < date.getTime()) continue;
 
         // Create Transport
         const transport = NodeMailer.createTransport({
