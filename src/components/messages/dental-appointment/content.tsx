@@ -5,7 +5,7 @@ import { useI18nContext } from '../../../i18n/i18n-react';
 import BoldTranslation from '../../BoldTranslation';
 import { Gender } from '../hair/data';
 
-export default function Content(state: AppointmentState) {
+export default function Content({ state }: { state: AppointmentState }) {
     const { LL } = useI18nContext();
 
     const [logo, setLogo] = useState('');
