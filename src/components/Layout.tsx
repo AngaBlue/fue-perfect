@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Heading, useToast } from '@chakra-ui/react';
+import { Box, Button, Checkbox, Divider, Heading, useToast } from '@chakra-ui/react';
 import { Dispatch, FunctionComponent, ReactNode, SetStateAction, useEffect, useState } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { SpinnerIcon } from '@chakra-ui/icons';
@@ -152,6 +152,8 @@ export default function Layout<State>({ credentials, content, form: Form, subjec
             });
     }
 
+    const [edit, setEdit] = useState(false);
+
     return (
         <>
             <Credentials {...credentials} />
@@ -165,17 +167,24 @@ export default function Layout<State>({ credentials, content, form: Form, subjec
                 <Button onClick={queueReminder} backgroundColor='brand.500' mt={4} w={48} position={'unset'}>
                     E-mail plannen {loading.sending && <SpinnerIcon ml={4} className={styles.spin} />}
                 </Button>
+                <Checkbox isChecked={edit} onChange={e => setEdit(e.target.checked)}>
+                    Activeer Bewerken
+                </Checkbox>
             </Box>
             <Divider my={4} />
             <Heading mb={4} as='h2'>
                 Email voorbeeld
             </Heading>
             <Box>
-                <ContentEditable
-                    onChange={e => setHtml(e.currentTarget.innerHTML)}
-                    onBlur={e => setHtml(e.currentTarget.innerHTML)}
-                    html={html}
-                />
+                {edit ? (
+                    <ContentEditable
+                        onChange={e => setHtml(e.currentTarget.innerHTML)}
+                        onBlur={e => setHtml(e.currentTarget.innerHTML)}
+                        html={html}
+                    />
+                ) : (
+                    content
+                )}
             </Box>
         </>
     );
