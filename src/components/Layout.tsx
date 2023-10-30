@@ -117,7 +117,7 @@ export default function Layout<State>({ credentials, content, form: Form, subjec
             body: JSON.stringify({
                 name,
                 recipient: credentials.state.recipient,
-                subject,
+                subject: `(herinnering) ${subject}`,
                 content: html,
                 date: reminderDate.getTime()
             })
