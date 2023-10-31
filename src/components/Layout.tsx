@@ -64,7 +64,9 @@ export default function Layout<State>({ credentials, content, form: Form, subjec
                 name,
                 recipient: credentials.state.recipient,
                 subject,
-                content: html
+                content: html,
+                cc: credentials.state.cc,
+                bcc: credentials.state.bcc
             })
         })
             .then(async response => {
@@ -119,7 +121,9 @@ export default function Layout<State>({ credentials, content, form: Form, subjec
                 recipient: credentials.state.recipient,
                 subject: `(herinnering) ${subject}`,
                 content: html,
-                date: reminderDate.getTime()
+                date: reminderDate.getTime(),
+                cc: credentials.state.cc,
+                bcc: credentials.state.bcc
             })
         })
             .then(async response => {

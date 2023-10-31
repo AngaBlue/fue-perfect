@@ -28,6 +28,34 @@ export default function Credentials(props: { state: typeof defaultProvider; setS
                     />
                 </InputGroup>
             </Box>
+            <Box>
+                <FormLabel>CC</FormLabel>
+                <InputGroup>
+                    <InputLeftElement pointerEvents='none'>
+                        <EmailIcon color='gray.300' />
+                    </InputLeftElement>
+                    <Input
+                        placeholder='example@mail.com'
+                        type='email'
+                        value={state.cc}
+                        onChange={e => setState({ ...state, cc: e.target.value })}
+                    />
+                </InputGroup>
+            </Box>
+            <Box>
+                <FormLabel>BCC</FormLabel>
+                <InputGroup>
+                    <InputLeftElement pointerEvents='none'>
+                        <EmailIcon color='gray.300' />
+                    </InputLeftElement>
+                    <Input
+                        placeholder='example@mail.com'
+                        type='email'
+                        value={state.bcc}
+                        onChange={e => setState({ ...state, bcc: e.target.value })}
+                    />
+                </InputGroup>
+            </Box>
         </SimpleGrid>
     );
 }
