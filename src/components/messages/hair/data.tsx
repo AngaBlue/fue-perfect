@@ -46,7 +46,7 @@ export const defaultState = {
     gender: Gender.MALE,
     email: '',
     inspection: false,
-    date: new Date(),
+    date: new Date(0),
     country: Country.NETHERLANDS,
     hair: {
         type: Array<boolean>(enumLength(HairQuality)).fill(false),

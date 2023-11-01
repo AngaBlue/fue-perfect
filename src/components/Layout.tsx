@@ -85,7 +85,7 @@ export default function Layout({ credentials, content, form, subject, name }: La
             });
     }
 
-    const [reminderDate, setReminderDate] = useState(new Date());
+    const [reminderDate, setReminderDate] = useState(new Date(0));
 
     function queueReminder() {
         if (loading.sending || Object.values(credentials.state).some(v => !v)) return;
