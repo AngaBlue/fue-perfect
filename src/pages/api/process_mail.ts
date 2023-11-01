@@ -44,11 +44,7 @@ const processMail: NextApiHandler = async (req, res): Promise<void> => {
                 },
                 to: mail.recipient,
                 subject: mail.subject,
-                html: mail.content,
-                // Nullable access to deal with existing records in the db without cc and bcc entries
-                // If you're reading this significantly after this commit, you can probably delete the nullable access
-                cc: mail?.cc,
-                bcc: mail?.bcc
+                html: mail.content
             };
             transport.sendMail(options, resolve);
         });

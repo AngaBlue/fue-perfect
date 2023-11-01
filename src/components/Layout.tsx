@@ -52,9 +52,7 @@ export default function Layout({ credentials, content, form, subject, name }: La
                 name,
                 recipient: credentials.state.recipient,
                 subject,
-                content: html,
-                cc: credentials.state.cc,
-                bcc: credentials.state.bcc
+                content: html
             })
         })
             .then(async response => {
@@ -110,9 +108,7 @@ export default function Layout({ credentials, content, form, subject, name }: La
                 recipient: credentials.state.recipient,
                 subject: `(herinnering) ${subject}`,
                 content: html,
-                date: reminderDate.getTime(),
-                cc: credentials.state.cc,
-                bcc: credentials.state.bcc
+                date: reminderDate.getTime()
             })
         })
             .then(async response => {

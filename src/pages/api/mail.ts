@@ -17,7 +17,7 @@ const mail: NextApiHandler = async (req, res): Promise<void> => {
         if (validation.error) return res.status(400).json({ name: validation.error.name, message: validation.error.message });
 
         // Destructure
-        const { recipient, subject, name, content, cc, bcc }: Message = validation.value;
+        const { recipient, subject, name, content }: Message = validation.value;
 
         // Create Transport
         const transport = NodeMailer.createTransport({
@@ -44,9 +44,7 @@ const mail: NextApiHandler = async (req, res): Promise<void> => {
                 },
                 to: recipient,
                 subject,
-                html: content,
-                cc,
-                bcc
+                html: content
             };
             transport.sendMail(options, resolve);
         });

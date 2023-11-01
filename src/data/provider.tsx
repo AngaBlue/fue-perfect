@@ -1,7 +1,5 @@
 export const defaultProvider = {
-    recipient: '',
-    cc: '',
-    bcc: ''
+    recipient: ''
 };
 
 export type ProviderState = typeof defaultProvider;
