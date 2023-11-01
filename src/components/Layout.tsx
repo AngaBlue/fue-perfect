@@ -102,7 +102,7 @@ export default function Layout<State>({ credentials, content, form: Form, subjec
     const [reminderDate, setReminderDate] = useState(new Date(0));
 
     function queueReminder() {
-        if (loading.sending || Object.values(credentials.state).some(v => !v)) return;
+        if (loading.sending || credentials.state.recipient === '') return;
 
         setLoading({ ...loading, sending: true, error: null });
         toast({
