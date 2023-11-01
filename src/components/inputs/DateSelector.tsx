@@ -23,6 +23,7 @@ export default function DateSelector({ state, setState, showTimeSelector }: Date
                     onChange={e => setState(e instanceof Date ? e : new Date())}
                     dateFormat={showTimeSelector ? 'PPPp' : 'PPP'}
                     showTimeSelect={showTimeSelector}
+                    showYearDropdown
                     timeIntervals={15}
                 />
             </InputGroup>
