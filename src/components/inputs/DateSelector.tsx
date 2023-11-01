@@ -15,7 +15,7 @@ interface DateSelectorProps {
 
 export default function DateSelector({ state, setState, showTimeSelector }: DateSelectorProps) {
     return (
-        <Box>
+        <Box suppressHydrationWarning>
             <FormLabel>Datum</FormLabel>
             <InputGroup className={styles.datepicker}>
                 <DatePicker
