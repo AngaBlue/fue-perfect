@@ -46,7 +46,7 @@ export default function Layout<State>({ credentials, content, form: Form, subjec
     );
 
     function send() {
-        if (loading.sending || credentials.state.recipient === '') return;
+        if (loading.sending || Object.values(credentials.state).some(v => !v)) return;
 
         setLoading({ ...loading, sending: true, error: null });
         toast({
