@@ -1,36 +1,25 @@
 import { Box, Button, Divider, Heading, useToast } from '@chakra-ui/react';
-import { Dispatch, FunctionComponent, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { SpinnerIcon } from '@chakra-ui/icons';
-import ContentEditable from 'react-contenteditable';
 import Credentials from './Credentials';
 import { defaultProvider } from '../data/provider';
 import styles from './Layout.module.scss';
 import TypesafeI18n, { useI18nContext } from '../i18n/i18n-react';
 import DateSelector from './inputs/DateSelector';
 
-interface LayoutProps<State> {
+interface LayoutProps {
     credentials: {
         state: typeof defaultProvider;
         setState: Dispatch<SetStateAction<typeof defaultProvider>>;
     };
     name: string;
-    content: FunctionComponent<{ state: State; setState: Dispatch<SetStateAction<State>> }>;
-    form: FunctionComponent<{ state: State; setState: Dispatch<SetStateAction<State>> }>;
+    content: JSX.Element;
+    form: JSX.Element;
     subject: string;
-    state: State;
-    setState: Dispatch<SetStateAction<State>>;
 }
 
-export default function Layout<State>({
-    credentials,
-    content: Content,
-    form: Form,
-    subject,
-    name,
-    state,
-    setState: propSetState
-}: LayoutProps<State>) {
+export default function Layout({ credentials, content, form, subject, name }: LayoutProps) {
     const { locale } = useI18nContext();
 
     const [loading, setLoading] = useState({
@@ -43,24 +32,9 @@ export default function Layout<State>({
         duration: 5000
     });
 
-    // Render the content HTML statically to insert into contentEditable
-    const [html, setHtml] = useState(
-        ReactDOMServer.renderToStaticMarkup(<TypesafeI18n locale={locale}>{<Content state={state} setState={() => {}} />}</TypesafeI18n>)
-    );
-
-    // console.log(html);
-
-    const setState = (e: SetStateAction<State>) => {
-        setHtml(
-            ReactDOMServer.renderToStaticMarkup(
-                <TypesafeI18n locale={locale}>{<Content state={state} setState={() => {}} />}</TypesafeI18n>
-            )
-        );
-        propSetState(e);
-    };
-
     function send() {
         if (loading.sending || Object.values(credentials.state).some(v => !v)) return;
+        const html = ReactDOMServer.renderToStaticMarkup(<TypesafeI18n locale={locale}>{content}</TypesafeI18n>);
 
         setLoading({ ...loading, sending: true, error: null });
         toast({
@@ -117,6 +91,7 @@ export default function Layout<State>({
 
     function queueReminder() {
         if (loading.sending || Object.values(credentials.state).some(v => !v)) return;
+        const html = ReactDOMServer.renderToStaticMarkup(<TypesafeI18n locale={locale}>{content}</TypesafeI18n>);
 
         setLoading({ ...loading, sending: true, error: null });
         toast({
@@ -174,7 +149,7 @@ export default function Layout<State>({
         <>
             <Credentials {...credentials} />
             <Divider my={4} />
-            <Form state={state} setState={setState} />
+            {form}
             <Box display='flex' flexDirection='row' gap={4}>
                 <Button onClick={send} backgroundColor='brand.500' mt={4} w={48} position={'unset'}>
                     Stuur e-mail {loading.sending && <SpinnerIcon ml={4} className={styles.spin} />}
@@ -188,13 +163,7 @@ export default function Layout<State>({
             <Heading mb={4} as='h2'>
                 Email voorbeeld
             </Heading>
-            <Box>
-                <ContentEditable
-                    onChange={e => setHtml(e.currentTarget.innerHTML)}
-                    onBlur={e => setHtml(e.currentTarget.innerHTML)}
-                    html={html}
-                />
-            </Box>
+            <Box>{content}</Box>
         </>
     );
 }

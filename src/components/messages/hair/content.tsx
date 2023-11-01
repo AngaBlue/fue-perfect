@@ -13,7 +13,7 @@ function createZoneString(zones: boolean[]) {
         .join(', ');
 }
 
-export default function Content({ state }: { state: HairState }) {
+export default function Content(state: HairState) {
     const { LL } = useI18nContext();
 
     const [zone64, setZone64] = useState('');
