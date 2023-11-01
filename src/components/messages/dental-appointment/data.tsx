@@ -9,7 +9,7 @@ export const defaultState = {
     lastname: '',
     gender: Gender.MALE,
     email: '',
-    date: new Date(),
+    date: new Date(0),
     location: Location.Lelystad
 };
 
