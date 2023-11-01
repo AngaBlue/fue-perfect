@@ -34,7 +34,6 @@ const processMail: NextApiHandler = async (req, res): Promise<void> => {
                 refreshToken: mail.token
             }
         });
-
         transport.use('compile', inlineBase64());
 
         const err = await new Promise<Error | null>(resolve => {
