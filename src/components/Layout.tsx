@@ -1,5 +1,5 @@
 import { Box, Button, Divider, Heading, useToast } from '@chakra-ui/react';
-import { Dispatch, FunctionComponent, ReactNode, SetStateAction, useEffect, useState } from 'react';
+import { Dispatch, FunctionComponent, SetStateAction, useState } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { SpinnerIcon } from '@chakra-ui/icons';
 import ContentEditable from 'react-contenteditable';
@@ -15,14 +15,22 @@ interface LayoutProps<State> {
         setState: Dispatch<SetStateAction<typeof defaultProvider>>;
     };
     name: string;
-    content: ReactNode;
+    content: FunctionComponent<{ state: State; setState: Dispatch<SetStateAction<State>> }>;
     form: FunctionComponent<{ state: State; setState: Dispatch<SetStateAction<State>> }>;
     subject: string;
     state: State;
     setState: Dispatch<SetStateAction<State>>;
 }
 
-export default function Layout<State>({ credentials, content, form: Form, subject, name, state, setState }: LayoutProps<State>) {
+export default function Layout<State>({
+    credentials,
+    content: Content,
+    form: Form,
+    subject,
+    name,
+    state,
+    setState: propSetState
+}: LayoutProps<State>) {
     const { locale } = useI18nContext();
 
     const [loading, setLoading] = useState({
@@ -36,14 +44,20 @@ export default function Layout<State>({ credentials, content, form: Form, subjec
     });
 
     // Render the content HTML statically to insert into contentEditable
-    const [html, setHtml] = useState(ReactDOMServer.renderToStaticMarkup(<TypesafeI18n locale={locale}>{content}</TypesafeI18n>));
+    const [html, setHtml] = useState(
+        ReactDOMServer.renderToStaticMarkup(<TypesafeI18n locale={locale}>{<Content state={state} setState={() => {}} />}</TypesafeI18n>)
+    );
 
     // console.log(html);
 
-    useEffect(
-        () => setHtml(ReactDOMServer.renderToStaticMarkup(<TypesafeI18n locale={locale}>{content}</TypesafeI18n>)),
-        [content, locale]
-    );
+    const setState = (e: SetStateAction<State>) => {
+        setHtml(
+            ReactDOMServer.renderToStaticMarkup(
+                <TypesafeI18n locale={locale}>{<Content state={state} setState={() => {}} />}</TypesafeI18n>
+            )
+        );
+        propSetState(e);
+    };
 
     function send() {
         if (loading.sending || Object.values(credentials.state).some(v => !v)) return;
