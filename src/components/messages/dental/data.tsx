@@ -104,7 +104,7 @@ export const defaultState = {
     lastname: '',
     gender: Gender.MALE,
     email: '',
-    date: new Date(0),
+    date: new Date(),
     extraction: false,
     implant: false,
     boneGraft: BoneGraftOptions.NONE,
