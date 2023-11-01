@@ -171,13 +171,7 @@ export default function Layout<State>({ credentials, content, form: Form, subjec
                 <Button onClick={queueReminder} backgroundColor='brand.500' mt={4} w={48} position={'unset'}>
                     E-mail plannen {loading.sending && <SpinnerIcon ml={4} className={styles.spin} />}
                 </Button>
-                <Checkbox
-                    isChecked={edit}
-                    onChange={e => {
-                        setEdit(e.target.checked);
-                        setHtml(ReactDOMServer.renderToStaticMarkup(<TypesafeI18n locale={locale}>{content}</TypesafeI18n>));
-                    }}
-                >
+                <Checkbox isChecked={edit} onChange={e => setEdit(e.target.checked)}>
                     Activeer Bewerken
                 </Checkbox>
             </Box>
