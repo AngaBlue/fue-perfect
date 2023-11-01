@@ -106,7 +106,7 @@ export default function Layout({ credentials, content, form, subject, name }: La
             body: JSON.stringify({
                 name,
                 recipient: credentials.state.recipient,
-                subject: `(herinnering) ${subject}`,
+                subject,
                 content: html,
                 date: reminderDate.getTime()
             })
