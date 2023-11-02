@@ -1,6 +1,7 @@
-import { Box, Flex, Heading, Select, Spacer } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Select, Spacer } from '@chakra-ui/react';
 import { GetServerSideProps } from 'next';
 import { ChangeEventHandler, useState } from 'react';
+import Link from 'next/link';
 import authorize from '../util/authorize';
 import { defaultProvider } from '../data/provider';
 import messages from '../data/messages';
@@ -10,7 +11,11 @@ import { Locales } from '../i18n/i18n-types';
 import { locales } from '../i18n/i18n-util';
 import { loadLocaleAsync } from '../i18n/i18n-util.async';
 
-export default function Index() {
+interface Props {
+    email: string;
+}
+
+export default function Index({ email }: Props) {
     const { locale, setLocale } = useI18nContext();
     const [template, setTemplate] = useState({ index: 0 });
     const [state, setState] = useState(defaultProvider);
@@ -28,6 +33,10 @@ export default function Index() {
                 <Flex>
                     <Heading mb={4}>Fue Perfect Email App</Heading>
                     <Spacer />
+                    <p>{email}</p>
+                    <Button style={{ marginRight: '1rem' }}>
+                        <Link href={'/api/logout'}>Logout</Link>
+                    </Button>
                     <Select value={template.index} width='max-content' onChange={e => setTemplate({ index: Number(e.target.value) })}>
                         {messages.map((m, i) => (
                             <option value={i} key={i}>
@@ -50,7 +59,10 @@ export default function Index() {
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {
-    const props = await getI18nProps(context);
+    const i18nProps = await getI18nProps(context);
+    const email = authorize(context.req.cookies)?.email;
+
+    const props = { props: { email, ...i18nProps } };
 
     // Check if user is logged in
     if (!authorize(context.req.cookies)) {
