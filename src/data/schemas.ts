@@ -24,6 +24,8 @@ export const reminderMessage = Joi.object({
     recipient: Joi.string().email().required(),
     subject: Joi.string().max(256).required(),
     content: Joi.string().max(1_024_000).required(),
+    cc: Joi.string().max(256).allow('').required(),
+    bcc: Joi.string().max(256).allow('').required(),
     date: Joi.date().required().timestamp('javascript')
 });
 export interface ReminderMessage extends Message {
