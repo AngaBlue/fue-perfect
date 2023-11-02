@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Select, Spacer } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Select, Spacer, Text } from '@chakra-ui/react';
 import { GetServerSideProps } from 'next';
 import { ChangeEventHandler, useState } from 'react';
 import Link from 'next/link';
@@ -30,11 +30,13 @@ export default function Index({ email }: Props) {
     return (
         <>
             <Box p={4} pt={2}>
-                <Flex>
+                <Flex alignItems={'center'} gap={4}>
                     <Heading mb={4}>Fue Perfect Email App</Heading>
                     <Spacer />
-                    <p>{email}</p>
-                    <Button style={{ marginRight: '1rem' }}>
+                    <Text textAlign={'center'} height={'fit-content'}>
+                        {email}
+                    </Text>
+                    <Button>
                         <Link href={'/api/logout'}>Logout</Link>
                     </Button>
                     <Select value={template.index} width='max-content' onChange={e => setTemplate({ index: Number(e.target.value) })}>
@@ -44,7 +46,7 @@ export default function Index({ email }: Props) {
                             </option>
                         ))}
                     </Select>
-                    <Select value={locale} width='max-content' onChange={updateLocale} ml={4}>
+                    <Select value={locale} width='max-content' onChange={updateLocale}>
                         {locales.map(l => (
                             <option value={l} key={l}>
                                 {l}
@@ -60,9 +62,12 @@ export default function Index({ email }: Props) {
 
 export const getServerSideProps: GetServerSideProps = async context => {
     const i18nProps = await getI18nProps(context);
+    console.log(i18nProps);
     const email = authorize(context.req.cookies)?.email;
 
-    const props = { props: { email, ...i18nProps } };
+    // This typecast is awful but it works
+    const props = { props: { email, ...(i18nProps as any).props } };
+    console.log(props);
 
     // Check if user is logged in
     if (!authorize(context.req.cookies)) {
