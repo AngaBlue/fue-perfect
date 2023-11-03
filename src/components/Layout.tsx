@@ -99,7 +99,7 @@ export default function Layout<State>({ credentials, content, form: Form, subjec
             });
     }
 
-    const [reminderDate, setReminderDate] = useState(new Date(0));
+    const [reminderDate, setReminderDate] = useState(new Date());
 
     function queueReminder() {
         if (loading.sending || credentials.state.recipient === '') return;
