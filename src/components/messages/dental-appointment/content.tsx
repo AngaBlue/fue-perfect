@@ -29,7 +29,7 @@ export default function Content({ state }: { state: AppointmentState }) {
             <p>{LL.DENTAL_APPOINTMENT.INTRO()}</p>
 
             <p>
-                <BoldTranslation>
+                <BoldTranslation suppressHydrationWarning>
                     {LL.DENTAL_APPOINTMENT.APPOINTMENT_TIME(state.date, LL.DENTAL_APPOINTMENT.LOCATIONS[state.location]())}
                 </BoldTranslation>
             </p>

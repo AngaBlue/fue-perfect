@@ -56,6 +56,7 @@ export default function Content({ state, setState }: { state: DentalState; setSt
         }
 
         merge(teethImages, { width: WIDTH, height: HEIGHT }).then(setZone64);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state.teeth, state.allOn]);
 
     const onTeethClick: MouseEventHandler<HTMLImageElement> = e => {
@@ -99,7 +100,7 @@ export default function Content({ state, setState }: { state: DentalState; setSt
             </p>
             <p>{LL.DENTAL.CONTENT.INTRO_1()}</p>
             <p>
-                <BoldTranslation>{LL.DENTAL.CONTENT.INTRO_2(new Date(state.date))}</BoldTranslation>
+                <BoldTranslation suppressHydrationWarning>{LL.DENTAL.CONTENT.INTRO_2(new Date(state.date))}</BoldTranslation>
             </p>
             <p style={{ color: 'red' }}>
                 <strong>{LL.DENTAL.CONTENT.INTRO_3()}</strong>

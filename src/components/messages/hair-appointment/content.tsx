@@ -29,7 +29,7 @@ export default function Content({ state }: { state: AppointmentState }) {
             <p>{LL.HAIR_APPOINTMENT.INTRO()}</p>
 
             <p>
-                <BoldTranslation>
+                <BoldTranslation suppressHydrationWarning>
                     {LL.HAIR_APPOINTMENT.APPOINTMENT_TIME(state.date, LL.HAIR_APPOINTMENT.LOCATIONS[state.location]())}
                 </BoldTranslation>
             </p>

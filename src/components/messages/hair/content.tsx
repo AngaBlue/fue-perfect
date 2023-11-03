@@ -52,7 +52,7 @@ export default function Content({ state }: { state: HairState }) {
             ) : (
                 <>
                     <p>
-                        <BoldTranslation>
+                        <BoldTranslation suppressHydrationWarning>
                             {LL.HAIR.CONTENT.NO_INSPECTION_1(new Date(state.date), LL.HAIR.TECHNIQUE[state.technique]())}
                         </BoldTranslation>
                     </p>
