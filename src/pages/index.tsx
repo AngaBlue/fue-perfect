@@ -3,7 +3,7 @@ import { GetServerSideProps } from 'next';
 import { ChangeEventHandler, useState } from 'react';
 import Link from 'next/link';
 import authorize from '../util/authorize';
-import { defaultProvider } from '../data/provider';
+// import { defaultProvider } from '../data/provider';
 import messages from '../data/messages';
 import getI18nProps from '../util/getI18nProps';
 import { useI18nContext } from '../i18n/i18n-react';
@@ -18,8 +18,8 @@ interface Props {
 export default function Index({ email }: Props) {
     const { locale, setLocale } = useI18nContext();
     const [template, setTemplate] = useState({ index: 0 });
-    const [state, setState] = useState(defaultProvider);
-    const Component = messages[template.index].component;
+    // const [state, setState] = useState(defaultProvider);
+    // const Component = messages[template.index].component;
 
     const updateLocale: ChangeEventHandler<HTMLSelectElement> = async e => {
         const newLocale = e.target.value as Locales;
