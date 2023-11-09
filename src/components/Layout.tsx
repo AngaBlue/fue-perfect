@@ -38,8 +38,6 @@ export default function Layout<State>({ credentials, content, form: Form, subjec
     // Render the content HTML statically to insert into contentEditable
     const [html, setHtml] = useState(ReactDOMServer.renderToStaticMarkup(<TypesafeI18n locale={locale}>{content}</TypesafeI18n>));
 
-    // console.log(html);
-
     useEffect(
         () => setHtml(ReactDOMServer.renderToStaticMarkup(<TypesafeI18n locale={locale}>{content}</TypesafeI18n>)),
         [content, locale]

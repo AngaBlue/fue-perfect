@@ -62,12 +62,10 @@ export default function Index({ email }: Props) {
 
 export const getServerSideProps: GetServerSideProps = async context => {
     const i18nProps = await getI18nProps(context);
-    console.log(i18nProps);
     const email = authorize(context.req.cookies)?.email;
 
     // This typecast is awful but it works
     const props = { props: { email, ...(i18nProps as any).props } };
-    console.log(props);
 
     // Check if user is logged in
     if (!authorize(context.req.cookies)) {
