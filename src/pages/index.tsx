@@ -54,8 +54,7 @@ export default function Index({ email }: Props) {
                         ))}
                     </Select>
                 </Flex>
-                <h1>Disabled</h1>
-                {/* {<Component {...{ state, setState }} />} */}
+                {<Component {...{ state, setState }} />}
             </Box>
         </>
     );
