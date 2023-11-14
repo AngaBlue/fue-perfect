@@ -11,12 +11,13 @@ interface DateSelectorProps {
     state: Date;
     setState: (value: Date) => any;
     showTimeSelector?: boolean;
+    label?: string;
 }
 
-export default function DateSelector({ state, setState, showTimeSelector }: DateSelectorProps) {
+export default function DateSelector({ state, setState, showTimeSelector, label = 'Datum' }: DateSelectorProps) {
     return (
         <Box suppressHydrationWarning>
-            <FormLabel>Datum</FormLabel>
+            <FormLabel>{label}</FormLabel>
             <InputGroup className={styles.datepicker}>
                 <DatePicker
                     selected={state}

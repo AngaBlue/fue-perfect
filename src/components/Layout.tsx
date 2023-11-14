@@ -165,7 +165,7 @@ export default function Layout<State>({ credentials, content, form: Form, subjec
                 <Button onClick={send} backgroundColor='brand.500' mt={4} w={48} position={'unset'}>
                     Stuur e-mail {loading.sending && <SpinnerIcon ml={4} className={styles.spin} />}
                 </Button>
-                <DateSelector state={reminderDate} setState={setReminderDate} />
+                <DateSelector state={reminderDate} setState={setReminderDate} label='Geplande datum' />
                 <Button onClick={queueReminder} backgroundColor='brand.500' mt={4} w={48} position={'unset'}>
                     E-mail plannen {loading.sending && <SpinnerIcon ml={4} className={styles.spin} />}
                 </Button>
