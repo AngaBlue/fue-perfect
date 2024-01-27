@@ -291,13 +291,9 @@ type RootTranslation = {
 		APPOINTMENT_TIME: RequiredParams<'0|datetime' | '1'>
 		LOCATIONS: {
 			/**
-			 * H​o​o​f​d​d​o​r​p
-			 */
-			'0': string
-			/**
 			 * L​e​l​y​s​t​a​d
 			 */
-			'1': string
+			'0': string
 		}
 		/**
 		 * C​o​n​t​a​c​t​ ​g​e​g​e​v​e​n​s​ ​l​o​c​a​t​i​e​:
@@ -821,13 +817,9 @@ export type TranslationFunctions = {
 		APPOINTMENT_TIME: (arg0: Date, arg1: string) => LocalizedString
 		LOCATIONS: {
 			/**
-			 * Hoofddorp
-			 */
-			'0': () => LocalizedString
-			/**
 			 * Lelystad
 			 */
-			'1': () => LocalizedString
+			'0': () => LocalizedString
 		}
 		/**
 		 * Contact gegevens locatie:

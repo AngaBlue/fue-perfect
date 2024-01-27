@@ -54,19 +54,6 @@ export default function Content({ state }: { state: AppointmentState }) {
                         <span> * Tegenover de station lelystad</span>
                     </>
                 )}
-                {state.location === Location.Hoofddorp && (
-                    <>
-                        <span>
-                            <b>Dutch Clinic / Fue Perfect</b>
-                        </span>
-                        <br />
-                        <span>Hoofdweg 848A</span>
-                        <br />
-                        <span>2132 MC Hoofddorp</span>
-                        <br />
-                        <span>085 - 401 81 12</span>
-                    </>
-                )}
             </p>
 
             {/* Footer */}
