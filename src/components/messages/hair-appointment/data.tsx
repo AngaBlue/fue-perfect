@@ -1,7 +1,6 @@
 import { Gender } from '../hair/data';
 
 export enum Location {
-    Hoofddorp,
     Lelystad
 }
 
@@ -11,7 +10,7 @@ export const defaultState = {
     gender: Gender.MALE,
     email: '',
     date: new Date(),
-    location: Location.Hoofddorp
+    location: Location.Lelystad
 };
 
 export type AppointmentState = typeof defaultState;
