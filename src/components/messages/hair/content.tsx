@@ -136,22 +136,22 @@ export default function Content({ state }: { state: HairState }) {
             <p>{LL.HAIR.CONTENT.ENDING_COMMENT()}</p>
             <p>{LL.HAIR.CONTENT.KIND_REGARDS()},</p>
             <p style={{ color: 'grey' }}>
-                <strong>A.Senturk</strong>
+                <strong>Team Fue Perfect</strong>
             </p>
             {/* Footer */}
             <img src={logo} alt='Fue Perfect' style={{ height: '100px' }} />
             <p>
                 <i>
                     <strong style={{ color: 'orange' }}>
-                        Hoofdweg 848A, 2132 MC, Hoofddorp
+                        Zilverparkkade 3, 8232 WJ Lelystad
                         <br />
-                        0854 01 81 12
+                        0854 01 81 12 Nederland
                         <br />
-                        06-15 03 87 65 Mobiel
+                        06-15 03 87 65 Mobiel / Whatsapp
                         <br />
                     </strong>
                     <strong style={{ color: 'cornflowerblue' }}>
-                        <a href='mailto:arkin@fueperfect.com'>arkin@fueperfect.com</a>
+                        <a href='mailto:info@fueperfect.com'>info@fueperfect.com</a>
                         <br />
                         <a href='www.fueperfect.com'>www.fueperfect.com</a>
                     </strong>
