@@ -10,7 +10,7 @@ const tr: Translation = {
         SECOND: 'i̇kinci'
     },
     HAIR: {
-        SUBJECT: "{0} {1} için Hoofddorp'ta {2} tedavisi için fiyat teklifi + Analiz",
+        SUBJECT: "{0} {1} için Leylstad'ta {2} tedavisi için fiyat teklifi + Analiz",
         CONTENT: {
             INSPECTION_1:
                 'Organizasyonumuza göstermiş olduğunuz ilgi için teşekkür ederiz, talebinizi + fotoğraflarınızı iyi bir şekilde aldık.',

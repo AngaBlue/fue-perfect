@@ -10,7 +10,7 @@ const es: Translation = {
         SECOND: 'segunda'
     },
     HAIR: {
-        SUBJECT: 'Presupuesto + Análisis Tratamiento de {2} en Hoofddorp para {0} {1}',
+        SUBJECT: 'Presupuesto + Análisis Tratamiento de {2} en Leylstad para {0} {1}',
         CONTENT: {
             INSPECTION_1: 'Gracias por el interés que ha mostrado en nuestra organización, hemos recibido su solicitud + fotos en regla.',
             INSPECTION_2:
