@@ -86,7 +86,7 @@ const nl: BaseTranslation = {
         MISSED_CALL_LINE:
             'Wij hebben je op telefoonnummer {0:string} niet kunnen bereiken. Mocht je toch een afspraak willen maken zijn wij bereikbaar op telefoonnummer 085 - 401 81 12.',
         KIND_REGARDS: 'Met vriendelijke groeten',
-        SUBJECT: 'Gemiste oproep van FuePerfect'
+        SUBJECT: 'Niet kunnen bereiken'
     },
     DENTAL: {
         CONTENT: {
