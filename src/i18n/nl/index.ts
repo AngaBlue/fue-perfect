@@ -81,6 +81,13 @@ const nl: BaseTranslation = {
         KIND_REGARDS: 'Met vriendelijke groeten',
         SUBJECT: 'Bevestiging vooronderzoek in {0:LocalizedString} m.b.t. uw gebitsbehandeling'
     },
+    DENTAL_MISSED_CALL: {
+        INTRO: 'Bedankt voor je aanvraag.',
+        MISSED_CALL_LINE:
+            'Wij hebben je op telefoonnummer {0:string} niet kunnen bereiken. Mocht je toch een afspraak willen maken zijn wij bereikbaar op telefoonnummer 085 - 401 81 12.',
+        KIND_REGARDS: 'Met vriendelijke groeten',
+        SUBJECT: 'Gemiste oproep van FuePerfect'
+    },
     DENTAL: {
         CONTENT: {
             INTRO_1: 'Bedankt voor de interesse die u getoond heeft in onze organisatie.',

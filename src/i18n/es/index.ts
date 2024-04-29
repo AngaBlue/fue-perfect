@@ -65,7 +65,8 @@ const es: Translation = {
     },
     HAIR_APPOINTMENT: (nl as Translation).HAIR_APPOINTMENT,
     DENTAL_APPOINTMENT: (nl as Translation).DENTAL_APPOINTMENT,
-    DENTAL: (nl as Translation).DENTAL
+    DENTAL: (nl as Translation).DENTAL,
+    DENTAL_MISSED_CALL: (nl as Translation).DENTAL_MISSED_CALL
 };
 
 export default es;

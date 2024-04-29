@@ -44,7 +44,7 @@ type RootTranslation = {
 	}
 	HAIR: {
 		/**
-		 * O​f​f​e​r​t​e​ ​+​ ​A​n​a​l​y​s​e​ ​{​2​}​ ​b​e​h​a​n​d​e​l​i​n​g​ ​t​e​ ​H​o​o​f​d​d​o​r​p​ ​v​o​o​r​ ​d​h​r​ ​{​0​}​ ​{​1​}
+		 * O​f​f​e​r​t​e​ ​+​ ​A​n​a​l​y​s​e​ ​{​2​}​ ​b​e​h​a​n​d​e​l​i​n​g​ ​t​e​ ​L​e​y​l​s​t​a​d​ ​v​o​o​r​ ​d​h​r​ ​{​0​}​ ​{​1​}
 		 * @param {string} 0
 		 * @param {string} 1
 		 * @param {LocalizedString} 2
@@ -340,6 +340,25 @@ type RootTranslation = {
 		 */
 		SUBJECT: RequiredParams<'0'>
 	}
+	DENTAL_MISSED_CALL: {
+		/**
+		 * B​e​d​a​n​k​t​ ​v​o​o​r​ ​j​e​ ​a​a​n​v​r​a​a​g​.
+		 */
+		INTRO: string
+		/**
+		 * W​i​j​ ​h​e​b​b​e​n​ ​j​e​ ​o​p​ ​t​e​l​e​f​o​o​n​n​u​m​m​e​r​ ​{​0​}​ ​n​i​e​t​ ​k​u​n​n​e​n​ ​b​e​r​e​i​k​e​n​.​ ​M​o​c​h​t​ ​j​e​ ​t​o​c​h​ ​e​e​n​ ​a​f​s​p​r​a​a​k​ ​w​i​l​l​e​n​ ​m​a​k​e​n​ ​z​i​j​n​ ​w​i​j​ ​b​e​r​e​i​k​b​a​a​r​ ​o​p​ ​t​e​l​e​f​o​o​n​n​u​m​m​e​r​ ​0​8​5​ ​-​ ​4​0​1​ ​8​1​ ​1​2​.
+		 * @param {string} 0
+		 */
+		MISSED_CALL_LINE: RequiredParams<'0'>
+		/**
+		 * M​e​t​ ​v​r​i​e​n​d​e​l​i​j​k​e​ ​g​r​o​e​t​e​n
+		 */
+		KIND_REGARDS: string
+		/**
+		 * G​e​m​i​s​t​e​ ​o​p​r​o​e​p​ ​v​a​n​ ​F​u​e​P​e​r​f​e​c​t
+		 */
+		SUBJECT: string
+	}
 	DENTAL: {
 		CONTENT: {
 			/**
@@ -596,7 +615,7 @@ export type TranslationFunctions = {
 	}
 	HAIR: {
 		/**
-		 * Offerte + Analyse {2} behandeling te Hoofddorp voor dhr {0} {1}
+		 * Offerte + Analyse {2} behandeling te Leylstad voor dhr {0} {1}
 		 */
 		SUBJECT: (arg0: string, arg1: string, arg2: LocalizedString) => LocalizedString
 		CONTENT: {
@@ -861,6 +880,24 @@ export type TranslationFunctions = {
 		 * Bevestiging vooronderzoek in {0} m.b.t. uw gebitsbehandeling
 		 */
 		SUBJECT: (arg0: LocalizedString) => LocalizedString
+	}
+	DENTAL_MISSED_CALL: {
+		/**
+		 * Bedankt voor je aanvraag.
+		 */
+		INTRO: () => LocalizedString
+		/**
+		 * Wij hebben je op telefoonnummer {0} niet kunnen bereiken. Mocht je toch een afspraak willen maken zijn wij bereikbaar op telefoonnummer 085 - 401 81 12.
+		 */
+		MISSED_CALL_LINE: (arg0: string) => LocalizedString
+		/**
+		 * Met vriendelijke groeten
+		 */
+		KIND_REGARDS: () => LocalizedString
+		/**
+		 * Gemiste oproep van FuePerfect
+		 */
+		SUBJECT: () => LocalizedString
 	}
 	DENTAL: {
 		CONTENT: {

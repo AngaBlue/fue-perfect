@@ -2,6 +2,7 @@ import dental from '../components/messages/dental';
 import hair from '../components/messages/hair';
 import hair_appointment from '../components/messages/hair-appointment';
 import dental_appointment from '../components/messages/dental-appointment';
+import dental_missed_call from '../components/messages/dental-missed-call';
 
 const messages = [
     {
@@ -19,6 +20,10 @@ const messages = [
     {
         name: 'Dent Afspraak',
         component: dental_appointment
+    },
+    {
+        name: 'Tandheelkundige gemiste oproep',
+        component: dental_missed_call
     }
 ];
 
