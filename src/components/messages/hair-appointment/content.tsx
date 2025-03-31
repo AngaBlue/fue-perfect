@@ -42,23 +42,31 @@ export default function Content({ state }: { state: AppointmentState }) {
                 {state.location === Location.Lelystad && (
                     <>
                         <span>
-                            <b>Medi Perfect</b>
+                            <b>FUE Perfect</b>
                         </span>
                         <br />
                         <span>Zilverparkkade 3</span>
                         <br />
                         <span>8232 WJ Lelystad</span>
+                        <br /><br />
+                        <span> * Parkeergarage Zilverpark / Reaalhof 101, 8232 VW Lelystad 🅿️</span>
                         <br />
-                        <span> * U kunt parkeren bij parkeergarage Zilverpark / Reaalhof 101, 8232 VW Lelystad</span>
+                        <span> * Gelegen tegenover station Lelystad🚃</span>
                         <br />
-                        <span> * Tegenover de station lelystad</span>
+                        <span> * Gelieve geen gel, spray of wax in het haar te gebruiken.🚫</span>
+                        <br />
+                        <span> * <strong>Let op:</strong> Er is een flitspaal bij de ingang van Lelystad, ter hoogte van het BP-benzinestation.📸</span>
+                        <br /><br />
+                        <span>Wij kijken uit naar uw komst! Mocht u nog vragen hebben, neem gerust contact met ons op.</span>
                     </>
                 )}
             </p>
 
             {/* Footer */}
             <p style={{ color: 'grey' }}>
-                <strong>Team Fue Perfect</strong>
+                <span>Met vriendelijke groet,</span>
+                <br />
+                <span>Receptie Fue Perfect</span>
             </p>
             {/* Footer */}
             <img src={logo} alt='Fue Perfect' style={{ height: '100px' }} />
