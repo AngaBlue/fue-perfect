@@ -48,19 +48,25 @@ export default function Content({ state }: { state: AppointmentState }) {
                         <span>Zilverparkkade 3</span>
                         <br />
                         <span>8232 WJ Lelystad</span>
+                        <br /><br />
+                        <span> * Parkeergarage Zilverpark / Reaalhof 101, 8232 VW Lelystad.🅿️</span>
                         <br />
-                        <span> * U kunt parkeren bij parkeergarage Zilverpark / Reaalhof 101, 8232 VW Lelystad</span>
+                        <span> * Gelegen tegenover station Lelystad.🚃</span>
                         <br />
-                        <span> * Tegenover de station lelystad</span>
+                        <span> * Gelieve geen oorbellen te dragen in verband met reflectie op de röntgenfoto.🚫</span>
+                        <br />
+                        <span> * <strong>Let op:</strong> Er is een flitspaal bij de ingang van Lelystad, ter hoogte van het BP-benzinestation.📸</span>
+                        <br /><br />
+                        <span> * Wij kijken uit naar uw komst! Mocht u nog vragen hebben, neem gerust contact met ons op.</span>
                     </>
                 )}
             </p>
 
             {/* Footer */}
             <p>
-                <span>{LL.DENTAL_APPOINTMENT.KIND_REGARDS()},</span>
+                <span>Met vriendelijke groet,</span>
                 <br />
-                <span>Team Dent Perfect</span>
+                <span>Receptie Dent Perfect</span>
             </p>
             <img src={logo} alt='Fue Perfect' style={{ height: '75px' }} />
             <p>
