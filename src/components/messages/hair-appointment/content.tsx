@@ -51,11 +51,11 @@ export default function Content({ state }: { state: AppointmentState }) {
                         <br /><br />
                         <span> * Parkeergarage Zilverpark / Reaalhof 101, 8232 VW Lelystad 🅿️</span>
                         <br />
-                        <span> * Gelegen tegenover station Lelystad🚃</span>
+                        <span> * Gelegen tegenover station Lelystad 🚃</span>
                         <br />
-                        <span> * Gelieve geen gel, spray of wax in het haar te gebruiken.🚫</span>
+                        <span> * Gelieve geen gel, spray of wax in het haar te gebruiken. 🚫</span>
                         <br />
-                        <span> * <strong>Let op:</strong> Er is een flitspaal bij de ingang van Lelystad, ter hoogte van het BP-benzinestation.📸</span>
+                        <span> * <strong>Let op:</strong> Er is een flitspaal bij de ingang van Lelystad, ter hoogte van het BP-benzinestation. 📸</span>
                         <br /><br />
                         <span>Wij kijken uit naar uw komst! Mocht u nog vragen hebben, neem gerust contact met ons op.</span>
                     </>
