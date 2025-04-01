@@ -12,11 +12,11 @@ const nl: BaseTranslation = {
         SUBJECT: 'Offerte + Analyse {2:LocalizedString} behandeling te Leylstad voor dhr {0:string} {1:string}',
         CONTENT: {
             INSPECTION_1:
-                "Bedankt voor de interesse die u getoond heeft in onze organisatie, wij hebben uw aanvraag + foto's in goede orde ontvangen.",
+                "Bedankt voor uw interesse in onze organisatie. Wij hebben uw aanvraag en foto's in goede orde ontvangen.",
             INSPECTION_2:
-                "Uw foto's / toelichting zijn beoordeeld en hieronder vindt u de analyse terug m.b.t uw {0} behandeling, u bent altijd van harte welkom voor een vrijblijvend consult naar onze kliniek te Hoofddorp!",
+                "Uw foto's en toelichting zijn beoordeeld, en hieronder vindt u de analyse met betrekking tot uw fue + dhi haartransplantatie. U bent altijd van harte welkom voor een vrijblijvend consult in onze kliniek in Lelystad.",
             INSPECTION_3:
-                "* Aangezien de beoordeling d.m.v. foto's is vastgesteld, bestaat een kleine kans van afwijking na de definitieve onderzoek in onze kliniek.",
+                "* Omdat de beoordeling op basis van foto's is uitgevoerd, bestaat er een kleine kans op afwijkingen na het definitieve onderzoek in onze kliniek.",
             NO_INSPECTION_1:
                 'Bedankt voor de interesse die u getoond heeft in onze organisatie, u heeft op <>{0:Date|date}<> een vooronderzoek ondergaan omtrent uw {1:LocalizedString} behandeling.',
             NO_INSPECTION_2: 'Hieronder vindt u de analyse en de samenvatting terug wat wij hebben gesproken.',
@@ -64,9 +64,9 @@ const nl: BaseTranslation = {
         QUALITY: ['Slecht', 'Normaal', 'Goed', 'Perfect']
     },
     HAIR_APPOINTMENT: {
-        INTRO: 'Bedankt voor de interesse die u getoond heeft in onze organisatie, en uw aanvraag voor een vooronderzoek.',
+        INTRO: 'Hartelijk dank voor uw interesse in onze organisatie.',
         APPOINTMENT_TIME:
-            'Bij deze willen wij uw totaal vrijblijvend vooronderzoek bevestigen op <>{0:Date|datetime} te {1:string}<> m.b.t. FUE Haartransplantatie behandeling.',
+            'Wij bevestigen hierbij graag uw afspraak op <>{0:Date|datetime} te {1:string}<>. Dit consult is volledig vrijblijvend.',
         LOCATIONS: ['Lelystad'],
         LOCATION_INTRO: 'Contact gegevens locatie:',
         KIND_REGARDS: 'Met vriendelijke groeten',
@@ -75,16 +75,16 @@ const nl: BaseTranslation = {
     DENTAL_APPOINTMENT: {
         INTRO: 'Hartelijk dank voor uw interesse in onze organisatie.',
         APPOINTMENT_TIME:
-            'Graag bevestigen wij hierbij dat wij uw afspraak op <>{0:Date|datetime} in {1:string}<> volledig vrijblijvend zullen nakomen.',
+            'Wij bevestigen hierbij graag uw afspraak op <>{0:Date|datetime} in {1:string}<>. Dit consult is volledig vrijblijvend.',
         LOCATIONS: ['Lelystad'],
         LOCATION_INTRO: 'U kunt ons vinden op het volgende adres:',
         KIND_REGARDS: 'Met vriendelijke groeten',
         SUBJECT: 'Bevestiging vooronderzoek in {0:LocalizedString} m.b.t. uw gebitsbehandeling'
     },
     DENTAL_MISSED_CALL: {
-        INTRO: 'Bedankt voor je aanvraag.',
+        INTRO: 'Bedankt voor uw aanvraag.',
         MISSED_CALL_LINE:
-            'Wij hebben je op telefoonnummer {0:string} niet kunnen bereiken. Mocht je toch een afspraak willen maken zijn wij bereikbaar op telefoonnummer 085 - 401 81 12.',
+            'We hebben geprobeerd u telefonisch te bereiken, maar helaas zonder succes. Mocht u alsnog een afspraak willen maken, dan kunt u ons bereiken op 085 - 401 81 12 of via WhatsApp op 06 - 150 387 65. We helpen u graag verder!',
         KIND_REGARDS: 'Met vriendelijke groeten',
         SUBJECT: 'Niet kunnen bereiken'
     },
