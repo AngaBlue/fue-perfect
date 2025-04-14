@@ -1,8 +1,8 @@
 {
-  "crons": [
-    {
-      "path": "/api/process_mail",
-      "schedule": "0 13 * * *"
-    }
-  ]
+	"crons": [
+		{
+			"path": "/api/process_mail",
+			"schedule": "0 13 * * *"
+		}
+	]
 }

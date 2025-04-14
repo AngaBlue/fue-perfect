@@ -1,4 +1,14 @@
 {
 	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-	"extends": ["@angablue/biome-config"]
+	"extends": ["@angablue/biome-config"],
+	"linter": {
+		"rules": {
+			"complexity": {
+				"useSimplifiedLogicExpression": "off"
+			}
+		}
+	},
+	"files": {
+		"ignore": ["i18n-util.*.ts"]
+	}
 }

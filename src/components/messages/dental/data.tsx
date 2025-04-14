@@ -4,26 +4,26 @@ import { mirror } from './util';
 // Implant as Im plantaat
 // export const ImplantOptions = ['A-Kwaliteit €895', 'B-Kwaliteit €695'];
 export enum ImplantBrand {
-    MIS
+	MIS = 0
 }
 
 export enum AttachmentType {
-    NONE,
-    FACING,
-    CROWN
+	NONE = 0,
+	FACING = 1,
+	CROWN = 2
 }
 
 export enum AttachmentMaterial {
-    PORCELAIN,
-    ZIRCONIUM,
-    EMAX
+	PORCELAIN = 0,
+	ZIRCONIUM = 1,
+	EMAX = 2
 }
 
 export enum BoneGraftOptions {
-    NONE,
-    TOP,
-    BOTTOM,
-    BOTH
+	NONE = 0,
+	TOP = 1,
+	BOTTOM = 2,
+	BOTH = 3
 }
 
 // export const ImplantMaterials = ['Porselein €195', 'Zirconium €295', 'E-Maz €315'];
@@ -34,13 +34,13 @@ export const BrugMaterials = ['Porselein €195', 'Zirconium €295', 'E-Maz €
 
 // AllOn
 export enum AllOn {
-    NONE,
-    ALL_ON_4,
-    ALL_ON_6
+	NONE = 0,
+	ALL_ON_4 = 1,
+	ALL_ON_6 = 2
 }
 export enum AllOnMaterials {
-    PORSELEIN,
-    ZIRCOMIUM
+	PORSELEIN = 0,
+	ZIRCOMIUM = 1
 }
 // export const AllOn = ['All on 4', 'All on 6'];
 // export const AllOn4Options = ['Porselein  €13,500', 'Zirconium  €14,500'];
@@ -53,7 +53,7 @@ export const Wortel = ['1   €125', '2   €165', '3     €195'];
 export const Sinuslift = ['Open €1155', 'Gesloten €750'];
 
 // Selected Implantaat tooth
-export const SelectedImplantaatTeeth = [];
+export const SelectedImplantaatTeeth: string[] = [];
 
 // type TeethOption<T extends ImplantType, TData extends object = {}> = { type: T } & TData;
 
@@ -72,49 +72,49 @@ export const SelectedImplantaatTeeth = [];
 // export type TeethOptions = Implant | Other;
 
 export interface TeethOptions {
-    extraction: boolean;
-    implantaat: boolean;
-    implantaatBrand: ImplantBrand;
-    attachment: AttachmentType;
-    attachmentMaterial: AttachmentMaterial;
+	extraction: boolean;
+	implantaat: boolean;
+	implantaatBrand: ImplantBrand;
+	attachment: AttachmentType;
+	attachmentMaterial: AttachmentMaterial;
 }
 
 export const defaultTooth: TeethOptions = {
-    extraction: false,
-    implantaat: false,
-    implantaatBrand: ImplantBrand.MIS,
-    attachment: AttachmentType.NONE,
-    attachmentMaterial: AttachmentMaterial.PORCELAIN
+	extraction: false,
+	implantaat: false,
+	implantaatBrand: ImplantBrand.MIS,
+	attachment: AttachmentType.NONE,
+	attachmentMaterial: AttachmentMaterial.PORCELAIN
 };
 
 export const initial = mirror([
-    { ...defaultTooth },
-    { ...defaultTooth },
-    { ...defaultTooth },
-    { ...defaultTooth },
-    { ...defaultTooth },
-    { ...defaultTooth },
-    { ...defaultTooth },
-    { ...defaultTooth }
+	{ ...defaultTooth },
+	{ ...defaultTooth },
+	{ ...defaultTooth },
+	{ ...defaultTooth },
+	{ ...defaultTooth },
+	{ ...defaultTooth },
+	{ ...defaultTooth },
+	{ ...defaultTooth }
 ]);
 
 // defaultState for DentalState
 export const defaultState = {
-    firstname: '',
-    lastname: '',
-    gender: Gender.MALE,
-    email: '',
-    date: new Date(),
-    extraction: false,
-    implant: false,
-    boneGraft: BoneGraftOptions.NONE,
-    implantBrand: ImplantBrand.MIS,
-    attachmentType: AttachmentType.NONE,
-    attachemntMaterial: AttachmentMaterial.PORCELAIN,
-    allOn: AllOn.NONE,
-    AllOnOptions: AllOnMaterials.PORSELEIN,
-    treatments: '',
-    teeth: initial
+	firstname: '',
+	lastname: '',
+	gender: Gender.MALE,
+	email: '',
+	date: new Date(),
+	extraction: false,
+	implant: false,
+	boneGraft: BoneGraftOptions.NONE,
+	implantBrand: ImplantBrand.MIS,
+	attachmentType: AttachmentType.NONE,
+	attachemntMaterial: AttachmentMaterial.PORCELAIN,
+	allOn: AllOn.NONE,
+	AllOnOptions: AllOnMaterials.PORSELEIN,
+	treatments: '',
+	teeth: initial
 };
 
 export type DentalState = typeof defaultState;

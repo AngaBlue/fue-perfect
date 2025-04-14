@@ -8,7 +8,7 @@ export type EnumValue<E extends Enum> = E extends { [key: string]: infer ET | st
  * @returns The length of the enum.
  */
 export function enumLength(enumerable: Enum): number {
-    return Object.keys(enumerable).length / 2;
+	return Object.keys(enumerable).length / 2;
 }
 
 /**
@@ -18,12 +18,12 @@ export function enumLength(enumerable: Enum): number {
  * @returns The enum values.
  */
 export function enumIterable<T extends Enum>(enumerable: T): EnumValue<T>[] {
-    const length = enumLength(enumerable);
-    const values = [];
+	const length = enumLength(enumerable);
+	const values: EnumValue<T>[] = [];
 
-    for (let i = 0; i < length; i++) {
-        values.push(i);
-    }
+	for (let i = 0; i < length; i++) {
+		values.push(i as unknown as EnumValue<T>);
+	}
 
-    return values as EnumValue<T>[];
+	return values;
 }
