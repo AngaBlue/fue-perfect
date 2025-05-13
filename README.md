@@ -4,7 +4,7 @@
 <h1 align="center">Fue Perfect Email App 📧</h1>
 <p align="center">
   	<a href="https://github.com/AngaBlue/fue-perfect/blob/main/LICENSE" target="_blank">
-    	<img alt="License: LGPL--3.0--or--later" src="https://img.shields.io/github/license/AngaBlue/fue-perfect?color=green&label=License" />
+    	<img alt="Licence: MIT" src="https://img.shields.io/github/license/AngaBlue/fue-perfect?color=green&label=Licence" />
   	</a>
 </p>
 
@@ -21,4 +21,4 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © 2021 [AngaBlue](https://github.com/AngaBlue).<br />
-This project is [LGPL--3.0--or--later](https://github.com/AngaBlue/fue-perfect/blob/master/LICENSE) licensed.
+This project is [MIT](https://github.com/AngaBlue/fue-perfect/blob/master/LICENSE) licensed.

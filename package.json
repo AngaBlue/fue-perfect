@@ -3,7 +3,7 @@
 	"private": true,
 	"description": "A custom mail app for sending pre filled emails using a form.",
 	"keywords": [],
-	"license": "LGPL-3.0-or-later",
+	"license": "MIT",
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
