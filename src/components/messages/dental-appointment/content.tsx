@@ -42,7 +42,7 @@ export default function Content({ state }: { state: AppointmentState }) {
                 {state.location === Location.Lelystad && (
                     <>
                         <span>
-                            <b>Dent Perfect</b>
+                            <b>Dent Perfect <span style={{ color: 'red' }}>(Aanbellen bij Medi Perfect)</span></b>
                         </span>
                         <br />
                         <span>Zilverparkkade 3</span>
