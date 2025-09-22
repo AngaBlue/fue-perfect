@@ -35,6 +35,15 @@ export default function Content({ state }: { state: AppointmentState }) {
             </p>
 
             <p>
+                De kosten voor het consult en behandelplan bedragen €75,-. Deze kosten worden in mindering gebracht op de uiteindelijke behandelingskosten. 
+                Via deze <a href="https://diensten.snsbank.nl/online/betaalverzoek/#/v2/243d5b4f-3e39-4d48-9185-0eef3eb611ef/lBHOfBrHdBgLKLaTdnWnCQARtqcbEC8R"></a>link</a> of met de QR-code kunt u het bedrag 12 uur voor uw afspraak voldoen.
+            </p>
+
+            <p>
+                <img src="https://www.partnrz.com/assets/img/extern/mediperfect/qr-code-email.png" alt="QR Code"></img>
+            </p>
+
+            <p>
                 <span>
                     <b>{LL.DENTAL_APPOINTMENT.LOCATION_INTRO()}</b>
                 </span>
