@@ -75,7 +75,7 @@ const nl: BaseTranslation = {
     DENTAL_APPOINTMENT: {
         INTRO: 'Hartelijk dank voor uw interesse in onze organisatie.',
         APPOINTMENT_TIME:
-            'Wij bevestigen hierbij graag uw afspraak op <>{0:Date|datetime} in {1:string}<>. Dit consult is volledig vrijblijvend.',
+            'Wij bevestigen hierbij graag uw afspraak op <>{0:Date|datetime} in {1:string}<>.',
         LOCATIONS: ['Lelystad'],
         LOCATION_INTRO: 'U kunt ons vinden op het volgende adres:',
         KIND_REGARDS: 'Met vriendelijke groeten',
